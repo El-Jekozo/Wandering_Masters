@@ -1,5 +1,7 @@
 My More_NPC mod that adds new NPCs with quest lines. Currently WIP. Not recomended for use. Download at your own risk (or if you want to help with testing). Expect bugs, errors, exploits, gibberish instead of dialogues etc.
 
+Where to find them: go to refugee center, or spawn special "Cabin Test" through debug menu.
+
 Progress so far:
   Regular NPC:
 	Berry Button - 3 quests; unchecked dialogues for mistakes, spelling errors, (actual text) etc; most wanted features implemented; few features don't work as wanted, have bugs, exploits etc.

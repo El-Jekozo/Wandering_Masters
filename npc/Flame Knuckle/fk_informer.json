@@ -13,7 +13,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER",
-    "dynamic_line": "!!!Эй, кто там шумит? Покажись!",
+    "dynamic_line": "Hey, who's making noise? Show yourself!",
     "responses": [
       { "text": "!!!Это ты информатор? Меня послал мастер Стальной Ладони", "topic": "TALK_INFORMER_CHECK" }
     ]
@@ -21,21 +21,21 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_CHECK",
-    "dynamic_line": "!!!Эй, кто ты такой? Откуда ты тут взялся? Что ты хочешь от меня?",
+    "dynamic_line": "Hey who are you? Where did you come from? What do you want from me?",
     "responses": [
-      { "text": "!!!Ягодки", "topic": "TALK_INFORMER_yes" },
-      { "text": "!!!Фрукты", "topic": "TALK_INFORMER_no" },
-      { "text": "!!!Овощи", "topic": "TALK_INFORMER_no" },
-      { "text": "!!!Цветочки", "topic": "TALK_INFORMER_no" },
-      { "text": "!!!Пчёлки", "topic": "TALK_INFORMER_no" }
+      { "text": "Berries.", "topic": "TALK_INFORMER_yes" },
+      { "text": "Fruits.", "topic": "TALK_INFORMER_no" },
+      { "text": "Vegetables.", "topic": "TALK_INFORMER_no" },
+      { "text": "Flowers.", "topic": "TALK_INFORMER_no" },
+      { "text": "Bees.", "topic": "TALK_INFORMER_no" }
 	]
   },
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_no",
-    "dynamic_line": "!!!Не знаю что это значит, но ты мне не нравишься. Я сваливаю.",
+    "dynamic_line": "I don't know what that means, but I don't like you. I'm leaving.",
     "responses": [
-      { "text": "!!!Погоди, я немного не то сказал.", 
+      { "text": "Wait, don't go!", 
 	    "trial": { "type": "PERSUADE", "difficulty": 5 },
 		"success": { "topic": "TALK_NONE" },
 		"failure": { "topic": "TALK_DONE", "effect":["end_conversation", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}] } 
@@ -45,9 +45,9 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_yes",
-    "dynamic_line": "!!!Ладно, сделаю вид, что поверил. Слушай внимательно, у меня не так много времени. Передай мастеру, чтобы проверил точку 5. Всю нужную информацию я оставил там. И ещё кое-что. Передай ему, что... Что это был за звук? О чёрт, меня отследили! Беж...",
+    "dynamic_line": "Okay, I'll pretend to believe it. Listen carefully, I don't have much time. Tell the master to check point 5. I left all the necessary information there. And one more thing. Tell him that ... What was that sound? Oh shit, I was tracked! Ru.....",
     "responses": [
-      { "text": "!!!Ох чёрт!", "topic": "TALK_DONE", "effect":["npc_die", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}]}
+      { "text": "Oh shit!", "topic": "TALK_DONE", "effect":["npc_die", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}]}
 	]
   }
 ]

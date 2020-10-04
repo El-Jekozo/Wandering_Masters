@@ -218,15 +218,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
 	"followup":"MISSION_test_232_1",
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "!!!Учеников мне нарисуй",
-      "accepted": "!!!Жду",
-      "rejected": "!!!Ты что, испугался?",
-      "advice": "!!!Будь аккуратен.",
+      "describe": "WIP!!!",
+      "offer": "WIP",
+      "accepted": "WIP",
+      "rejected": "WIP?",
+      "advice": "WIP.",
       "inquire": "I'm waiting.",
-      "success": "!!!Молодец, держи пояс.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "WIP.",
+      "success_lie": "WIP!",
+      "failure": "WIP!"
 		}
 	}
 ]

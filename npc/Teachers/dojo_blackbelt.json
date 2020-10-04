@@ -117,7 +117,7 @@
   {
     "type": "talk_topic",
     "id": "blackbelt_coach_Background",
-    "dynamic_line": "!!!До катаклизма, в нашем штате было две крупные бойцовские школы: Стальная Ладонь и Пламенный Кулак. Стальная Ладонь быстро развалилась, так как все ученики и мастера превратились в зомби, но вот Пламенному Кулаку как-то удалось сохранить свою школу, да ещё и привлечь новых членов, обещая им защиту от внешнего мира. Всё бы ничего, но лидер Пламенного Кулака решил покончить со школой Стальной Ладони раз и навсегда. Я, как последний мастер моей школы, обязан это предотвратить!",
+    "dynamic_line": "Before the cataclysm, there were two major fighting schools in our state: Steel Palm and Flame Fist. The Steel Palm quickly fell apart, as all the students and masters turned into zombies, but Flame Fist somehow kept his school, and even attract new members, promising them protection from the outside world. Everything would be fine, but the leader of Flame Fist decided to end the School of Steel Palm once and for all. I, as the last master of my school, must prevent this!",
     "responses": [
       { "text": "Interesting", "topic": "TALK_NONE" },
       { "text": "I think your lying!!!", 
@@ -237,12 +237,12 @@
     "followup": "MISSION_blackbelt_coach_2",
     "dialogue": {
       "describe": "True student!!!",
-      "offer": "!!!Ну чтоб ты решил помочь мне в моём нелёгком деле? Хорошо, слушай сюда, ученик. Мне удалось завербовать одного выжившего и уговорить его вступить в Пламенный Кулак и сливать мне информацию. Пришла пора очередного сбора информации. Встреться с ним в ближайшем лесу, выпытай у него всё, что он знает и возвращайся сюда. Ах да, пароль: 'Ягодки'",
-      "accepted": "!!!Я в тебе не сомневался. Держи этот пояс, как символ твоего вступления в школу Стальной Ладони! Ступай, и не приходи ко мне пока не выполнишь своё задание!",
-      "rejected": "!!!Ты что, испугался?",
-      "advice": "!!!Будь аккуратен. Аарня могли вычислить, так что постарайся не привести сюда хвост.",
+      "offer": "Well well, you decided to help me in my difficult task? Okay, listen here, student. I managed to recruit one survivor and persuade him to join Flamefist and leak information to me. The time has come for the next collection of information. Meet him in the nearby forest, get everything he knows from him and come back here. Oh yes, password: 'Berries'",
+      "accepted": "I didn’t doubt you. Hold this belt as a symbol of your entry into Steel Palm School! Go, and don't come to me until you complete your task!",
+      "rejected": "Are you scared?",
+      "advice": "Be careful. The guy could be figured out, so try not to bring the tail here.",
       "inquire": "I'm waiting.",
-      "success": "!!!Молодец, ученик. Я знал, что у тебя всё получится! Ну что, рассказывай... Хммм, вот оно как. Ну что же, это немного осложняет мою работу. Мне нужно немного времени, чтобы обдумать всё. Вот, держи этот пояс, ты заслужил. Теперь отдыхай.",
+      "success": "Well done, student. I knew you would succeed! Well, tell me ... Hmmm, that's how it is. Well, it complicates my job a little. I need a little time to think things over. Here, hold this belt, you deserve it. Rest now.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
 		},
@@ -258,8 +258,8 @@
   {
     "id": "MISSION_blackbelt_coach_2",
     "type": "mission_definition",
-    "name": { "str": "!!!Убей одного из тренеров" },
-    "description": "!!!Мастер попросил тебя убить одного из тренеров школы Пламенного Кулака до того, как он сможет обучить новую группу учеников.",
+    "name": { "str": "Kill one of the trainers" },
+    "description": "The Master has asked you to kill one of the Flame Fist School trainers before he can train a new group of students.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 100,
@@ -289,12 +289,12 @@
     "followup": "MISSION_blackbelt_coach_3",
     "dialogue": {
       "describe": "True student!!!",
-      "offer": "!!!Благодаря той информации что ты мне дал, я узнал, что Пламенный Кулак планирует обучить новую группу свежих учеников, и я хочу предотвратить это. Найди этого засранца, воспользуйся своей стальной ладонью и заставь его подавиться кровью!.. Что? Что с учениками? Плевать, делай что хочешь. Ах да, тренирова будет идти примерно 2-4 недели, так что поспеши! Они не будут сидеть там вечность.",
-      "accepted": "!!!Молодец, мне нравится твой настрой. Покажи им настоящий путь Стальной Ладони!",
-      "rejected": "!!!Испугался?!",
-      "advice": "!!!Не забудь сказать ему пару ласковых слов от меня!",
+      "offer": "Thanks to the information you gave me, I learned that Flamefist is planning to train a new group of fresh apprentices, and I want to prevent this. Find this asshole, use your steel palm and make him choke on blood! .. What? What about the students? Don't give a damn, do what you want. Oh yeah, the workout will take about 2-4 weeks, so hurry up! They won't sit there forever.",
+      "accepted": "Well done, I like your attitude. Show them the true path of the Steel Palm!",
+      "rejected": "Afraid?!",
+      "advice": "Don't forget to tell him a few sweet words from me!",
       "inquire": "I'm waiting.",
-      "success": "!!!Молодец, просто молодец, я бы сам не сделал лучше! ",
+      "success": "Nice! ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
 	},
@@ -309,7 +309,7 @@
     "id": "MISSION_blackbelt_coach_3",
     "type": "mission_definition",
     "name": { "str": "It's time to end the Flame Knuckle" },
-    "description": "!!!Мастер попросил тебя покончить с Пламенным Кулаком раз и навсегда",
+    "description": "End Flame Knuckle!",
     "goal": "MGOAL_FIND_ITEM",
     "item": "ip_leader_head",
     "difficulty": 0,
@@ -317,7 +317,8 @@
   	"//":"TODO map large hq for FlameKnuckles",
     "start": {
 	  "effect":[{"npc_add_var": "bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes"}],
-    "mapgen_update": "flame_knuckles_base", "origin_npc": true, "assign_mission_target": { "om_terrain": "dojo_1", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "cant_see": true, "reveal_radius": 1, "random": true, "search_range": 200, "min_distance": 5 }
+	"assign_mission_target": { "om_terrain": "dojo_1", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "cant_see": true, "reveal_radius": 1, "random": true, "search_range": 200, "min_distance": 5 }
+    "mapgen_update": "dojo_1", "origin_npc": true,
     },
 	"end":{
 		"effect":[
@@ -329,8 +330,8 @@
     "followup": "MISSION_blackbelt_coach_4",
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "!!!Завали их нахуй.",
-      "accepted": "!!!Красава. Если хочешь всё сделать аккуратно - поговори со мной, обсудим.",
+      "offer": "Kill them.",
+      "accepted": "Good. If you want to do it quietly, ask me.",
       "rejected": "!!!Ну ты выдал",
       "advice": "!!!Левый коронный правый похоронный",
       "inquire": "!!!Ну чё там",
@@ -370,16 +371,17 @@
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "True student!!!",
-      "offer": "!!!Учеников мне нарисуй",
-      "accepted": "!!!Жду",
-      "rejected": "!!!Ты что, испугался?",
-      "advice": "!!!Будь аккуратен.",
+      "offer": "Bring me students.",
+      "accepted": "I'm waiting.",
+      "rejected": "Afraid?",
+      "advice": "Go.",
       "inquire": "I'm waiting.",
-      "success": "!!!Молодец, держи пояс.",
+      "success": "Good. Here's your reward.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-		}
 	}
+  }
 ]

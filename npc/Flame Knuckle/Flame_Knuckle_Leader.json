@@ -78,10 +78,10 @@
   {
     "id": ["flame_knuckle_leader_good"],
     "type": "talk_topic",
-	"dynamic_line": "!!!Так ты то самый новый ученик, о котором мне доложили? К сожалению для тебя, я всё про тебя знаю. Думаю, ты понимаешь, что ты не первый такой, кого этот старый дурак засылает к нам. Но тебе повезло, сегодня я в хорошем настроении, и я готов дать тебе шанс. Принеси голову этого старикана и я подумаю о твоём вступлении в нашу школу.",
+	"dynamic_line": "So you are the newest student I was told about? Unfortunately for you, I know everything about you. I think you understand that you are not the first person this old fool sends to us. But you're in luck, today I'm in a good mood, and I'm ready to give you a chance. Bring the old man's head and I'll think about your joining our school.",
     "responses": [
       { "text": "Sure thing, pal.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"flame_knuckle_leader_waiting"}] },
-      { "text": "No way, fag.", "topic": "flame_knuckle_leader_bad" }
+      { "text": "No way, f*g.", "topic": "flame_knuckle_leader_bad" }
     ]
   },
   {
@@ -91,15 +91,15 @@
     "responses": [
       { "text": "I'm already on it!", "topic": "TALK_DONE", "condition":{"not":{"u_has_item":"ip_leader_head"}}},
       { "text": "Here it is.", "topic": "flame_knuckle_leader_pleased", "condition":{"u_has_item":"ip_leader_head"}},
-      { "text": "Fok u, fag", "topic": "flame_knuckle_leader_bad"}
+      { "text": "I don't think so!", "topic": "flame_knuckle_leader_bad"}
     ]
   },
   {
     "id": ["flame_knuckle_leader_pleased"],
     "type": "talk_topic",
-	"dynamic_line": "!!!Хорошо, очень хорошо. Считай, что ты получил моё доверие. Если всё-ещё хочешь стать учеником моей школы, приходи ко мне, когда у тебя будет свободное время. Обсудим.",
+	"dynamic_line": "Very well. Consider that you have received my trust. If you still want to become a student of my school, come to me when you have free time.",
     "responses": [
-      { "text": "!!!Благодарю за доверие.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"flame_knuckle_leader_1"}]}
+      { "text": "Thank you for your trust.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"flame_knuckle_leader_1"}]}
     ]
   },
   {
@@ -146,7 +146,7 @@
   {
     "type": "talk_topic",
     "id": "flame_knuckle_leader_Background",
-    "dynamic_line": "!!!До катаклизма, в нашем штате было две крупные бойцовские школы: Стальная Ладонь и Пламенный Кулак. Стальная Ладонь быстро развалилась, так как все ученики и мастера превратились в зомби, но вот Пламенному Кулаку как-то удалось сохранить свою школу, да ещё и привлечь новых членов, обещая им защиту от внешнего мира. Всё бы ничего, но лидер Пламенного Кулака решил покончить со школой Стальной Ладони раз и навсегда. Я, как последний мастер моей школы, обязан это предотвратить!",
+    "dynamic_line": "WIP!",
     "responses": [
       { "text": "Interesting", "topic": "TALK_NONE" }
     ]
@@ -213,14 +213,14 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "True student!!!",
-      "offer": "!!!Учеников мне нарисуй",
-      "accepted": "!!!Жду",
-      "rejected": "!!!Ты что, испугался?",
-      "advice": "!!!Будь аккуратен.",
+      "offer": "Bring me students.",
+      "accepted": "I'm waiting.",
+      "rejected": "Afraid?",
+      "advice": "Go.",
       "inquire": "I'm waiting.",
-      "success": "!!!Молодец, держи пояс.",
+      "success": "Good. Here's your reward.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-		}
 	}
+  }
 ]
