@@ -1,0 +1,54 @@
+[
+  {
+  "//":"todo add common response; try mission_failure? and effect: end_conversation, change var fail",
+    "type": "npc",
+    "id": "flame_knuckle_apprentice_informer",
+    "name_suffix": "Apprentice",
+    "class": "flame_knuckle_apprentice",
+    "attitude": 1,
+    "mission": 10,
+    "chat": "TALK_INFORMER",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_INFORMER",
+    "dynamic_line": "!!!Эй, кто там шумит? Покажись!",
+    "responses": [
+      { "text": "!!!Это ты информатор? Меня послал мастер Стальной Ладони", "topic": "TALK_INFORMER_CHECK" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_INFORMER_CHECK",
+    "dynamic_line": "!!!Эй, кто ты такой? Откуда ты тут взялся? Что ты хочешь от меня?",
+    "responses": [
+      { "text": "!!!Ягодки", "topic": "TALK_INFORMER_yes" },
+      { "text": "!!!Фрукты", "topic": "TALK_INFORMER_no" },
+      { "text": "!!!Овощи", "topic": "TALK_INFORMER_no" },
+      { "text": "!!!Цветочки", "topic": "TALK_INFORMER_no" },
+      { "text": "!!!Пчёлки", "topic": "TALK_INFORMER_no" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_INFORMER_no",
+    "dynamic_line": "!!!Не знаю что это значит, но ты мне не нравишься. Я сваливаю.",
+    "responses": [
+      { "text": "!!!Погоди, я немного не то сказал.", 
+	    "trial": { "type": "PERSUADE", "difficulty": 5 },
+		"success": { "topic": "TALK_NONE" },
+		"failure": { "topic": "TALK_DONE", "effect":["end_conversation", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}] } 
+	  }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_INFORMER_yes",
+    "dynamic_line": "!!!Ладно, сделаю вид, что поверил. Слушай внимательно, у меня не так много времени. Передай мастеру, чтобы проверил точку 5. Всю нужную информацию я оставил там. И ещё кое-что. Передай ему, что... Что это был за звук? О чёрт, меня отследили! Беж...",
+    "responses": [
+      { "text": "!!!Ох чёрт!", "topic": "TALK_DONE", "effect":["npc_die", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}]}
+	]
+  }
+]
+

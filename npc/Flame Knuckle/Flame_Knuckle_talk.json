@@ -1,0 +1,71 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_FK",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Can't you see I'm training? Get out of my way!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_COACH",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Oh, another survivor! Do you want to leard the way of Flame Knuckle?",
+    "responses": [
+      { "text": "No way fag.", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] },
+      { "text": "Sure thing pal.", "topic": "TALK_COACH_SURE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_COACH_SURE",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Ok go to my boss!",
+    "responses": [
+      { "text": "Will do", "topic": "TALK_DONE", 
+	  "effect":[{"npc_first_topic":"TALK_FK"},
+		{"u_add_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},
+		{"mapgen_update": "flame_knuckles_base", "origin_npc": true, "assign_mission_target": { "om_terrain": "dojo_1", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "cant_see": true, "reveal_radius": 1, "random": true, "search_range": 200, "min_distance": 10 }}
+	  ]
+	},
+      { "text": "Actually, no way fag.", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR",
+	"//": "TODO change this lame line, add special item",
+    "dynamic_line": "Halt! Who goes there?",
+    "responses": [
+      { "text": "Friendly.", "topic": "TALK_DONE",
+        "trial": {
+          "type": "CONDITION",
+          "condition": {"u_has_item":"flyer_fk"}
+          },
+        "success": { "topic": "TALK_DOOR_ENTRY"},
+        "failure": { "topic": "TALK_DOOR_DENY"}
+      },
+      { "text": "Enemy.", "topic": "TALK_DOOR_DENY" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR_ENTRY",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Permition granted!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR_DENY",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Die, scum!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
+    ]
+  }
+]

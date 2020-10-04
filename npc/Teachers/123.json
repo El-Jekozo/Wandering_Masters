@@ -1,0 +1,243 @@
+[
+  {
+  	"//":"TODO write normal text not this bullshit parody of a writing, maybe add bonus for cop chars?, add food and water to inventory, , place him in jail in police dep, prob 5-20%(?) maybe",
+    "type": "npc",
+    "id": "police_cqc_teacher",
+    "name_unique": "Police CQC Teacher",
+    "gender": "male",
+    "name_suffix": "officer",
+    "class": "police_cqc_teacher",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "police_cqc_teacher_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_police_cqc_teacher_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "police_cqc_teacher",
+    "name": { "str": "Police CQC Teacher" },
+    "job_description": "Police CQC Teacher.",
+    "common": false,
+    "bonus_str": { "rng": [ 1, 3 ] },
+    "bonus_dex": { "rng": [ 1, 5 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "police_cqc_teacher_worn",
+    "carry_override": "police_cqc_teacher_carried",
+    "traits": [
+      { "trait": "PAINRESIST" },
+	  { "trait": "PROF_SWAT"}
+    ],
+    "skills": [
+      { "skill": "gun", "level": 3 },
+      { "skill": "shotgun", "level": 3 },
+      { "skill": "pistol", "level": 2 },
+      { "skill": "melee", "level": 2 },
+      { "skill": "bashing", "level": 2 },
+      { "skill": "unarmed", "level": 2 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "police_cqc_teacher_worn",
+    "subtype": "collection",
+    "entries": [
+        {"items": [ "socks", "swat_armor", "tac_fullhelmet", "boots_combat", "gloves_tactical", "badge_swat", "wristwatch" ]},
+          { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
+          { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
+          { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
+          { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
+          { "item": "baton-extended", "container-item": "police_belt" },
+          { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
+        ]
+  },
+  {
+    "type": "item_group",
+    "id": "police_cqc_teacher_carried",
+    "subtype": "collection",
+    "entries": [
+          { "group": "charged_two_way_radio" },
+          { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] }
+        ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "police_cqc_teacher_1" ],
+    "dynamic_line": {
+      "u_is_wearing": "badge_marshal",
+      "yes":"Marshal...",
+      "no": "Citizen..."
+    },
+    "responses": [
+	  { 
+	  "text": "About that job...",
+  	  "topic": "TALK_MISSION_INQUIRE",
+      "condition": "has_assigned_mission"
+	  },
+      { "text": "What's your story?", "topic": "police_cqc_teacher_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "police_cqc_teacher_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_cqc_teacher_Background",
+    "dynamic_line": "Well i'm just a regular officer, really. But got stuck in this cell",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE" },
+      { "text": "I think your lying!!!", 
+	    "condition": {"not":{"npc_has_var": "police_cqc_teacher_background", "type": "general", "context": "meeting", "value": "yes"}},
+	    "trial": { "type": "PERSUADE", "difficulty": 8 },
+		"success": { "topic": "police_cqc_teacher_truth" },
+		"failure": { "topic": "police_cqc_teacher_lie" } 
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_cqc_teacher_teach_check",
+    "dynamic_line": "I teach only those who help holy warriors in need. Do you help holy warriors in need?",
+    "responses": [
+      { "text": "Yeah, bruh, i'm cool", "topic": "police_cqc_teacher_teach",
+	    "condition": {"npc_has_var": "u_helped_police_cqc_teacher", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"success": {
+		"effect":[
+		{"u_buy_item": "manual_krav_maga"},
+		{"npc_add_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "no"}
+		],
+		"topic": "police_cqc_teacher_teach" 
+		},
+		"failure": { "topic": "police_cqc_teacher_teach_done" }
+	  },
+      { "text": "Sorry I'm noob", "topic": "TALK_NONE"
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_cqc_teacher_teach",
+    "dynamic_line": "I learned all from her. You can take it now. Good luck!",
+    "responses": [
+      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_cqc_teacher_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_cqc_teacher_truth",
+    "dynamic_line": "Ok,ok, I'll tell you. Truth is, I was afraid when first zeds tried to enter our department. So I locked myself here. Please don't judge me!",
+    "responses": [
+      { "text": "I understand. Not all of us was brave to face new reality. I'll leave this topic behind.", "topic": "police_cqc_teacher_1"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_cqc_teacher_lie",
+    "dynamic_line": "No, ha-ha, it's an accident, really.",
+    "responses": [
+		{
+		"text": "Oh. Uh, good for you, then?..", "topic": "police_cqc_teacher_1",
+		"effect":[{"npc_add_var": "police_cqc_teacher_background", "type": "general", "context": "meeting", "value": "yes"}]
+		}
+    ]
+  },
+  {
+  "//":"TODO do quest",
+    "id": "MISSION_police_cqc_teacher_1",
+    "type": "mission_definition",
+    "name": { "str": "WIP-NAME1" },
+    "description": "WIP-DESC1",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": {
+		"and": [
+			{"or": [ { "u_has_item": "holybook_bible1" }, { "u_has_item": "holybook_bible2" }, { "u_has_item": "holybook_bible3" } ]},
+			{"or": [ { "u_is_wearing": "holy_symbol" }, { "u_is_wearing": "holy_symbol_wood" } ]}
+			]
+	},
+    "difficulty": 1,
+    "value": 1000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_police_cqc_teacher_2",
+    "dialogue": {
+      "describe": "WIP-DESC1",
+      "offer": "WIP-OFFER1",
+      "accepted": "WIP-ACCEPTED1",
+      "rejected": "WIP-REJ1",
+      "advice": "WIP-ADV1",
+      "inquire": "WIP-INQ1.",
+      "success": "WIP-SUCC1.",
+      "success_lie": "WIP-TEXT",
+      "failure": "WIP-TEXT."
+		}
+	},
+  {
+    "id": "MISSION_police_cqc_teacher_2",
+    "type": "mission_definition",
+    "name": { "str": "WIP-TEXT" },
+    "description": "WIP-TEXT",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO add criminal zombie",
+    "start": {
+      "assign_mission_target": { "om_terrain": "prison_1_b_1", "om_special": "Prison", "reveal_radius": 1, "search_range": 200, "min_distance": 5 },
+      "update_mapgen": { "om_terrain": "prison_1_b_1", "place_monster": [ { "monster": "mon_zombie_tough", "x": 46, "y": 24, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_police_cqc_teacher_3",
+    "dialogue": {
+      "describe": "WIP-TEXT-2",
+      "offer": "WIP-TEXT-2",
+      "accepted": "WIP-TEXT-2",
+      "rejected": "WIP-TEXT-2",
+      "advice": "WIP-TEXT-2",
+      "inquire": "WIP-TEXT-2",
+      "success": "WIP-TEXT-2",
+      "success_lie": "WIP-TEXT-2",
+      "failure": "WIP-TEXT-2"
+		}
+	},
+  {
+    "id": "MISSION_police_cqc_teacher_3",
+    "type": "mission_definition",
+    "name": { "str": "WIP-TEXT-3" },
+    "description": "WIP-TEXT-3",
+    "goal": "MGOAL_FIND_ITEM",
+	"item":"small_relic",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO redo quest when (?)",
+    "start": {
+      "assign_mission_target": { "om_terrain": "lab_surface_brick_blockC2","om_special":"lab_surface_big", "reveal_radius": 2, "random": true, "search_range": 200 },
+      "update_mapgen": {"place_item": [ { "item": "small_relic", "x": 5, "y": 5, "target":true } ] }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_helped_police_cqc_teacher", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "WIP-TEXT-3",
+      "offer": "WIP-TEXT-3",
+      "accepted": "WIP-TEXT-3",
+      "rejected": "WIP-TEXT-3",
+      "advice": "WIP-TEXT-3",
+      "inquire": "WIP-TEXT-3",
+      "success": "WIP-TEXT-3",
+      "success_lie": "WIP-TEXT-3",
+      "failure": "WIP-TEXT-3"
+		}
+	}
+]

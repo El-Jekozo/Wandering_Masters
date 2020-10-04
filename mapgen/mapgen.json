@@ -1,0 +1,50 @@
+[
+  {
+	"//":"TODO will be obsolete when i'll make them normal base",
+    "type": "mapgen",
+    "update_mapgen_id": "flame_knuckles_base",
+    "method": "json",
+    "object": {
+		"place_npcs": [
+          { "class": "flame_knuckle_apprentice", "x": 11, "y": 14 },
+          { "class": "flame_knuckle_apprentice", "x": 12, "y": 14 },
+          { "class": "flame_knuckle_apprentice", "x": 13, "y": 14 },
+          { "class": "flame_knuckle_elite", "x": 11, "y": 13 },
+          { "class": "flame_knuckle_elite", "x": 12, "y": 13 },
+          { "class": "flame_knuckle_apprentice_door", "x": 12, "y": 3 },
+          { "class": "flame_knuckle_master", "x": 11, "y": 12 },
+          { "class": "flame_knuckle_master", "x": 12, "y": 12 },
+          { "class": "flame_knuckle_master", "x": 13, "y": 12 },
+          { "class": "flame_knuckle_leader", "x": 12, "y": 11, "target": true }
+        ]
+	}
+  },
+  {
+	"//":"TODO maybe add more?",
+    "type": "mapgen",
+    "update_mapgen_id": "heist_success",
+    "method": "json",
+    "object": {
+		"place_item": [{"item": "money_bundle", "x": 0, "y": 1, "amount": [ 1, 10 ], "repeat": [1, 10], "chance": 80 }],
+		"place_loot": [
+		{ "group": "art", "x": 0, "y": 1, "chance": 75 },
+		{ "group": "art", "x": 0, "y": 1, "chance": 75 },
+		{ "group": "art", "x": 0, "y": 1, "chance": 75 }
+		]
+	}
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "test-test-test",
+    "method": "json",
+    "object": {
+      "place_items": [
+        { "item": "bed", "x": 0, "y": 0 },
+        { "item": "bed", "x": 1, "y": 1 },
+        { "item": "bed", "x": 2, "y": 2 },
+        { "item": "bed", "x": 3, "y": 3 },
+        { "item": "bed", "x": 4, "y": 4 }
+      ]
+	}
+  }
+]

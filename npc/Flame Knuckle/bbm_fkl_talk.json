@@ -1,0 +1,67 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_FRIEND",
+    "responses": [
+      { "text": "!!!Хочешь стать учеником Стальной Ладони?", "topic": "bbm_give_student", 
+	    "condition": {
+		  "and":[
+			{"u_compare_var":"bbm_students", "type": "flag", "context": "meeting","op": "<", "value": 2},
+			{"u_has_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "ip"}
+		  ]
+	    }
+	  },
+      { "text": "!!!Хочешь стать учеником Пламенного Кулака?", "topic": "fkl_give_student",
+	    "condition": {
+		  "and":[
+			{"u_compare_var":"fkl_students", "type": "flag", "context": "meeting","op": "<", "value": 2},
+			{"u_has_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "fk"}
+		  ]
+	    }
+	  }
+    ]
+  },
+  {
+  	  "//": "('npc_change_class':'iron_palm_student')",
+    "type": "talk_topic",
+    "id": "bbm_give_student",
+    "dynamic_line":{"u_has_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "fk",
+		"yes":"!!!Огненный Кулак звучит круто! Вы уверены, босс? ",
+		"no":"!!!Стальная Ладонь звучит круто! Вы уверены, босс?"
+	},
+    "responses": [
+      { "text": "!!!Уверен. Ступай.", "topic": "TALK_DONE",
+	  	  "trial": { "type": "CONDITION", "condition": {"u_has_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "ip"}
+	  },
+	  "success": {"topic": "TALK_DONE",
+		"effect":[
+			"leave",
+			{"npc_change_faction":"iron_palm"},
+			{"npc_first_topic":"npc_became_student_ip"},
+			{"u_adjust_var":"bbm_students", "type": "flag", "context": "meeting", "adjustment": 1}
+		]
+	  },
+	  "failure": {"topic": "TALK_DONE",
+	  	"effect":[
+			"leave",
+			{"npc_change_faction":"flame_knuckle"},
+			{"npc_first_topic":"npc_became_student"},
+			{"u_adjust_var":"fkl_students", "type": "flag", "context": "meeting", "adjustment": 1}
+		]
+	  }
+	  },
+      { "text": "!!!Хмм, наверное нет.", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": ["npc_became_student"],
+    "dynamic_line":{"u_has_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "fk",
+		"yes":"!!!Огненный Кулак КРУТО!",
+		"no":"!!!Стальная Ладонь КРУТО!"
+	},
+    "responses": [
+      { "text": "!!!Молодчинка.", "topic": "TALK_DONE"}
+    ]
+  }
+]

@@ -1,0 +1,224 @@
+[
+  {
+  	"//":"TODO write normal text not this bullshit parody of a writing, balance traits stats etc, add more dialogue, change stats skills items worn wield etc, add cmbs traits, add diff route based on this dude or just leave it as it is (!!!currently second) (he' lying to you, you kill cop and gain nothing lol), or do as in dojo_mas quest line: 1.kill cop; 2.kill someone (?); 3.??? 4.PROFIT!!! gain different martial art",
+    "type": "npc",
+    "id": "bill_the_assassin",
+    "name_unique": "Flame Knuckle Leader",
+    "gender": "male",
+    "name_suffix": "",
+	"class": "bill_the_assassin",
+    "attitude": 1,
+    "mission": 7,
+    "chat": "bill_the_assassin_start",
+    "faction": "no_faction"
+  },
+    {
+    "type": "npc_class",
+    "id": "bill_the_assassin",
+    "name": { "str": "The Assassin" },
+    "job_description": "The Assassin.",
+    "common": false,
+    "traits": [ { "group": "flame_knuckle_master" }],
+    "bonus_str": { "rng": [ 4, 8 ] },
+    "bonus_dex": { "rng": [ 4, 8 ] },
+    "bonus_int": { "rng": [ 4, 6 ] },
+    "bonus_per": { "rng": [ 4, 5 ] },
+    "worn_override": "bill_the_assassin_worn",
+    "carry_override": "bill_the_assassin_carried",
+	
+    "skills": [
+      { "skill": "dodge", "bonus": { "rng": [ 6, 8 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 6, 8 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 6, 8 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "bill_the_assassin_worn",
+    "subtype": "collection",
+    "entries": [
+		{"item": "karate_gi"},
+		{"item": "mouthpiece"},
+		{"item": "judo_belt_black"},
+		{"item": "geta"},
+		{"item": "boxer_shorts"},
+		{"item": "mask_bal"},
+		{"item": "kevlar"},
+		{"item": "legguard_metal"},
+		{"item": "armguard_soft"},
+		{"item": "armguard_metal"},
+		{"item": "shorts_denim"}
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "bill_the_assassin_carried",
+    "subtype": "collection",
+    "entries": [ 
+	{ "item": "fk_leader_head" }
+	]
+  },
+  {
+    "id": ["bill_the_assassin_start"],
+    "type": "talk_topic",
+	"dynamic_line": "Halt, who goes there? Show yourself!",
+    "responses": [
+	  { 
+	  "text": "I'm here for business.",
+	  "trial": { "type": "CONDITION", "condition": {"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"}
+	  },
+	  "success": {"topic": "bill_the_assassin_good"},
+	  "failure": {"topic": "bill_the_assassin_bad"}
+	  },
+      { "text": "I'm here to kick your ass", "topic": "bill_the_assassin_bad" }
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_good"],
+    "type": "talk_topic",
+	"dynamic_line": "!!!Так ты то самый новый ученик, о котором мне доложили? К сожалению для тебя, я всё про тебя знаю. Думаю, ты понимаешь, что ты не первый такой, кого этот старый дурак засылает к нам. Но тебе повезло, сегодня я в хорошем настроении, и я готов дать тебе шанс. Принеси голову этого старикана и я подумаю о твоём вступлении в нашу школу.",
+    "responses": [
+      { "text": "Sure thing, pal.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"bill_the_assassin_waiting"}] },
+      { "text": "No way, fag.", "topic": "bill_the_assassin_bad" }
+    ]
+  },
+  {
+    "id": "bill_the_assassin_waiting",
+    "type": "talk_topic",
+	"dynamic_line": "I'm still waiting.",
+    "responses": [
+      { "text": "I'm already on it!", "topic": "TALK_DONE", "condition":{"not":{"u_has_item":"ip_leader_head"}}},
+      { "text": "Here it is.", "topic": "bill_the_assassin_pleased", "condition":{"u_has_item":"ip_leader_head"}},
+      { "text": "Fok u, fag", "topic": "bill_the_assassin_bad"}
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_pleased"],
+    "type": "talk_topic",
+	"dynamic_line": "!!!Хорошо, очень хорошо. Считай, что ты получил моё доверие. Если всё-ещё хочешь стать учеником моей школы, приходи ко мне, когда у тебя будет свободное время. Обсудим.",
+    "responses": [
+      { "text": "!!!Благодарю за доверие.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"bill_the_assassin_1"}]}
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_bad"],
+    "type": "talk_topic",
+	"dynamic_line": "So, we do this easy way or a hard way?",
+    "responses": [
+      { "text": "Easy way, please.", "topic": "bill_the_assassin_easy" },
+      { "text": "Hard way, please.", "topic": "bill_the_assassin_hard" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bill_the_assassin_easy",
+    "dynamic_line": "Bend over.",
+    "responses": [
+      { "text": "Oh noes!.", "topic": "TALK_DONE", "effect": "start_mugging" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bill_the_assassin_hard",
+    "dynamic_line": "So be it!.",
+    "responses": [
+      { "text": "Let's rock!", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "bill_the_assassin_1" ],
+	"dynamic_line": "Hello there.",
+    "responses": [
+	  { 
+	  "text": "About that job...",
+      "condition": "has_assigned_mission",
+	  "topic": "TALK_MISSION_INQUIRE"
+	  },
+      { "text": "What's your story?", "topic": "bill_the_assassin_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST"},
+      { "text": "Can you teach me something?", "topic": "bill_the_assassin_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bill_the_assassin_Background",
+    "dynamic_line": "!!!До катаклизма, в нашем штате было две крупные бойцовские школы: Стальная Ладонь и Пламенный Кулак. Стальная Ладонь быстро развалилась, так как все ученики и мастера превратились в зомби, но вот Пламенному Кулаку как-то удалось сохранить свою школу, да ещё и привлечь новых членов, обещая им защиту от внешнего мира. Всё бы ничего, но лидер Пламенного Кулака решил покончить со школой Стальной Ладони раз и навсегда. Я, как последний мастер моей школы, обязан это предотвратить!",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bill_the_assassin_teach_check",
+    "dynamic_line": "I teach only those who help my school. Did you helped my school?",
+    "responses": [
+      { "text": "Yeah, bruh, i'm cool", "topic": "bill_the_assassin_teach",
+	    "condition": {"npc_has_var": "u_helped_bill_the_assassin", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "bill_the_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"success": {
+		"effect":[
+		{"u_buy_item": "manual_aikido"},
+		{"npc_lose_var": "bill_the_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}
+		],
+		"topic": "bill_the_assassin_aikido" 
+		},
+		"failure": { "topic": "bill_the_assassin_teach_done" }
+	  },
+      { "text": "Sorry I'm noob", "topic": "TALK_NONE"
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bill_the_assassin_teach",
+    "dynamic_line": "I learned all from this book. You can take it now. Good luck, student!",
+    "responses": [
+      { "text": "Thanks, master!", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bill_the_assassin_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "MISSION_bill_the_assassin_1",
+    "type": "mission_definition",
+    "name": { "str": "Find me new students" },
+    "description": "Find new students.",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": {"u_has_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"},
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":[
+			{"u_add_var":"fkl_students", "type": "flag", "context": "meeting", "value": "0"},
+			{"u_add_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "fk"}
+		]
+	},
+	"end":{
+		"effect":[
+		{"npc_add_var": "u_helped_bill_the_assassin", "type": "general", "context": "meeting", "value": "yes"},
+		{"npc_add_var": "bill_the_assassin_teach", "type": "general", "context": "meeting", "value": "yes"},
+		{"u_lose_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "!!!Учеников мне нарисуй",
+      "accepted": "!!!Жду",
+      "rejected": "!!!Ты что, испугался?",
+      "advice": "!!!Будь аккуратен.",
+      "inquire": "I'm waiting.",
+      "success": "!!!Молодец, держи пояс.",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+		}
+	}
+]

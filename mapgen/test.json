@@ -1,0 +1,94 @@
+[
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_test" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+		"###############         ",
+        "#     # # # # #         ",
+        "#     # # # # #         ",
+        "###+###+#+#+#+#         ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        "
+      ],
+      "palettes": [ "cabin_palette" ],
+      "place_graffiti": [
+        { "text": "Quest givers", "x": 4, "y": 3 },
+        { "text": "Barry Button", "x": 8, "y": 3 },
+        { "text": "Coach", "x": 10, "y": 3 },
+        { "text": "Guard Door", "x": 12, "y": 3 },
+        { "text": "Flame Knuckle Leader", "x": 14, "y": 3 }
+	  ],
+      "place_npcs": [
+	    { "class": "Berry_Button", "x": 1, "y": 1 },
+	    { "class": "blackbelt_coach", "x": 2, "y": 1 },
+	    { "class": "wanderer_knight", "x": 3, "y": 1 },
+	    { "class": "old_assassin", "x": 4, "y": 1 },
+	    { "class": "police_cqc_teacher", "x": 5, "y": 1 },
+	    { "class": "Barry_Button", "x": 7, "y": 1 },
+	    { "class": "flame_knuckle_elite_coach", "x": 9, "y": 1 },
+	    { "class": "flame_knuckle_apprentice_door", "x": 11, "y": 1 },
+	    { "class": "flame_knuckle_leader", "x": 13, "y": 1 },
+	    { "class": "test_npc_232", "x": 15, "y": 5 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": "cabin_roof_test",
+    "object": {
+      "fill_ter": "t_tar_flat_roof",
+      "rows": [
+	  	"...............         ",
+        "...............         ",
+        "...............         ",
+        "...............         ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        ",
+		"                        "
+      ],
+      "palettes": [ "roof_palette" ],
+      "terrain": { ".": "t_tar_flat_roof" }
+    }
+  }
+]

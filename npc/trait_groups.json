@@ -1,0 +1,27 @@
+[
+  {
+  "//":"TODO add traits",
+    "type": "trait_group",
+    "id": "flame_knuckle_apprentice",
+    "subtype": "collection",
+    "traits": [
+      { "trait": "FLEET", "prob": 50 }
+    ]
+  },
+  {
+    "type": "trait_group",
+    "id": "flame_knuckle_elite",
+    "subtype": "collection",
+    "traits": [
+      { "trait": "PROF_MA_ORANGE" }
+    ]
+  },
+  {
+    "type": "trait_group",
+    "id": "flame_knuckle_master",
+    "subtype": "collection",
+    "traits": [
+      { "trait": "PROF_MA_BLACK" }
+    ]
+  }  
+]
