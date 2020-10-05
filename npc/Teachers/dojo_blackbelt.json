@@ -316,9 +316,21 @@
     "value": 100,
   	"//":"TODO map large hq for FlameKnuckles",
     "start": {
-	  "effect":[{"npc_add_var": "bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes"}],
-	"assign_mission_target": { "om_terrain": "dojo_1", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "cant_see": true, "reveal_radius": 1, "random": true, "search_range": 200, "min_distance": 5 }
-    "mapgen_update": "dojo_1", "origin_npc": true,
+	  "effect":[
+		{"npc_add_var": "bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes"}
+	  ],
+	"assign_mission_target": {
+		"om_terrain": "dojo_1",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"cant_see": true,
+		"reveal_radius": 1,
+		"random": true,
+		"search_range": 200,
+		"min_distance": 5
+	},
+    "mapgen_update": "dojo_1",
+	"origin_npc": true
     },
 	"end":{
 		"effect":[
@@ -331,11 +343,11 @@
     "dialogue": {
       "describe": "True Faith!!",
       "offer": "Kill them.",
-      "accepted": "Good. If you want to do it quietly, ask me.",
-      "rejected": "!!!Ну ты выдал",
-      "advice": "!!!Левый коронный правый похоронный",
-      "inquire": "!!!Ну чё там",
-      "success": "!!!Уважаю. Держи пояс",
+      "accepted": "Good. If you want to do it quietly, ask me how.",
+      "rejected": "Hmm.",
+      "advice": "Yes",
+      "inquire": "So?",
+      "success": "Good. Take this belt.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
 	},
@@ -370,7 +382,6 @@
 		{"u_lose_var":"bbm_students", "type": "flag", "context": "meeting", "value": "2"}
 		]
 	},
-    "origins": [ "ORIGIN_SECONDARY" ],
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "True student!!!",
