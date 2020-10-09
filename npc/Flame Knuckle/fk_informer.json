@@ -38,7 +38,12 @@
       { "text": "Wait, don't go!", 
 	    "trial": { "type": "PERSUADE", "difficulty": 5 },
 		"success": { "topic": "TALK_NONE" },
-		"failure": { "topic": "TALK_DONE", "effect":["end_conversation", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}] } 
+		"failure": { "topic": "TALK_DONE",
+			"effect":[
+				"end_conversation",
+				{"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}
+			]
+		} 
 	  }
 	]
   },
@@ -47,7 +52,12 @@
     "id": "TALK_INFORMER_yes",
     "dynamic_line": "Okay, I'll pretend to believe it. Listen carefully, I don't have much time. Tell the master to check point 5. I left all the necessary information there. And one more thing. Tell him that ... What was that sound? Oh shit, I was tracked! Ru.....",
     "responses": [
-      { "text": "Oh shit!", "topic": "TALK_DONE", "effect":["npc_die", {"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}]}
+      { "text": "Oh shit!", "topic": "TALK_DONE",
+	    "effect":[
+			"npc_die",
+			{"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}
+	    ]
+	  }
 	]
   }
 ]

@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO write normal text (DO NOT FORGET THAT CHAR IS FEMALE) not this bullshit parody of a writing, maybe add bonus for ?, ",
+  	"//":"TODO write normal text (DO NOT FORGET THAT CHAR IS FEMALE) not this bullshit parody of a writing, maybe add bonus for ?, do class ",
     "type": "npc",
     "id": "old_assassin",
     "name_unique": "Old Assassin",
@@ -63,11 +63,7 @@
   {
     "type": "talk_topic",
     "id": [ "old_assassin_1" ],
-    "dynamic_line": {
-      "u_is_wearing": "badge_marshal",
-      "yes":"Marshal...",
-      "no": "Citizen..."
-    },
+    "dynamic_line":"Hello",
     "responses": [
 	  { 
 	  "text": "About that job...",
@@ -83,30 +79,26 @@
   {
     "type": "talk_topic",
     "id": "old_assassin_Background",
-    "dynamic_line": "Well i'm just a regular officer, really. But got stuck in this cell",
+    "dynamic_line": "Well i'm just a regular assassin, really.",
     "responses": [
-      { "text": "Interesting", "topic": "TALK_NONE" },
-      { "text": "I think your lying!!!", 
-	    "condition": {"not":{"npc_has_var": "old_assassin_background", "type": "general", "context": "meeting", "value": "yes"}},
-	    "trial": { "type": "PERSUADE", "difficulty": 8 },
-		"success": { "topic": "old_assassin_truth" },
-		"failure": { "topic": "old_assassin_lie" } 
-	  }
+      { "text": "Interesting", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "old_assassin_teach_check",
-    "dynamic_line": "I teach only those who help holy warriors in need. Do you help holy warriors in need?",
+    "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
       { "text": "Yeah, bruh, i'm cool", "topic": "old_assassin_teach",
 	    "condition": {"npc_has_var": "u_helped_old_assassin", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"trial": { "type": "CONDITION", 
+			"condition": {"npc_has_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}
+		},
 		"success": {
-		"effect":[
-		{"u_buy_item": "manual_krav_maga"},
-		{"npc_add_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "no"}
-		],
+			"effect":[
+				{"u_buy_item": "manual_ninjutsu"},
+				{"npc_add_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
 		"topic": "old_assassin_teach" 
 		},
 		"failure": { "topic": "old_assassin_teach_done" }
@@ -118,7 +110,7 @@
   {
     "type": "talk_topic",
     "id": "old_assassin_teach",
-    "dynamic_line": "I learned all from her. You can take it now. Good luck!",
+    "dynamic_line": "I learned all from it. You can take it now. Good luck!",
     "responses": [
       { "text": "Thanks my brudda", "topic": "TALK_DONE" }
     ]
@@ -133,43 +125,53 @@
   },
   {
     "type": "talk_topic",
-    "id": "old_assassin_truth",
-    "dynamic_line": "Ok,ok, I'll tell you. Truth is, I was afraid when first zeds tried to enter our department. So I locked myself here. Please don't judge me!",
+    "id": "old_assassin_wait",
+    "dynamic_line":{"u_has_var": "old_assassin_fail", "type": "general", "context": "meeting", "value": "yes",
+		"yes":"What a shame...",
+		"no":"..."
+	},
     "responses": [
-      { "text": "I understand. Not all of us was brave to face new reality. I'll leave this topic behind.", "topic": "old_assassin_1"}
+      { "text": "I'm back!", "topic": "old_assassin_1",
+		"condition":{ "not":{ "u_has_var":"old_assassin_fail", "type": "flag", "context": "meeting", "value": "yes" } } 
+	  },
+      { "text": "...", "topic": "TALK_DONE",
+	    "condition":{"u_has_var":"old_assassin_fail", "type": "flag", "context": "meeting", "value": "yes"},
+		"effect":["mission_failure", "end_conversation"],
+		"switch":true
+	  },
+      { "text": "...", "topic": "TALK_DONE", "switch":true}
     ]
   },
   {
-    "type": "talk_topic",
-    "id": "old_assassin_lie",
-    "dynamic_line": "No, ha-ha, it's an accident, really.",
-    "responses": [
-		{
-		"text": "Oh. Uh, good for you, then?..", "topic": "old_assassin_1",
-		"effect":[{"npc_add_var": "old_assassin_background", "type": "general", "context": "meeting", "value": "yes"}]
-		}
-    ]
-  },
-  {
-  "//":"TODO do quest",
+  "//":"TODO do quest, find house with interesting basement (or create one (maybe with place_chunk on existing basement, chunk with computers, dirty underwear and other nerd stuff)). create nerd with dialogue where he will beg you not to kill him, maybe trying to give player something for his life? if player agrees, mision failed (or accept his stuff and kill him lol)",
     "id": "MISSION_old_assassin_1",
     "type": "mission_definition",
-    "name": { "str": "WIP-NAME1" },
-    "description": "WIP-DESC1",
-    "goal": "MGOAL_CONDITION",
-	"goal_condition": {
-		"and": [
-			{"or": [ { "u_has_item": "holybook_bible1" }, { "u_has_item": "holybook_bible2" }, { "u_has_item": "holybook_bible3" } ]},
-			{"or": [ { "u_is_wearing": "holy_symbol" }, { "u_is_wearing": "holy_symbol_wood" } ]}
-			]
-	},
+    "name": { "str": "Kill nerd" },
+    "description": "Kill that nerd",
+    "goal": "MGOAL_ASSASSINATE",
     "difficulty": 1,
     "value": 1000,
+    "start": {
+	  "effect":{"npc_first_topic":"old_assassin_wait"},
+      "assign_mission_target": {
+		"om_terrain": "house",
+		"om_terrain_replace": "field",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 80,
+		"min_distance": 5
+	  },
+      "update_mapgen": {
+		"place_npcs": [
+			{ "class": "oa_target_hacker", "x": 22, "y": 18, "target": true }
+		]
+	  }
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_old_assassin_2",
     "dialogue": {
-      "describe": "WIP-DESC1",
-      "offer": "WIP-OFFER1",
+      "describe": "MUDER-DEATH-KILL",
+      "offer": "Kill hacker",
       "accepted": "WIP-ACCEPTED1",
       "rejected": "WIP-REJ1",
       "advice": "WIP-ADV1",
@@ -180,53 +182,28 @@
 		}
 	},
   {
+  "//":"idea: kill corrupt cop, but cop have become a zed, so... kill zombie? maybe make unique zombie with some cool loot and attacks?",
     "id": "MISSION_old_assassin_2",
     "type": "mission_definition",
-    "name": { "str": "WIP-TEXT" },
-    "description": "WIP-TEXT",
+    "name": { "str": "Kill cop" },
+    "description": "Kill cop",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 1,
     "value": 100,
-  	"//":"TODO add criminal zombie",
+  	"//2":"TODO redo quest when (?)",
     "start": {
-      "assign_mission_target": { "om_terrain": "prison_1_b_1", "om_special": "Prison", "reveal_radius": 1, "search_range": 200, "min_distance": 5 },
-      "update_mapgen": { "om_terrain": "prison_1_b_1", "place_monster": [ { "monster": "mon_zombie_tough", "x": 46, "y": 24, "target": true } ] }
+      "assign_mission_target": {
+		"om_terrain": "police",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"random": true,
+		"search_range": 200
+      },
+      "update_mapgen": {"place_monster": [ { "monster": "mon_zombie_cop", "x": 10, "y": 10, "target":true } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_old_assassin_3",
-    "dialogue": {
-      "describe": "WIP-TEXT-2",
-      "offer": "WIP-TEXT-2",
-      "accepted": "WIP-TEXT-2",
-      "rejected": "WIP-TEXT-2",
-      "advice": "WIP-TEXT-2",
-      "inquire": "WIP-TEXT-2",
-      "success": "WIP-TEXT-2",
-      "success_lie": "WIP-TEXT-2",
-      "failure": "WIP-TEXT-2"
-		}
-	},
-  {
-    "id": "MISSION_old_assassin_3",
-    "type": "mission_definition",
-    "name": { "str": "WIP-TEXT-3" },
-    "description": "WIP-TEXT-3",
-    "goal": "MGOAL_FIND_ITEM",
-	"item":"small_relic",
-    "difficulty": 1,
-    "value": 100,
-  	"//":"TODO redo quest when (?)",
-    "start": {
-      "assign_mission_target": { "om_terrain": "lab_surface_brick_blockC2","om_special":"lab_surface_big", "reveal_radius": 2, "random": true, "search_range": 200 },
-      "update_mapgen": {"place_item": [ { "item": "small_relic", "x": 5, "y": 5, "target":true } ] }
-    },
-	"end":{
-		"effect":[
-			{"npc_add_var": "u_helped_old_assassin", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}
-		]
-	},
-    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "WIP-TEXT-3",
       "offer": "WIP-TEXT-3",
@@ -237,6 +214,88 @@
       "success": "WIP-TEXT-3",
       "success_lie": "WIP-TEXT-3",
       "failure": "WIP-TEXT-3"
+	}
+  },
+  {
+  "//":"TODO do quest!!",
+    "id": "MISSION_old_assassin_3",
+    "type": "mission_definition",
+    "name": { "str": "Kill nerd" },
+    "description": "Kill that nerd",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 1,
+    "value": 1000,
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "house",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 80,
+		"min_distance": 5
+	  },
+      "update_mapgen": {
+		"place_npcs": [
+			{ "class": "oa_target_hacker", "x": 22, "y": 18, "target": true }
+		]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_old_assassin_4",
+    "dialogue": {
+      "describe": "MUDER-DEATH-KILL",
+      "offer": "Kill hacker",
+      "accepted": "WIP-ACCEPTED1",
+      "rejected": "WIP-REJ1",
+      "advice": "WIP-ADV1",
+      "inquire": "WIP-INQ1.",
+      "success": "WIP-SUCC1.",
+      "success_lie": "WIP-TEXT",
+      "failure": "WIP-TEXT."
+		}
+	},
+  {
+    "id": "MISSION_old_assassin_4",
+    "type": "mission_definition",
+    "name": { "str": "Kill top CEO" },
+    "description": "Kill top CEO",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO add ceo bodyguards, changeid of ceo ",
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "loffice_tower_11",
+		"om_special": "office_tower_large",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 5
+	  },
+      "update_mapgen": {
+		"place_npcs": [
+			{ "class": "oa_target_CEO", "x": 22, "y": 18, "target": true },
+			{ "class": "oa_target_CEO_bg", "x": 23, "y": 17 },
+			{ "class": "oa_target_CEO_bg", "x": 21, "y": 17 }
+		] 
+	  }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_helped_old_assassin", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "Kill!",
+      "offer": "Kill top CEO",
+      "accepted": "Good",
+      "rejected": "Why?",
+      "advice": "He will be guarded, and probably would try to buy his life if you talk to him. Remember, no talking to your victims!",
+      "inquire": "So?",
+      "success": "Nice",
+      "success_lie": "???",
+      "failure": "Looser"
 		}
 	}
 ]

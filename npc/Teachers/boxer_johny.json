@@ -1,0 +1,242 @@
+[
+  {
+  	"//":"TODO write normal text  not this bullshit parody of a writing, maybe add bonus for ?, place him in gym_second floor ",
+    "type": "npc",
+    "id": "boxer_johny",
+    "name_unique": "Boxer Johny",
+    "gender": "male",
+    "class": "boxer_johny",
+    "attitude": 1,
+    "mission": 7,
+    "chat": "boxer_johny_1",
+    "faction": "boxer_johny_gym",
+	"mission_offered": "MISSION_boxer_johny_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "boxer_johny",
+    "name": { "str": "Boxer Johny" },
+    "job_description": "Boxer Johny.",
+    "common": false,
+    "bonus_str": { "rng": [ 3, 5 ] },
+    "bonus_dex": { "rng": [ 2, 5 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "boxer_johny_worn",
+    "traits": [
+      { "trait": "PAINRESIST" },
+	  { "trait": "PROF_BOXER"}
+    ],
+    "skills": [
+      { "skill": "melee", "level": 4 },
+      { "skill": "dodge", "level": 4 },
+      { "skill": "unarmed", "level": 4 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "boxer_johny_worn",
+    "subtype": "collection",
+    "entries": [
+		{ "item": "under_armor_shorts" },
+		{ "item": "under_armor" },
+		{ "item": "shorts" },
+		{ "item": "gloves_wraps" },
+		{ "item": "boxing_gloves" },
+		{ "item": "headgear" },
+		{ "item": "wristwatch" },
+		{ "item": "socks" },
+		{ "item": "boots" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "boxer_johny_1" ],
+    "dynamic_line": "Hey, I'm not in the mood right now! Go away!",
+    "responses": [
+	  { 
+	  "text": "About that job...",
+  	  "topic": "TALK_MISSION_INQUIRE",
+      "condition": "has_assigned_mission"
+	  },
+      { "text": "What's your story?", "topic": "boxer_johny_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "boxer_johny_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "boxer_johny_Background",
+    "dynamic_line": "Well i'm just a regular boxer, really.",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "boxer_johny_teach_check",
+    "dynamic_line": "I'll teach you, for sure, but only after I'll deal with all my problems.",
+    "responses": [
+      { "text": "So, problems solved?", "topic": "boxer_johny_teach",
+	    "condition": {"npc_has_var": "u_helped_boxer_johny", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"success": {
+			"effect":[
+				{"u_buy_item": "manual_boxing"},
+				{"npc_add_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "boxer_johny_teach" 
+		},
+		"failure": { "topic": "boxer_johny_teach_done" }
+	  },
+      { "text": "...", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "boxer_johny_teach",
+    "dynamic_line": "Yeah, I guess they are. Here, you can take it.",
+    "responses": [
+      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "boxer_johny_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bjohny_busy",
+    "dynamic_line": "[*He looks busy*].",
+    "responses": [
+      { "text": "Ahem!", "topic": "boxer_johny_1", "condition":"mission_complete" },
+      { "text": "Ahem. Your debt is repaid. You can relax.", "topic": "TALK_MISSION_SUCCESS",
+		"condition":{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"},
+ 	    "effect":"mission_success"
+	  },
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+  "//":"TODO maybe edit something? add unique gang or smthn",
+    "id": "MISSION_boxer_johny_1",
+    "type": "mission_definition",
+    "name": { "str": "Kill bandits" },
+    "description": "Kill bandits",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 1,
+    "value": 1000,
+    "start": {
+      "update_mapgen": {
+		"origin_npc": true,
+		"place_npcs": [
+			{ "class": "bandit", "x": 6, "y": 10, "z":-1, "target": true },
+			{ "class": "bandit", "x": 8, "y": 12, "z":-1, "target": true },
+			{ "class": "bandit", "x": 7, "y": 11, "z":-1, "target": true },
+			{ "class": "bandit", "x": 10, "y": 10, "z":-1, "target": true },
+			{ "class": "bandit", "x": 9, "y": 13, "z":-1, "target": true }
+		]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_boxer_johny_2",
+    "dialogue": {
+      "describe": "Help",
+      "offer": "Help me defend my gym",
+      "accepted": "WIP-ACCEPTED1",
+      "rejected": "WIP-REJ1",
+      "advice": "WIP-ADV1",
+      "inquire": "WIP-INQ1.",
+      "success": "WIP-SUCC1.",
+      "success_lie": "WIP-TEXT",
+      "failure": "WIP-TEXT."
+	}
+  },
+  {
+  "//":"TODO maybe edit something? add unique gang or smthn",
+    "id": "MISSION_boxer_johny_2",
+    "type": "mission_definition",
+    "name": { "str": "Talk to moneylander" },
+    "description": "Ask moneylander to leave Johny alone",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 1000,
+    "deadline_low": 31,
+    "deadline_high": 62,
+    "start": {
+	  "effect":[
+		{"npc_first_topic":"bjohny_busy"},
+		{"u_add_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}
+	],
+      "assign_mission_target": {
+		"om_terrain": "house",
+		"om_terrain_replace": "field",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 5 
+	  },
+      "update_mapgen": {
+		"place_npcs": [
+			{ "class": "moneylender", "x": 10, "y": 10, "target": true }
+		]
+	  }
+    },
+	"end": {
+		"effect":[{"npc_first_topic":"boxer_johny_1"}]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_boxer_johny_3",
+    "dialogue": {
+      "describe": "Help",
+      "offer": "Help me defend my gym",
+      "accepted": "WIP-ACCEPTED1",
+      "rejected": "WIP-REJ1",
+      "advice": "WIP-ADV1",
+      "inquire": "WIP-INQ1.",
+      "success": "WIP-SUCC1.",
+      "success_lie": "WIP-TEXT",
+      "failure": "WIP-TEXT."
+	}
+  },
+  {
+    "id": "MISSION_boxer_johny_3",
+    "type": "mission_definition",
+    "name": { "str": "Find me new students" },
+    "description": "Find new students.",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": {"u_has_var":"bj_students", "type": "flag", "context": "meeting", "value": "2"},
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":[
+			{"u_add_var":"bj_students", "type": "flag", "context": "meeting", "value": "0"},
+			{"u_add_var":"students_transfer_bj", "type": "flag", "context": "meeting", "value": "yes"}
+		]
+	},
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_boxer_johny_coach", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes"},
+			{"u_lose_var":"bj_students", "type": "flag", "context": "meeting", "value": "2"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "Bring me students.",
+      "accepted": "I'm waiting.",
+      "rejected": "Afraid?",
+      "advice": "Go.",
+      "inquire": "I'm waiting.",
+      "success": "Good. Here's your reward.",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	}
+  }
+]

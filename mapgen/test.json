@@ -7,10 +7,10 @@
     "object": {
       "fill_ter": "t_floor",
       "rows": [
-		"###############         ",
-        "#     # # # # #         ",
-        "#     # # # # #         ",
-        "###+###+#+#+#+#         ",
+		"###################     ",
+        "#       # # # # # #     ",
+        "#       # # # # # #     ",
+        "###+#####+#+#+#+#+#     ",
 		"                        ",
 		"                        ",
 		"                        ",
@@ -41,17 +41,22 @@
         { "text": "Guard Door", "x": 12, "y": 3 },
         { "text": "Flame Knuckle Leader", "x": 14, "y": 3 }
 	  ],
+	  	    "//":"{ 'class': 'police_cqc_teacher', 'x': 5, 'y': 1 },",
       "place_npcs": [
+	    { "class": "samurai_akira", "x": 1, "y": 4 },
 	    { "class": "Berry_Button", "x": 1, "y": 1 },
 	    { "class": "blackbelt_coach", "x": 2, "y": 1 },
 	    { "class": "wanderer_knight", "x": 3, "y": 1 },
 	    { "class": "old_assassin", "x": 4, "y": 1 },
-	    { "class": "police_cqc_teacher", "x": 5, "y": 1 },
-	    { "class": "Barry_Button", "x": 7, "y": 1 },
-	    { "class": "flame_knuckle_elite_coach", "x": 9, "y": 1 },
-	    { "class": "flame_knuckle_apprentice_door", "x": 11, "y": 1 },
-	    { "class": "flame_knuckle_leader", "x": 13, "y": 1 },
-	    { "class": "test_npc_232", "x": 15, "y": 5 }
+
+	    { "class": "boxer_johny", "x": 6, "y": 1, "z":1 },
+	    { "class": "rasta_bob", "x": 7, "y": 1 },
+	    { "class": "Barry_Button", "x": 9, "y": 1 },
+	    { "class": "flame_knuckle_elite_coach", "x": 11, "y": 1 },
+	    { "class": "flame_knuckle_apprentice_door", "x": 13, "y": 1 },
+	    { "class": "flame_knuckle_leader", "x": 15, "y": 1 },
+	    { "class": "moneylender", "x": 17, "y": 1 },
+	    { "class": "test_npc_232", "x": 17, "y": 5 }
       ]
     }
   },
@@ -62,10 +67,10 @@
     "object": {
       "fill_ter": "t_tar_flat_roof",
       "rows": [
-	  	"...............         ",
-        "...............         ",
-        "...............         ",
-        "...............         ",
+	  	"........................",
+        "........................",
+        "........................",
+        "........................",
 		"                        ",
 		"                        ",
 		"                        ",

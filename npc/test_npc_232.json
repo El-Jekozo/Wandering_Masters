@@ -17,15 +17,25 @@
     "type": "talk_topic",
 	"dynamic_line": "TEST ME!",
     "responses": [
-	  {"text":"Test teach", "topic":"TALK_DONE", "effect":[{"u_add_effect":"taught", "duration": "360 m"}]},
+	  {"text":"Test teach.", "topic":"TALK_DONE", "effect":[{"u_add_effect":"taught", "duration": "360 m"}]},
       {"text": "Test heist.", "topic": "TALK_DONE", "effect":[{"mapgen_update":"heist_success", "origin_npc": true}]},
 	  { 
 	  "text": "About that job...",
   	  "topic": "TALK_MISSION_INQUIRE",
       "condition":"has_assigned_mission"
 	  },
-      {"text": "Can I help you with something?", "topic": "TALK_MISSION_LIST"},
+      {"text": "Test missions", "topic": "TALK_MISSION_LIST"},
+      {"text": "Test npc_buy", "topic": "test_give", "effect":[{"u_buy_item":"manual_niten"}]},
+	  {"text": "Test Johny's debt.", "topic": "TALK_DONE", "effect":{"u_add_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}},
 	  {"text": "No test for you!", "topic": "TALK_DONE"}
+	  ]
+  },
+  {
+    "id": "test_give",
+    "type": "talk_topic",
+	"dynamic_line": "Hey, give it back, you creep!",
+    "responses": [
+	  {"text":"Ok, ok, dont yell like that, please.", "topic":"TALK_DONE", "effect":[{"u_sell_item":"manual_niten"}]}
 	  ]
   },
   {
@@ -59,7 +69,7 @@
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
-	"followup":"MISSION_test_232_1",
+	"followup":"MISSION_test_232_2",
     "dialogue": {
       "describe": "True student!!!",
       "offer": "!!!Учеников мне нарисуй",
@@ -70,6 +80,49 @@
       "success": "!!!Молодец, держи пояс.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-		}
 	}
+  },
+  {
+    "id": "MISSION_test_232_2",
+    "type": "mission_definition",
+    "name": { "str": "Find special relic" },
+    "description": "Knight asked you to find special relic",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO add special relic",
+    "start": {
+      "assign_mission_target": { 
+		"om_terrain": "lab_surface_brick_blockC2",
+		"om_special":"lab_surface_big",
+		"om_terrain_replace": "field",
+		"reveal_radius": 2,
+		"search_range": 200,
+		"min_distance": 50
+	  },
+      "update_mapgen": {
+		"om_terrain": "lab_surface_brick_block2E1",
+		"place_item": [ { "item": "small_relic", "x": 11, "y": 14, "target":true } ]
+	  }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+	"followup":"MISSION_test_232_1",
+    "dialogue": {
+      "describe": "True Faith!!",
+      "offer": "Find cool relic please",
+      "accepted": "I'll wait.-3",
+      "rejected": "What are you, infidel?!-3",
+      "advice": "God bless you!-3",
+      "inquire": "I'm waiting.-3",
+      "success": "It's good to see brother in faith.-3",
+      "success_lie": "Um...-3",
+      "failure": "What a shame.-3"
+	}
+  }
 ]

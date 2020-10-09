@@ -31,7 +31,6 @@
     "id": ["TALK_REFUGEE_Berry_1"],
     "type": "talk_topic",
 	"dynamic_line": "Hello there, pal.",
-    "replace_built_in_responses": true,
     "responses": [
 	  { 
 	  "text": "About that job...",
@@ -44,7 +43,12 @@
 	  {
         "text": "You do realise that you payed me with worthless green paper, right?",
         "effect": { "npc_add_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" },
-        "condition": { "and": [{"not": { "npc_has_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" }}, {"npc_has_var": "MISSION_BerryButton_1", "type": "mission", "context": "flag", "value": "yes"}]},
+        "condition": {
+			"and":[
+				{"not": { "npc_has_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" }},
+				{"npc_has_var": "MISSION_BerryButton_1", "type": "mission", "context": "flag", "value": "yes"}
+			]
+		},
         "topic": "TALK_REFUGEE_Berry_angry1"
       },
 	  {"text": "Well, bye.", "topic": "TALK_DONE"},
@@ -53,9 +57,10 @@
 	    "topic":"BerryB_Help",
 	    "condition":{"u_has_var": "MISSION_BerryButton_3_help", "type": "general", "context": "flag", "value": "yes"},
 	    "effect": [
-	    {"u_buy_item": "two_way_radio", "count": 2},
-		{"npc_change_faction": "your_followers"},
-	    {"u_lose_var": "MISSION_BerryButton_3_help", "type": "general", "context": "flag", "value": "yes"}]
+			{"u_buy_item": "two_way_radio", "count": 2},
+			{"npc_change_faction": "your_followers"},
+			{"u_lose_var": "MISSION_BerryButton_3_help", "type": "general", "context": "flag", "value": "yes"}
+		]
 	  },
 	  {
 	    "text":"You know, I tried that moonshine. It tastes like HELL!",
@@ -103,8 +108,9 @@
     "id": "TALK_BerryB_Agree",
     "dynamic_line": "Yeah, sure, pal.",
     "responses": [
-      {"text": "That's more like it.","topic": "TALK_DONE",
-	  "effect": {"u_buy_item": "rock", "count": 3}}
+      { "text": "That's more like it.","topic": "TALK_DONE",
+	    "effect": {"u_buy_item": "rock", "count": 3}
+	  }
     ]
   },
    {
@@ -121,17 +127,22 @@
     "dynamic_line": "Here's two two-way radios. Get them on one freuquency and give me one radio. Contact me trough it when you find my brother.",
     "responses": [
       { "text": "Ok. *You mess with the radios* Here you go. Wait for my signal.", "topic": "TALK_DONE",
-	    "effect": [{"u_sell_item": "two_way_radio", "count": 1}, {"npc_first_topic":"TALK_REFUGEE_Berry_2"}]}
+	    "effect": [
+			{"u_sell_item": "two_way_radio", "count": 1},
+			{"npc_first_topic":"TALK_REFUGEE_Berry_2"}
+		]
+	  }
     ]
   },
   {
     "type": "talk_topic",
     "id": "BerryB_Brother",
     "dynamic_line": "*pshhhttt* Nice work! Ok, listen up: I w**nt*yo***o***********and th************be care*********stay far fro****************",
-    "speaker_effect": [
+    "speaker_effect":[
 		{"npc_change_faction": "free_merchants"},
 		{"npc_first_topic":"TALK_REFUGEE_Berry_2"},
-		{"npc_add_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"}],
+		{"npc_add_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"}
+	],
     "responses": [
       { "text": "Damn, why does this thing don't work properly? Bah.", "topic": "TALK_DONE"}
     ]
@@ -145,29 +156,40 @@
 			"yes":"*pshhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh*",
 			"no":"So, what about my brother?"
 		},
+    "replace_built_in_responses": true,
     "responses": [
 	  { 
-	  "text": "I got your brother.",
-  	  "topic": "BerryB_Brother",
-      "condition":{"or":[
-		{"and":[
-			{"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"},
-			"is_by_radio",
-			{"not":{"npc_has_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"}}]
-		},
-		{"and":[
-			{"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"},
-			{"not":"is_by_radio"},
-			{"not":{"npc_has_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"}}]
-		}
-	  ]
-	  }
+	    "text": "I got your brother.",
+  	    "topic": "BerryB_Brother",
+        "condition":{
+	  	  "or":[
+			{
+			  "and":[
+				  "is_by_radio",
+				{ "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"},
+				{ "not":{"npc_has_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"} } 
+			  ]
+			},
+			{
+			  "and":[
+				{ "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"},
+				{ "not":"is_by_radio"},
+				{ "not":{ "npc_has_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes" } }
+			  ]
+			}
+		  ]
+	    }
 	  },
       { "text": "I'm still looking for him.", "topic": "TALK_DONE",
-      "condition":{"not":{"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}}
+        "condition":{ "not":{ "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } }
 	  },
       { "text": "...", "topic": "TALK_DONE",
-      "condition":{"and":["is_by_radio", {"npc_has_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"}]}
+        "condition":{
+		  "and":[
+			 "is_by_radio",
+			{"npc_has_var": "BerryB_radio_fail", "type": "general", "context": "flag", "value": "yes"}
+		  ]
+	    }
 	  }
 	]
   },
@@ -177,7 +199,8 @@
     "dynamic_line": "AHAHAHAHHAHAAAAHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHHAHAHAH",
     "responses": [
       { "text": "...", "topic": "TALK_DONE",
-	  "effect":[{"u_lose_effect":"took_ub_mustang"}]}
+	    "effect":[ { "u_lose_effect":"took_ub_mustang" } ]
+	  }
     ]
   },
   {
@@ -210,7 +233,7 @@
       "failure": "Pal..."
     }
   },
-      {
+  {
     "id": "MISSION_BerryButton_2",
     "type": "mission_definition",
     "name": { "str": "Bring nice moonshine" },
@@ -223,11 +246,11 @@
     "start": {
       "assign_mission_target": 
 	  { 
-	  "om_terrain": "moonshine_still",
-      "om_special": "Moonshine Still",
-	  "om_terrain_replace": "forest",
-	  "reveal_radius": 1,
-	  "search_range": 50
+		"om_terrain": "moonshine_still",
+		"om_special": "Moonshine Still",
+		"om_terrain_replace": "forest",
+		"reveal_radius": 1,
+		"search_range": 50
 	  },
         "update_mapgen": { 
 	      "place_item": [ { "item": "uncle_bens_mustang", "x":  13 , "y": 12, "target":true } ],
@@ -251,8 +274,8 @@
       "success": "Heh. I believed in you, pal. *Berry took a large sip* Here's the cash i promised you. Spend it well, he-he.",
       "success_lie": "Hey, pal, don't try to fool me!",
       "failure": "Pal..."
-		}
-	},
+	}
+  },
   {
     "id": "MISSION_BerryButton_3",
     "type": "mission_definition",
@@ -264,11 +287,8 @@
     "value": 4000,
     "start": 
 	{
-	  "effect": [ 
-		  {"u_add_var": "MISSION_BerryButton_3_help", "type": "general", "context": "flag", "value": "yes"}	  
-		  ],
-      "assign_mission_target": 
-	  {
+	  "effect": [ { "u_add_var": "MISSION_BerryButton_3_help", "type": "general", "context": "flag", "value": "yes" } ],
+      "assign_mission_target":{
         "om_terrain": "cabin",
         "om_special": "Cabin",
         "om_terrain_replace": "forest",
@@ -277,17 +297,17 @@
         "search_range": 100
 	  },
 		"update_mapgen": {
-		"place_npcs": [ 
-		    { "class": "Barry_Button", "x": 7, "y": 5 },
-		    { "class": "bandit", "x": 6, "y": 14 },
-		    { "class": "bandit", "x": 10, "y": 15 },
-		    { "class": "bandit", "x": 13, "y": 15 },
-		    { "class": "bandit", "x": 6, "y": 16 },
-		    { "class": "bandit", "x": 10, "y": 16 },
-		    { "class": "bandit", "x": 13, "y": 16 },
-		    { "class": "bandit", "x": 11, "y": 21 },
-		    { "class": "bandit", "x": 13, "y": 21 }
-		  ]
+			"place_npcs": [ 
+				{ "class": "Barry_Button", "x": 7, "y": 5 },
+				{ "class": "bandit", "x": 6, "y": 14 },
+				{ "class": "bandit", "x": 10, "y": 15 },
+				{ "class": "bandit", "x": 13, "y": 15 },
+				{ "class": "bandit", "x": 6, "y": 16 },
+				{ "class": "bandit", "x": 10, "y": 16 },
+				{ "class": "bandit", "x": 13, "y": 16 },
+				{ "class": "bandit", "x": 11, "y": 21 },
+				{ "class": "bandit", "x": 13, "y": 21 }
+		    ]
 		}
 	},
 	"end": {
@@ -308,6 +328,6 @@
       "success": "Heh. Nice",
       "success_lie": "Hey, pal, don't try to fool me!",
       "failure": "Pal..."
-		}
 	}
+  }
 ]

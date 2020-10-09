@@ -198,7 +198,7 @@
 	"start":{
 		"effect":[
 			{"u_add_var":"fkl_students", "type": "flag", "context": "meeting", "value": "0"},
-			{"u_add_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "fk"}
+			{"u_add_var":"students_transfer", "type": "flag", "context": "meeting", "value": "fk"}
 		]
 	},
 	"end":{

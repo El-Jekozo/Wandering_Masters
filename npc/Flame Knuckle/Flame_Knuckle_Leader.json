@@ -78,7 +78,7 @@
   {
     "id": ["flame_knuckle_leader_good"],
     "type": "talk_topic",
-	"dynamic_line": "So you are the newest student I was told about? Unfortunately for you, I know everything about you. I think you understand that you are not the first person this old fool sends to us. But you're in luck, today I'm in a good mood, and I'm ready to give you a chance. Bring the old man's head and I'll think about your joining our school.",
+	"dynamic_line": "So you are the newest student I was told about? Unfortunately for you, I know everything about you. I think you understand that you are not the first person this old fool sends to us. But you're in luck, today I'm in a good mood, and I'm ready to give you a chance. Bring that old man's head and I'll think about your joining our school.",
     "responses": [
       { "text": "Sure thing, pal.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"flame_knuckle_leader_waiting"}] },
       { "text": "No way, f*g.", "topic": "flame_knuckle_leader_bad" }
@@ -90,8 +90,11 @@
 	"dynamic_line": "I'm still waiting.",
     "responses": [
       { "text": "I'm already on it!", "topic": "TALK_DONE", "condition":{"not":{"u_has_item":"ip_leader_head"}}},
-      { "text": "Here it is.", "topic": "flame_knuckle_leader_pleased", "condition":{"u_has_item":"ip_leader_head"}},
-      { "text": "I don't think so!", "topic": "flame_knuckle_leader_bad"}
+      { "text": "Here it is.", "topic": "flame_knuckle_leader_pleased",
+		"condition":{"u_has_item":"ip_leader_head"},
+		"effect":[{"u_consume_item":"ip_leader_head"}]
+	  },
+      { "text": "Actually, let's fight!", "topic": "flame_knuckle_leader_bad"}
     ]
   },
   {
@@ -133,9 +136,9 @@
 	"dynamic_line": "Hello there.",
     "responses": [
 	  { 
-	  "text": "About that job...",
-      "condition": "has_assigned_mission",
-	  "topic": "TALK_MISSION_INQUIRE"
+		"text": "About that job...",
+		"condition": "has_assigned_mission",
+		"topic": "TALK_MISSION_INQUIRE"
 	  },
       { "text": "What's your story?", "topic": "flame_knuckle_leader_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST"},
@@ -158,13 +161,15 @@
     "responses": [
       { "text": "Yeah, bruh, i'm cool", "topic": "flame_knuckle_leader_teach",
 	    "condition": {"npc_has_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"trial": { "type": "CONDITION", 
+			"condition": {"npc_has_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}
+		},
 		"success": {
-		"effect":[
-		{"u_buy_item": "manual_aikido"},
-		{"npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}
-		],
-		"topic": "flame_knuckle_leader_aikido" 
+			"effect":[
+				{"u_buy_item": "manual_aikido"},
+				{"npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}
+			],
+			"topic": "flame_knuckle_leader_aikido" 
 		},
 		"failure": { "topic": "flame_knuckle_leader_teach_done" }
 	  },
@@ -200,14 +205,14 @@
 	"start":{
 		"effect":[
 			{"u_add_var":"fkl_students", "type": "flag", "context": "meeting", "value": "0"},
-			{"u_add_var":"students_ip_fk", "type": "flag", "context": "meeting", "value": "fk"}
+			{"u_add_var":"students_transfer", "type": "flag", "context": "meeting", "value": "fk"}
 		]
 	},
 	"end":{
 		"effect":[
-		{"npc_add_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes"},
-		{"npc_add_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"},
-		{"u_lose_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"}
+			{"npc_add_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"},
+			{"u_lose_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"}
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],

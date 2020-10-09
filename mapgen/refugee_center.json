@@ -131,11 +131,11 @@
         ],
         "z": { "item": "shelter", "chance": 90, "repeat": [ 1, 3 ] }
       },
+	  	    "//":"{ 'class': 'police_cqc_teacher', 'x': 30, 'y': 8 },",
       "place_npcs": [
 	    { "class": "blackbelt_coach", "x": 30, "y": 5 },
 	    { "class": "wanderer_knight", "x": 30, "y": 6 },
 	    { "class": "Berry_Button", "x": 30, "y": 7 },
-	    { "class": "police_cqc_teacher", "x": 30, "y": 8 },
         { "class": "refugee_JennyForcette", "x": 32, "y": 8 },
         { "class": "refugee_VanessaToby", "x": 32, "y": 17 },
         { "class": "refugee_AleeshaSeward", "x": 35, "y": 7 },

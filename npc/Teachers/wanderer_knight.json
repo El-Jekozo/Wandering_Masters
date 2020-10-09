@@ -65,22 +65,44 @@
     "type": "talk_topic",
     "id": [ "wanderer_knight_1" ],
     "dynamic_line": {
-      "npc_has_var": "wanderer_knight_truth",
-      "type": "general",
-      "context": "meeting",
-      "value": "yes",
-      "yes":"Ah, The Chosen One! What brings you to this sacred place?",
-      "no": "Ah, glad to see another living soul in this cursed world. What brings you to this sacred place?"
+      "npc_has_var": "wanderer_knight_truth", "type": "general", "context": "meeting", "value": "yes",
+      "yes": "Ah, The Chosen One! What brings you to this sacred place?",
+      "no": {"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes",
+		"yes":"Ah, glad to see another living soul in this cursed world. What brings you to this sacred place?",
+		"no":"Hmm..."
+	  }
     },
     "responses": [
 	  { 
-	  "text": "About that job...",
-  	  "topic": "TALK_MISSION_INQUIRE",
-      "condition": "has_assigned_mission"
+	    "text": "About that job...",
+        "condition": "has_assigned_mission",
+		"trial": { "type": "CONDITION", 
+			"condition": {
+				"or":[
+					{ "u_is_wearing": "holy_symbol_wood" },
+					{ "u_is_wearing": "holy_symbol" }
+				]
+			}
+		},
+		"success": {"topic": "TALK_MISSION_INQUIRE"},
+		"failure": {"topic": "wanderer_knight_nope"}
 	  },
       { "text": "What's your story?", "topic": "wanderer_knight_Background" },
-      { "text": "Do you need any help?", "topic": "wanderer_knight_trust_check", "condition":{"not":{"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"}}},
-      { "text": "How can I help you?", "topic": "TALK_MISSION_LIST", "condition":{"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"} },
+      { "text": "Do you need any help?",
+		"condition": {"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"},
+		"trial": { "type": "CONDITION",
+			"condition": {
+				"or":[
+					{ "u_is_wearing": "holy_symbol_wood" },
+					{ "u_is_wearing": "holy_symbol" }
+				]
+			}
+		},
+		"success": {"topic": "TALK_MISSION_LIST"},
+		"failure": {"topic": "wanderer_knight_nope"},
+		"switch":true
+	  },
+      { "text": "Do you need any help?", "topic": "wanderer_knight_trust_check", "switch":true},
       { "text": "Can you teach me something?", "topic": "wanderer_knight_teach_check"},
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
@@ -93,10 +115,20 @@
       { 
 	    "text": "I'm muslim.", 
 		"topic": "TALK_DONE",
-        "opinion": { "trust": -200, "value": -200 }
+        "opinion": { "trust": -200, "value": -200 },
+		"effect":"insult_combat"
 	  },
-      { "text": "I'm christian.", "topic": "wanderer_knight_trust_yes",
-		"effect":[{"npc_add_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"}]
+      { "text": "I'm christian.",
+		"trial": { "type": "CONDITION",
+			"condition": {
+				"or":[
+					{ "u_is_wearing": "holy_symbol_wood" },
+					{ "u_is_wearing": "holy_symbol" }
+				]
+			}
+		},
+		"success": {"topic": "wanderer_knight_trust_yes"},
+		"failure": {"topic": "wanderer_knight_trust_no"}
 	  },
       { "text": "I'm budhist", "topic": "wanderer_knight_trust_no" },
       { "text": "I'm jewish", "topic": "wanderer_knight_trust_no" },
@@ -117,7 +149,9 @@
     "id": "wanderer_knight_trust_yes",
     "dynamic_line": "Ah, it's good to see another folower of our lord saviour Jesus Christ. Welcome, my brother.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "...", "topic": "TALK_DONE",
+	    "effect":[{"npc_add_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"}]
+	  }
     ]
   }, 
   {
@@ -143,11 +177,11 @@
 	    "condition": {"npc_has_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {
-		"effect":[
-		{"u_buy_item": "manual_swordsmanship"},
-		{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "no"}
-		],
-		"topic": "wanderer_knight_teach" 
+			"effect":[
+				{"u_buy_item": "manual_swordsmanship"},
+				{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "wanderer_knight_teach" 
 		},
 		"failure": { "topic": "wanderer_knight_teach_done" }
 	  },
@@ -158,7 +192,7 @@
   {
     "type": "talk_topic",
     "id": "wanderer_knight_teach",
-    "dynamic_line": "I learned all from her. You can take it now. Good luck!",
+    "dynamic_line": "I learned all from it. You can take it now. Good luck!",
     "responses": [
       { "text": "Thanks my brudda", "topic": "TALK_DONE" }
     ]
@@ -190,28 +224,33 @@
     "dynamic_line": "HOW DARE YOU SAY SOMETHING LIKE THAT!!!",
     "responses": [
       { "text": "...", "topic": "TALK_DONE",
-		"effect":[{"npc_add_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes"}]	  }
+		"effect":[{"npc_add_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes"}]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_nope",
+    "dynamic_line": "Where is your cross, my friend?",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "MISSION_wanderer_knight_1",
     "type": "mission_definition",
-    "name": { "str": "Prove me that you are follower of the true faith" },
-    "description": "Knight asked you to proof that you are follower of the true faith.",
-    "goal": "MGOAL_CONDITION",
-	"goal_condition": {
-		"and": [
-			{"or": [ { "u_has_item": "holybook_bible1" }, { "u_has_item": "holybook_bible2" }, { "u_has_item": "holybook_bible3" } ]},
-			{"or": [ { "u_is_wearing": "holy_symbol" }, { "u_is_wearing": "holy_symbol_wood" } ]}
-			]
-	},
+    "name": { "str": "Prove me that you are true warrior of the light" },
+    "description": "Knight asked you to proof that you are true warrior of the light",
+    "goal": "MGOAL_KILL_MONSTER_SPEC",
+    "monster_species": "ZOMBIE",
+    "monster_kill_goal": 100,
     "difficulty": 1,
     "value": 1000,
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_wanderer_knight_2",
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "Prove me that you are a believer",
+      "offer": "Prove me that you are true warrior of the light",
       "accepted": "I'll wait.",
       "rejected": "What are you, infidel?!",
       "advice": "God bless you!",
@@ -219,8 +258,8 @@
       "success": "It's good to see brother in faith.",
       "success_lie": "Um...",
       "failure": "What a shame."
-		}
-	},
+	}
+  },
   {
     "id": "MISSION_wanderer_knight_2",
     "type": "mission_definition",
@@ -231,7 +270,15 @@
     "value": 100,
   	"//":"TODO add brother Randalf",
     "start": {
-      "assign_mission_target": { "om_terrain": "church", "reveal_radius": 1, "random": true, "search_range": 100, "min_distance": 5 },
+      "assign_mission_target": {
+		"om_terrain": "church",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"random": true,
+		"search_range": 100,
+		"min_distance": 5
+	  },
       "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_tough", "x": 3, "y": 9, "target": true } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -246,8 +293,8 @@
       "success": "It's good to see brother in faith.-2",
       "success_lie": "Um...-2",
       "failure": "What a shame.-2"
-		}
-	},
+	}
+  },
   {
     "id": "MISSION_wanderer_knight_3",
     "type": "mission_definition",
@@ -258,8 +305,18 @@
     "value": 100,
   	"//":"TODO add special relic",
     "start": {
-      "assign_mission_target": { "om_terrain": "lab_surface_brick_blockC2","om_special":"lab_surface_big", "om_terrain_replace": "field","reveal_radius": 2, "random": true, "search_range": 200 },
-      "update_mapgen": {"place_item": [ { "item": "small_relic", "x": 5, "y": 5, "target":true } ] }
+      "assign_mission_target": { 
+		"om_terrain": "lab_surface_brick_blockC2",
+		"om_special":"lab_surface_big",
+		"om_terrain_replace": "field",
+		"reveal_radius": 2,
+		"search_range": 200,
+		"min_distance": 50
+	  },
+      "update_mapgen": {
+		"om_terrain": "lab_surface_brick_block2A0",
+		"place_item": [ { "item": "small_relic", "x": 106, "y": 46, "target":true } ]
+	  }
     },
 	"end":{
 		"effect":[
@@ -270,7 +327,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "Prove me that you are a believer-3",
+      "offer": "Find cool relic please",
       "accepted": "I'll wait.-3",
       "rejected": "What are you, infidel?!-3",
       "advice": "God bless you!-3",
@@ -278,6 +335,6 @@
       "success": "It's good to see brother in faith.-3",
       "success_lie": "Um...-3",
       "failure": "What a shame.-3"
-		}
 	}
+  }
 ]

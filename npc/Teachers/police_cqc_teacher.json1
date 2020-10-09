@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO write normal text not this bullshit parody of a writing, maybe add bonus for cop chars?, add food and water to inventory, , place him in jail in police dep, prob 5-20%(?) maybe; idea for quest 2-4. 2:place zombie, drop head, return with head. 3:that was not his head, so you need to escort this npc to specific house. 4:after that, you will be given his coordinates and you will need to kill him. now is for real., he will try to talk out of it by offering fake head, but if you agree, cop will be mad at you and maybe do something to you! he-he",
+  	"//":"TODO write normal text not this bullshit parody of a writing, maybe add bonus for cop chars?, add food and water to inventory or near hi? place him in jail in police dep, prob 5-20%(?) maybe;",
     "type": "npc",
     "id": "police_cqc_teacher",
     "name_unique": "Police CQC Teacher",
@@ -43,13 +43,19 @@
     "id": "police_cqc_teacher_worn",
     "subtype": "collection",
     "entries": [
-        {"items": [ "socks", "swat_armor", "tac_fullhelmet", "boots_combat", "gloves_tactical", "badge_swat", "wristwatch" ]},
-          { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
-          { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
-          { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
-          { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
-          { "item": "baton-extended", "container-item": "police_belt" },
-          { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
+		{ "item": "socks" },
+		{ "item": "swat_armor" },
+		{ "item": "tac_fullhelmet" },
+		{ "item": "boots_combat" },
+		{ "item": "gloves_tactical" },
+		{ "item": "badge_swat" },
+		{ "item": "wristwatch" },
+        { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
+        { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
+        { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
+        { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
+        { "item": "baton-extended", "container-item": "police_belt" },
+        { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
         ]
   },
   {
@@ -108,7 +114,9 @@
     "responses": [
       { "text": "Yeah, bruh, i'm cool", "topic": "police_cqc_teacher_teach",
 	    "condition": {"npc_has_var": "u_helped_police_cqc_teacher", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"trial": { "type": "CONDITION",
+			"condition": {"npc_has_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "yes"}
+		},
 		"success": {
 		"effect":[
 		{"u_buy_item": "manual_krav_maga"},
@@ -158,17 +166,22 @@
     "type": "talk_topic",
     "id": "p_cqc_t_working",
     "dynamic_line":[
-		{"npc_compare_time_since_var": "p_cqc_t_work", "type": "general", "context": "flag", "op": ">", "time": "5 days",
+		{"npc_compare_time_since_var": "p_cqc_t_work", "type": "general", "context": "flag", "op": ">", "time": "2 days",
 		"yes":"I'm DONE!!!!!!!!",
 		"no":"I'm WORKING!!!!!!!!!!!!"
-		}],
+		}
+	],
     "responses": [
-		{"text": "Ok bro, i'm waiting", "topic": "TALK_DONE", "condition": { "not":{ "npc_compare_time_since_var": "p_cqc_t_work", "type": "general", "context": "flag", "op": ">", "time": "5 days" }}},
-		{"text": "Good for you bro!", "topic": "police_cqc_teacher_1","condition": { "npc_compare_time_since_var": "p_cqc_t_work", "type": "test", "context": "var_time_test", "op": ">", "time": "5 days"}, "effect":[{"npc_first_topic":"police_cqc_teacher_1"}]}
+		{ "text": "Ok bro, i'm waiting", "topic": "TALK_DONE",
+		  "condition": { "not":{ "npc_compare_time_since_var": "p_cqc_t_work", "type": "general", "context": "flag", "op": ">", "time": "2 days" }}
+		},
+		{ "text": "Good for you bro!", "topic": "police_cqc_teacher_1",
+		  "condition": { "npc_compare_time_since_var": "p_cqc_t_work", "type": "test", "context": "var_time_test", "op": ">", "time": "2 days"}, "effect":[{"npc_first_topic":"police_cqc_teacher_1"}]
+		}
     ]
   }, 
   {
-    "id": "MISSION_police_cqc_teacher_3",
+    "id": "MISSION_police_cqc_teacher_1",
     "type": "mission_definition",
     "name": { "str": "Find police report" },
     "description": "Find police report",
@@ -178,8 +191,20 @@
     "value": 100,
   	"//":"TODO TEXT WHEN CAN PLEASE MYSELF STOP !FUCKING! PLACEHOLDERS BRO NOT COOL",
     "start": {
-      "assign_mission_target": { "om_terrain": "police_2ndfloor_1", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "cant_see": true, "reveal_radius": 1, "search_range": 200, "min_distance": 5, "random":true},
-      "update_mapgen": {"place_item": [ { "item": "police_record_pt", "x": 4, "y": 6, "target":true } ] }
+      "assign_mission_target": {
+		"om_terrain": "police_1",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"cant_see": true,
+		"reveal_radius": 1,
+		"search_range": 150,
+		"min_distance": 35
+	  },
+      "update_mapgen": {
+		"om_terrain": "police_2ndfloor_1",
+		"cant_see": true,
+		"place_item": [ { "item": "police_record_pt", "x": 4, "y": 6, "target":true } ]
+	  }
     },
 	"end":{
 		"effect":[
@@ -188,6 +213,7 @@
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_police_cqc_teacher_2",
     "dialogue": {
       "describe": "Police",
       "offer": "Find police report at that location",
@@ -198,8 +224,8 @@
       "success": "Yoss!!",
       "success_lie": "Hmm",
       "failure": "HAH! GAII!"
-		}
-	},
+	}
+  },
   {
     "id": "MISSION_police_cqc_teacher_2",
     "type": "mission_definition",
@@ -211,8 +237,17 @@
 	"item":"prisoner_bill_head",
   	"//":"TODO add criminal zombie",
     "start": {
-      "assign_mission_target": { "om_terrain": "prison_1_b_1", "om_special": "Prison", "reveal_radius": 1, "search_range": 200, "min_distance": 5 },
-      "update_mapgen": {"place_monster": [ { "monster": "mon_zombie_tough", "x": 46, "y": 24 }], "place_item":[{"item":"prisoner_bill_head", "x": 46, "y": 24, "target": true}] }
+      "assign_mission_target": {
+		"om_terrain": "prison_1_2",
+		"om_special": "Prison",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 5
+	  },
+      "update_mapgen": {
+		"place_monster": [ { "monster": "mon_zombie_tough", "x": 46, "y": 24 } ],
+		"place_item":[ {"item":"prisoner_bill_head", "x": 46, "y": 24, "target": true} ]
+	  }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_police_cqc_teacher_3",
@@ -226,8 +261,8 @@
       "success": "Yoss!!",
       "success_lie": "???",
       "failure": "HAH! GAII!"
-		}
-	},
+	}
+  },
   {
     "id": "MISSION_police_cqc_teacher_3",
     "type": "mission_definition",
@@ -239,12 +274,23 @@
     "value": 100,
   	"//":"TODO add custom destination. make super_duper house of elite assassin!!! (or smthn like that...), change goto to basement of this super house",
     "start": {
-      "assign_mission_target": { "om_terrain": "house_10", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "reveal_radius": 1, "search_range": 200, "min_distance": 30, "random":true },
-      "update_mapgen": {"place_item":[{"item":"flyer", "x": 46, "y": 24, "target": true}]}
+	  "effect":"follow_only",
+      "assign_mission_target": {
+		"om_terrain": "house_10",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 30,
+		"random":true 
+	  },
+      "update_mapgen": { "place_item":[ { "item":"flyer", "x": 46, "y": 24, "target": true } ] }
     },
-	"end":{"effect":[
-		{"npc_add_var": "p_cqc_t_work", "type": "general", "context": "flag","time": true },
-		{"npc_first_topic":"p_cqc_t_working"}
+	"end":{
+		"effect":[
+			"stop_follow",
+			{"npc_add_var": "p_cqc_t_work", "type": "general", "context": "flag","time": true },
+			{"npc_first_topic":"p_cqc_t_working"}
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -256,11 +302,11 @@
       "rejected": "Bro...",
       "advice": "Haha only losers need advices",
       "inquire": "So?",
-      "success": "Yoss!! I need 5 days to study stuff it tthis basement (currently WIP) so go play outside ",
+      "success": "Yoss!! I need 2 days to study stuff it tthis basement (currently WIP) so go play outside ",
       "success_lie": "???",
       "failure": "HAH! GAII!"
-		}
-	},
+	}
+  },
   {
     "id": "MISSION_police_cqc_teacher_4",
     "type": "mission_definition",
@@ -272,12 +318,21 @@
     "value": 100,
   	"//":"TODO add custom enemy, maybe some more shit dunno, cool reward",
     "start": {
-      "assign_mission_target": { "om_terrain": "forest", "om_terrain_replace": "field", "om_terrain_match_type":"PREFIX", "reveal_radius": 1, "search_range": 200, "min_distance": 30, "random":true },
-      "update_mapgen": {"place_npc":[{"item":"flyer", "x": 46, "y": 24, "target": true}]}
+      "assign_mission_target": {
+		"om_terrain": "forest",
+		"om_terrain_replace": "field",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 30,
+		"random":true
+	  },
+      "update_mapgen": { "place_npc":[ { "class":"bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
     },
-	"end":{"effect":[
-		{"npc_add_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "yes"},
-		{"npc_add_var": "u_helped_police_cqc_teacher", "type": "general", "context": "meeting", "value": "yes"}
+	"end":{
+		"effect":[
+			{"npc_add_var": "police_cqc_teacher_teach", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "u_helped_police_cqc_teacher", "type": "general", "context": "meeting", "value": "yes"}
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -291,6 +346,6 @@
       "success": "Yoss!! I need 5 days to study stuff it tthis basement (currently WIP) so go play outside ",
       "success_lie": "???",
       "failure": "HAH! GAII!"
-		}
 	}
+  }
 ]

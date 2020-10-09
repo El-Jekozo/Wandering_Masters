@@ -3,7 +3,7 @@
   "//":"TODO write normal text?",
 	"type": "GENERIC",
 	"id": "uncle_bens_mustang",
-	"name": { "str_sp": "Uncle Ben's Mustang" },
+	"name": { "str_sp": "uncle ben's mustang" },
 	"weight": "300 g",
 	"color": "light_cyan",
 	"use_action" : {
@@ -26,7 +26,7 @@
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
 	"id": "enemy_head",
-	"name": { "str_sp": "Enemy Head" },
+	"name": { "str_sp": "seveared head" },
 	"weight": "0 g",
 	"color": "light_red",
 	"symbol": "O",
@@ -41,29 +41,41 @@
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
 	"id": "fk_leader_head",
+	"name": { "str_sp": "seveared head" },
 	"copy-from": "enemy_head",
-	"name": { "str_sp": "Severed head of Flame Knuckle's leader." }
+	"description": "Flame Knuckle's leader's severed head."
   },
   {
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
 	"id": "ip_leader_head",
+	"name": { "str_sp": "seveared head" },
 	"copy-from": "enemy_head",
-	"name": { "str_sp": "Severed head ofIron Palm's master." }
+	"description": "Iron Palm's master's severed head." 
   },
   {
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
 	"id": "prisoner_bill_head",
+	"name": { "str_sp": "seveared head" },
 	"copy-from": "enemy_head",
-	"name": { "str_sp": "Severed head of Prisoner Bill" }
+	"description": " Prisoner Bill's severed head." 
   },
   {
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
-	"id": "prisoner_bill_head_real",
+	"id": "prisoner_bill_real_head",
+	"name": { "str_sp": "seveared head" },
 	"copy-from": "enemy_head",
-	"name": { "str_sp": "Severed head of 'real' Prisoner Bill" }
+	"description": "Severed head of the 'real' Prisoner Bill" 
+  },
+  {
+  "//":"TODO write normal text? maybe change id",
+	"type": "GENERIC",
+	"id": "boxer_johny_head",
+	"name": { "str_sp": "seveared head" },
+	"copy-from": "enemy_head",
+	"description": "Boxer Johny's severed head." 
   },
   {
   "//":"TODO write normal text? maybe change id",
@@ -78,7 +90,7 @@
 	"type": "GENERIC",
 	"id": "police_record_pt",
 	"copy-from": "record_accounting",
-	"name": { "str_sp": "Police records" },
+	"name": { "str_sp": "police records" },
 	"description": "Large folder full of police records."
   }
 ]

@@ -21,16 +21,27 @@
   {
     "type": "talk_topic",
     "id": "TALK_COACH_SURE",
-	"//": "TODO change this lame line",
+	"//": "TODO change this lame line, change after adding flame knuckle base, change all",
     "dynamic_line": "Ok go to my boss!",
     "responses": [
       { "text": "Will do", "topic": "TALK_DONE", 
-	  "effect":[{"npc_first_topic":"TALK_FK"},
+	  "effect":[
+		{"npc_first_topic":"TALK_FK"},
 		{"u_add_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},
-		{"mapgen_update": "flame_knuckles_base", "origin_npc": true, "assign_mission_target": { "om_terrain": "dojo_1", "om_terrain_replace": "house", "om_terrain_match_type":"PREFIX", "cant_see": true, "reveal_radius": 1, "random": true, "search_range": 200, "min_distance": 10 }}
+		{"mapgen_update": "flame_knuckles_base",
+			"origin_npc": true,
+			"assign_mission_target": { "om_terrain": "dojo_1",
+				"om_terrain_replace": "house", "om_terrain_match_type":"PREFIX",
+				"cant_see": true,
+				"reveal_radius": 1,
+				"random": true,
+				"search_range": 200,
+				"min_distance": 10
+			}
+		}
 	  ]
 	},
-      { "text": "Actually, no way fag.", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
+      { "text": "Actually, no way f*g.", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
     ]
   },
   {
