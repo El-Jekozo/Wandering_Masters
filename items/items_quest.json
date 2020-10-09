@@ -90,7 +90,7 @@
 	"type": "GENERIC",
 	"id": "police_record_pt",
 	"copy-from": "record_accounting",
-	"name": { "str_sp": "police records" },
+	"name": { "str_sp": "Police records" },
 	"description": "Large folder full of police records."
   }
 ]

@@ -148,7 +148,8 @@
     ]
   },
   {
-    "id": ["TALK_REFUGEE_Berry_2"],
+	"//":"TODO do not forget to remove ids if it's not working properly",
+    "id": ["TALK_REFUGEE_Berry_2", "TALK_FRIEND", "TALK_GIVE_ITEM", "TALK_USE_ITEM", "TALK_RADIO"],
     "type": "talk_topic",
     "dynamic_line":"is_by_radio",
 		"yes": "*pshhhttt* So, what about my brother?",

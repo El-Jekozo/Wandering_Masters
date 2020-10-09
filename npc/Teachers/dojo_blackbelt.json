@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO write normal text not this bullshit parody of a writing, place him in dojo, prob 5-20%(?) maybe; how this shit works??'npc_class_change':'iron_palm_student'; idea for mission 4: go to large building with followers of flame knuckles, talk to leader, leader attack you with his squad. kill all and return. do not forget to make unique leader; redo check for training by 'sentinel' effect in 'speaker_effect' ",
+  	"//":"TODO write normal text not this bullshit parody of a writing, place him in dojo, prob 5-20%(?) maybe; how this shit works??'npc_class_change':'iron_palm_student';  ",
     "type": "npc",
     "id": "blackbelt_coach",
     "name_unique": "Black Belt",
@@ -76,25 +76,29 @@
     },
     "responses": [
 	  { 
-	  "text": "About that job...",
-      "condition": "has_assigned_mission",
-	  "trial": { "type": "CONDITION", "condition": {
-	    "and":[
-		  { "u_is_wearing": "karate_gi" },
-		  { "u_is_wearing": "geta" },
-		  {"or": [
-			{ "u_is_wearing": "judo_belt_white" },
-			{ "u_is_wearing": "judo_belt_yellow" },
-			{ "u_is_wearing": "judo_belt_green" },
-			{ "u_is_wearing": "judo_belt_blue" },
-			{ "u_is_wearing": "judo_belt_black" }
-			]
-		  }
-	    ]
-	  }
-	  },
-	  "success": {"topic": "TALK_MISSION_INQUIRE"},
-	  "failure": {"topic": "blackbelt_coach_nope"}
+		"text": "About that job...",
+		"condition": "has_assigned_mission",
+		"trial": { "type": "CONDITION",
+			"condition": {
+				"and":[
+					{ "u_is_wearing": "karate_gi" },
+					{ "u_is_wearing": "geta" },
+					{"or": [
+						{ "u_is_wearing": "judo_belt_white" },
+						{ "u_is_wearing": "judo_belt_yellow" },
+						{ "u_is_wearing": "judo_belt_green" },
+						{ "u_is_wearing": "judo_belt_blue" },
+						{ "u_is_wearing": "judo_belt_black" }
+						]
+					}
+				]
+			}	
+		},
+	    "success": {"topic": "TALK_MISSION_INQUIRE"},
+	    "failure": {
+			"topic": "blackbelt_coach_nope",
+			"effect":[ {"npc_add_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
+		}
 	  },
       { "text": "What's your story?", "topic": "blackbelt_coach_Background" },
       { "text": "Do you need any help?", 
@@ -106,11 +110,16 @@
 			]
 		  }
 	    },
-	  "success": {"topic": "TALK_MISSION_LIST"},
-	  "failure": {"topic": "blackbelt_coach_nope", "effect":[{"npc_add_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes"}]}
+	    "success": {"topic": "TALK_MISSION_LIST"},
+	    "failure": {
+			"topic": "blackbelt_coach_nope",
+			"effect":[ {"npc_add_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
+		}
 	  },
       { "text": "Can you teach me something?", "topic": "blackbelt_coach_teach_check"},
-      { "text": "How can I become your student?", "topic": "blackbelt_coach_student", "condition": {"npc_has_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes"}},
+      { "text": "How can I become your student?", "topic": "blackbelt_coach_student",
+		"condition": {"npc_has_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes"}
+	  },
       { "text": "What about help?", "topic": "bbm_flame_knuckle_1",
 	    "condition":{"npc_has_var":"bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes"},
 	    "effect":[
@@ -178,15 +187,16 @@
     "dynamic_line": "What?! Masters don't lie! You want to feel my iron fury? You want to feel REAL PAIN?!",
     "responses": [
       { "text": "I'm sorry, master! Please don't kill me!", "topic": "blackbelt_coach_1",
-		"effect":[{"npc_add_var": "blackbelt_coach_background", "type": "general", "context": "meeting", "value": "yes"}]}
+		"effect":[{"npc_add_var": "blackbelt_coach_background", "type": "general", "context": "meeting", "value": "yes"}]
+	  }
     ]
   },
   {
     "type": "talk_topic",
     "id": "blackbelt_coach_nope",
-    "dynamic_line": "I'm only talking to my students about my problems. Dress yourself properly and return to me.",
+    "dynamic_line": "I'm only talking to my students about my problems!",
     "responses": [
-      { "text": "I'm sorry, master! Will do, master!", "topic": "TALK_NONE"}
+      { "text": "I'm sorry, master!", "topic": "TALK_NONE"}
     ]
   },
   {
@@ -194,7 +204,9 @@
     "id": "blackbelt_coach_student",
     "dynamic_line": "First, you need to find proper uniform. You should wear Karate Gi and Geta to start your training. By the way, this is strictly not allowed, but in this dire sircumstances, you can 'borrow' uniform from any not-any-more student.",
     "responses": [
-      { "text": "I understand. I'll return when I get the uniform!", "topic": "TALK_NONE", "effect":[{"npc_lose_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes"}]}
+      { "text": "I understand. I'll return when I get the uniform!", "topic": "TALK_NONE",
+		"effect":[ {"npc_lose_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ] 
+	  }
     ]
   },
   {

@@ -39,7 +39,7 @@ Old Assassin
 	
 Boxer Johny
 	1. Deal with moneylender's men.
-	2. Help with Johny's debt.
+	2. Help Johnny deal with his debt
 	3. Find 2 students.
 	Reward: boxing manual.
 
@@ -58,7 +58,7 @@ Rasta Bob
 	3. Lead Bob to drugdealer's place and make a deal with him to buy more weed.
 	4. Lead him to his parents grave
 	Reward: capoeira manual.
-	Optional: bury him near his parents
+	Optional: help him not become a zed and bury him near his parents
 
 	
 Samurai Akira

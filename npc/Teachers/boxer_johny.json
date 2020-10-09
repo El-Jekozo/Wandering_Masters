@@ -202,6 +202,9 @@
       "success": "WIP-SUCC1.",
       "success_lie": "WIP-TEXT",
       "failure": "WIP-TEXT."
+	},
+	"fail":{
+		"effect":"npc_die"
 	}
   },
   {
@@ -221,7 +224,7 @@
 	},
 	"end":{
 		"effect":[
-			{"npc_add_var": "u_boxer_johny_coach", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "u_helped_boxer_johny", "type": "general", "context": "meeting", "value": "yes"},
 			{"npc_add_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes"},
 			{"u_lose_var":"bj_students", "type": "flag", "context": "meeting", "value": "2"}
 		]

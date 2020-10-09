@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO write normal text  not this bullshit parody of a writing, maybe add bonus for ?, place him in cool basement, or make one ",
+  	"//":"TODO write normal text  not this bullshit parody of a writing, place him in cool basement, or make one, add items, skills, stats, missions etc ",
     "type": "npc",
     "id": "moneylender",
     "name_unique": "moneylender",
@@ -70,7 +70,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_johny",
-    "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owe me a lot of money before all this mess, and I want it back. You have different options: pay me Johny's debt, in new money it will be 350 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless you want to help him lose it... I'll pay you for it.",
+    "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owe me a lot of money before all this mess, and I want it back. You have different options: pay me Johny's debt, in new money it will be 350 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless you want to help him lose it... I'll pay you for it, and maybe even let you buy my premium goods.",
     "responses": [
       { "text": "Maybe I just kick your ass?", "topic": "moneylender_nope" },
       { "text": "I'll think about it.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"moneylender_2"}] }
@@ -128,8 +128,9 @@
 		},
 		"success": {
 			"effect":[
-				{"u_consume_item":"boxer_johny_head"},
-				{"u_buy_item":"FMCNote", "count":75}
+				{"u_consume_item":"boxer_johny_head","count": 1},
+				{"u_buy_item":"FMCNote", "count":75},
+				{"npc_add_var":"bj_dead", "type": "flag", "context": "meeting", "value": "yes"}
 			],
 			"topic": "moneylender_debt" 
 		},
@@ -142,6 +143,20 @@
 				{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"}
 			]
 		}
+	  },				
+      { "text": "What about that premium goods?",
+		"condition":{
+			"and":[
+				{"npc_has_var":"moneylender_job_done", "type": "flag", "context": "meeting", "value": "yes"},
+				{"npc_has_var":"bj_dead", "type": "flag", "context": "meeting", "value": "yes"},
+				{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"}
+			]
+		},
+		"trial": { "type": "CONDITION",
+			"condition":{"npc_compare_time_since_var":"moneylender_premium_wait", "type": "flag", "context": "meeting", "op":">", "time":"2 days"}
+		},
+		"success": {"topic": "moneylender_premium"},
+		"failure": { "topic": "moneylender_later" }
 	  },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
@@ -151,7 +166,7 @@
     "id": "moneylender_bj_head",
     "dynamic_line": "Damn, bro, you helped your friend and then decapitated him? You absolutely madman! Here, take this, and please, get the hell out of me!",
     "responses": [
-      { "text": "Interesting", "topic": "TALK_DONE", "effect":{"u_buy_item":"FMCNotes", "count":35} }
+      { "text": "Interesting", "topic": "TALK_DONE", "effect":{"u_buy_item":"FMCNote", "count":35} }
     ]
   },
   {
@@ -202,6 +217,79 @@
 			{"npc_adjust_var":"moneylender_job", "type": "flag", "context": "meeting", "adjustment": -1}
 		]
 	  }
+    ]
+  },
+  {	
+	"//":"TODO add items",
+    "type": "talk_topic",
+    "id": "moneylender_premium",
+    "dynamic_line":{
+		"npc_has_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"3",
+			"yes":"Sorry fam, I don't have anything for you.",
+			"no":{"npc_has_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"2",
+				"yes":"So, i have this cool item right here. Price is 300 FMCNotes.",
+				"no":{"npc_has_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"1",
+					"yes":"So, i have this cool item right here. Price is 200 FMCNotes.",
+					"no":"So, i have this cool item right here. Price is 100 FMCNotes."
+					}
+				}
+	},
+	"speaker_effect": [
+		{"sentinel": "moneylender_premium_item"},
+		{"effect": {"npc_add_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"0"}}
+	],
+    "responses": [
+	    { "text": "Here's the money (item1).", "topic": "TALK_NONE",
+		  "condition":{
+			"and":[
+				{"u_has_item":"FMCNote", "count":100},
+				{"npc_has_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"0"}
+			]
+		  },
+		  "effect":[
+			{"npc_add_var":"moneylender_premium_wait", "type": "flag", "context": "meeting", "time":true},
+			{"npc_add_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"1"},
+			{"u_sell_item":"FMCNote", "count":100},
+			{"u_buy_item":"rock"}
+		  ]
+		},
+	    { "text": "Here's the money (item2).", "topic": "TALK_NONE",
+		  "condition":{
+			"and":[
+				{"npc_has_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"1"},
+				{"u_has_item":"FMCNote", "count":200}
+			]
+		  },
+		  "effect":[
+			{"npc_add_var":"moneylender_premium_wait", "type": "flag", "context": "meeting", "time":true},
+			{"npc_adjust_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "adjustment": 1},
+			{"u_sell_item":"FMCNote", "count":200},
+			{"u_buy_item":"rock"}
+		  ]
+		},
+	    { "text": "Here's the money (item3).", "topic": "TALK_NONE",
+		  "condition":{
+			"and":[
+				{"npc_has_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "value":"2"},
+				{"u_has_item":"FMCNote", "count":300}
+			]
+		  },
+		  "effect":[
+			{"npc_add_var":"moneylender_premium_wait", "type": "flag", "context": "meeting", "time":true},
+			{"npc_adjust_var":"moneylender_premium_item", "type": "flag", "context": "meeting", "adjustment": 1},
+			{"u_sell_item":"FMCNote", "count":300},
+			{"u_buy_item":"manual_silat"}
+		  ]
+		},		
+      { "text": "Maybe later.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_later",
+    "dynamic_line": "Come back in few days.",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
     ]
   },
   {
