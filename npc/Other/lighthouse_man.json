@@ -217,7 +217,7 @@
 	  { "text": "Here's your boat, bro", "topic": "TALK_DONE", 
 		"condition":"u_is_driving",
 		"effect":[
-			"stop_following", "mission_success"
+			"stop_following", "mission_success",
 			{"npc_add_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
 			{"npc_add_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}
 		]
