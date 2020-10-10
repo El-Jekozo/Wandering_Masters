@@ -208,20 +208,28 @@
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_cleaned",
+    "id": "lighthouse_man_wait",
     "dynamic_line": "So?",
     "responses": [
       { "text": "Hi", "topic": "lighthouse_man_1"},
       { "text": "I want you to come with me. Let's go. (so that npc would see his boat)", "topic": "TALK_DONE", "effect":"follow_only"},
       { "text": "Stay here", "topic": "TALK_DONE", "effect":"stop_following"},
-	  { "text": "Here's your boat, bro", "topic": "TALK_DONE", 
+	  { "text": "Here's your boat, bro", "topic": "lighthouse_man_boat", 
 		"condition":"u_is_driving",
 		"effect":[
-			"stop_following", "mission_success"
+			"stop_following", "mission_success",
 			{"npc_add_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
 			{"npc_add_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}
 		]
 	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_boat",
+    "dynamic_line": "Good. Thanks man.",
+    "responses": [
+      { "text": "No problem, man.", "topic": "TALK_DONE"}
     ]
   },
   {
@@ -325,7 +333,7 @@
 	"//":"redo quest",
 	"start":{
 		"effect":[
-			{"npc_first_topic":"lighthouse_wait"},
+			{"npc_first_topic":"lighthouse_man_wait"},
 			{"npc_add_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
 			{"npc_add_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}
 		]

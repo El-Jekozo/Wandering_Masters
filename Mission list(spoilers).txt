@@ -83,3 +83,10 @@ Barry Button
 CEO - WIP
 
 Bill - WIP
+
+Lighthouse man 
+	1. Help him to find lighthouse.
+	2. Help him to clean lighthouse from zombies.
+	3. Help him to fix lighthouse.
+	4. Help him to build a boat, or find one.
+	Reward: WIP

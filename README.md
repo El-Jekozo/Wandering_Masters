@@ -40,3 +40,5 @@ Progress so far:
 	Hacker - meh
 	
 	Lighthouse man - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing);
+	
+	/22ch Lead Scientist - 6 quests; no dialogues; WIP; features untested at all.

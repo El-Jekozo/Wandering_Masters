@@ -199,7 +199,6 @@
 		"om_special": "hotel_1",
 		"om_terrain_replace": "house",
 		"om_terrain_match_type":"PREFIX",
-		"reveal_radius": 1, 
 		"search_range": 250, 
 		"min_distance": 5
 	  },

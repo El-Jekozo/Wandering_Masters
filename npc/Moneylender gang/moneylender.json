@@ -6,7 +6,7 @@
     "name_unique": "moneylender",
     "gender": "male",
     "class": "moneylender",
-    "attitude": 1,
+    "attitude": 0,
     "mission": 3,
     "chat": "moneylender_1",
     "faction": "moneylender_gang",
@@ -63,9 +63,20 @@
     "id": [ "moneylender_1" ],
     "dynamic_line": "Who are you and what do you want?!",
     "responses": [
-	  { "text": "I'm here to talk about Johny's debt.", "topic":"moneylender_johny"},
+	  { "text": "I'm here to talk about Johny's debt.", "topic":"moneylender_johny",
+		"condition":{"u_has_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}
+	  },
+      { "text": "I'm here to trade.", "topic": "moneylender_passing" },
       { "text": "I'm here to kick your ass!", "topic": "moneylender_nope" },
       { "text": "I'm just walking by.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_passing",
+    "dynamic_line": "So, you want to trade, huh? Prove me that you are nice fella by helping me with stuff and i'll think about it.",
+    "responses": [
+      { "text": "I'll think about it.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"moneylender_2"}] }
     ]
   },
   {
@@ -74,7 +85,12 @@
     "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owe me a lot of money before all this mess, and I want it back. You have different options: pay me Johny's debt, in new money it will be 350 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless you want to help him lose it... I'll pay you for it, and maybe even let you buy my premium goods.",
     "responses": [
       { "text": "Maybe I just kick your ass?", "topic": "moneylender_nope" },
-      { "text": "I'll think about it.", "topic": "TALK_DONE", "effect":[{"npc_first_topic":"moneylender_2"}] }
+      { "text": "I'll think about it.", "topic": "TALK_DONE",
+		"effect":[
+			{"npc_add_var":"bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes"},
+			{"npc_first_topic":"moneylender_2"}
+		] 
+	  }
     ]
   },
   {
@@ -102,6 +118,14 @@
 	  },
       { "text": "What's your story?", "topic": "moneylender_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+	  { "text": "I'm here to talk about Johny's debt.", "topic":"moneylender_johny",
+		"condition":{
+			"and":[
+				{"u_has_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"},
+				{"not":{"npc_has_var":"bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes"}}
+			]
+		}
+	  },
       { "text": "I got your money. [*Show him 350 FMCNotes*]", "topic": "moneylender_debt", 
 		"condition":{
 			"and":[
@@ -112,13 +136,19 @@
 		"effect":[{"u_sell_item":"FMCNote", "count":350}]
 	  },
       { "text": "Let's trade.", "effect":"start_trade", "topic": "moneylender_2",
-		"condition":{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"}
+		"condition":{
+			"or":[
+				{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"},
+				{"npc_has_var":"moneylender_job_done", "type": "flag", "context": "meeting", "value":"yes"}
+			]
+		}
 	  },
       { "text": "So, we done here?", "topic": "moneylender_debt1",
 		"condition":{
 			"and":[
 				{"npc_has_var":"moneylender_job", "type": "flag", "context": "meeting", "value": "2"},
-				{"u_has_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}
+				{"u_has_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"},
+				{"not":{"npc_has_var":"bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes"}}
 			]
 		}
 	  },
@@ -150,7 +180,11 @@
 			"and":[
 				{"npc_has_var":"moneylender_job_done", "type": "flag", "context": "meeting", "value": "yes"},
 				{"npc_has_var":"bj_dead", "type": "flag", "context": "meeting", "value": "yes"},
-				{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"}
+				{"or":[
+					{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"},
+					{"not":{"u_has_var":"bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes"}}
+					]
+				}
 			]
 		},
 		"trial": { "type": "CONDITION",
@@ -315,7 +349,7 @@
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_moneylender_1",
+    "followup": "MISSION_moneylender_2",
     "dialogue": {
       "describe": "WIP",
       "offer": "WIP BRING ROCK",
