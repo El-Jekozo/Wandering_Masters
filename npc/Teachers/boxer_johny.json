@@ -17,6 +17,7 @@
     "id": "boxer_johny",
     "name": { "str": "Boxer Johny" },
     "job_description": "Boxer Johny.",
+
     "common": false,
     "bonus_str": { "rng": [ 3, 5 ] },
     "bonus_dex": { "rng": [ 2, 5 ] },
@@ -24,6 +25,8 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "boxer_johny_worn",
     "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
       { "trait": "PAINRESIST" },
 	  { "trait": "PROF_BOXER"}
     ],

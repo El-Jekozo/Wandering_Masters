@@ -5,12 +5,35 @@
     "name_unique": "Test",
     "gender": "male",
     "name_suffix": "refugee",
-	"class": "C_Berry_Button",
+	"class": "test_232",
     "attitude": 0,
     "mission": 7,
     "chat": "test_232",
     "faction": "no_faction",
 	"mission_offered": "MISSION_test_232_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "test_232",
+    "name": { "str": "test_232" },
+    "job_description": "test_232.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "MARTIAL_ARTS" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "melee", "level": 6 },
+      { "skill": "unarmed", "level": 6 },
+      { "skill": "dodge", "level": 6 }
+    ],
+	"initial_ma_styles": ["style_karate"]
   },
   {
     "id": ["test_232"],
@@ -27,6 +50,11 @@
       {"text": "Test missions", "topic": "TALK_MISSION_LIST"},
       {"text": "Test npc_buy", "topic": "test_give", "effect":[{"u_buy_item":"manual_niten"}]},
 	  {"text": "Test Johny's debt.", "topic": "TALK_DONE", "effect":{"u_add_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}},
+      {
+        "text": "Test train",
+        "topic": "TALK_TRAIN",
+        "condition": {"or": [ "npc_train_skills", "npc_train_styles" ] }
+      },
 	  {"text": "No test for you!", "topic": "TALK_DONE"}
 	  ]
   },

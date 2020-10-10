@@ -24,10 +24,11 @@
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "samurai_akira_worn",
+    "carry_override": "samurai_akira_carried",
     "wield_override": "samurai_akira_wield",
     "traits": [
-      { "trait": "PAINRESIST" },
-	  { "trait": "PROF_MA_BLACK"}
+      { "group": "Appearance_EastAsian" },
+      { "trait": "PAINRESIST" }
     ],
     "skills": [
       { "skill": "melee", "level": 6 },
@@ -40,12 +41,26 @@
     "id": "samurai_akira_worn",
     "subtype": "collection",
     "entries": [
-      { "item": "karate_gi" },
-      { "item": "judo_belt_black" },
-      { "item": "mouthpiece" },
-      { "item": "geta" },
-      { "item": "boxer_shorts" },
-	  {"item": "shorts_denim"}
+      { "item": "loincloth" },
+      { "item": "hakama_gi" },
+      { "item": "obi_gi" },
+      { "item": "armor_samurai" },
+      { "item": "helmet_kabuto" },
+	  { "item": "tabi_dress"},
+      { "item": "bastsandals" },
+      { "item": "backpack" },
+      { "item": "waterskin" },
+      { "item": "katana" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "samurai_akira_carried",
+    "subtype": "collection",
+    "entries": [
+      { "item": "waterskin" },
+      { "item": "katana" },
+	  { "item": "manual_niten" }
     ]
   },
   {

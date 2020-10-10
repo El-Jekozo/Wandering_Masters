@@ -48,8 +48,9 @@
 	    { "class": "blackbelt_coach", "x": 2, "y": 1 },
 	    { "class": "wanderer_knight", "x": 3, "y": 1 },
 	    { "class": "old_assassin", "x": 4, "y": 1 },
+	    { "class": "lighthouse_man", "x": 10, "y": 15 },
 
-	    { "class": "boxer_johny", "x": 6, "y": 1, "z":1 },
+
 	    { "class": "rasta_bob", "x": 7, "y": 1 },
 	    { "class": "Barry_Button", "x": 9, "y": 1 },
 	    { "class": "flame_knuckle_elite_coach", "x": 11, "y": 1 },
@@ -93,7 +94,10 @@
 		"                        "
       ],
       "palettes": [ "roof_palette" ],
-      "terrain": { ".": "t_tar_flat_roof" }
+      "terrain": { ".": "t_tar_flat_roof" },
+	  "place_npcs":[
+	  	    { "class": "boxer_johny", "x": 6, "y": 1 }
+	  ]
     }
   }
 ]

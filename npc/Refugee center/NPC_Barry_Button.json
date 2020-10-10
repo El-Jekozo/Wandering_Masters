@@ -18,6 +18,7 @@
     "id": "C_Barry_Button",
     "name": { "str": "Barry Button" },
     "job_description": "I'm just trying to survive.",
+    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
     "common": false,
     "carry_override": "Barry_Button_carried"
   },
@@ -42,7 +43,7 @@
 		"condition": {"not": {"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}}
 	  },
 	  { "text": "We're here.", "topic": "BarryB_Safe",
-	    "condition": {"npc_at_om_location":"evac_center_7"}, "effect":["stop_following"]
+	    "condition": {"npc_at_om_location":"evac_center_7_north"}, "effect":["stop_following"]
 	  },
 	  { "text": "Almost.", "topic": "TALK_DONE"}
     ]

@@ -19,7 +19,10 @@
     "name": { "str": "Flame Knuckle Leader" },
     "job_description": "The leader of Flame Knuckle.",
     "common": false,
-    "traits": [ { "group": "flame_knuckle_master" }],
+    "traits": [
+		{ "group": "flame_knuckle_master" },
+		{ "group": "Appearance_demographics" }
+	],
     "bonus_str": { "rng": [ 4, 8 ] },
     "bonus_dex": { "rng": [ 4, 8 ] },
     "bonus_int": { "rng": [ 4, 6 ] },

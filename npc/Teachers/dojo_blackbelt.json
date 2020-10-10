@@ -27,14 +27,16 @@
     "carry_override": "blackbelt_coach_carried",
     "wield_override": "blackbelt_coach_wield",
     "traits": [
-      { "trait": "PAINRESIST" },
-	  { "trait": "PROF_MA_BLACK"}
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "PAINRESIST" }
     ],
     "skills": [
       { "skill": "melee", "level": 6 },
       { "skill": "unarmed", "level": 6 },
       { "skill": "dodge", "level": 6 }
-    ]
+    ],
+	"initial_ma_styles": ["style_karate"]
   },
   {
     "type": "item_group",

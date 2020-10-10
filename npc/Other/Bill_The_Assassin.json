@@ -18,7 +18,10 @@
     "name": { "str": "The Assassin" },
     "job_description": "The Assassin.",
     "common": false,
-    "traits": [ { "group": "flame_knuckle_master" }],
+    "traits": [ 
+		{ "group": "NPC_starting_traits" },
+		{ "group": "Appearance_demographics" }
+	],
     "bonus_str": { "rng": [ 4, 8 ] },
     "bonus_dex": { "rng": [ 4, 8 ] },
     "bonus_int": { "rng": [ 4, 6 ] },

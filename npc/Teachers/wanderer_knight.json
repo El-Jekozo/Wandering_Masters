@@ -26,9 +26,10 @@
     "worn_override": "wanderer_knight_worn",
     "carry_override": "wanderer_knight_carried",
     "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
       { "trait": "OUTDOORSMAN" },
-      { "trait": "PAINRESIST" },
-      { "group": "trait_group_STRONGBACK" }
+      { "trait": "PAINRESIST" }
     ],
     "skills": [
       { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "rng": [ 0, -4 ] } ] } ] } },

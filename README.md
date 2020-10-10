@@ -12,29 +12,31 @@ Progress so far:
 	
   Teachers:
   
-	Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues for mistakes, spelling errors etc;
+	Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues for mistakes, spelling errors etc; should work nicely 
 	
-	Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues for mistakes, spelling errors etc;
+	Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues for mistakes, spelling errors etc; most features kinda working, but need additional testing
 	
 	Police CQC Teacher - 4 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested); currently buged and not working;
 	
 	Old Assassin - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
 	
-	Boxer Johny - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
+	Boxer Johny - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (kinda working, but need additional testing);
 	
 	Rasta Bob - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested); few features don't work as wanted;
 	
-	Samurai Akira - 4 quests + 1 minor; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested, some don't work as wanted);
+	Samurai Akira - 4 quests + 1 minor; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing; some don't work as wanted);
 	
 	Flame Knuckle leader - 1 quest + 1 minor quest; most wanted features implemented; most features untested;
   
   Minor 
 	Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; most features don't work as wanted.
 	
-	Moneylender - 3 minor quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested (but should work as intended));
+	Moneylender - 3 minor quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing);
 	
 	CEO - most wanted features implemented (all untested)
 	
 	Bill - WIP
 	
 	Hacker - meh
+	
+	Lighthouse man - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing);

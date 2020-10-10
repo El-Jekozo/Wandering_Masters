@@ -25,16 +25,14 @@
     "worn_override": "rasta_bob_worn",
     "carry_override": "rasta_bob_carried",
     "traits": [
-      { "trait": "PAINRESIST" },
-	  { "trait": "PROF_SWAT"}
+	  { "group": "NPC_starting_traits" },
+      { "group": "Appearance_African" },
+      { "trait": "PAINRESIST" }
     ],
     "skills": [
-      { "skill": "gun", "level": 3 },
-      { "skill": "shotgun", "level": 3 },
-      { "skill": "pistol", "level": 2 },
-      { "skill": "melee", "level": 2 },
-      { "skill": "bashing", "level": 2 },
-      { "skill": "unarmed", "level": 2 }
+      { "skill": "melee", "level": 6 },
+      { "skill": "dodge", "level": 6 },
+      { "skill": "unarmed", "level": 6 }
     ]
   },
   {

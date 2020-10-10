@@ -26,6 +26,8 @@
     "worn_override": "police_cqc_teacher_worn",
     "carry_override": "police_cqc_teacher_carried",
     "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
       { "trait": "PAINRESIST" },
 	  { "trait": "PROF_SWAT"}
     ],

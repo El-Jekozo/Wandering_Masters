@@ -25,6 +25,8 @@
     "worn_override": "old_assassin_worn",
     "carry_override": "old_assassin_carried",
     "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
       { "trait": "PAINRESIST" },
 	  { "trait": "PROF_SWAT"}
     ],
