@@ -20,7 +20,7 @@
 		"                        ",
 		"                        ",
 		"                        ",
-		"                        ",
+		"            ><          ",
 		"                        ",
 		"                        ",
 		"                        ",
@@ -34,6 +34,10 @@
 		"                        "
       ],
       "palettes": [ "cabin_palette" ],
+      "terrain": {
+		"<": "t_stairs_up",
+		">": "t_stairs_down"
+	  },
       "place_graffiti": [
         { "text": "Quest givers", "x": 4, "y": 3 },
         { "text": "Barry Button", "x": 8, "y": 3 },
@@ -84,7 +88,7 @@
 		"                        ",
 		"                        ",
 		"                        ",
-		"                        ",
+		"              >         ",
 		"                        ",
 		"                        ",
 		"                        ",
@@ -94,10 +98,60 @@
 		"                        "
       ],
       "palettes": [ "roof_palette" ],
-      "terrain": { ".": "t_tar_flat_roof" },
+      "terrain": {
+		".": "t_tar_flat_roof",
+		">": "t_stairs_down"
+	  },
 	  "place_npcs":[
 	  	    { "class": "boxer_johny", "x": 6, "y": 1 }
 	  ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_basement_test" ],
+    "weight": 250,
+    "object": {
+      "fill_ter": "t_rock",
+      "rotation": [ 0, 3 ],
+      "rows": [
+        "  --------------------  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |.5................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |..................|  ",
+        "  |------|...........|  ",
+        "  |......|<..........|  ",
+        "         -------------  ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": {
+        "-": "t_wall",
+        ".": "t_rock_floor",
+        "<": "t_stairs_up",
+        "|": "t_wall"
+      },
+	  "furniture":{"5": "f_console_broken"},
+      "place_npcs": [
+	    { "class": "lead_scientist_22ch", "x": 5, "y": 5 },
+	    { "class": "scientist_22ch", "x": 7, "y": 7 }
+      ]
     }
   }
 ]

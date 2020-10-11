@@ -25,6 +25,7 @@
     "bonus_per": { "rng": [ 1, 4 ] },
     "worn_override": "wanderer_knight_worn",
     "carry_override": "wanderer_knight_carried",
+    "wield_override": "wanderer_knight_wield",
     "traits": [
 	  { "group": "NPC_starting_traits" },
 	  { "group": "Appearance_demographics" },
@@ -47,7 +48,7 @@
       { "item": "gloves_plate" },
       { "item": "helmet_barbute" },
       { "item": "backpack_leather" },
-      { "item": "zweihander", "container-item": "bscabbard" },
+      { "item": "bscabbard"},
       { "item": "cloak" }
     ]
   },
@@ -60,6 +61,14 @@
 	{ "item": "meat_smoked" },
 	{ "item": "cheese_hard" },
 	{ "item": "brandy" }
+	]
+  },
+  {
+    "type": "item_group",
+    "id": "wanderer_knight_carried",
+    "subtype": "collection",
+    "entries": [ 
+	{ "item": "zweihander" }
 	]
   },
   {

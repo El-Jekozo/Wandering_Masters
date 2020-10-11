@@ -8,19 +8,19 @@ Progress so far:
 
   Regular NPC:
   
-	Berry Button - 3 quests; unchecked dialogues for mistakes, spelling errors, (actual text) etc; most wanted features implemented; few features don't work as wanted, have bugs.
+	Berry Button - 3 quests; unchecked dialogues for mistakes, spelling errors, (actual text) etc; most wanted features implemented; should work nicely
 	
   Teachers:
   
 	Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues for mistakes, spelling errors etc; should work nicely 
 	
-	Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues for mistakes, spelling errors etc; most features kinda working, but need additional testing
+	Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues for mistakes, spelling errors etc; most features kinda working, but need additional testing; should work nicely
 	
 	Police CQC Teacher - 4 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested); currently buged and not working;
 	
 	Old Assassin - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
 	
-	Boxer Johny - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (kinda working, but need additional testing);
+	Boxer Johny - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (kinda working, but need additional testing); should work nicely
 	
 	Rasta Bob - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested); few features don't work as wanted;
 	
@@ -29,9 +29,9 @@ Progress so far:
 	Flame Knuckle leader - 1 quest + 1 minor quest; most wanted features implemented; most features untested;
   
   Minor 
-	Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; most features don't work as wanted.
+	Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; most features don't work as wanted; should work nicely (?)
 	
-	Moneylender - 3 minor quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing);
+	Moneylender - 3 minor quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing); should work nicely
 	
 	CEO - most wanted features implemented (all untested)
 	
@@ -39,6 +39,8 @@ Progress so far:
 	
 	Hacker - meh
 	
-	Lighthouse man - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing);
+	Lighthouse man - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing); should work nicely
 	
-	/22ch Lead Scientist - 6 quests; no dialogues; WIP; features untested at all.
+	/22ch Lead Scientist - 6 quests; no dialogues; WIP; prototype; most features kinda tested, should work
+	
+	/22ch Scientist - 1 quest; no dialogues; WIP; prototype; features untested at all, but should work fine

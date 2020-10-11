@@ -41,5 +41,59 @@
     "object": {
 		"place_item": [{"item": "FMCNote", "x": 0, "y": 1, "amount": [ 1, 10 ], "repeat": [1, 5] }]
 	}
-  }
+  },
+  {
+	"//":"TODO maybe change robot type?",
+    "type": "mapgen",
+    "update_mapgen_id": "22ch_robot_attack",
+    "method": "json",
+    "object": {
+		"place_monster":[
+			{"monster":"mon_talon_m202a1", "x":[5, 20], "y":[5,20], "repeat": 5}
+		]
+	}
+  },
+  {
+	"//":"TODO redo if not working",
+    "type": "mapgen",
+    "update_mapgen_id": "22ch_ai_done",
+    "method": "json",
+    "object": {
+  		"computers": {
+			"x":4,
+			"y":4,
+			"name": "AI /22ch",
+			"security": 5,
+			"options": [
+				{ "name": "Who are you", "action": "ai_22ch_1" },
+				{ "name": "Who are me", "action": "ai_22ch_2" },
+				{ "name": "What do you want", "action": "ai_22ch_3" },
+				{ "name": "What do I want", "action": "ai_22ch_4" }
+			],
+			"failures": [{ "action": "shutdown" }, { "action": "alarm" } ]
+		}
+	}
+  },
+  {
+	"//":"TODO maybe add more?",
+    "type": "mapgen",
+    "update_mapgen_id": "bj_bandits",
+    "method": "json",
+    "object": {
+		"place_npc":[
+			{"class":"bandit", "x":[5, 20], "y":[5,20], "repeat": [4,8]}
+		]
+	}
+  },
+  {
+	"//":"TODO don't forget to edit it!",
+    "type": "mapgen",
+    "update_mapgen_id": "22ch_transmitter_done",
+    "method": "json",
+    "object": {
+		"place_monster":[
+			{"monster":"mon_talon_m202a1", "x":[5, 20], "y":[5,20]}
+		]
+	}
+  }  
 ]

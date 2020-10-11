@@ -135,16 +135,7 @@
     "difficulty": 1,
     "value": 1000,
     "start": {
-      "update_mapgen": {
-		"origin_npc": true,
-		"place_npcs": [
-			{ "class": "bandit", "x": 6, "y": 10, "z":-1, "target": true },
-			{ "class": "bandit", "x": 8, "y": 12, "z":-1, "target": true },
-			{ "class": "bandit", "x": 7, "y": 11, "z":-1, "target": true },
-			{ "class": "bandit", "x": 10, "y": 10, "z":-1, "target": true },
-			{ "class": "bandit", "x": 9, "y": 13, "z":-1, "target": true }
-		]
-	  }
+		"effect":[{"mapgen_update":"bj_bandits", "origin_npc": true, "offset_z":-1, "target":true}]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_boxer_johny_2",
@@ -164,7 +155,7 @@
   "//":"TODO maybe edit something? add unique gang or smthn",
     "id": "MISSION_boxer_johny_2",
     "type": "mission_definition",
-    "name": { "str": "Talk to moneylander" },
+    "name": { "str": "Talk to moneylender" },
     "description": "Ask moneylander to leave Johny alone",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,

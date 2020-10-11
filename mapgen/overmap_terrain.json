@@ -18,5 +18,14 @@
     "color": "i_green",
     "see_cost": 5,
     "extras": "build"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "cabin_basement_test",
+    "name": "cabin_basement_test",
+    "sym": "C",
+    "color": "i_green",
+    "see_cost": 5,
+    "extras": "build"
   }
 ]
