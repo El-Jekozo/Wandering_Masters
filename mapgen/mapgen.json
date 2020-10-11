@@ -86,6 +86,17 @@
 	}
   },
   {
+	"//":"TODO why?",
+    "type": "mapgen",
+    "update_mapgen_id": "22ch_helper",
+    "method": "json",
+    "object": {
+		"place_npc":[
+			{"class":"scientist_22ch", "x":[5, 20], "y":[5,20]}
+		]
+	}
+  },
+  {
 	"//":"TODO don't forget to edit it!",
     "type": "mapgen",
     "update_mapgen_id": "22ch_transmitter_done",

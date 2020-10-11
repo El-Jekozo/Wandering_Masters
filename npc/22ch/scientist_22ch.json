@@ -72,6 +72,7 @@
     "type": "talk_topic",
     "id": [ "scientist_22ch_1" ],
     "dynamic_line":"[*he looks busy*]",
+	"speaker_effect":{"u_add_var": "scientist_22ch_met", "type": "general", "context": "meeting", "value": "yes"},
     "responses": [
 	  { "text": "About that job...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
       { "text": "So, that guy sent me.", "topic": "TALK_MISSION_LIST",
@@ -133,7 +134,8 @@
 			"follow_only",
 			{"mapgen_update":"22ch_transmitter_done", "origin_npc": true, "offset_z":-7},
 			"mission_success", "npc_die",
-			{"u_lose_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"}
+			{"u_lose_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"},
+			{"u_add_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes"}
 		]
 	  }
     ]
@@ -150,6 +152,7 @@
 	"start":{
 		"effect":[
 			{"npc_add_var": "scientist_22ch_transmitter", "type": "general", "context": "meeting", "value": "0"},
+			{"u_add_var": "scientist_22ch_working", "type": "general", "context": "meeting", "value": "yes"},
 			{"npc_first_topic":"scientist_22ch_2"}
 		],
 		"assign_mission_target": { 

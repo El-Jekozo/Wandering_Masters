@@ -49,8 +49,7 @@
 	  { "item": "tabi_dress"},
       { "item": "bastsandals" },
       { "item": "backpack" },
-      { "item": "waterskin" },
-      { "item": "katana" }
+      { "item": "waterskin" }
     ]
   },
   {
@@ -66,7 +65,10 @@
   {
     "type": "item_group",
     "id": "samurai_akira_wield",
-    "subtype": "collection"
+    "subtype": "collection",
+    "entries": [
+      { "item": "katana" }
+    ]
   },
   {
     "type": "talk_topic",
@@ -267,7 +269,7 @@
     "value": 100,
 	"start":{
       "assign_mission_target": { 
-		"om_terrain": "museum",
+		"om_terrain": "museum_north",
 		"om_terrain_replace": "house",
 		"om_terrain_match_type":"PREFIX",
 		"reveal_radius": 1, 
@@ -309,7 +311,6 @@
 		"om_terrain_replace": "forrest",
 		"om_terrain_match_type":"PREFIX",
 		"search_range": 150, 
-		"reveal_radius": 0, 
 		"min_distance": 50,
 		"cant_see":true,
 		"place_item": [{ "item": "katana", "x": 13, "y": 8, "target":true }]

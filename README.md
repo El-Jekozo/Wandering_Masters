@@ -41,6 +41,6 @@ Progress so far:
 	
 	Lighthouse man - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (kinda working, but need additional testing); should work nicely
 	
-	/22ch Lead Scientist - 6 quests; no dialogues; WIP; prototype; most features kinda tested, should work
+	/22ch Lead Scientist - 7 quests; no dialogues; WIP; prototype; most features kinda tested, should work fine
 	
 	/22ch Scientist - 1 quest; no dialogues; WIP; prototype; features untested at all, but should work fine

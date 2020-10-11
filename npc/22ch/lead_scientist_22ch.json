@@ -75,8 +75,7 @@
     "responses": [
 	  { "text": "About that job...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
       { "text": "What's your story?", "topic": "lead_scientist_22ch_Background" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST",
-		"condition":{"not":{"u_has_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"}}
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST"
 	  },
       { "text": "Can you teach me something?", "topic": "lead_scientist_22ch_teach_check"},
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -138,6 +137,33 @@
 	]
   },
   {
+    "type": "talk_topic",
+	"//":"TODO think about clever check for death of that guy, maybe with mgoal_assassinate and check for mission success?",
+    "id": "lead_scientist_22ch_transmitters",
+    "dynamic_line": "Yes, what about him?",
+    "responses": [
+	  { "text": "We did it, but...I couldn't help him. Sorry.", "topic": "TALK_MISSION_SUCCESS",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes"}
+			]
+		},
+		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
+	  },
+	  { "text": "We failed, and...I couldn't help him. Sorry.", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"not":{"u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" } }
+			]
+		},
+		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
+	  },
+      { "text": "Nothing, really.", "topic": "TALK_NONE" }
+	]
+  },
+  {
     "id": "MISSION_lead_scientist_22ch_1",
     "type": "mission_definition",
     "name": { "str": "Find plutonium cell 20" },
@@ -165,7 +191,7 @@
     "id": "MISSION_lead_scientist_22ch_2",
     "type": "mission_definition",
     "name": { "str": "Find minireactor 1" },
-    "description": "Find helmet of the great hero Kentaro.",
+    "description": "Find minireactor 1",
     "goal": "MGOAL_FIND_ITEM",
 	"item":"minireactor",
 	"count":1,
@@ -269,6 +295,41 @@
   },
   {
     "id": "MISSION_lead_scientist_22ch_6",
+    "type": "mission_definition",
+    "name": { "str": "SAVE ME PLEASE!" },
+    "description": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":[
+			{"npc_first_topic":"lead_scientist_22ch_transmitters"},
+			{"mapgen_update":"22ch_helper", "origin_npc": true}
+		]
+	},
+	"end":{
+		"effect":[
+			{"npc_first_topic":"lead_scientist_22ch_1"},
+			{"npc_add_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},			
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_7",
+    "dialogue": {
+      "describe": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
+      "offer": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
+      "accepted": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
+      "rejected": "Afraid?",
+      "advice": "Go.",
+      "inquire": "I'm waiting.",
+      "success": "Good. Here's your reward.",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	}
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_7",
     "type": "mission_definition",
     "name": { "str": "SAVE ME PLEASE!" },
     "description": "SAVE ME PLEASE! KILL THOSE ROBOTS!",

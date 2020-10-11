@@ -206,7 +206,7 @@
     "id": "blackbelt_coach_student",
     "dynamic_line": "First, you need to find proper uniform. You should wear Karate Gi and Geta to start your training. By the way, this is strictly not allowed, but in this dire sircumstances, you can 'borrow' uniform from any not-any-more student.",
     "responses": [
-      { "text": "I understand. I'll return when I get the uniform!", "topic": "TALK_NONE",
+      { "text": "I understand. I'll return when I get the uniform!", "topic": "TALK_DONE",
 		"effect":[ {"npc_lose_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ] 
 	  }
     ]
@@ -222,17 +222,32 @@
   {
     "type": "talk_topic",
     "id": "bbm_wu",
-    "dynamic_line": {"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes",
-		"yes":"Go away, traitor!",
-		"no":"..."},
+    "dynamic_line":"...",
     "responses": [
       { "text": "I'm back!", "topic": "blackbelt_coach_1", 
-		"condition":{ "not":{ "u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes" } }
+		"condition":{
+			"and":[
+				{"not":{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes" } },
+				{"not":{"u_has_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no" } }
+			]
+		}
 	  },
-      { "text": "...", "topic": "TALK_DONE",
-	    "condition":{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},
-		"effect":["mission_failure", "end_conversation"],
+      { "text": "...", "topic": "TALK_MISSION_FAILURE",
+	    "condition":{
+			"or":[
+				{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},
+				{"u_has_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}
+			]
+		},
+		"effect":["mission_failure"],
 		"switch":true
+	  },
+      { "text": "I'm sorry, master, but you must die!", "topic": "TALK_DONE",
+		"condition":{"u_has_var":"fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes"},
+		"effect":[
+			"insult_combat",
+			{"u_lose_var":"fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes"}
+		]
 	  },
       { "text": "...", "topic": "TALK_DONE", "switch":true}
     ]
@@ -249,6 +264,7 @@
     "value": 1000,
 	"start":{
 		"effect":[
+			{"npc_first_topic":"bbm_wu"},
 			{"u_buy_item":"judo_belt_white"}
 		],
       "assign_mission_target": { "om_terrain": "forest", "om_terrain_replace": "field","om_terrain_match_type":"PREFIX", "reveal_radius": 1, "search_range": 40, "min_distance": 3 },
@@ -275,11 +291,9 @@
       "failure": "You are a disgrace to your family!"
 		},
     "fail": { 
-		"condition":{"u_has_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"},
 		"effect":[
-			{"u_consume_item":"judo_belt_yellow"},
-			{ "u_consume_item": "karate_gi" },
-			{ "u_consume_item": "geta" }
+			 "end_conversation",
+			{"u_lose_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}
 		]
 	}
 	},
@@ -317,6 +331,7 @@
     },
 	"end":{
 		"effect":[
+			 "end_conversation",
 			{"u_consume_item":"judo_belt_yellow"},
 			{"u_buy_item":"judo_belt_green"}
 		]
@@ -336,9 +351,8 @@
 	},
     "fail": {
 	  "effect":[
-		{"u_consume_item":"judo_belt_yellow"},
-		{ "u_consume_item": "karate_gi" },
-		{ "u_consume_item": "geta" }
+		"end_conversation",
+		{"u_lose_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes" }
 	  ]
 	}
   },
@@ -388,11 +402,8 @@
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
 	},
-	"fail": { "effect":[
-		{"u_consume_item":"judo_belt_green"},
-		{ "u_consume_item": "karate_gi" },
-		{ "u_consume_item": "geta" }
-		]
+	"fail": { 
+		"effect":"end_conversation"
 	}
   },
   {
