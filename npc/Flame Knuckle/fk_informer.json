@@ -1,6 +1,6 @@
 [
   {
-  "//":"todo add common response; try mission_failure? and effect: end_conversation, change var fail",
+  "//":"TODO check text",
     "type": "npc",
     "id": "flame_knuckle_apprentice_informer",
     "name_suffix": "Apprentice",
@@ -15,18 +15,18 @@
     "id": "TALK_INFORMER",
     "dynamic_line": "Hey, who's making noise? Show yourself!",
     "responses": [
-      { "text": "!!!Это ты информатор? Меня послал мастер Стальной Ладони", "topic": "TALK_INFORMER_CHECK" }
+      { "text": "Relax, I'm not going to hurt you. I'm from Iron Palm master.", "topic": "TALK_INFORMER_CHECK" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_CHECK",
-    "dynamic_line": "Hey who are you? Where did you come from? What do you want from me?",
+    "dynamic_line": "Hey who are you? Where did you come from? I don't know you! What do you want from me?",
     "responses": [
-      { "text": "Berries.", "topic": "TALK_INFORMER_yes" },
+      { "text": "Flowers.", "topic": "TALK_INFORMER_no" },
       { "text": "Fruits.", "topic": "TALK_INFORMER_no" },
       { "text": "Vegetables.", "topic": "TALK_INFORMER_no" },
-      { "text": "Flowers.", "topic": "TALK_INFORMER_no" },
+      { "text": "Berries.", "topic": "TALK_INFORMER_yes" },
       { "text": "Bees.", "topic": "TALK_INFORMER_no" }
 	]
   },
@@ -50,9 +50,9 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_yes",
-    "dynamic_line": "Okay, I'll pretend to believe it. Listen carefully, I don't have much time. Tell the master to check point 5. I left all the necessary information there. And one more thing. Tell him that ... What was that sound? Oh shit, I was tracked! Ru.....",
+    "dynamic_line": "Okay, I'll pretend to believe you. Listen carefully, I don't have much time. Tell the master to check drop point 5. I left all the necessary information there. And one more thing. Tell him that ... What was that sound? Oh shit, I was tracked! Ru.....",
     "responses": [
-      { "text": "Oh shit!", "topic": "TALK_DONE",
+      { "text": "...", "topic": "TALK_DONE",
 	    "effect":[
 			"npc_die",
 			{"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}

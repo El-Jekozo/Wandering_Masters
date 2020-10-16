@@ -27,5 +27,34 @@
     "color": "i_green",
     "see_cost": 5,
     "extras": "build"
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "fk_base_1",
+    "name": "flame knuckle base",
+    "sym": "F",
+    "color": "i_red",
+    "see_cost": 5
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "fk_base_2",
+    "name": "flame knuckle base",
+    "sym": "K",
+    "color": "i_red",
+    "see_cost": 5
+  },
+  {
+    "type": "overmap_terrain",
+    "id": ["fk_base_roof_1","fk_base_roof_2"],
+    "name": "flame knuckle base",
+    "sym": "K",
+    "color": "i_red",
+    "see_cost": 5
+  },
+  {
+    "type": "overmap_terrain",
+    "id": ["fk_base_stash"],
+    "copy-from": "generic_city_house_basement"
   }
 ]

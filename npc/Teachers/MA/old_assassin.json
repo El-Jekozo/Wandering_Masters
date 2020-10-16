@@ -145,7 +145,7 @@
     ]
   },
   {
-  "//":"TODO do quest, find house with interesting basement (or create one (maybe with place_chunk on existing basement, chunk with computers, dirty underwear and other nerd stuff)). create nerd with dialogue where he will beg you not to kill him, maybe trying to give player something for his life? if player agrees, mision failed (or accept his stuff and kill him lol)",
+
     "id": "MISSION_old_assassin_1",
     "type": "mission_definition",
     "name": { "str": "Kill nerd" },

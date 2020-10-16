@@ -2,26 +2,28 @@
   {
   	"//":"TODO potom",
     "type": "npc",
-    "id": "lighthouse_man",
+    "id": "hobo_sebastian",
     "gender": "male",
-    "class": "lighthouse_man",
+    "class": "hobo_sebastian",
+    "name_unique": "Sebastian",
+    "name_suffix": "Hobo",
     "attitude": 0,
     "mission": 7,
-    "chat": "lighthouse_man_1",
+    "chat": "hobo_sebastian_1",
     "faction": "no_faction",
-	"mission_offered": "MISSION_lighthouse_man_1"
+	"mission_offered": "MISSION_hobo_sebastian_1"
   },
   {
     "type": "npc_class",
-    "id": "lighthouse_man",
-    "name": { "str": "Lighthouse man" },
-    "job_description": "Lighthouse man.",
+    "id": "hobo_sebastian",
+    "name": { "str": "Sebastian" },
+    "job_description": "Sebastian.",
     "common": false,
     "bonus_str": { "rng": [ 1, 4 ] },
     "bonus_dex": { "rng": [ 1, 4 ] },
     "bonus_int": { "rng": [ 1, 4 ] },
     "bonus_per": { "rng": [ 1, 4 ] },
-    "carry_override": "lighthouse_man_carried",
+    "carry_override": "hobo_sebastian_carried",
     "traits": [
 	  { "group": "NPC_starting_traits" },
 	  { "group": "Appearance_demographics" },
@@ -36,7 +38,7 @@
   },
   {
     "type": "item_group",
-    "id": "lighthouse_man_worn",
+    "id": "hobo_sebastian_worn",
     "subtype": "collection",
     "entries": [
       { "item": "cloak" }
@@ -44,14 +46,14 @@
   },
   {
     "type": "item_group",
-    "id": "lighthouse_man_carried",
+    "id": "hobo_sebastian_carried",
     "subtype": "collection",
     "entries": [ 
 	]
   },
   {
     "type": "talk_topic",
-    "id": [ "lighthouse_man_1" ],
+    "id": [ "hobo_sebastian_1" ],
     "dynamic_line":"Hello there, friend.",
     "responses": [
 	  { 
@@ -59,15 +61,15 @@
         "condition": "has_assigned_mission",
 		"topic": "TALK_MISSION_INQUIRE"
 	  },
-      { "text": "What's your story?", "topic": "lighthouse_man_Background" },
+      { "text": "What's your story?", "topic": "hobo_sebastian_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "lighthouse_man_teach_check"},
+      { "text": "Can you teach me something?", "topic": "hobo_sebastian_teach_check"},
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_Background",
+    "id": "hobo_sebastian_Background",
     "dynamic_line": "I'm just a regular lighthouse man. That's all.",
     "responses": [
       { "text": "Interesting", "topic": "TALK_NONE" }
@@ -75,27 +77,27 @@
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_teach_check",
+    "id": "hobo_sebastian_teach_check",
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool", "topic": "lighthouse_man_teach",
-	    "condition": {"npc_has_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}},
+      { "text": "Yeah, bruh, i'm cool", "topic": "hobo_sebastian_teach",
+	    "condition": {"npc_has_var": "u_helped_hobo_sebastian", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "hobo_sebastian_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {
 			"effect":[
 				{"u_buy_item": "manual_swordsmanship"},
-				{"npc_lose_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "no"}
+				{"npc_lose_var": "hobo_sebastian_teach", "type": "general", "context": "meeting", "value": "no"}
 			],
-			"topic": "lighthouse_man_teach" 
+			"topic": "hobo_sebastian_teach" 
 		},
-		"failure": { "topic": "lighthouse_man_teach_done" }
+		"failure": { "topic": "hobo_sebastian_teach_done" }
 	  },
       { "text": "Maybe later.", "topic": "TALK_NONE"}
     ]
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_teach",
+    "id": "hobo_sebastian_teach",
     "dynamic_line": "I learned all from it. You can take it now. Good luck!",
     "responses": [
       { "text": "Thanks my brudda", "topic": "TALK_DONE" }
@@ -103,7 +105,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_teach_done",
+    "id": "hobo_sebastian_teach_done",
     "dynamic_line": "I already taught you all I knew.",
     "responses": [
       { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
@@ -111,10 +113,10 @@
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_lighthouse",
+    "id": "hobo_sebastian_lighthouse",
     "dynamic_line": "Are we there yet?",
     "responses": [
-	  { "text": "We're here.", "topic": "lighthouse_man_1",
+	  { "text": "We're here.", "topic": "hobo_sebastian_1",
 	    "condition": {"npc_at_om_location":"lighthouse_ground"}, "effect":["stop_following"]
 	  },
 	  { "text": "Almost.", "topic": "TALK_DONE"}
@@ -125,7 +127,7 @@
     "id": "lighthouse_cleaning",
     "dynamic_line": "Is it safe, my friend?",
     "responses": [
-      { "text": "Yes. Ground floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. Ground floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "0"},
@@ -135,7 +137,7 @@
 		},
 		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
 	  },
-      { "text": "Yes. First floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. First floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "1"},
@@ -145,7 +147,7 @@
 		},
 		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
 	  },
-      { "text": "Yes. Second floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. Second floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "2"},
@@ -155,7 +157,7 @@
 		},
 		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
 	  },
-      { "text": "Yes. Third floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. Third floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "3"},
@@ -165,7 +167,7 @@
 		},
 		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
 	  },
-      { "text": "Yes. Fourth floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. Fourth floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "4"},
@@ -175,7 +177,7 @@
 		},
 		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
 	  },
-      { "text": "Yes. Fifth floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. Fifth floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "5"},
@@ -185,7 +187,7 @@
 		},
 		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
 	  },
-      { "text": "Yes. Top floor.", "topic": "lighthouse_man_cleaned", 
+      { "text": "Yes. Top floor.", "topic": "hobo_sebastian_cleaned", 
 		"condition":{
 			"and":[
 				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "6"},
@@ -200,7 +202,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_cleaned",
+    "id": "hobo_sebastian_cleaned",
     "dynamic_line": "Good. Let's clean the next floor.",
     "responses": [
       { "text": "...", "topic": "TALK_DONE" }
@@ -208,32 +210,32 @@
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_wait",
+    "id": "hobo_sebastian_wait",
     "dynamic_line": "So?",
     "responses": [
-      { "text": "Hi", "topic": "lighthouse_man_1"},
+      { "text": "Hi", "topic": "hobo_sebastian_1"},
       { "text": "I want you to come with me. Let's go. (so that npc would see his boat)", "topic": "TALK_DONE", "effect":"follow_only"},
       { "text": "Stay here", "topic": "TALK_DONE", "effect":"stop_following"},
-	  { "text": "Here's your boat, bro", "topic": "lighthouse_man_boat", 
+	  { "text": "Here's your boat, bro", "topic": "hobo_sebastian_boat", 
 		"condition":"u_is_driving",
 		"effect":[
 			"stop_following", "mission_success",
-			{"npc_add_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}
+			{"npc_add_var": "u_helped_hobo_sebastian", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "hobo_sebastian_teach", "type": "general", "context": "meeting", "value": "yes"}
 		]
 	  }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "lighthouse_man_boat",
+    "id": "hobo_sebastian_boat",
     "dynamic_line": "Good. Thanks man.",
     "responses": [
       { "text": "No problem, man.", "topic": "TALK_DONE"}
     ]
   },
   {
-    "id": "MISSION_lighthouse_man_1",
+    "id": "MISSION_hobo_sebastian_1",
     "type": "mission_definition",
     "name": { "str": "Help me find lighthouse" },
     "description": "Help him find lighthouse",
@@ -245,7 +247,7 @@
 		"effect":"follow_only"
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_lighthouse_man_2",
+    "followup": "MISSION_hobo_sebastian_2",
     "dialogue": {
       "describe": "WIP",
       "offer": "Help me find lighthouse",
@@ -259,7 +261,7 @@
 	}
   },
   {
-    "id": "MISSION_lighthouse_man_2",
+    "id": "MISSION_hobo_sebastian_2",
     "type": "mission_definition",
     "name": { "str": "Help me clean lighthouse" },
     "description": "Help me clean lighthouse",
@@ -275,7 +277,7 @@
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_lighthouse_man_3",
+    "followup": "MISSION_hobo_sebastian_3",
     "dialogue": {
       "describe": "Help me clean lighthouse",
       "offer": "Help me clean lighthouse",
@@ -289,7 +291,7 @@
 	}
   },
   {
-    "id": "MISSION_lighthouse_man_3",
+    "id": "MISSION_hobo_sebastian_3",
     "type": "mission_definition",
     "name": { "str": "Help me fix lighthouse" },
     "description": "Help me fix lighthouse",
@@ -307,7 +309,7 @@
 		}
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_lighthouse_man_4",
+    "followup": "MISSION_hobo_sebastian_4",
     "dialogue": {
       "describe": "Help me fix lighthouse",
       "offer": "Help me fix lighthouse. Bring electronic parts or smthn. WIP, so bring me rock",
@@ -321,7 +323,7 @@
 	}
   },
   {
-    "id": "MISSION_lighthouse_man_4",
+    "id": "MISSION_hobo_sebastian_4",
     "type": "mission_definition",
     "name": { "str": "Help me make a boat" },
     "description": "Help me make a boat, or find me one",
@@ -333,9 +335,9 @@
 	"//":"redo quest",
 	"start":{
 		"effect":[
-			{"npc_first_topic":"lighthouse_man_wait"},
-			{"npc_add_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}
+			{"npc_first_topic":"hobo_sebastian_wait"},
+			{"npc_add_var": "u_helped_hobo_sebastian", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "hobo_sebastian_teach", "type": "general", "context": "meeting", "value": "yes"}
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],

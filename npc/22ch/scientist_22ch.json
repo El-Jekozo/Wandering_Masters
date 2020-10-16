@@ -1,11 +1,9 @@
 [
   {
-  	"//":"TODO write normal text not this bullshit parody of a writing, place him in ???, prob 5-20%(?), npc mostly done, maybe add smthn when have ideas",
+  	"//":"TODO check all, change transmitters code",
     "type": "npc",
     "id": "scientist_22ch",
-    "name_unique": "Narik Abudabi",
-    "gender": "male",
-    "name_suffix": "MD.",
+    "name_suffix": "scientist",
     "class": "scientist_22ch",
     "attitude": 0,
     "mission": 7,
@@ -16,8 +14,8 @@
   {
     "type": "npc_class",
     "id": "scientist_22ch",
-    "name": { "str": "Narik Abudabi" },
-    "job_description": "Narik Abudabi.",
+    "name": { "str": "Scientist 22ch" },
+    "job_description": "Scientist 22ch.",
     "common": false,
     "bonus_str": { "rng": [ 2, 4 ] },
     "bonus_dex": { "rng": [ 2, 4 ] },
@@ -71,10 +69,9 @@
   {
     "type": "talk_topic",
     "id": [ "scientist_22ch_1" ],
-    "dynamic_line":"[*he looks busy*]",
+    "dynamic_line":"*looks busy",
 	"speaker_effect":{"u_add_var": "scientist_22ch_met", "type": "general", "context": "meeting", "value": "yes"},
     "responses": [
-	  { "text": "About that job...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
       { "text": "So, that guy sent me.", "topic": "TALK_MISSION_LIST",
 		"condition":{"u_has_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"}
 	  },
@@ -93,19 +90,16 @@
 		},
 		"success": {
 			"topic": "scientist_22ch_good",
+			"assign_mission_target": { 
+				"om_terrain": "radio_tower_top",
+				"om_special": "Radio Tower",
+				"om_terrain_replace": "field",
+				"om_terrain_match_type":"PREFIX",
+				"search_range": 20, 
+				"min_distance": 5,
+				"cant_see":true
+			},
 			"effect":[
-				{"mapgen_update":{
-					"assign_mission_target": { 
-						"om_terrain": "radio_tower_top",
-						"om_special": "Radio Tower",
-						"om_terrain_replace": "field",
-						"om_terrain_match_type":"PREFIX",
-						"search_range": 20, 
-						"min_distance": 5,
-						"cant_see":true
-						}
-					}
-				},
 				{"npc_adjust_var":"scientist_22ch_transmitter", "type": "flag", "context": "meeting", "adjustment": 1}
 			]
 		},

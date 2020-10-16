@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO write normal text not this bullshit parody of a writing, place him in ???, prob 5-20%(?), npc mostly done, maybe add smthn when have ideas",
+  	"//":"TODO write something place him in cool basement, prob 5-20%(?), add dialogues, check code",
     "type": "npc",
     "id": "lead_scientist_22ch",
     "name_unique": "Professor Narmulan Abubabebich",
@@ -138,9 +138,8 @@
   },
   {
     "type": "talk_topic",
-	"//":"TODO think about clever check for death of that guy, maybe with mgoal_assassinate and check for mission success?",
     "id": "lead_scientist_22ch_transmitters",
-    "dynamic_line": "Yes, what about him?",
+    "dynamic_line": "Yes, what about it?",
     "responses": [
 	  { "text": "We did it, but...I couldn't help him. Sorry.", "topic": "TALK_MISSION_SUCCESS",
 		"condition":{
@@ -149,7 +148,7 @@
 				{"u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes"}
 			]
 		},
-		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
+		"effect":["mission_success",{"npc_first_topic":"lead_scientist_22ch_1"}]
 	  },
 	  { "text": "We failed, and...I couldn't help him. Sorry.", "topic": "TALK_MISSION_FAILURE",
 		"condition":{
@@ -250,9 +249,6 @@
 	"count":10,
     "difficulty": 0,
     "value": 1000,
-	"end":{
-		"effect":{"mapgen_update":"22ch_ai_done", "origin_npc": true}
-	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_5",
     "dialogue": {
@@ -276,9 +272,6 @@
 	"item":"laptop",
     "difficulty": 0,
     "value": 1000,
-	"end":{
-		"effect":{"u_add_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"}
-	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_6",
     "dialogue": {

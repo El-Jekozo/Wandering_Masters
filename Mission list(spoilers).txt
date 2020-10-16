@@ -8,8 +8,9 @@ Blackbelt master:
 	Reward: karate manual.
 	
 Flame Knuckle's Leader
-	Optional: to get to his quest line, bring Blackbelt master's head.
+	0. To get to his quest line, bring Blackbelt master's head.
 	1. Find 2 students.
+	Optional: Train with FK's leader and try to survive while doing it.
 	Reward: aikido manual.
 	
 Wanderer knight

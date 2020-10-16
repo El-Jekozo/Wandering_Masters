@@ -1,40 +1,30 @@
 [
   {
-	"//":"TODO will be obsolete when i'll make them normal base",
+	"//":"TODO why?",
     "type": "mapgen",
-    "update_mapgen_id": "flame_knuckles_base",
+    "update_mapgen_id": "fk_door",
     "method": "json",
     "object": {
-		"place_npcs": [
-          { "class": "flame_knuckle_apprentice", "x": 11, "y": 14 },
-          { "class": "flame_knuckle_apprentice", "x": 12, "y": 14 },
-          { "class": "flame_knuckle_apprentice", "x": 13, "y": 14 },
-          { "class": "flame_knuckle_elite", "x": 11, "y": 13 },
-          { "class": "flame_knuckle_elite", "x": 12, "y": 13 },
-          { "class": "flame_knuckle_apprentice_door", "x": 12, "y": 3 },
-          { "class": "flame_knuckle_master", "x": 11, "y": 12 },
-          { "class": "flame_knuckle_master", "x": 12, "y": 12 },
-          { "class": "flame_knuckle_master", "x": 13, "y": 12 },
-          { "class": "flame_knuckle_leader", "x": 12, "y": 11, "target": true }
-        ]
+		"place_terrain":[
+			{ "ter": "t_door_c", "x": 16, "y": 11 },
+			{ "ter": "t_door_c", "x": 21, "y": 11 }
+		]
 	}
   },
   {
-	"//":"TODO maybe add more?",
     "type": "mapgen",
     "update_mapgen_id": "heist_success",
     "method": "json",
     "object": {
 		"place_item": [{"item": "money_bundle", "x": 0, "y": 1, "amount": [ 1, 10 ], "repeat": [1, 10] }],
 		"place_loot": [
-		{ "group": "art", "x": 0, "y": 1, "chance": 75 },
-		{ "group": "art", "x": 0, "y": 1, "chance": 75 },
-		{ "group": "art", "x": 0, "y": 1, "chance": 75 }
+		{ "group": "art", "x": 0, "y": 1 },
+		{ "group": "art", "x": 0, "y": 1 },
+		{ "group": "art", "x": 0, "y": 1 }
 		]
 	}
   },
   {
-	"//":"TODO maybe add more?",
     "type": "mapgen",
     "update_mapgen_id": "moneylender_share",
     "method": "json",
@@ -43,50 +33,16 @@
 	}
   },
   {
-	"//":"TODO maybe change robot type?",
     "type": "mapgen",
     "update_mapgen_id": "22ch_robot_attack",
     "method": "json",
     "object": {
 		"place_monster":[
-			{"monster":"mon_talon_m202a1", "x":[5, 20], "y":[5,20], "repeat": 5}
+			{"monster":"mon_secubot", "x":[5, 20], "y":[5,20], "repeat": 5}
 		]
 	}
   },
   {
-	"//":"TODO redo if not working",
-    "type": "mapgen",
-    "update_mapgen_id": "22ch_ai_done",
-    "method": "json",
-    "object": {
-  		"computers": {
-			"x":4,
-			"y":4,
-			"name": "AI /22ch",
-			"security": 5,
-			"options": [
-				{ "name": "Who are you", "action": "ai_22ch_1" },
-				{ "name": "Who are me", "action": "ai_22ch_2" },
-				{ "name": "What do you want", "action": "ai_22ch_3" },
-				{ "name": "What do I want", "action": "ai_22ch_4" }
-			],
-			"failures": [{ "action": "shutdown" }, { "action": "alarm" } ]
-		}
-	}
-  },
-  {
-	"//":"TODO maybe add more?",
-    "type": "mapgen",
-    "update_mapgen_id": "bj_bandits",
-    "method": "json",
-    "object": {
-		"place_npc":[
-			{"class":"bandit", "x":[5, 20], "y":[5,20], "repeat": [4,8]}
-		]
-	}
-  },
-  {
-	"//":"TODO why?",
     "type": "mapgen",
     "update_mapgen_id": "22ch_helper",
     "method": "json",
@@ -103,7 +59,7 @@
     "method": "json",
     "object": {
 		"place_monster":[
-			{"monster":"mon_talon_m202a1", "x":[5, 20], "y":[5,20]}
+			{"monster":"mon_secubot", "x":[5, 20], "y":[5,20]}
 		]
 	}
   }  

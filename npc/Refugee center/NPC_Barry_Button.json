@@ -1,12 +1,12 @@
 [
   {
-  	"//":"TODO write normal text not this bullshit parody of a writing; redo checks for dialogue by 'sentinel' effect in 'speaker_effect', do fucking npc_at_om_location: evac_center_7 why does this shit not working?!?!?!? smfh",
+  	"//":"TODO check text, maybe add something more",
     "type": "npc",
     "id": "Barry_Button",
     "name_unique": "Barry Button",
     "gender": "male",
     "name_suffix": "refugee",
-	"class": "C_Barry_Button",
+	"class": "Barry_Button",
     "attitude": 0,
     "mission": 7,
     "chat": "TALK_Barry_Button_1",
@@ -15,7 +15,7 @@
   },
   {
     "type": "npc_class",
-    "id": "C_Barry_Button",
+    "id": "Barry_Button",
     "name": { "str": "Barry Button" },
     "job_description": "I'm just trying to survive.",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
@@ -43,7 +43,10 @@
 		"condition": {"not": {"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}}
 	  },
 	  { "text": "We're here.", "topic": "BarryB_Safe",
-	    "condition": {"npc_at_om_location":"evac_center_7_north"}, "effect":["stop_following"]
+	    "condition": {"npc_at_om_location":"evac_center_7"}, "effect":["stop_following"]
+	  },
+	  { "text": "We're here.", "topic": "BarryB_Safe",
+	    "condition": {"npc_at_om_location":"bank"}, "effect":["stop_following"]
 	  },
 	  { "text": "Almost.", "topic": "TALK_DONE"}
     ]
@@ -64,7 +67,7 @@
   {
     "type": "talk_topic",
     "id": "BarryB_Safe",
-    "dynamic_line": "Phew, that was a close one! I owe you one there, friend. Let me just catch my breath. Talk to me later. I have a job for you, if you're interested.",
+    "dynamic_line": "Phew, that was a close one! I owe you one there, friend. Let me just catch my breath. Talk to me later.",
     "responses": [
       { "text": "I'm glad it's all over.", "topic": "TALK_Barry_Button_2",
 	    "effect":[
@@ -86,10 +89,6 @@
 	  },
       { "text": "What's your story?", "topic": "barry_button_Background" },
 	  { "text":"So, what about that job?", "topic":"barryb_job"},
-      { "text": "So, what's the plan?",
-		"condition": {"npc_has_var":"bb_at_bank", "type": "flag", "context": "meeting", "value": "yes"},
-		"topic": "TALK_MISSION_LIST"
-	  },
       { "text": "Can you teach me something?", "topic": "barry_button_teach_check",
 		"condition":{"npc_has_var":"u_know_barryb_backstory", "type": 	"flag", "context": "meeting", "value": "yes"}
 	  },
@@ -106,16 +105,16 @@
   {
     "type": "talk_topic",
     "id": "barryb_job",
-    "dynamic_line":{"npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 days",
+    "dynamic_line":{"npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 m",
 		"yes":"So, i need help with something. Lead me to nearest bank!",
 		"no":"I'm resting. Return later."
 	},
     "responses": [
       {
-	  "text": "Sure thing, friend.",
-	  "topic": "TALK_NONE",
-	  "condition":{"npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 days"},"npc_first_topic":"TALK_Barry_Button_1",
-	  "effect":"follow_only"
+		"text": "Sure thing, friend.",
+		"topic": "TALK_DONE",
+		"condition":{"npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 m"},
+		"effect":["follow_only",{"npc_first_topic":"TALK_Barry_Button_1"}]
 	  },
       { "text": "Interesting.", "topic": "TALK_NONE"}
     ]
@@ -168,20 +167,30 @@
 					"no":"So, you want to learn how to read fast? No problem, I can teach you!"}}},
 		"no":"I'm affraid that I can't teach you anything."},
     "responses": [
-      { "text": "Yes, let's do this.", "topic": "barry_button_teach"},
-      { "text": "Yes, let's do this.", "topic": "barry_button_teach"},
-      { "text": "Yes, let's do this.", "topic": "barry_button_teach"},
-      { "text": "Yes, let's do this.", "topic": "barry_button_teach"},
-      { "text": "Yes, let's do this.", "topic": "barry_button_teach"},
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+		"condition":{"u_has_trait":"ILLITERATE"},
+		"effect":{"u_lose_trait":"ILLITERATE"},
+		"switch":true
+	  },
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+		"condition":{"u_has_trait":"SLOWREADER"},
+		"effect":{"u_lose_trait":"SLOWREADER"},
+		"switch":true
+	  },
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+		"condition":{"not":{"u_has_trait":"FASTREADER"}},
+		"effect":{"u_add_trait":"FASTREADER"},
+		"switch":true
+	  },
       { "text": "Sorry I don't want to.", "topic": "TALK_NONE"}
     ]
   },
   {
     "type": "talk_topic",
     "id": "barry_button_teach",
-    "dynamic_line": "I learned all from this book. You can take it now. Good luck, student!",
+    "dynamic_line": "Good luck, student!",
     "responses": [
-      { "text": "Thanks, master!", "topic": "TALK_DONE" }
+      { "text": "Thanks, Barry!", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -189,15 +198,7 @@
     "id": "barry_button_teach_done",
     "dynamic_line": "I already taught you all I knew.",
     "responses": [
-      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "barry_button_nope",
-    "dynamic_line": "I'm only talking to my students about my problems. Dress yourself properly and return to me.",
-    "responses": [
-      { "text": "I'm sorry, master! Will do, master!", "topic": "TALK_DONE"}
+      { "text": "Thanks again, Barry.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -212,23 +213,16 @@
     "value": 1000,
 	"start":{
 		"effect":[
+			"stop_following",
 			{"npc_add_var":"barryb_heist", "type": "flag", "context": "meeting", "time":true}
 		]
 	},
 	"end":{
 		"effect":[
-			{"npc_lose_var":"test_232_h", "type": "flag", "context": "meeting", "value": "yes"}
-			],
-		"update_mapgen":[
-			{
-			"origin_npc": true,
-			"place_item": [{"item": "money_bundle", "x": 0, "y": 1, "amount": [ 1, 10 ], "repeat": [1, 10], "chance": 80 }],
-			"place_loot": [
-				{ "group": "art", "x": 0, "y": 1},
-				{ "group": "art", "x": 0, "y": 1 },
-				{ "group": "art", "x": 0, "y": 1 }
-				]
-			}
+			"follow_only",
+			{"npc_lose_var":"barryb_heist", "type": "flag", "context": "meeting"},
+			{"mapgen_update":"heist_success", "origin_npc": true},
+			{"npc_first_topic":"TALK_Barry_Button_1"}
 		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -240,7 +234,7 @@
       "rejected": "WIP?",
       "advice": "WIP.",
       "inquire": "I'm waiting.",
-      "success": "WIP.",
+      "success": "Good, let's go back to RC.",
       "success_lie": "WIP!",
       "failure": "WIP!"
 		}

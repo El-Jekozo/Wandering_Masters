@@ -1,11 +1,10 @@
 [
   {
-  	"//":"TODO write normal text not this bullshit parody of a writing, balance traits stats etc, add more dialogue",
+  	"//":"TODO check text for mistakes, balance traits stats etc",
     "type": "npc",
     "id": "flame_knuckle_leader",
-    "name_unique": "Flame Knuckle Leader",
     "gender": "male",
-    "name_suffix": "Master",
+    "name_suffix": "the Flame Knuckle",
 	"class": "flame_knuckle_leader",
     "attitude": 1,
     "mission": 7,
@@ -17,16 +16,16 @@
     "type": "npc_class",
     "id": "flame_knuckle_leader",
     "name": { "str": "Flame Knuckle Leader" },
-    "job_description": "The leader of Flame Knuckle.",
+    "job_description": "The leader of Flame Knuckle school.",
     "common": false,
     "traits": [
 		{ "group": "flame_knuckle_master" },
 		{ "group": "Appearance_demographics" }
 	],
-    "bonus_str": { "rng": [ 4, 8 ] },
-    "bonus_dex": { "rng": [ 4, 8 ] },
-    "bonus_int": { "rng": [ 4, 6 ] },
-    "bonus_per": { "rng": [ 4, 5 ] },
+    "bonus_str": { "rng": [ 4, 7 ] },
+    "bonus_dex": { "rng": [ 4, 7 ] },
+    "bonus_int": { "rng": [ 3, 5 ] },
+    "bonus_per": { "rng": [ 3, 4 ] },
     "worn_override": "flame_knuckle_leader_worn",
     "carry_override": "flame_knuckle_leader_carried",
 	
@@ -75,21 +74,21 @@
 	  "success": {"topic": "flame_knuckle_leader_good"},
 	  "failure": {"topic": "flame_knuckle_leader_bad"}
 	  },
-      { "text": "I'm here to kick your ass", "topic": "flame_knuckle_leader_bad" }
+      { "text": "I'm here to kick your ass!", "topic": "flame_knuckle_leader_bad" }
     ]
   },
   {
     "id": ["flame_knuckle_leader_good"],
     "type": "talk_topic",
-	"dynamic_line": "So you are the newest student I was told about? Unfortunately for you, I know everything about you. I think you understand that you are not the first person this old fool sends to us. But you're in luck, today I'm in a good mood, and I'm ready to give you a chance. Bring that old man's head and I'll think about your joining our school.",
+	"dynamic_line": "So, you are that new student I was told about? Unfortunately for you, I know everything about you. I think you understand that you are not the first person this old fool sends to us. But you're in luck, today I'm in a good mood, and I'm ready to give you a chance to redeem yourself. Bring that old man's head and I'll think about giving you a chance to join my school.",
     "responses": [
-      { "text": "Sure thing, pal.", "topic": "TALK_DONE", 
+      { "text": "I'll think about that.", "topic": "TALK_DONE", 
 		"effect":[
 			{"npc_first_topic":"flame_knuckle_leader_waiting"},
 			{"u_add_var":"fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes"}
 		]
 	  },
-      { "text": "No way, f*g.", "topic": "flame_knuckle_leader_bad" }
+      { "text": "I think we should fight.", "topic": "flame_knuckle_leader_bad" }
     ]
   },
   {
@@ -141,7 +140,7 @@
   {
     "type": "talk_topic",
     "id": [ "flame_knuckle_leader_1" ],
-	"dynamic_line": "Hello there.",
+	"dynamic_line": "I hope you bring me something worth my attention.",
     "responses": [
 	  { 
 		"text": "About that job...",
@@ -165,47 +164,32 @@
   {
     "type": "talk_topic",
     "id": "flame_knuckle_leader_teach_check",
-    "dynamic_line": "I teach only those who help my school. Did you helped my school?",
+    "dynamic_line": "I'm not in the mood right now. Go away.",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool", "topic": "flame_knuckle_leader_teach",
+      { "text": "Maybe you want to teach me something cool, master?", "topic": "flame_knuckle_leader_teach",
 	    "condition": {"npc_has_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", 
-			"condition": {"npc_has_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}
-		},
-		"success": {
-			"effect":[
-				{"u_buy_item": "manual_aikido"},
-				{"npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}
-			],
-			"topic": "flame_knuckle_leader_aikido" 
-		},
-		"failure": { "topic": "flame_knuckle_leader_teach_done" }
+		"effect":[
+			{"u_buy_item": "manual_aikido"},
+			{"npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
 	  },
-      { "text": "Sorry I'm noob", "topic": "TALK_NONE"
+      { "text": "Sorry, master!", "topic": "TALK_NONE"
 	  }
     ]
   },
   {
     "type": "talk_topic",
     "id": "flame_knuckle_leader_teach",
-    "dynamic_line": "I learned all from this book. You can take it now. Good luck, student!",
+    "dynamic_line": "So, you want to learn the secrets of my school? Here, take it, it's all yours, my student. But you know, I'm not feeling that generous to just give you my secrets that easily. Let's dance for a bit, and if you could stand still after that, consider yourself worth to know the ways of my school.",
     "responses": [
-      { "text": "Thanks, master!", "topic": "TALK_DONE"}
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "flame_knuckle_leader_teach_done",
-    "dynamic_line": "I already taught you all I knew.",
-    "responses": [
-      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
+      { "text": "...", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}]}
     ]
   },
   {
     "id": "MISSION_flame_knuckle_leader_1",
     "type": "mission_definition",
-    "name": { "str": "Find me new students" },
-    "description": "Find new students.",
+    "name": { "str": "Find new students" },
+    "description": "Flame Knuckle's Leader asked you to find new students for his school.",
     "goal": "MGOAL_CONDITION",
 	"goal_condition": {"u_has_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"},
     "difficulty": 0,
@@ -225,15 +209,15 @@
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "Bring me students.",
+      "describe": "Flame Knuckle's Leader",
+      "offer": "Bring me more students, so I can have more force to deal with this situation outside.",
       "accepted": "I'm waiting.",
-      "rejected": "Afraid?",
-      "advice": "Go.",
+      "rejected": "Bah, another coward. Go away!",
+      "advice": "Go search for lone survivors hiding in their basement or something.",
       "inquire": "I'm waiting.",
-      "success": "Good. Here's your reward.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Good, good. Nice catch out there, they can be good asset for me. I'll treat them with care, he-he. Now go play outside.",
+      "success_lie": "You know what we do to liars?",
+      "failure": "So, you chose to lose your head."
 	}
   }
 ]

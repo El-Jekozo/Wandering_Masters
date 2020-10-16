@@ -7,8 +7,9 @@ Blackbelt master:
 	Reward: karate manual.
 	
 Flame Knuckle's Leader
-	Optional: ???
+	0. ???
 	1. Find 2 students.
+	Optional: Train with FK's leader.
 	Reward: aikido manual.
 	
 Wanderer knight

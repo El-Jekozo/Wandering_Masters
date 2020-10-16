@@ -82,7 +82,7 @@
 	"type": "GENERIC",
 	"id": "flyer_fk",
 	"copy-from": "flyer",
-	"name": { "str_sp": "Flame Knuckle's leaflet" },
+	"name": { "str_sp": "flame knuckle's leaflet" },
 	"description": "A piece of paper with an advertisement of'Flame Knuckle' fighting school."
   },
   {
