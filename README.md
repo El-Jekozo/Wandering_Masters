@@ -10,15 +10,15 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 	* Berry Button - 3 quests; unchecked dialogues. Works fine!
 	
   ## MA teachers:
-	* Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues. Works fine
-	* Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues. Works fine
-	* Police Teacher - 4 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
-	* Old Assassin - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
-	& Boxer Johny - 3 quests; unchecked dialogues; Works fine!
-	* Rasta Bob - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested); should work fine
-	* Samurai Akira - 4 quests + 1 minor; unchecked dialogues; some features don't work as wanted; Works fine!
-	* Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
-	* Jason Cost - 3 quests, no dialogues; WIP; most wanted features implemented (need additional testing);
+	Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues. Works fine
+	Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues. Works fine
+	Police Teacher - 4 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
+	Old Assassin - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
+	Boxer Johny - 3 quests; unchecked dialogues; Works fine!
+	Rasta Bob - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested); should work fine
+	Samurai Akira - 4 quests + 1 minor; unchecked dialogues; some features don't work as wanted; Works fine!
+	Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
+	Jason Cost - 3 quests, no dialogues; WIP; most wanted features implemented (need additional testing);
 
 ## Trait teachers:
 	* Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; should work nicely (?);
