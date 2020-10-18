@@ -55,6 +55,7 @@
     "subtype": "collection",
     "items": [
       [ "rock", 1 ],
+      [ "FMCNote", 100 ],
       [ "m9", 1 ]
     ]
   },
@@ -147,6 +148,14 @@
 		"effect":[{"u_sell_item":"FMCNote", "count":350}]
 	  },
       { "text": "Let's trade.", "effect":"start_trade", "topic": "moneylender_2",
+		"condition":{
+			"or":[
+				{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"},
+				{"u_has_var":"moneylender_job_done", "type": "flag", "context": "meeting", "value":"yes"}
+			]
+		}
+	  },
+      { "text": "Let's trade lootboxes.", "topic": "moneylender_trade",
 		"condition":{
 			"or":[
 				{"u_has_var":"bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes"},
@@ -350,6 +359,44 @@
     "dynamic_line": "Come back in few days.",
     "responses": [
       { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_trade",
+    "dynamic_line": "So, i've got:\n Army supplies for 200\n Canned food for 100\n Medieval stuff from museum for 180\n Drugs for 135\n Rare weapons for 600\nDon't forget that I work only with hard cash!",
+    "responses": [
+      { "text": "Army stuff.", "topic": "moneylender_trade", 
+		"effect":[
+			{"mapgen_update":"moneylender_loot_army", "origin_npc":true},
+			{"u_sell_item":"FMCNote", "count":200}
+		]
+	  },
+      { "text": "Canned stuff.", "topic": "moneylender_trade", 
+		"effect":[
+			{"mapgen_update":"moneylender_loot_food", "origin_npc":true},
+			{"u_sell_item":"FMCNote", "count":100}
+		]
+	  },
+      { "text": "Medieval stuff.", "topic": "moneylender_trade", 
+		"effect":[
+			{"mapgen_update":"moneylender_loot_antique_rare", "origin_npc":true},
+			{"u_sell_item":"FMCNote", "count":180}
+		]
+	  },
+      { "text": "Drugs stuff.", "topic": "moneylender_trade", 
+		"effect":[
+			{"mapgen_update":"moneylender_loot_drugs", "origin_npc":true},
+			{"u_sell_item":"FMCNote", "count":135}
+		]
+	  },
+      { "text": "Rare weapons stuff.", "topic": "moneylender_trade", 
+		"effect":[
+			{"mapgen_update":"moneylender_loot_guns_police_rare", "origin_npc":true},
+			{"u_sell_item":"FMCNote", "count":600}
+		]
+	  },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
     ]
   },
   {
