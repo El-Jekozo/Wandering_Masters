@@ -76,7 +76,7 @@
   {
     "id": ["bill_the_assassin_bad"],
     "type": "talk_topic",
-	"dynamic_line": "The answer is wrong.",
+	"dynamic_line": "Wrong answer.",
     "responses": [
       { "text": "...", "topic": "TALK_DONE", "effect":"insult_combat" }
     ]

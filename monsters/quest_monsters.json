@@ -7,5 +7,11 @@
     "death_drops": [
         { "items": "mon_zombie_prisoner_death_drops" }, { "item": "prisoner_bill_head" }
     ]
+  },
+  {
+    "id": "mon_zombie_cop_oat",
+    "type": "MONSTER",
+    "description": "A human body covered by a weather-beaten and badly damaged set of riot gear. This one has a wooden hand.",
+    "copy-from": "mon_zombie_cop"
   }
 ]

@@ -10,8 +10,8 @@
 		"type" : "consume_drug",
 		"activation_message" : "You take a little sip. Tastes like gasoline",
 		"effects" : [
-		{"id": "ub_mustang", "duration": "100 m"},
-		{"id": "took_ub_mustang", "duration": 1, "permanent":true}
+			{"id": "ub_mustang", "duration": "100 m"},
+			{"id": "took_ub_mustang", "duration": 1, "permanent":true}
 		],
 		"moves": 50
 	},
@@ -36,7 +36,7 @@
 	"price_postapoc": 0,
 	"material": "flesh",
 	"volume": "0 ml",
-	"flags": [ "ZERO_WEIGHT" ]
+	"flags": [ "ZERO_WEIGHT","TRADER_AVOID","TRADER_KEEP" ]
   },
   {
   "//":"TODO write normal text? maybe change id",
@@ -89,9 +89,17 @@
   {
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
-	"id": "police_record_pt",
-	"copy-from": "record_accounting",
-	"name": { "str_sp": "Police records" },
+	"id": "police_record",
+	"copy-from": "record_patient",
+	"name": { "str_sp": "police records" },
 	"description": "Large folder full of police records."
+  },
+  {
+  "//":"TODO write normal text? maybe change id",
+	"type": "GENERIC",
+	"id": "military_record",
+	"copy-from": "record_patient",
+	"name": { "str_sp": "classified records" },
+	"description": "Large folder full of classified military papers."
   }
 ]

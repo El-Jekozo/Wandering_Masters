@@ -302,6 +302,13 @@
 			{"npc_first_topic":"lighthouse_man_cleaning"}
 		]
 	},
+	"end":{
+		"effect":[
+			"stop_following",
+			{"npc_lose_var":"lighthouse_man_cleaning", "type": "general", "context": "meeting", "value": "7"},
+			{"npc_first_topic":"lighthouse_man_1"}
+		]
+	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lighthouse_man_3",
     "dialogue": {
@@ -327,7 +334,7 @@
     "start": {
 	  "effect":{"npc_first_topic":"lighthouse_man_family"},
       "assign_mission_target": { 
-		"om_terrain": "house_04",
+		"om_terrain": "house_04_basement",
 		"om_terrain_replace": "house",
 		"om_terrain_match_type":"PREFIX",
 		"reveal_radius": 2,
@@ -335,7 +342,6 @@
 		"min_distance": 50
 	  },
       "update_mapgen": {
-		"om_terrain": "house_04_basement",
 		"place_npcs": [
 			{ "class": "lighthouse_woman", "x": 4, "y": 8, "target":true },
 			{ "class": "lighthouse_girl", "x": 3, "y": 7 }

@@ -7,9 +7,9 @@
     "class": "captain_cost",
     "name_unique": "Jason Cost",
     "name_suffix": "Captain",
-    "attitude": 0,
+    "attitude": 1,
     "mission": 7,
-    "chat": "captain_cost_1",
+    "chat": "captain_cost_meeting",
     "faction": "no_faction",
 	"mission_offered": "MISSION_captain_cost_1"
   },
@@ -53,119 +53,128 @@
   },
   {
     "type": "talk_topic",
-    "id": [ "captain_cost_1" ],
-    "dynamic_line":"Hello there, friend.",
+    "id": "captain_cost_meeting",
+    "dynamic_line": "Hello there. Do you want to help your government?",
     "responses": [
-	  { 
-	    "text": "About that job...",
-        "condition": "has_assigned_mission",
-		"topic": "TALK_MISSION_INQUIRE"
+      { "text": "Interesting, tell me more.", "topic": "TALK_MISSION_LIST" },
+      { "text": "Hell no, my government is dead.", "topic": "captain_cost_refuse" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_refuse",
+    "dynamic_line": "Are you sure about that?",
+    "responses": [
+      { "text": "No.", "topic": "TALK_NONE" },
+      { "text": "Yes.", "topic": "TALK_DONE", "effect":"insult_combat" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_1",
+    "dynamic_line": "So?",
+    "responses": [
+	  { "text": "We're here.", "topic": "captain_cost_wait",
+		"condition":{"npc_at_om_location":"abandonedwarehouse_4"}
 	  },
+	  { "text": "About that job...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST", "condition":{ "not": "has_assigned_mission" }},
       { "text": "What's your story?", "topic": "captain_cost_Background" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "captain_cost_teach_check"},
-      { "text": "Goodbye.", "topic": "TALK_DONE" }
+      { "text": "I don't want to help you anymore.", "topic": "captain_cost_refuse" },
+	  { "text": "Bye.", "topic": "TALK_DONE", "condition": "has_assigned_mission"}
     ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_Background",
-    "dynamic_line": "I'm just a regular lighthouse man. That's all.",
+    "dynamic_line": "WIP.",
     "responses": [
-      { "text": "Interesting", "topic": "TALK_NONE" }
+      { "text": "Interesting.", "topic": "TALK_NONE" }
 	]
   },
   {
     "type": "talk_topic",
-    "id": "captain_cost_teach_check",
-    "dynamic_line": "I teach only those who helped me. Did you helped me?",
-    "responses": [
-      { "text": "Yeah, bruh, i'm cool", "topic": "captain_cost_teach",
-	    "condition": {"npc_has_var": "u_helped_captain_cost", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "captain_cost_teach", "type": "general", "context": "meeting", "value": "yes"}},
-		"success": {
-			"effect":[
-				{"u_buy_item": "manual_swordsmanship"},
-				{"npc_lose_var": "captain_cost_teach", "type": "general", "context": "meeting", "value": "no"}
-			],
-			"topic": "captain_cost_teach" 
-		},
-		"failure": { "topic": "captain_cost_teach_done" }
-	  },
-      { "text": "Maybe later.", "topic": "TALK_NONE"}
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "captain_cost_teach",
-    "dynamic_line": "I learned all from it. You can take it now. Good luck!",
-    "responses": [
-      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "captain_cost_teach_done",
-    "dynamic_line": "I already taught you all I knew.",
-    "responses": [
-      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "captain_cost_lighthouse",
-    "dynamic_line": "Are we there yet?",
-    "responses": [
-	  { "text": "We're here.", "topic": "captain_cost_1",
-	    "condition": {"npc_at_om_location":"lighthouse_ground"}, "effect":["stop_following"]
-	  },
-	  { "text": "Almost.", "topic": "TALK_DONE"}
-    ]
-  },
-
-  {
-    "type": "talk_topic",
     "id": "captain_cost_wait",
+    "dynamic_line": "So, go there and check things.",
+    "responses": [
+      { "text": "....", "topic": "TALK_DONE", 
+	  "effect":[
+		{"mapgen_update":"jcost_place_trap", "origin_npc":true },
+		{"npc_first_topic":"captain_cost_wait1"}
+	  ], 
+	  "switch":true }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_wait1",
     "dynamic_line": "So?",
     "responses": [
-      { "text": "Hi", "topic": "captain_cost_1"},
-      { "text": "I want you to come with me. Let's go. (so that npc would see his boat)", "topic": "TALK_DONE", "effect":"follow_only"},
-      { "text": "Stay here", "topic": "TALK_DONE", "effect":"stop_following"},
-	  { "text": "Here's your boat, bro", "topic": "captain_cost_boat", 
-		"condition":"u_is_driving",
-		"effect":[
-			"stop_following", "mission_success",
-			{"npc_add_var": "u_helped_captain_cost", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "captain_cost_teach", "type": "general", "context": "meeting", "value": "yes"}
-		]
-	  }
-    ]
+      { "text": "Give me one reason not to kill you right now!", "topic": "captain_cost_traitor", "condition":{"u_has_effect":"jcost_betrayed"}, "switch":true },
+      { "text": "....", "topic": "TALK_DONE"}
+	]
   },
   {
     "type": "talk_topic",
-    "id": "captain_cost_boat",
-    "dynamic_line": "Good. Thanks man.",
+    "id": "captain_cost_wait2",
+    "dynamic_line": "Well, i didn't think that someone would ever lived after that.",
     "responses": [
-      { "text": "No problem, man.", "topic": "TALK_DONE"}
-    ]
+      { "text": "You will die, right here, right now!", "topic": "TALK_DONE", "effect":"insult_combat" },
+      { "text": "You will tell me the truth, right now!",
+	    "trial": { "type": "PERSUADE", "difficulty": 50 },
+		"success": { "topic": "captain_cost_truth" },
+		"failure": { "topic": "captain_cost_lie" } 
+	  }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_truth",
+    "dynamic_line": "OK, OK, I'll tell you the truth. Later. Please spare me and I'll give you something cool.",
+    "responses": [
+      { "text": "Die.", "topic": "TALK_DONE", "effect":"insult_combat" },
+      { "text": "Live.", "topic": "TALK_DONE",
+		"effect":[
+			"end_conversation",
+			{"u_buy_item":"manual_taekwondo"}
+		]
+	  }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_lie",
+    "dynamic_line": "No way! I'll die with my truth!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE", "effect":"insult_combat" }
+	]
   },
   {
     "id": "MISSION_captain_cost_1",
     "type": "mission_definition",
-    "name": { "str": "Help me find lighthouse" },
-    "description": "Help him find lighthouse",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "lighthouse_ground",
+    "name": { "str": "Help me find crashed heli" },
+    "description": "Help him find crashed heli",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "black_box_transcript",
     "difficulty": 0,
     "value": 1000,
 	"start":{
-		"effect":"follow_only"
+		"effect":["follow_only",{"toggle_npc_rule": "follow_distance_2"}],
+		"update_mapgen":{
+			"om_terrain": "field",
+			"search_range": 75,
+			"min_distance": 25,
+			"random":true,
+			"place_vehicles": [ { "status": 1, "vehicle": "crashed_helicopters", "x": 7, "y": 9 } ],
+			"place_monsters": [ { "monster": "GROUP_MIL_STRONG", "x": [ 5, 15 ], "y": [ 5, 15 ] } ],
+			"place_item": [ { "item": "black_box_transcript", "x": 8, "y": 10 } ]
+		}
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_2",
     "dialogue": {
       "describe": "WIP",
-      "offer": "Help me find lighthouse",
+      "offer": "Heli crashed nearby. Help me find it. I'll go with you. No objections.",
       "accepted": "GOOD",
       "rejected": "BAD",
       "advice": "HMM",
@@ -178,24 +187,31 @@
   {
     "id": "MISSION_captain_cost_2",
     "type": "mission_definition",
-    "name": { "str": "Help me clean lighthouse" },
-    "description": "Help me clean lighthouse",
-    "goal": "MGOAL_CONDITION",
-	"goal_condition":{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "7"},
+    "name": { "str": "Lead me to bunker" },
+    "description": "Lead me to bunker",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "military_record",
     "difficulty": 0,
     "value": 100,
 	"start":{
-		"effect":[
-			"follow_only",
-			{"npc_add_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "0"},
-			{"npc_first_topic":"lighthouse_cleaning"}
-		]
+		"assign_mission_target":{
+			"om_terrain": "bunker",
+			"om_special": "Military Bunker",
+			"om_terrain_replace": "field",
+			"search_range": 200,
+			"min_distance": 50,
+			"cant_see":true
+		},
+		"update_mapgen":{
+			"om_terrain": "bunker_basement",
+			"place_item": [ { "item": "military_record", "x": 21, "y": 3 } ]
+		}
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_3",
     "dialogue": {
       "describe": "Help me clean lighthouse",
-      "offer": "Help me clean lighthouse",
+      "offer": "Lead me to bunker",
       "accepted": "Good",
       "rejected": "Nooo",
       "advice": "Hmm",
@@ -208,57 +224,28 @@
   {
     "id": "MISSION_captain_cost_3",
     "type": "mission_definition",
-    "name": { "str": "Help me fix lighthouse" },
-    "description": "Help me fix lighthouse",
+    "name": { "str": "Go to special place" },
+    "description": "Go to special place",
     "goal": "MGOAL_FIND_ITEM",
 	"item":"rock",
 	"count":1,
     "difficulty": 0,
     "value": 100,
 	"//":"redo quest",
-	"end":{
-		"update_mapgen": {
-			"place_item": [
-				{ "item": "rock", "x": 15, "y": 11 }
-			]
+	"start":{
+		"effect":[{"npc_first_topic":"captain_cost_wait"}, "stop_following"],
+		"assign_mission_target":{
+			"om_terrain": "abandonedwarehouse_4",
+			"om_terrain_replace": "field",
+			"search_range": 200,
+			"min_distance": 50,
+			"cant_see":true
 		}
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_captain_cost_4",
     "dialogue": {
       "describe": "Help me fix lighthouse",
-      "offer": "Help me fix lighthouse. Bring electronic parts or smthn. WIP, so bring me rock",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
-      "inquire": "So?",
-      "success": "Yes!!!",
-      "success_lie": "Um...-2",
-      "failure": "What a shame.-2"
-	}
-  },
-  {
-    "id": "MISSION_captain_cost_4",
-    "type": "mission_definition",
-    "name": { "str": "Help me make a boat" },
-    "description": "Help me make a boat, or find me one",
-    "goal": "MGOAL_FIND_ITEM",
-	"item":"2x4",
-    "count": 50,
-    "difficulty": 0,
-    "value": 100,
-	"//":"redo quest",
-	"start":{
-		"effect":[
-			{"npc_first_topic":"captain_cost_wait"},
-			{"npc_add_var": "u_helped_captain_cost", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "captain_cost_teach", "type": "general", "context": "meeting", "value": "yes"}
-		]
-	},
-    "origins": [ "ORIGIN_SECONDARY" ],
-    "dialogue": {
-      "describe": "Help me make a boat",
-      "offer": "Help me make a boat. Bring 50 2x4. Or find me one.",
+      "offer": "Go to special place",
       "accepted": "Good",
       "rejected": "Nooo",
       "advice": "Hmm",

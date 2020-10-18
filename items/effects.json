@@ -23,6 +23,10 @@
     "id": "took_ub_mustang"
   },
   {
+    "type": "effect_type",
+    "id": "jcost_betrayed"
+  },
+  {
   "//":"TODO change later or remove",
     "type": "effect_type",
     "id": "taught",

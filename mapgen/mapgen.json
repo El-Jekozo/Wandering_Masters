@@ -1,6 +1,5 @@
 [
   {
-	"//":"TODO why?",
     "type": "mapgen",
     "update_mapgen_id": "fk_door",
     "method": "json",
@@ -67,5 +66,25 @@
 			{"monster":"mon_secubot", "x":[5, 20], "y":[5,20]}
 		]
 	}
+  },      
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "jcost_place_trap",
+    "method": "json",
+    "object": {
+      "place_traps": [ { "trap": "tr_jcost", "x": 19, "y": 14 } ],
+      "place_furniture": [ { "furn": "f_locker", "x": 19, "y": 14 } ]
+    }
+  },  
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "jcost_trap",
+    "method": "json",
+    "object": {
+      "place_terrains": [ { "ter": "t_door_metal_c", "x": 15, "y": 5 }, { "ter": "t_door_metal_c", "x": 7, "y": 11 } ],
+		"place_monster":[
+			{"monster":"mon_manhack", "x":[8, 19], "y":[6,16], "repeat": 10}
+		]
+    }
   }  
 ]

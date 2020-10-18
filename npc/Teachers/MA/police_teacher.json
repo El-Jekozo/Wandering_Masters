@@ -232,7 +232,7 @@
     "name": { "str": "Find police report" },
     "description": "Officer asked you to find him a folder with police reports in PD, located in town nearby.",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"police_record_pt",
+	"item":"police_record",
     "difficulty": 1,
     "value": 1000,
     "start": {
@@ -246,7 +246,7 @@
 	  },
       "update_mapgen": {
 		"om_terrain": "police_2ndfloor_1",
-		"place_item": [ { "item": "police_record_pt", "x": 4, "y": 6 } ]
+		"place_item": [ { "item": "police_record", "x": 4, "y": 6 } ]
 	  }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
