@@ -1,8 +1,8 @@
 [
   {
-	"//":"For MISSION_BURNER. Will spawn fire on tile where PC is standing.",
+	"//":"For MISSION_PYROMANIAC. Will spawn fire on tile where PC is standing.",
     "type": "mapgen",
-    "update_mapgen_id": "MISSION_BURNER_BURN",
+    "update_mapgen_id": "MISSION_PYROMANIAC_BURN",
     "method": "json",
     "object": {
 	  "place_liquids": [ { "liquid": "gasoline", "x": [ 5, 20 ], "y": [ 5, 20 ], "amount": 5 , "repeat": 40 } ],

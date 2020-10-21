@@ -1,8 +1,8 @@
 [
   {
-    "id": "MISSION_BURNER",
+    "id": "MISSION_PYROMANIAC",
     "type": "mission_definition",
-    "name": { "str": "Angry burner" },
+    "name": { "str": "Angry pyromaniac" },
     "goal": "MGOAL_GO_TO",
     "difficulty": 0,
     "value": 0,
@@ -13,7 +13,7 @@
     "start":{
 	  "effect":[
 		"follow_only",
-	    {"npc_first_topic":"MISSION_BURNER"}
+	    {"npc_first_topic":"MISSION_PYROMANIAC"}
 	  ],
 	  "assign_mission_target":{
 		"om_terrain":"house",
@@ -28,14 +28,14 @@
 	  "effect":[
 		"follow",
 		{"u_consume_item":"gasoline", "count":200},
-		{"mapgen_update":"MISSION_BURNER_BURN"}
+		{"mapgen_update":"MISSION_PYROMANIAC_BURN"}
 	  ]
 	},
     "origins": [ "ORIGIN_OPENER_NPC" ],
     "dialogue": {
       "describe": "Oh man, I want to burn it so bad…",
-      "offer": "I'm so angry! I have an enemy that ruined my life, and I want revenge for it! I don't care about <the_cataclysm>, I just want to burn his house! Would you help me?",
-      "accepted": "Good. Let's go to his house and burn it! Oh, by the way, could you bring gasoline with you? I was so angry I forgot to bring it with me…",
+      "offer": "I'm so angry! I have an enemy that ruined my life, and I want revenge! I don't care about <the_cataclysm>, I just want to burn his house! Would you help me?",
+      "accepted": "Good. Let's go to his house and burn it down! Oh, by the way, could you bring gasoline with you? I was so angry I forgot to bring it with me…",
       "rejected": "Seriously?  It's an easy job…",
       "advice": "Maybe we can find some gasoline at gas station.",
       "inquire": "Are you ready?",
