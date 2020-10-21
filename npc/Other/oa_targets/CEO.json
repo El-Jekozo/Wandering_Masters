@@ -76,7 +76,7 @@
     "type": "talk_topic",
 	"dynamic_line": "Take it and go away.",
     "responses": [
-	  { "text": "...", "topic":"TALK_DONE",
+	  { "text": "…", "topic":"TALK_DONE",
 		"effect":[
 			"end_conversation",
 			{"u_add_var": "old_assassin_fail", "type": "general", "context": "meeting", "value": "yes"}

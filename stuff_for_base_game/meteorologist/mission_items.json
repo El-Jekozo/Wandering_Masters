@@ -1,0 +1,10 @@
+[
+  {
+	"//":"TODO change description",
+    "type": "GENERIC",
+    "id": "module_meteorologist",
+    "name": { "str": "memory banks module" },
+    "description": "Allows for storage and recovery of information.",
+    "copy-from": "robot_module_abstract"
+  }
+]

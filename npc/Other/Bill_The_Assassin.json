@@ -78,7 +78,7 @@
     "type": "talk_topic",
 	"dynamic_line": "Wrong answer.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE", "effect":"insult_combat" }
+      { "text": "…", "topic": "TALK_DONE", "effect":"insult_combat" }
     ]
   },
   {
@@ -143,7 +143,7 @@
 	"dynamic_line": "Wow, cool. Actually, I lied about secret room. Take this book instead.",
     "responses": [
       { "text": "LIAR!", "topic": "bill_the_assassin_bad" },
-      { "text": "...", "topic": "TALK_DONE", 
+      { "text": "…", "topic": "TALK_DONE", 
 		"effect":[
 			"end_conversation",
 			{"u_buy_item":"manual_centipede"}

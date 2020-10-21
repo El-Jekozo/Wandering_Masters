@@ -73,7 +73,7 @@
     },
     "responses": [
 	  { 
-		"text": "About that job...",
+		"text": "About that job…",
 		"condition": "has_assigned_mission",
 		"trial": { "type": "CONDITION",
 			"condition": {
@@ -130,7 +130,7 @@
   {
     "type": "talk_topic",
     "id": "blackbelt_coach_Background",
-    "dynamic_line": "Well, if you would like to know, we would have to start before the Cataclysm. There were two schools, The Iron Palm and The Flame Knuckle. Our Dojo fell apart quickly, my students and even some of my fellow masters left to join the riots. Almost as if they had forgotten their teachings. The ones that stayed behind turned into the Monsters that roam the streets. The Flame Knuckle somehow didn’t feel the same destruction as we did, they quickly adapted to the new world and expanded their population, offering protection and training to the outside world. But they kept their grievances and decided to end our dojo, I must prevent this from happening.",
+    "dynamic_line": "Well, if you would like to know, we would have to start before <the_cataclysm>. There were two schools, The Iron Palm and The Flame Knuckle. Our Dojo fell apart quickly, my students and even some of my fellow masters left to join the riots. Almost as if they had forgotten their teachings. The ones that stayed behind turned into the Monsters that roam the streets. The Flame Knuckle somehow didn’t feel the same destruction as we did, they quickly adapted to the new world and expanded their population, offering protection and training to the outside world. But they kept their grievances and decided to end our dojo, I must prevent this from happening.",
     "responses": [
       { "text": "Interesting.", "topic": "TALK_NONE" },
       { "text": "I think you're lying.", 
@@ -158,7 +158,7 @@
 		},
 		"failure": { "topic": "blackbelt_coach_teach_done" }
 	  },
-      { "text": "Maybe later...", "topic": "TALK_NONE"
+      { "text": "Maybe later…", "topic": "TALK_NONE"
 	  }
     ]
   },
@@ -217,7 +217,7 @@
   {
     "type": "talk_topic",
     "id": "bbm_wu",
-    "dynamic_line":"...",
+    "dynamic_line":"…",
     "responses": [
       { "text": "I'm back.", "topic": "blackbelt_coach_1", 
 		"condition":{
@@ -227,7 +227,7 @@
 			]
 		}
 	  },
-      { "text": "...", "topic": "TALK_MISSION_FAILURE",
+      { "text": "…", "topic": "TALK_MISSION_FAILURE",
 	    "condition":{
 			"or":[
 				{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},
@@ -244,12 +244,13 @@
 			{"u_lose_var":"fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes"}
 		]
 	  },
-      { "text": "...", "topic": "TALK_DONE", "switch":true}
+      { "text": "…", "topic": "TALK_DONE", "switch":true}
     ]
   },
   {
     "id": "MISSION_blackbelt_coach_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Find informer" },
     "description": "Find the informer, who was infiltrated to 'Flame Knuckle' school, and talk to him.",
     "goal": "MGOAL_CONDITION",
@@ -280,7 +281,7 @@
       "rejected": "Are you scared?",
       "advice": "Be careful. The guy could be found out, so try not to bring tail here.",
       "inquire": "I'm waiting.",
-      "success": "Well done, student. I knew you would succeed! Well, tell me all you got... \nHmmm, that's how it is. Well, it complicates my job a little. I need a little time to think about it. Here, hold this belt, you deserve it.",
+      "success": "Well done, student. I knew you would succeed! Well, tell me all you got… \nHmmm, that's how it is. Well, it complicates my job a little. I need a little time to think about it. Here, hold this belt, you deserve it.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
 		},
@@ -295,6 +296,7 @@
   {
     "id": "MISSION_blackbelt_coach_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Kill one of the trainers" },
     "description": "The Master has asked you to kill one of the Flame Fist School trainers before he can train a new group of students.",
     "goal": "MGOAL_ASSASSINATE",
@@ -353,6 +355,7 @@
   {
     "id": "MISSION_blackbelt_coach_3",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "End the Flame Knuckle" },
     "description": "It's time to end the Flame Knuckle once and for all.",
     "goal": "MGOAL_FIND_ITEM",
@@ -390,7 +393,7 @@
     "dialogue": {
       "describe": "Blackbelt master",
       "offer": "So, my student, it's time for real punch! I managed to locate their base, and even learned that their leader will be there. I want you to go there, show them the power of the Iron Palm and bring me the head of their leader as proof. You are my best student, so it wouldn't be difficult for you.",
-      "accepted": "Good. He will be there for a week at least. If you want to get to him before dealing with his other crooks, ask me how, I've got an idea...",
+      "accepted": "Good. He will be there for a week at least. If you want to get to him before dealing with his other crooks, ask me how, I've got an idea…",
       "rejected": "Afraid?!",
       "advice": "I know little about their base, but they have a bunch of crooks that joined them for protection, a few trainers for training new students, maybe something more. Oh, if you see the guys with masks. They are his tops, so be extremly carefull while dealing with them.",
       "inquire": "So?",
@@ -408,6 +411,7 @@
   {
     "id": "MISSION_blackbelt_coach_4",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Find me new students" },
     "description": "Find new students.",
     "goal": "MGOAL_CONDITION",

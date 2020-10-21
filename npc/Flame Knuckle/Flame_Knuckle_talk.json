@@ -5,16 +5,16 @@
 	"//": "TODO change this lame line",
     "dynamic_line": "Can't you see I'm training? Get out of my way!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_FK_ELITE",
 	"//": "TODO change this lame line",
-    "dynamic_line": "Another new face...",
+    "dynamic_line": "Another new face…",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -23,7 +23,7 @@
 	"//": "TODO change this lame line",
     "dynamic_line": "One wrong move and you're dead!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -36,7 +36,7 @@
       { "text": "Sure, where to sign?", "topic": "TALK_MISSION_OFFER",
 		"condition":{"not":{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"}}
 	  },
-	  { "text": "...", "topic": "TALK_DONE"}
+	  { "text": "…", "topic": "TALK_DONE"}
     ]
   },
   {
@@ -62,7 +62,7 @@
 	"//": "TODO change this lame line",
     "dynamic_line": "Permition granted! Go forward, and don't touch anything, or you'll regret it!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 		"effect":[
 			{"mapgen_update":"fk_door", "origin_npc": true },
 			{"npc_first_topic":"TALK_FK"}
@@ -76,7 +76,7 @@
 	"//": "TODO change this lame line",
     "dynamic_line": "Get lost!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -85,12 +85,13 @@
 	"//": "TODO change this lame line",
     "dynamic_line": "Funny guy, are you? Boys, let's teach this clown some manners!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
+      { "text": "…", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
     ]
   },
   {
     "id": "MISSION_fk_coach",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Flame Knuckle school" },
     "description": "Go talk to Flame Knuckle's leader.",
     "goal": "MGOAL_TALK_TO_NPC",

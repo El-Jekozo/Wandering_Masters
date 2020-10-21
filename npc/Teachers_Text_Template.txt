@@ -4,7 +4,7 @@
     "dynamic_line": "!!!GREET HERE",
     "responses": [
 	  { 
-	  "text": "About that job...",
+	  "text": "About that job…",
   	  "topic": "TALK_MISSION_INQUIRE",
       "condition": "has_assigned_mission"
 	  },
@@ -88,6 +88,7 @@
   "//":"TODO do quest",
     "id": "MISSION_police_cqc_teacher_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "!!!WIP-NAME1" },
     "description": "!!!DESC1 MISSION",
     "goal": "MGOAL_CONDITION",

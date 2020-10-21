@@ -64,7 +64,7 @@
     "dynamic_line": "Yo!",
     "responses": [
 	  { 
-	  "text": "About that job...",
+	  "text": "About that job…",
   	  "topic": "TALK_MISSION_INQUIRE",
       "condition": "has_assigned_mission"
 	  },
@@ -85,15 +85,15 @@
   {
     "type": "talk_topic",
     "id": "rasta_bob_truth1",
-    "dynamic_line": "I'll be honest with you. [*he showes you his arm with large bite mark*] I think you understand what that means. I tried to heal it, but for some reason, the mark wont go, and the pain wont stop, no matter how i tried. I think I'll become one of them. I DONT whant to become one of that thing!...",
+    "dynamic_line": "I'll be honest with you. [*he showes you his arm with large bite mark*] I think you understand what that means. I tried to heal it, but for some reason, the mark wont go, and the pain wont stop, no matter how i tried. I think I'll become one of them. I DONT whant to become one of that thing!…",
     "responses": [
-      { "text": "Oh, I didn't know...", "topic": "rasta_bob_truth2" }
+      { "text": "Oh, I didn't know…", "topic": "rasta_bob_truth2" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "rasta_bob_truth2",
-    "dynamic_line": "It's been a fun ride. We had so much fun together. I just wanted to have fun for the last time, and you were there to help me with it. But now, I'm asking you to help me for the last time...",
+    "dynamic_line": "It's been a fun ride. We had so much fun together. I just wanted to have fun for the last time, and you were there to help me with it. But now, I'm asking you to help me for the last time…",
     "responses": [
       { "text": "Sure thing. I'll do anything for you.", "topic": "rasta_bob_truth3" }
     ]
@@ -101,17 +101,17 @@
   {
     "type": "talk_topic",
     "id": "rasta_bob_truth3",
-    "dynamic_line": "You have to kill me. That's the only way I can be freed from this curse, and not become one of that things after death. I know that I ask you too much, but...",
+    "dynamic_line": "You have to kill me. That's the only way I can be freed from this curse, and not become one of that things after death. I know that I ask you too much, but…",
     "responses": [
-      { "text": "I...understand...I'll help you...for the last time...", "topic": "rasta_bob_truth4" }
+      { "text": "I…understand…I'll help you…for the last time…", "topic": "rasta_bob_truth4" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "rasta_bob_truth4",
-    "dynamic_line": "Thank you, you are truly my friend. Just do it quick, please. And if it's not hard for you, could you please burry me on this cementery? I want to rest in this grounds, with my parents...",
+    "dynamic_line": "Thank you, you are truly my friend. Just do it quick, please. And if it's not hard for you, could you please burry me on this cementery? I want to rest in this grounds, with my parents…",
     "responses": [
-      { "text": "Sure thing, my friend. Goodbye... It was a fun ride...", "topic": "rasta_bob_truth5" }
+      { "text": "Sure thing, my friend. Goodbye… It was a fun ride…", "topic": "rasta_bob_truth5" }
     ]
   },
   {
@@ -119,7 +119,7 @@
     "id": "rasta_bob_truth5",
     "dynamic_line": "[*He dies peacefully with a smile on his face. Something falls down from his pocket*]",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE", "effect": [{"u_buy_item":"manual_capoeira"},"npc_die"]}
+      { "text": "…", "topic": "TALK_DONE", "effect": [{"u_buy_item":"manual_capoeira"},"npc_die"]}
     ]
   },
   {
@@ -131,7 +131,7 @@
 		"condition":"u_driving",
 		"effect":[{"npc_add_var":"rasta_bob_car", "type": "flag", "context": "meeting", "value": "yes"}]
 	  },
-      { "text": "...", "topic": "TALK_DONE"}
+      { "text": "…", "topic": "TALK_DONE"}
     ]
   },
   {
@@ -157,7 +157,7 @@
 	  },
 	    "effect":[{"npc_add_var":"rasta_bob_cemetery", "type": "flag", "context": "meeting", "value": "yes"}, "stop_following"]
 	  },
-      { "text": "...", "topic": "TALK_DONE"}
+      { "text": "…", "topic": "TALK_DONE"}
     ]
   },
   {
@@ -166,13 +166,14 @@
     "dynamic_line": "[*ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ*]",
     "responses": [
       { "text": "AY YO!", "topic": "TALK_MISSION_INQUIRE", "condition":"mission_complete", "effect":[{"npc_first_topic":"rasta_bob_dd"}]},
-      { "text": "...", "topic": "TALK_DONE"}
+      { "text": "…", "topic": "TALK_DONE"}
     ]
   },  
   {
   "//":"TODO do quest",
     "id": "MISSION_rasta_bob_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Find weed" },
     "description": "Find weed",
     "goal": "MGOAL_FIND_ITEM",
@@ -207,6 +208,7 @@
   "//":"TODO idea: find his car, do check for car later when found normal solution (ANOTHER FUCKING WORKAROUND KEVIIIIIIIIIIIIN BRING BACK SCRIPT SUPPORT!!!!!!!!)",
     "id": "MISSION_rasta_bob_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Find my car dude" },
     "description": "FInd my car",
     "goal": "MGOAL_CONDITION",
@@ -248,6 +250,7 @@
   "//":"TODO do quest!! add special zed, maybe something more dunno, items maybe? case with weed or smthn",
     "id": "MISSION_rasta_bob_3",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Go to Drug Dealer" },
     "description": "Go to Drug Dealer",
     "goal": "MGOAL_KILL_MONSTER",
@@ -277,7 +280,7 @@
     "followup": "MISSION_rasta_bob_4",
     "dialogue": {
       "describe": "MUDER-DEATH-KILL",
-      "offer": "Let's go check my drug dealer. He's at the mothel, over there...",
+      "offer": "Let's go check my drug dealer. He's at the mothel, over there…",
       "accepted": "WIP-ACCEPTED1",
       "rejected": "WIP-REJ1",
       "advice": "WIP-ADV1",
@@ -290,6 +293,7 @@
   {
     "id": "MISSION_rasta_bob_4",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Get me to my family grave" },
     "description": "Get me to my family grave",
     "goal": "MGOAL_CONDITION",

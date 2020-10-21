@@ -1,16 +1,17 @@
-Blackbelt master - Dojo.
-Wanderer knight - Church.
+Blackbelt master - Dojo, 2nd floor.
+Wanderer knight - Church, 2nd floor.
 Lighthouse man - Lake dock.
 Samurai Akira - Public pond.
 Boxer Johny - Gym, 2nd floor.
 Old Assassin - Gunstore, 2nd floor.
 Police CQC Teacher - Police Station, 2nd floor in cell.
-Rasta Bob - WIP
+Rasta Bob - Gas station.
 Berry Button - Refugee center.
 Moneylender - in his basement (WIP).
 /22ch Lead Scientist - in his basement (WIP).
-Hobo - Subway.
+Hobo Victoria - Subway station.
 Captain Cost - Helipad, generator room.
 
 Flame Knuckle leader - spawned in BBM questline.
 Barry Button - spawned in Berry Button's questline.
+Bill the Assassin - spawned in Police Teacher's questline.

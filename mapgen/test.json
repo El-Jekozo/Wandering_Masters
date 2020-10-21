@@ -41,12 +41,12 @@
       "place_graffiti": [
         { "text": "Quest givers", "x": 4, "y": 3 },
         { "text": "Barry Button", "x": 8, "y": 3 },
-        { "text": "Cost", "x": 10, "y": 3 }
+        { "text": "Captain Cost", "x": 10, "y": 3 }
 	  ],
 
       "place_npcs": [
 	    { "class": "samurai_akira", "x": 1, "y": 4 },
-	    { "class": "hobo_sebastian", "x": 1, "y": 4 },
+	    { "class": "hobo_victoria", "x": 2, "y": 4 },
 	    { "class": "Berry_Button", "x": 1, "y": 1 },
 	    { "class": "blackbelt_coach", "x": 2, "y": 1 },
 	    { "class": "wanderer_knight", "x": 3, "y": 1 },
@@ -56,7 +56,9 @@
 	    { "class": "rasta_bob", "x": 7, "y": 1 },
 	    { "class": "Barry_Button", "x": 9, "y": 1 },
 	    { "class": "captain_cost", "x": 11, "y": 1 },
+	    { "class": "scientist_22ch", "x": 15, "y": 1 },
 	    { "class": "moneylender", "x": 17, "y": 1 },
+	    { "class": "meteorologist", "x": 15, "y": 5 },
 	    { "class": "test_npc_232", "x": 17, "y": 5 }
       ]
     }

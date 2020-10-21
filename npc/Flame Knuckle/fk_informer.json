@@ -41,6 +41,7 @@
 		"failure": { "topic": "TALK_DONE",
 			"effect":[
 				"end_conversation",
+				"flee",
 				{"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}
 			]
 		} 
@@ -50,9 +51,9 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_yes",
-    "dynamic_line": "Okay, I'll pretend to believe you. Listen carefully, I don't have much time. Tell the master to check drop point 5. I left all the necessary information there. And one more thing. Tell him that ... What was that sound? Oh shit, I was tracked! Ru.....",
+    "dynamic_line": "Okay, I'll pretend to believe you. Listen carefully, I don't have much time. Tell the master to check drop point 5. I left all the necessary information there. And one more thing. Tell him that… What was that sound? Oh shit, I was tracked! Ru…",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 	    "effect":[
 			"npc_die",
 			{"u_add_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes"}

@@ -79,12 +79,12 @@
       "yes": "Ah, The Chosen One! What brings you to this sacred place?",
       "no": {"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes",
 		"yes":"Ah, glad to see another living soul in this cursed world. What brings you to this sacred place?",
-		"no":"Hmm..."
+		"no":"Hmm…"
 	  }
     },
     "responses": [
 	  { 
-	    "text": "About that job...",
+	    "text": "About that job…",
         "condition": "has_assigned_mission",
 		"trial": { "type": "CONDITION", 
 			"condition": {
@@ -151,7 +151,7 @@
     "id": "wanderer_knight_trust_no",
     "dynamic_line": "*slowly shake his head",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -163,7 +163,7 @@
         "no": "Ah, it's good to see another folower of our lord Jesus Christ. Welcome, my sister."
 	},
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 	    "effect":[{"npc_add_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"}]
 	  }
     ]
@@ -228,7 +228,7 @@
   {
     "type": "talk_topic",
     "id": "wanderer_knight_truth",
-    "dynamic_line": "Well, to be honest, I'm just a guy in cool suit... I took it from museum when first deads start walking to protect myself, and to somehow remain stable, I started to think of myself as holy warrior, that was sent here to purge the world of walking deads... Don't judge me, please... ",
+    "dynamic_line": "Well, to be honest, I'm just a guy in cool suit… I took it from museum when <the_cataclysm> started to protect myself, and to somehow remain stable, I started to think of myself as holy warrior, that was sent here to purge the world of walking deads… Don't judge me, please… ",
     "responses": [
       { "text": "Ok, ok, I'll play along. But only if you start calling me 'The Chosen One'! [*chuckles*]", "topic": "wanderer_knight_1",
 		"effect":[
@@ -243,7 +243,7 @@
     "id": "wanderer_knight_lie",
     "dynamic_line": "HOW DARE YOU SAY SOMETHING LIKE THAT!!!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 		"effect":[{"npc_add_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes"}]
 	  }
     ]
@@ -257,12 +257,13 @@
         "no": "Where is your cross, my sister?"
 	},
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "MISSION_wanderer_knight_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Prove that you are true warrior of the light" },
     "description": "Knight asked you to prove that you are true warrior of the light by killing 100 zombies.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
@@ -280,13 +281,14 @@
       "advice": "God bless you!",
       "inquire": "I'm waiting.",
       "success": "It's good to see another warrior of the light. I'm pleased to see that you succeed in this task.",
-      "success_lie": "Um...",
+      "success_lie": "Um…",
       "failure": "What a shame."
 	}
   },
   {
     "id": "MISSION_wanderer_knight_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Help Father Randalf" },
     "description": "Knight asked you to help Father Randalf to lift his curse.",
     "goal": "MGOAL_KILL_MONSTER",
@@ -313,15 +315,16 @@
       "accepted": "I'll wait.",
       "rejected": "What are you, infidel?!",
       "advice": "I know you can do it! God bless you!",
-      "inquire": "Hmm...",
+      "inquire": "Hmm…",
       "success": "Ah, what a relief! You did good, my friend.",
-      "success_lie": "Um...",
+      "success_lie": "Um…",
       "failure": "What a shame."
 	}
   },
   {
     "id": "MISSION_wanderer_knight_3",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Find relic" },
     "description": "Knight asked you to find special relic, the remains of some priest that lived in this land a few centuries ago.",
     "goal": "MGOAL_FIND_ITEM",
@@ -357,7 +360,7 @@
       "advice": "I don't know what you will face there, but God will help you!",
       "inquire": "I'm waiting.",
       "success": "Ah, splendid!",
-      "success_lie": "Um...",
+      "success_lie": "Um…",
       "failure": "What a shame."
 	}
   }

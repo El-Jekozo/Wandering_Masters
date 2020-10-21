@@ -33,7 +33,7 @@
     "id": "lighthouse_woman_safe",
     "dynamic_line":"Thank you!",
     "responses": [
-	  { "text": "...", "topic": "TALK_DONE" }
+	  { "text": "…", "topic": "TALK_DONE" }
     ]
   }
 ]

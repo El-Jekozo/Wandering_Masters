@@ -77,7 +77,7 @@
 	  { "text": "We're here.", "topic": "captain_cost_wait",
 		"condition":{"npc_at_om_location":"abandonedwarehouse_4"}
 	  },
-	  { "text": "About that job...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
+	  { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST", "condition":{ "not": "has_assigned_mission" }},
       { "text": "What's your story?", "topic": "captain_cost_Background" },
       { "text": "I don't want to help you anymore.", "topic": "captain_cost_refuse" },
@@ -97,7 +97,7 @@
     "id": "captain_cost_wait",
     "dynamic_line": "So, go there and check things.",
     "responses": [
-      { "text": "....", "topic": "TALK_DONE", 
+      { "text": "….", "topic": "TALK_DONE", 
 	  "effect":[
 		{"mapgen_update":"jcost_place_trap", "origin_npc":true },
 		{"npc_first_topic":"captain_cost_wait1"}
@@ -111,7 +111,7 @@
     "dynamic_line": "So?",
     "responses": [
       { "text": "Give me one reason not to kill you right now!", "topic": "captain_cost_traitor", "condition":{"u_has_effect":"jcost_betrayed"}, "switch":true },
-      { "text": "....", "topic": "TALK_DONE"}
+      { "text": "….", "topic": "TALK_DONE"}
 	]
   },
   {
@@ -121,7 +121,7 @@
     "responses": [
       { "text": "You will die, right here, right now!", "topic": "TALK_DONE", "effect":"insult_combat" },
       { "text": "You will tell me the truth, right now!",
-	    "trial": { "type": "PERSUADE", "difficulty": 50 },
+		"trial": { "type": "INTIMIDATE", "difficulty": 45, "mod": [ [ "FEAR", 8 ], [ "VALUE", 2 ], [ "TRUST", 2 ], [ "BRAVERY", -2 ] ] },
 		"success": { "topic": "captain_cost_truth" },
 		"failure": { "topic": "captain_cost_lie" } 
 	  }
@@ -146,12 +146,13 @@
     "id": "captain_cost_lie",
     "dynamic_line": "No way! I'll die with my truth!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE", "effect":"insult_combat" }
+      { "text": "…", "topic": "TALK_DONE", "effect":"insult_combat" }
 	]
   },
   {
     "id": "MISSION_captain_cost_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Help me find crashed heli" },
     "description": "Help him find crashed heli",
     "goal": "MGOAL_FIND_ITEM",
@@ -180,13 +181,14 @@
       "advice": "HMM",
       "inquire": "SO?",
       "success": "Yoss!",
-      "success_lie": "Um...",
+      "success_lie": "Um…",
       "failure": "What a shame."
 	}
   },
   {
     "id": "MISSION_captain_cost_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Lead me to bunker" },
     "description": "Lead me to bunker",
     "goal": "MGOAL_FIND_ITEM",
@@ -217,23 +219,26 @@
       "advice": "Hmm",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um...-2",
+      "success_lie": "Um…-2",
       "failure": "What a shame.-2"
 	}
   },
   {
     "id": "MISSION_captain_cost_3",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Go to special place" },
     "description": "Go to special place",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"rock",
-	"count":1,
+	"item":"jcost_note",
     "difficulty": 0,
     "value": 100,
-	"//":"redo quest",
+	"//":"TODO redo quest",
 	"start":{
-		"effect":[{"npc_first_topic":"captain_cost_wait"}, "stop_following"],
+		"effect":[
+			{"npc_first_topic":"captain_cost_wait"},
+			"stop_following"
+		],
 		"assign_mission_target":{
 			"om_terrain": "abandonedwarehouse_4",
 			"om_terrain_replace": "field",
@@ -251,7 +256,7 @@
       "advice": "Hmm",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um...-2",
+      "success_lie": "Um…-2",
       "failure": "What a shame.-2"
 	}
   }

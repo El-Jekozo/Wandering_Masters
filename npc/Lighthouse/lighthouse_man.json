@@ -40,7 +40,7 @@
     "dynamic_line":"Hello there, friend.",
     "responses": [
 	  { 
-	    "text": "About that job...",
+	    "text": "About that job…",
         "condition": "has_assigned_mission",
 		"topic": "TALK_MISSION_INQUIRE"
 	  },
@@ -68,20 +68,20 @@
 		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {
 			"effect":[
-				{"u_buy_item": "manual_swordsmanship"},
+				{"u_add_trait": "OUTDOORSMAN"},
 				{"npc_lose_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "no"}
 			],
 			"topic": "lighthouse_man_teach" 
 		},
 		"failure": { "topic": "lighthouse_man_teach_done" }
 	  },
-      { "text": "...", "topic": "TALK_NONE"}
+      { "text": "…", "topic": "TALK_NONE"}
     ]
   },
   {
     "type": "talk_topic",
     "id": "lighthouse_man_teach",
-    "dynamic_line": "well, if you insist. ",
+    "dynamic_line": "well, if you insist.",
     "responses": [
       { "text": "Thanks my brudda", "topic": "TALK_DONE" }
     ]
@@ -196,13 +196,13 @@
     "id": "lighthouse_man_cleaned",
     "dynamic_line": "Good. Let's clean the next floor.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "lighthouse_man_wait",
-    "dynamic_line": "...",
+    "dynamic_line": "…",
     "responses": [
       { "text": "Hi", "topic": "lighthouse_man_1"},
       { "text": "I want you to come with me. Let's go. (so that npc would see his boat)",  "topic": "TALK_DONE", "effect":"follow_only"
@@ -263,6 +263,7 @@
   {
     "id": "MISSION_lighthouse_man_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Help me find lighthouse" },
     "description": "Help him find lighthouse",
     "goal": "MGOAL_GO_TO_TYPE",
@@ -282,13 +283,14 @@
       "advice": "HMM",
       "inquire": "SO?",
       "success": "Yoss!",
-      "success_lie": "Um...",
+      "success_lie": "Um…",
       "failure": "What a shame."
 	}
   },
   {
     "id": "MISSION_lighthouse_man_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Help me clean lighthouse" },
     "description": "Help me clean lighthouse",
     "goal": "MGOAL_CONDITION",
@@ -319,7 +321,7 @@
       "advice": "Hmm",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um...-2",
+      "success_lie": "Um…-2",
       "failure": "What a shame.-2"
 	}
   },
@@ -361,7 +363,7 @@
       "advice": "Hmm",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um...-2",
+      "success_lie": "Um…-2",
       "failure": "What a shame.-2"
 	}
   },
@@ -393,7 +395,7 @@
       "advice": "Hmm",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um...-2",
+      "success_lie": "Um…-2",
       "failure": "What a shame.-2"
 	}
   },
@@ -424,7 +426,7 @@
       "advice": "Hmm",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um...-2",
+      "success_lie": "Um…-2",
       "failure": "What a shame.-2"
 	}
   }

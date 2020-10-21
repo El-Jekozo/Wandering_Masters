@@ -56,7 +56,7 @@
     "id": "BarryB_GetOut",
     "dynamic_line": "Let's go!",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 		"effect": [
 			"follow_only",
 			{"u_add_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}
@@ -83,7 +83,7 @@
 	"dynamic_line": "Hello there, friend.",
     "responses": [
 	  { 
-		"text": "About that job...",
+		"text": "About that job…",
 		"condition": "has_assigned_mission",
 		"topic": "TALK_MISSION_INQUIRE"
 	  },
@@ -204,6 +204,7 @@
   {
     "id": "MISSION_BarryB_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Heist" },
     "description": "Protect me!!!",
     "goal": "MGOAL_CONDITION",

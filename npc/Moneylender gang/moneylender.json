@@ -24,6 +24,7 @@
     "bonus_per": { "rng": [ 1, 6 ] },
     "worn_override": "moneylender_worn",
     "shopkeeper_item_group": "moneylender_shop",
+    "carry_override": "boxer_johny_carried",
     "traits": [
 	  { "group": "NPC_starting_traits" },
 	  { "group": "Appearance_demographics" },
@@ -51,6 +52,14 @@
   },
   {
     "type": "item_group",
+    "id": "boxer_johny_carried",
+    "subtype": "collection",
+    "entries": [ 
+	{ "item": "moneylender_head" }
+	]
+  },
+  {
+    "type": "item_group",
     "id": "moneylender_shop",
     "subtype": "collection",
     "items": [
@@ -63,6 +72,7 @@
     "type": "talk_topic",
     "id": [ "moneylender_1" ],
     "dynamic_line": "Who are you and what do you want?!",
+	"speaker_effect":{"u_add_var": "moneylender_met", "type": "general", "context": "meeting", "value": "yes"},
     "responses": [
 	  { "text": "I'm here to talk about Johny's debt.", "topic":"moneylender_johny",
 		"condition":{"u_has_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}
@@ -83,7 +93,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_johny",
-    "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owed me a lot of money before all this mess, and I want it back. You have two options: pay for Johny, in new money it will be 350 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless, you want to help him lose it... I'll pay you for it, and maybe even let you buy my premium goods.",
+    "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owed me a lot of money before <the_cataclysm>, and I want it back. You have two options: pay for Johny, in new money it will be 350 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless, you want to help him lose it… I'll pay you for it, and maybe even let you buy my premium goods.",
     "responses": [
       { "text": "Maybe I just kick your ass?", "topic": "moneylender_nope" },
       { "text": "I'll think about it.", "topic": "TALK_DONE",
@@ -124,7 +134,7 @@
 	},
     "responses": [
 	  { 
-	    "text": "About that job...",
+	    "text": "About that job…",
   	    "topic": "TALK_MISSION_INQUIRE",
         "condition": "has_assigned_mission"
 	  },
@@ -239,7 +249,7 @@
     "id": "moneylender_debt",
     "dynamic_line": "Nice. Consider yourself freed from your friends debt, he-he. If you want to earn more money, or spend it, talk to me.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 		"effect":[
 			{"u_lose_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"},
 			{"npc_lose_var":"moneylender_job", "type": "flag", "context": "meeting"},
@@ -253,7 +263,7 @@
     "id": "moneylender_debt1",
     "dynamic_line": "Nice. Consider yourself freed from your friends debt, he-he. If you want to trade, talk to me.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 		"effect":[
 			{"u_lose_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"},
 			{"npc_lose_var":"moneylender_job", "type": "flag", "context": "meeting"},
@@ -280,7 +290,7 @@
     "id": "moneylender_share",
     "dynamic_line": "Here's your share. Now go away.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 		"effect":[
 			{"mapgen_update":"moneylender_share", "origin_npc": true},
 			{"u_adjust_var":"moneylender_job", "type": "flag", "context": "meeting", "adjustment": -1}
@@ -358,36 +368,36 @@
     "id": "moneylender_later",
     "dynamic_line": "Come back in few days.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE" }
+      { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "moneylender_trade",
-    "dynamic_line": "So, i've got:\n Army supplies for 200\n Canned food for 100\n Medieval stuff from museum for 180\n Drugs for 135\n Rare weapons for 600\nDon't forget that I work only with hard cash!",
+    "dynamic_line": "So, i've got:\n Army supplies for 225\n Canned food for 20\n Medieval stuff from museum for 280\n Pharmacy for 300\n Rare weapons for 600\nDon't forget that I work only with hard cash!",
     "responses": [
       { "text": "Army stuff.", "topic": "moneylender_trade", 
 		"effect":[
 			{"mapgen_update":"moneylender_loot_army", "origin_npc":true},
-			{"u_sell_item":"FMCNote", "count":200}
+			{"u_sell_item":"FMCNote", "count":225}
 		]
 	  },
       { "text": "Canned stuff.", "topic": "moneylender_trade", 
 		"effect":[
 			{"mapgen_update":"moneylender_loot_food", "origin_npc":true},
-			{"u_sell_item":"FMCNote", "count":100}
+			{"u_sell_item":"FMCNote", "count":20}
 		]
 	  },
       { "text": "Medieval stuff.", "topic": "moneylender_trade", 
 		"effect":[
 			{"mapgen_update":"moneylender_loot_antique_rare", "origin_npc":true},
-			{"u_sell_item":"FMCNote", "count":180}
+			{"u_sell_item":"FMCNote", "count":280}
 		]
 	  },
-      { "text": "Drugs stuff.", "topic": "moneylender_trade", 
+      { "text": "Pharmacy stuff.", "topic": "moneylender_trade", 
 		"effect":[
 			{"mapgen_update":"moneylender_loot_drugs", "origin_npc":true},
-			{"u_sell_item":"FMCNote", "count":135}
+			{"u_sell_item":"FMCNote", "count":300}
 		]
 	  },
       { "text": "Rare weapons stuff.", "topic": "moneylender_trade", 
@@ -403,6 +413,7 @@
 	"//":"TODO do quest",
     "id": "MISSION_moneylender_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "WIP" },
     "description": "WIP",
     "goal": "MGOAL_FIND_ITEM",
@@ -438,6 +449,7 @@
 	"//":"TODO do quest",
     "id": "MISSION_moneylender_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "WIP" },
     "description": "WIP.",
     "goal": "MGOAL_FIND_ITEM",

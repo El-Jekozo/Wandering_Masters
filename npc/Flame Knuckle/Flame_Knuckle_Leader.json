@@ -143,7 +143,7 @@
 	"dynamic_line": "I hope you bring me something worth my attention.",
     "responses": [
 	  { 
-		"text": "About that job...",
+		"text": "About that job…",
 		"condition": "has_assigned_mission",
 		"topic": "TALK_MISSION_INQUIRE"
 	  },
@@ -182,12 +182,13 @@
     "id": "flame_knuckle_leader_teach",
     "dynamic_line": "So, you want to learn the secrets of my school? Here, take it, it's all yours, my student. But you know, I'm not feeling that generous to just give you my secrets that easily. Let's dance for a bit, and if you could stand still after that, consider yourself worth to know the ways of my school.",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}]}
+      { "text": "…", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}]}
     ]
   },
   {
     "id": "MISSION_flame_knuckle_leader_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Find new students" },
     "description": "Flame Knuckle's Leader asked you to find new students for his school.",
     "goal": "MGOAL_CONDITION",

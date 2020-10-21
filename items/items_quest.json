@@ -16,7 +16,7 @@
 		"moves": 50
 	},
 	"symbol": ")",
-	"description": "Large plastic jug with sticker, there's a picture of mustang horse on it. Text on the top of the sticker: 'Best before...', further text unreadable.",
+	"description": "Large plastic jug with sticker, there's a picture of mustang horse on it. Text on the top of the sticker: 'Best before…', further text unreadable.",
 	"price": 0,
 	"price_postapoc": 0,
 	"material": "plastic",
@@ -81,10 +81,19 @@
   {
   "//":"TODO write normal text? maybe change id",
 	"type": "GENERIC",
+	"id": "moneylender_head",
+	"name": { "str_sp": "seveared head" },
+	"copy-from": "enemy_head",
+	"description": "Moneylender severed head." 
+  },
+  {
+  "//":"TODO write normal text? maybe change id",
+	"type": "GENERIC",
 	"id": "flyer_fk",
 	"copy-from": "flyer",
 	"name": { "str_sp": "flame knuckle's leaflet" },
-	"description": "A piece of paper with an advertisement of'Flame Knuckle' fighting school."
+	"description": "A piece of paper with an advertisement of'Flame Knuckle' fighting school.",
+	"flags": [ "TRADER_AVOID" ]
   },
   {
   "//":"TODO write normal text? maybe change id",
@@ -92,7 +101,8 @@
 	"id": "police_record",
 	"copy-from": "record_patient",
 	"name": { "str_sp": "police records" },
-	"description": "Large folder full of police records."
+	"description": "Large folder full of police records.",
+	"flags": [ "TRADER_AVOID" ]
   },
   {
   "//":"TODO write normal text? maybe change id",
@@ -100,6 +110,22 @@
 	"id": "military_record",
 	"copy-from": "record_patient",
 	"name": { "str_sp": "classified records" },
-	"description": "Large folder full of classified military papers."
+	"description": "Large folder full of classified military papers.",
+	"flags": [ "TRADER_AVOID" ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "jcost_note",
+    "category": "books",
+    "symbol": ",",
+    "color": "white",
+    "name": { "str": "strange note" },
+    "description": "A scrap of paper.  Something's written on it, scrawled in terrible handwriting.",
+    "price": 0,
+    "price_postapoc": 0,
+    "material": [ "paper" ],
+    "flags": [ "TRADER_AVOID" ],
+    "weight": "3 g",
+    "volume": "1 ml"
   }
 ]

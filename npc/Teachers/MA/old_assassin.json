@@ -3,7 +3,7 @@
   	"//":"TODO write normal text (DO NOT FORGET THAT CHAR IS FEMALE) not this bullshit parody of a writing, maybe add bonus for ?, do class ",
     "type": "npc",
     "id": "old_assassin",
-    "name_unique": "Old Assassin",
+    "name_suffix": "assassin",
     "gender": "female",
     "class": "old_assassin",
     "attitude": 0,
@@ -68,7 +68,7 @@
     "dynamic_line":"Hello",
     "responses": [
 	  { 
-	  "text": "About that job...",
+	  "text": "About that job…",
   	  "topic": "TALK_MISSION_INQUIRE",
       "condition": "has_assigned_mission"
 	  },
@@ -129,11 +129,11 @@
     "type": "talk_topic",
     "id": "old_assassin_wait",
     "dynamic_line":{"u_has_var": "old_assassin_fail", "type": "general", "context": "meeting", "value": "yes",
-		"yes":"What a shame...",
-		"no":"..."
+		"yes":"What a shame…",
+		"no":"…"
 	},
     "responses": [
-      { "text": "...", "topic": "TALK_DONE",
+      { "text": "…", "topic": "TALK_DONE",
 	    "condition":{"u_has_var":"old_assassin_fail", "type": "flag", "context": "meeting", "value": "yes"},
 		"effect":["mission_failure", "end_conversation"],
 		"switch":true
@@ -145,6 +145,7 @@
 
     "id": "MISSION_old_assassin_1",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Kill nerd" },
     "description": "Kill that nerd",
     "goal": "MGOAL_ASSASSINATE",
@@ -181,9 +182,10 @@
 		}
 	},
   {
-  "//":"idea: kill corrupt cop, but cop have become a zed, so... kill zombie? maybe make unique zombie with some cool loot and attacks?",
+  "//":"idea: kill corrupt cop, but cop have become a zed, so… kill zombie? maybe make unique zombie with some cool loot and attacks?",
     "id": "MISSION_old_assassin_2",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Kill cop" },
     "description": "Kill cop",
     "goal": "MGOAL_KILL_MONSTER",
@@ -220,6 +222,7 @@
   "//":"TODO do quest!!",
     "id": "MISSION_old_assassin_3",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Kill nerd" },
     "description": "Kill that nerd",
     "goal": "MGOAL_ASSASSINATE",
@@ -257,6 +260,7 @@
   {
     "id": "MISSION_old_assassin_4",
     "type": "mission_definition",
+	"has_generic_rewards":false,
     "name": { "str": "Kill top CEO" },
     "description": "Kill top CEO",
     "goal": "MGOAL_ASSASSINATE",

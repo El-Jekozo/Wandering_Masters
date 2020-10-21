@@ -49,7 +49,16 @@
 	}
   },
   {
-	"//":"TODO don't forget to edit it!",
+	"//":"TODO maybe edit?",
+    "type": "mapgen",
+    "update_mapgen_id": "22ch_transmitter",
+    "method": "json",
+    "object": {
+		"place_furniture":[{"furn": "f_scrap_antenna", "x":14, "y":4 } ]
+	}
+  }, 
+  {
+	"//":"TODO maybe edit or remove?",
     "type": "mapgen",
     "update_mapgen_id": "22ch_transmitter_done",
     "method": "json",
@@ -58,7 +67,7 @@
 			{"monster":"mon_secubot", "x":[5, 20], "y":[5,20]}
 		]
 	}
-  },      
+  },   
   {
     "type": "mapgen",
     "update_mapgen_id": "jcost_place_trap",
@@ -78,5 +87,25 @@
 			{"monster":"mon_manhack", "x":[8, 19], "y":[6,16], "repeat": 10}
 		]
     }
-  }  
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "hobo_victoria_heat",
+    "method": "json",
+    "object": {
+			"place_furniture":[ { "furn": "f_55gal_firebarrel", "x": 10, "y": 20 } ],
+			"place_item": [{"item": "2x4", "x": 10, "y": 20, "amount": 20 }],
+			"place_fields": [ { "field": "fd_fire", "x": 10, "y": 20 } ]
+	}
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "boxer_johny_moneylender_spawn",
+    "method": "json",
+    "object": {
+		"place_npcs": [
+			{ "class": "moneylender", "x": 10, "y": 10 }
+		]
+	}
+  }
 ]

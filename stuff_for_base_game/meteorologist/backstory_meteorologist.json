@@ -1,0 +1,12 @@
+[
+  {
+	"//":"TODO write something",
+    "id": "BGSS_METEOROLOGIST_1",
+    "type": "talk_topic",
+    "dynamic_line": "Before <the_cataclysm> I was metrologist. And also after it.",
+    "responses": [
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
+      { "text": "<end_talking>", "topic": "TALK_DONE" }
+    ]
+  }
+]
