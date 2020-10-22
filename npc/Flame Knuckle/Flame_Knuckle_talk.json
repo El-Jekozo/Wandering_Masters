@@ -45,7 +45,7 @@
 	"//": "TODO change this lame line",
     "dynamic_line": "Halt! Who goes there?",
     "responses": [
-      { "text": "Friendly.", "topic": "TALK_DONE",
+      { "text": "Friendly.",
         "trial": {
           "type": "CONDITION",
           "condition": {"u_has_item":"flyer_fk"}

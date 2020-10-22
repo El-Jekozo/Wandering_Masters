@@ -143,48 +143,76 @@
 	]
   },
   {
-  "//":"testing stuff",
     "id": "MISSION_test_232_1",
     "type": "mission_definition",
-    "name": { "str": "Help burner" },
-    "goal": "MGOAL_GO_TO",
-    "difficulty": 0,
-    "value": 10000,
-	"has_generic_rewards":false,
-    "start":{
-		"effect":[
-			"follow_only",
-			{"npc_first_topic":"MISSION_BURNER"}
-		],
-		"assign_mission_target":{
-			"om_terrain":"house",
-			"om_terrain_replace": "field",
+    "name": { "str": "Find Lost Dog" },
+    "goal": "MGOAL_FIND_MONSTER",
+    "difficulty": 3,
+    "value": 100000,
+	"start":{
+		"effect":{"u_buy_item":"dog_whistle"},
+		"assign_mission_target": {
+			"om_terrain": "house",
 			"om_terrain_match_type":"PREFIX",
-			"search_range": 10, 
-			"min_distance": 1,
-			"random":true,
-			"z": 0
+			"reveal_radius": 1,
+			"search_range": 75,
+			"z":0
+		},
+		"update_mapgen": {
+			"place_monster": [ { "monster": "mon_dog", "x": 10, "y": 10, "target": true, "friendly":true } ] 
 		}
-	},
-	"end":{
-		"effect":[
-			"follow",
-			{"u_consume_item":"gasoline", "count":200},
-			{"mapgen_update":"MISSION_BURNER_BURN"}
-		]
 	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Oh man, I can't believe I forgot to burn it…",
-      "offer": "Argh, I'm so angry! I had an enemy that ruined my whole life, and I want revenge! I don't care about <the_cataclysm>, I just want to burn his house! Would you help me?",
-      "accepted": "Good. Let's go to his house and burn it! Oh, by the way, could you also bring gasoline with you? Thanks!",
-      "rejected": "Seriously?  It's an easy job…",
-      "advice": "Maybe we can find some gasoline at gas station.",
-      "inquire": "Are you ready?",
-      "success": "Excellent, thank you! It smells so nice! All his stuff, and probably even himself, will burn to ashes in a matter of hours. I'll go with you, to the end, my friend!",
-      "success_lie": "What?!  You liar!",
-      "failure": "Wow, you failed?  All that work, down the drain…"
+      "describe": "Oh, my poor puppy…",
+      "offer": "I lost my poor dog, not far from here. Can you retrieve it?",
+      "accepted": "Thank you!  Please hurry back!",
+      "rejected": "Please, think of my poor little puppy!",
+      "advice": "Take my dog whistle; if the dog starts running off, blow it and he'll return to your side.",
+      "inquire": "Have you found my dog yet?",
+      "success": "Thank you so much for finding him! I think he likes you. Maybe you should bring him with you. Maybe you can keep him safe…",
+      "success_lie": "What?!  You're lying, I can tell!  Ugh, forget it!",
+      "failure": "Oh no!  My poor puppy…"
     }
+  },
+  {
+    "id": "MISSION_test_232_6",
+    "type": "mission_definition",
+	"has_generic_rewards":false,
+    "name": { "str": "Find my pet rat" },
+    "description": "Find my pet rat",
+    "goal": "MGOAL_FIND_MONSTER",
+	"start":{
+		"assign_mission_target": {
+			"om_terrain": "field",
+			"om_terrain_match_type":"PREFIX",
+			"reveal_radius": 1,
+			"random": true,
+			"search_range": 40,
+			"min_distance": 5
+		},
+		"update_mapgen": {
+			"place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true } ] 
+		}
+	},
+	"end":{
+		"effect":{"u_buy_monster":"mon_black_rat"}
+	},
+    "difficulty": 0,
+    "value": 100,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_test_232_2",
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "Find my pet rat",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "Don't forget to tell him a few sweet words from me!",
+      "inquire": "I'm waiting.",
+      "success": "Huh, i thougt my rat returned to me, but you return with him. So, now I have 2 rats. Take one. ",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	}
   },
   {
     "id": "MISSION_test_232_2",

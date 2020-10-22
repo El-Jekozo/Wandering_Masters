@@ -146,7 +146,7 @@
     "id": "blackbelt_coach_teach_check",
     "dynamic_line": "I teach only those who helped my school. Did you helped my school?",
     "responses": [
-      { "text": "Yes, master.", "topic": "blackbelt_coach_teach",
+      { "text": "Yes, master.",
 	    "condition": {"npc_has_var": "u_helped_blackbelt_coach", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "blackbelt_coach_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {

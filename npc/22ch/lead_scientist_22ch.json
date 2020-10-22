@@ -101,7 +101,7 @@
     "id": "lead_scientist_22ch_teach_check",
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool", "topic": "lead_scientist_22ch_teach",
+      { "text": "Yeah, bruh, i'm cool",
 	    "condition": {"npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION",
 			"condition": {"npc_has_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes"}

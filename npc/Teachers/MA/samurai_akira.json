@@ -98,7 +98,7 @@
 			"no":"Hmm… I'm not ready. My mission is not finished. Yet."
 	},
     "responses": [
-      { "text": "Yes, teach me.", "topic": "samurai_akira_teach",
+      { "text": "Yes, teach me.",
 	    "condition": {"npc_has_var": "u_helped_samurai_akira", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION",
 			"condition": {"and":[

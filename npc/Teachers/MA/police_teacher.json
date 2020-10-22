@@ -113,7 +113,7 @@
     "id": "police_teacher_teach_check",
     "dynamic_line": "Look, right now I can only think about one thing, and that's definetly not about teaching, ok?",
     "responses": [
-      { "text": "So, what about now?", "topic": "police_teacher_teach",
+      { "text": "So, what about now?",
 	    "condition": {"npc_has_var": "u_helped_police_teacher", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION",
 			"condition": {"npc_has_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "yes"}

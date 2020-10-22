@@ -187,7 +187,7 @@
     "id": "wanderer_knight_teach_check",
     "dynamic_line": "I teach only those who help holy warriors in need. Do you help holy warriors in need?",
     "responses": [
-      { "text": "Yes, my brother.", "topic": "wanderer_knight_teach",
+      { "text": "Yes, my brother.",
 	    "condition": {"npc_has_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION",
 			"condition": {"npc_has_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}

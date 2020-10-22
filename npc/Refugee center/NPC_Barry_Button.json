@@ -138,7 +138,7 @@
 		"yes":"So, you want to learn something new? I can teach you read faster, or just read.",
 		"no":"I have one unfinished task. Let's speak later about this"},
     "responses": [
-      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+      { "text": "Yes, let's do this.",
 	    "condition": {"npc_has_var": "u_helped_barry_button", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", 
 			"condition": {"npc_has_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes"}

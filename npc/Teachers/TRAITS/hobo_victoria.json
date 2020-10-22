@@ -80,7 +80,7 @@
     "id": "hobo_victoria_teach_check",
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool", "topic": "hobo_victoria_teach",
+      { "text": "Yeah, bruh, i'm cool",
 	    "condition": {"npc_has_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {
@@ -206,11 +206,8 @@
 			"min_distance": 5
 		},
 		"update_mapgen": {
-			"place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true } ] 
+			"place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true, "friendly":true } ] 
 		}
-	},
-	"end":{
-		"effect":{"u_buy_monster":"mon_black_rat"}
 	},
 	"fail":{
 		"effect":"end_conversation"

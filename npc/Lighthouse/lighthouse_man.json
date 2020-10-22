@@ -63,7 +63,7 @@
     "id": "lighthouse_man_teach_check",
     "dynamic_line": "Maybe later.",
     "responses": [
-      { "text": "What about now?", "topic": "lighthouse_man_teach",
+      { "text": "What about now?",
 	    "condition": {"npc_has_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {

@@ -124,7 +124,7 @@
     "id": "boxer_johny_teach_check",
     "dynamic_line": "I'll teach you, for sure, but only after I'll deal with all my problems.",
     "responses": [
-      { "text": "So, problems solved?", "topic": "boxer_johny_teach",
+      { "text": "So, problems solved?",
 	    "condition": {"npc_has_var": "u_helped_boxer_johny", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes"}},
 		"success": {

@@ -52,7 +52,7 @@
 	"id": "ip_leader_head",
 	"name": { "str_sp": "seveared head" },
 	"copy-from": "enemy_head",
-	"description": "Iron Palm's master's severed head." 
+	"description": "Iron Palm's master's severed head."
   },
   {
   "//":"TODO write normal text? maybe change id",

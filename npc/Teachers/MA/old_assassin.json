@@ -91,7 +91,7 @@
     "id": "old_assassin_teach_check",
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool", "topic": "old_assassin_teach",
+      { "text": "Yeah, bruh, i'm cool",
 	    "condition": {"npc_has_var": "u_helped_old_assassin", "type": "general", "context": "meeting", "value": "yes"},
 		"trial": { "type": "CONDITION", 
 			"condition": {"npc_has_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "yes"}
