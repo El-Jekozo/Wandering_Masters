@@ -58,7 +58,6 @@
 	    { "class": "captain_cost", "x": 11, "y": 1 },
 	    { "class": "scientist_22ch", "x": 15, "y": 1 },
 	    { "class": "moneylender", "x": 17, "y": 1 },
-	    { "class": "meteorologist", "x": 15, "y": 5 },
 	    { "class": "test_npc_232", "x": 17, "y": 5 }
       ]
     }

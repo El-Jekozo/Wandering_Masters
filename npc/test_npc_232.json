@@ -40,8 +40,16 @@
     "type": "talk_topic",
 	"dynamic_line": "TEST ME!",
     "responses": [
+	      {
+        "text": "Test cost trap",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "mapgen_update": "jcost_place_trap", "origin_npc": true, "om_terrain": "forest", "search_range": 3, "min_distance":1 }
+        ]
+      },
 	  {"text":"Test teach.", "topic":"TALK_DONE", "effect":[{"u_add_effect":"taught", "duration": "360 m"}]},
 	  {"text":"Test follow.", "topic":"TALK_DONE", "effect":"follow"},
+	  {"text":"Test follow only.", "topic":"TALK_DONE", "effect":"follow_only"},
       {"text": "Test heist.", "topic": "TALK_DONE",
 	  "effect":[{"mapgen_update":"heist_success", "origin_npc": true}]
 	  },

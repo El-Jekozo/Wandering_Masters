@@ -70,26 +70,6 @@
   },   
   {
     "type": "mapgen",
-    "update_mapgen_id": "jcost_place_trap",
-    "method": "json",
-    "object": {
-      "place_traps": [ { "trap": "tr_jcost", "x": 19, "y": 14 } ],
-      "place_furniture": [ { "furn": "f_locker", "x": 19, "y": 14 } ]
-    }
-  },  
-  {
-    "type": "mapgen",
-    "update_mapgen_id": "jcost_trap",
-    "method": "json",
-    "object": {
-      "place_terrains": [ { "ter": "t_door_metal_c", "x": 15, "y": 5 }, { "ter": "t_door_metal_c", "x": 7, "y": 11 } ],
-		"place_monster":[
-			{"monster":"mon_manhack", "x":[8, 19], "y":[6,16], "repeat": 10}
-		]
-    }
-  },
-  {
-    "type": "mapgen",
     "update_mapgen_id": "hobo_victoria_heat",
     "method": "json",
     "object": {
@@ -107,5 +87,57 @@
 			{ "class": "moneylender", "x": 10, "y": 10 }
 		]
 	}
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "jcost_trap",
+    "method": "json",
+    "object": {
+      "place_terrain": [ { "ter": "t_door_metal_locked", "x": 4, "y": 5 } ],
+		"place_monster":[
+			{"monster":"mon_skitterbot", "x":[1, 13], "y":[3,4], "repeat": [5,10]}
+		]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "jcost_place_trap",
+    "method": "json",
+    "object": { "place_nested": [ { "chunks": [ "jcost_trap_shack" ], "x": 0, "y": 0 } ] }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "jcost_trap_shack",
+    "object": {
+      "mapgensize": [ 13, 13 ],
+      "rows": [
+        "#############",
+        "#C#C#C#C#C#C#",
+        "#.#.#.#.#.#.#",
+        "#...........#",
+        "#...........#",
+        "####+########",
+        "             ",
+        "             ",
+        "             ",
+        "             ",
+        "             ",
+        "             ",
+        "             "
+      ],
+      "terrain": {
+		" ": "t_null",
+        "#": "t_concrete_wall",
+        ".": "t_thconc_floor",
+        "C": "t_thconc_floor",
+		"+": "t_door_metal_o"
+	  },
+	  "furniture": {
+		"C": "f_locker"
+    },
+		"place_item": [{"item": "jcost_note", "x": 5, "y": 1 }],
+		"place_traps": [ { "trap": "tr_jcost", "x": 5, "y": 2 } ]
+  }
   }
 ]

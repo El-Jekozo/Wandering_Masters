@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO potom",
+    "//": "TODO potom",
     "type": "npc",
     "id": "captain_cost",
     "gender": "male",
@@ -11,7 +11,7 @@
     "mission": 7,
     "chat": "captain_cost_meeting",
     "faction": "no_faction",
-	"mission_offered": "MISSION_captain_cost_1"
+    "mission_offered": "MISSION_captain_cost_1"
   },
   {
     "type": "npc_class",
@@ -25,8 +25,8 @@
     "bonus_per": { "rng": [ 1, 4 ] },
     "carry_override": "captain_cost_carried",
     "traits": [
-	  { "group": "NPC_starting_traits" },
-	  { "group": "Appearance_demographics" },
+      { "group": "NPC_starting_traits" },
+      { "group": "Appearance_demographics" },
       { "trait": "OUTDOORSMAN" },
       { "trait": "PAINRESIST" }
     ],
@@ -40,137 +40,137 @@
     "type": "item_group",
     "id": "captain_cost_worn",
     "subtype": "collection",
-    "entries": [
-      { "item": "cloak" }
-    ]
+    "entries": [ { "item": "cloak" } ]
   },
   {
     "type": "item_group",
     "id": "captain_cost_carried",
     "subtype": "collection",
-    "entries": [ 
-	]
+    "entries": [  ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_meeting",
     "dynamic_line": "Hello there. Do you want to help your government?",
     "responses": [
-      { "text": "Interesting, tell me more.", "topic": "TALK_MISSION_LIST" },
+      { "text": "...", "topic": "TALK_DONE", "condition": "has_assigned_mission", "switch": true },
+      { "text": "Interesting, tell me more.", "topic": "TALK_MISSION_LIST", "switch": true },
       { "text": "Hell no, my government is dead.", "topic": "captain_cost_refuse" }
-	]
+    ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_refuse",
     "dynamic_line": "Are you sure about that?",
-    "responses": [
-      { "text": "No.", "topic": "TALK_NONE" },
-      { "text": "Yes.", "topic": "TALK_DONE", "effect":"insult_combat" }
-	]
+    "responses": [ { "text": "No.", "topic": "TALK_NONE" }, { "text": "Yes.", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_1",
     "dynamic_line": "So?",
     "responses": [
-	  { "text": "We're here.", "topic": "captain_cost_wait",
-		"condition":{"npc_at_om_location":"abandonedwarehouse_4"}
-	  },
-	  { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST", "condition":{ "not": "has_assigned_mission" }},
+      { "text": "We're here.", "topic": "captain_cost_wait", "condition": {"and":["mission_complete",{ "mission_goal": "MGOAL_GO_TO" }]}, "switch":true },
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission", "switch":true },
+      {
+        "text": "Do you need any help?",
+        "topic": "TALK_MISSION_LIST",
+        "condition": { "not": "has_assigned_mission" }
+      },
       { "text": "What's your story?", "topic": "captain_cost_Background" },
       { "text": "I don't want to help you anymore.", "topic": "captain_cost_refuse" },
-	  { "text": "Bye.", "topic": "TALK_DONE", "condition": "has_assigned_mission"}
+      { "text": "Bye.", "topic": "TALK_DONE", "condition": "has_assigned_mission" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_Background",
     "dynamic_line": "WIP.",
-    "responses": [
-      { "text": "Interesting.", "topic": "TALK_NONE" }
-	]
+    "responses": [ { "text": "Interesting.", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_wait",
     "dynamic_line": "So, go there and check things.",
     "responses": [
-      { "text": "….", "topic": "TALK_DONE", 
-	  "effect":[
-		{"mapgen_update":"jcost_place_trap", "origin_npc":true },
-		{"npc_first_topic":"captain_cost_wait1"}
-	  ], 
-	  "switch":true }
-	]
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "mapgen_update": "jcost_place_trap", "origin_npc": true, "om_terrain": "forest", "search_range": 3, "min_distance":1 },
+          { "npc_first_topic": "captain_cost_wait1" }
+        ]
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_wait1",
     "dynamic_line": "So?",
     "responses": [
-      { "text": "Give me one reason not to kill you right now!", "topic": "captain_cost_traitor", "condition":{"u_has_effect":"jcost_betrayed"}, "switch":true },
-      { "text": "….", "topic": "TALK_DONE"}
-	]
+      {
+        "text": "So, i got that note for you! Care to explain why there were a lot of aggresive drones?",
+        "topic": "captain_cost_traitor",
+        "condition": { "u_has_item": "jcost_note" },
+        "switch": true
+      },
+      { "text": "….", "topic": "TALK_DONE","switch": true }
+    ]
   },
   {
     "type": "talk_topic",
-    "id": "captain_cost_wait2",
+    "id": "captain_cost_traitor",
     "dynamic_line": "Well, i didn't think that someone would ever lived after that.",
     "responses": [
-      { "text": "You will die, right here, right now!", "topic": "TALK_DONE", "effect":"insult_combat" },
-      { "text": "You will tell me the truth, right now!",
-		"trial": { "type": "INTIMIDATE", "difficulty": 45, "mod": [ [ "FEAR", 8 ], [ "VALUE", 2 ], [ "TRUST", 2 ], [ "BRAVERY", -2 ] ] },
-		"success": { "topic": "captain_cost_truth" },
-		"failure": { "topic": "captain_cost_lie" } 
-	  }
-	]
+      { "text": "You will die, right here, right now!", "topic": "TALK_DONE", "effect": "insult_combat" },
+      {
+        "text": "You will tell me the truth, right now!",
+        "trial": { "type": "INTIMIDATE", "difficulty": 45, "mod": [ [ "FEAR", 8 ], [ "VALUE", 2 ], [ "TRUST", 2 ], [ "BRAVERY", -2 ] ] },
+        "success": { "topic": "captain_cost_truth" },
+        "failure": { "topic": "captain_cost_lie" }
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_truth",
     "dynamic_line": "OK, OK, I'll tell you the truth. Later. Please spare me and I'll give you something cool.",
     "responses": [
-      { "text": "Die.", "topic": "TALK_DONE", "effect":"insult_combat" },
-      { "text": "Live.", "topic": "TALK_DONE",
-		"effect":[
-			"end_conversation",
-			{"u_buy_item":"manual_taekwondo"}
-		]
-	  }
-	]
+      { "text": "Die.", "topic": "TALK_DONE", "effect": "insult_combat" },
+      {
+        "text": "Live.",
+        "topic": "TALK_DONE",
+        "effect": [ "end_conversation", { "u_buy_item": "manual_taekwondo" } ]
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_lie",
     "dynamic_line": "No way! I'll die with my truth!",
-    "responses": [
-      { "text": "…", "topic": "TALK_DONE", "effect":"insult_combat" }
-	]
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "id": "MISSION_captain_cost_1",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Help me find crashed heli" },
     "description": "Help him find crashed heli",
     "goal": "MGOAL_FIND_ITEM",
     "item": "black_box_transcript",
     "difficulty": 0,
     "value": 1000,
-	"start":{
-		"effect":["follow_only",{"toggle_npc_rule": "follow_distance_2"}],
-		"update_mapgen":{
-			"om_terrain": "field",
-			"search_range": 75,
-			"min_distance": 25,
-			"random":true,
-			"place_vehicles": [ { "status": 1, "vehicle": "crashed_helicopters", "x": 7, "y": 9 } ],
-			"place_monsters": [ { "monster": "GROUP_MIL_STRONG", "x": [ 5, 15 ], "y": [ 5, 15 ] } ],
-			"place_item": [ { "item": "black_box_transcript", "x": 8, "y": 10 } ]
-		}
-	},
+    "start": {
+      "effect": [ "follow_only", { "toggle_npc_rule": "follow_distance_2" }, { "npc_first_topic": "captain_cost_1" } ],
+      "update_mapgen": {
+        "om_terrain": "field",
+        "search_range": 35,
+        "min_distance": 10,
+        "random": true,
+        "place_vehicles": [ { "status": 1, "vehicle": "crashed_helicopters", "x": 7, "y": 9 } ],
+        "place_monsters": [ { "monster": "GROUP_MIL_STRONG", "x": [ 5, 15 ], "y": [ 5, 15 ] } ],
+        "place_item": [ { "item": "black_box_transcript", "x": 8, "y": 10 } ]
+      }
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_2",
     "dialogue": {
@@ -183,32 +183,29 @@
       "success": "Yoss!",
       "success_lie": "Um…",
       "failure": "What a shame."
-	}
+    }
   },
   {
     "id": "MISSION_captain_cost_2",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Lead me to bunker" },
     "description": "Lead me to bunker",
     "goal": "MGOAL_FIND_ITEM",
     "item": "military_record",
     "difficulty": 0,
     "value": 100,
-	"start":{
-		"assign_mission_target":{
-			"om_terrain": "bunker",
-			"om_special": "Military Bunker",
-			"om_terrain_replace": "field",
-			"search_range": 200,
-			"min_distance": 50,
-			"cant_see":true
-		},
-		"update_mapgen":{
-			"om_terrain": "bunker_basement",
-			"place_item": [ { "item": "military_record", "x": 21, "y": 3 } ]
-		}
-	},
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "bunker",
+        "om_special": "Military Bunker",
+        "om_terrain_replace": "field",
+        "search_range": 200,
+        "min_distance": 50,
+        "cant_see": true
+      },
+      "update_mapgen": { "om_terrain": "bunker_basement", "place_item": [ { "item": "military_record", "x": 21, "y": 3 } ] }
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_3",
     "dialogue": {
@@ -221,32 +218,21 @@
       "success": "Yes!!!",
       "success_lie": "Um…-2",
       "failure": "What a shame.-2"
-	}
+    }
   },
   {
     "id": "MISSION_captain_cost_3",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Go to special place" },
     "description": "Go to special place",
-    "goal": "MGOAL_FIND_ITEM",
-	"item":"jcost_note",
+    "goal": "MGOAL_GO_TO",
     "difficulty": 0,
     "value": 100,
-	"//":"TODO redo quest",
-	"start":{
-		"effect":[
-			{"npc_first_topic":"captain_cost_wait"},
-			"stop_following"
-		],
-		"assign_mission_target":{
-			"om_terrain": "abandonedwarehouse_4",
-			"om_terrain_replace": "field",
-			"search_range": 200,
-			"min_distance": 50,
-			"cant_see":true
-		}
-	},
+    "//": "TODO redo quest",
+    "start": {
+      "assign_mission_target": { "om_terrain": "forest", "search_range": 25, "min_distance": 5, "random": true }
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Help me fix lighthouse",
@@ -258,6 +244,6 @@
       "success": "Yes!!!",
       "success_lie": "Um…-2",
       "failure": "What a shame.-2"
-	}
+    }
   }
 ]
