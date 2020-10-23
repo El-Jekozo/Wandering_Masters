@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO write something place him in cool basement, prob 5-20%(?), add dialogues, check code",
+    "//": "TODO write something place him in cool basement, prob 5-20%(?), add dialogues, check code",
     "type": "npc",
     "id": "lead_scientist_22ch",
     "name_unique": "Professor Narmulan Abubabebich",
@@ -11,7 +11,7 @@
     "mission": 7,
     "chat": "lead_scientist_22ch_1",
     "faction": "no_faction",
-	"mission_offered": "MISSION_lead_scientist_22ch_1"
+    "mission_offered": "MISSION_lead_scientist_22ch_1"
   },
   {
     "type": "npc_class",
@@ -26,15 +26,8 @@
     "worn_override": "lead_scientist_22ch_worn",
     "carry_override": "lead_scientist_22ch_carried",
     "wield_override": "lead_scientist_22ch_wield",
-    "traits": [
-      { "group": "Appearance_SouthAsian" },
-      { "trait": "PAINRESIST" }
-    ],
-    "skills": [
-      { "skill": "melee", "level": 6 },
-      { "skill": "unarmed", "level": 6 },
-      { "skill": "dodge", "level": 6 }
-    ]
+    "traits": [ { "group": "Appearance_SouthAsian" }, { "trait": "PAINRESIST" } ],
+    "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
   {
     "type": "item_group",
@@ -46,7 +39,7 @@
       { "item": "obi_gi" },
       { "item": "armor_samurai" },
       { "item": "helmet_kabuto" },
-	  { "item": "tabi_dress"},
+      { "item": "tabi_dress" },
       { "item": "bastsandals" },
       { "item": "backpack" },
       { "item": "waterskin" },
@@ -57,11 +50,7 @@
     "type": "item_group",
     "id": "lead_scientist_22ch_carried",
     "subtype": "collection",
-    "entries": [
-      { "item": "waterskin" },
-      { "item": "katana" },
-	  { "item": "manual_niten" }
-    ]
+    "entries": [ { "item": "waterskin" }, { "item": "katana" }, { "item": "manual_niten" } ]
   },
   {
     "type": "item_group",
@@ -71,15 +60,17 @@
   {
     "type": "talk_topic",
     "id": [ "lead_scientist_22ch_1" ],
-    "dynamic_line":"AHA!",
+    "dynamic_line": "AHA!",
     "responses": [
-	  { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission"},
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
       { "text": "What's your story?", "topic": "lead_scientist_22ch_Background" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST"},
-      { "text": "Can you teach me something?", "topic": "lead_scientist_22ch_teach_check"},
-      { "text": "Do you now how to work with bionics?", "topic": "lead_scientist_22ch_bionics",
-		"condition":{"npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes"}
-	  },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "lead_scientist_22ch_teach_check" },
+      {
+        "text": "Do you now how to work with bionics?",
+        "topic": "lead_scientist_22ch_bionics",
+        "condition": { "npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" }
+      },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
@@ -101,100 +92,104 @@
     "id": "lead_scientist_22ch_teach_check",
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool",
-	    "condition": {"npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION",
-			"condition": {"npc_has_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes"}
-		},
-		"success": {
-			"effect":[
-				{"u_buy_item": "iv_mutagen_medical"},
-				{"npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "no"}
-			],
-			"topic": "lead_scientist_22ch_teach" 
-		},
-		"failure": { "topic": "lead_scientist_22ch_teach_done" }
-	  },
-      { "text": "Sorry I'm not ready", "topic": "TALK_NONE"}
+      {
+        "text": "Yeah, bruh, i'm cool",
+        "condition": { "npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "npc_has_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "success": {
+          "effect": [
+            { "u_buy_item": "iv_mutagen_medical" },
+            { "npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "no" }
+          ],
+          "topic": "lead_scientist_22ch_teach"
+        },
+        "failure": { "topic": "lead_scientist_22ch_teach_done" }
+      },
+      { "text": "Sorry I'm not ready", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_teach",
     "dynamic_line": "I don't know what to teach you, but take this. Don't know what it is, and I can't remember where I found it.",
-    "responses": [
-      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
-    ]
+    "responses": [ { "text": "Thanks my brudda", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_teach_done",
     "dynamic_line": "Nope.",
-    "responses": [
-      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
-    ]
+    "responses": [ { "text": "Thanks again, teacher.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_Background",
     "dynamic_line": "I came from Azerbaidjan to build robots-desu.",
-    "responses": [
-      { "text": "Interesting", "topic": "TALK_NONE" }
-	]
+    "responses": [ { "text": "Interesting", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_panic",
     "dynamic_line": "WE'RE GONNA DIE!!!",
     "responses": [
-	  { "text": "It's all over, my man.", "topic": "TALK_MISSION_INQUIRE"},
+      { "text": "It's all over, my man.", "topic": "TALK_MISSION_INQUIRE" },
       { "text": "Interesting", "topic": "TALK_DONE" }
-	]
+    ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_transmitters",
     "dynamic_line": "Yes, what about it?",
     "responses": [
-	  { "text": "We did it, both here.", "topic": "TALK_MISSION_SUCCESS",
-		"condition":{
-			"and":[
-				{"not":"mission_complete"},
-				{"u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes"}
-			]
-		},
-		"effect":["mission_success",{"npc_first_topic":"lead_scientist_22ch_1" } ]
-	  },
-	  { "text": "We did it, i'm here, he's dead.", "topic": "TALK_MISSION_SUCCESS",
-		"condition":{
-			"and":[
-				"mission_complete",
-				{"u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes"}
-			]
-		},
-		"effect":["mission_success",{"npc_first_topic":"lead_scientist_22ch_1"}]
-	  },
-	  { "text": "We failed, and…I couldn't help him. Sorry.", "topic": "TALK_MISSION_FAILURE",
-		"condition":{
-			"and":[
-				"mission_failure",
-				{"not":{"u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" } }
-			]
-		},
-		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
-	  },
+      {
+        "text": "We did it, both here.",
+        "topic": "TALK_MISSION_SUCCESS",
+        "condition": {
+          "and": [
+            { "not": "mission_complete" },
+            { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": [ "mission_success", { "npc_first_topic": "lead_scientist_22ch_1" } ]
+      },
+      {
+        "text": "We did it, i'm here, he's dead.",
+        "topic": "TALK_MISSION_SUCCESS",
+        "condition": {
+          "and": [
+            "mission_complete",
+            { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": [ "mission_success", { "npc_first_topic": "lead_scientist_22ch_1" } ]
+      },
+      {
+        "text": "We failed, and…I couldn't help him. Sorry.",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": {
+          "and": [
+            "mission_failure",
+            {
+              "not": { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+            }
+          ]
+        },
+        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
+      },
       { "text": "Nothing, really.", "topic": "TALK_NONE" }
-	]
+    ]
   },
   {
     "id": "MISSION_lead_scientist_22ch_1",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find plutonium cell 20" },
     "description": "Find plutonium cell 20",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"plut_cell",
-	"count":20,
+    "item": "plut_cell",
+    "count": 20,
     "difficulty": 0,
     "value": 100,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -209,17 +204,17 @@
       "success": "Nice! ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_lead_scientist_22ch_2",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find minireactor 1" },
     "description": "Find minireactor 1",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"minireactor",
-	"count":1,
+    "item": "minireactor",
+    "count": 1,
     "difficulty": 0,
     "value": 1000,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -234,24 +229,20 @@
       "success": "Well done, student. I knew you would succeed! Well, tell me … Hmmm, that's how it is. Well, it complicates my job a little. I need a little time to think things over. Here, hold this belt, you deserve it. Rest now.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_lead_scientist_22ch_3",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find ai_module_basic 20 " },
     "description": "End Flame Knuckle!",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"ai_module_basic",
-	"count":20,
+    "item": "ai_module_basic",
+    "count": 20,
     "difficulty": 0,
     "value": 100,
-	"end":{
-		"effect":[
-			{"u_buy_monster":"mon_robofac_prototype","pacified":true}
-		]
-	},
+    "end": { "effect": [ { "u_buy_monster": "mon_robofac_prototype", "pacified": true } ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_4",
     "dialogue": {
@@ -264,17 +255,17 @@
       "success": "Good. Take this pet.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_lead_scientist_22ch_4",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find ai_module_advanced 10" },
     "description": "Find ai_module_advanced 10",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"ai_module_advanced",
-	"count":10,
+    "item": "ai_module_advanced",
+    "count": 10,
     "difficulty": 0,
     "value": 1000,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -289,16 +280,16 @@
       "success": "Good. Here's your reward.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_lead_scientist_22ch_5",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find laptop 1" },
     "description": "Find laptop 1",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"laptop",
+    "item": "laptop",
     "difficulty": 0,
     "value": 1000,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -313,30 +304,23 @@
       "success": "Good. Here's your reward.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
-	"//":"TODO DO NOT FORGET TO CHANGE UPDATE_MAPGEN WHEN CHANGE SPAWN TO HIS BASEMENT",
+    "//": "TODO DO NOT FORGET TO CHANGE UPDATE_MAPGEN WHEN CHANGE SPAWN TO HIS BASEMENT",
     "id": "MISSION_lead_scientist_22ch_6",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Help my fellow scientist" },
     "description": "Help my fellow scientist",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 1000,
-	"start":{
-		"update_mapgen":{
-			"om_terrain":"cabin_basement_test",
-			"place_npc":[ { "class": "scientist_22ch", "x": 15, "y": 1, "target":true } ]
-		},
-		"effect":[
-			{"npc_first_topic":"lead_scientist_22ch_transmitters"}
-		]
-	},
-	"end":{
-		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
-	},			
+    "start": {
+      "update_mapgen": { "om_terrain": "cabin_basement_test", "place_npc": [ { "class": "scientist_22ch", "x": 15, "y": 1, "target": true } ] },
+      "effect": [ { "npc_first_topic": "lead_scientist_22ch_transmitters" } ]
+    },
+    "end": { "effect": { "npc_first_topic": "lead_scientist_22ch_1" } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_7",
     "dialogue": {
@@ -349,32 +333,32 @@
       "success": "Good. Here's your reward.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_lead_scientist_22ch_7",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "SAVE ME PLEASE!" },
     "description": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
     "goal": "MGOAL_KILL_MONSTER_TYPE",
-	"monster_type": "mon_talon_m202a1",
+    "monster_type": "mon_talon_m202a1",
     "monster_kill_goal": 5,
     "difficulty": 0,
     "value": 1000,
-	"start":{
-		"effect":[
-			{"npc_first_topic":"lead_scientist_22ch_panic"},
-			{"mapgen_update":"22ch_robot_attack", "origin_npc": true, "offset_z":1}
-		]
-	},
-	"end":{
-		"effect":[
-			{"npc_first_topic":"lead_scientist_22ch_1"},
-			{"npc_add_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes"}
-		]
-	},			
+    "start": {
+      "effect": [
+        { "npc_first_topic": "lead_scientist_22ch_panic" },
+        { "mapgen_update": "22ch_robot_attack", "origin_npc": true, "offset_z": 1 }
+      ]
+    },
+    "end": {
+      "effect": [
+        { "npc_first_topic": "lead_scientist_22ch_1" },
+        { "npc_add_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
@@ -386,6 +370,6 @@
       "success": "Good. Here's your reward.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   }
 ]

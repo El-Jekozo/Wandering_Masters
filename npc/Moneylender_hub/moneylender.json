@@ -256,7 +256,7 @@
         "topic": "TALK_DONE",
         "effect": [
           { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
-          { "npc_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
+          { "u_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
           { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" }
         ]
       }
@@ -272,7 +272,7 @@
         "topic": "TALK_DONE",
         "effect": [
           { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
-          { "npc_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
+          { "u_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
           { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" }
         ]
       }

@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO potom",
+    "//": "TODO potom",
     "type": "npc",
     "id": "hobo_victoria",
     "gender": "female",
@@ -11,7 +11,7 @@
     "mission": 7,
     "chat": "hobo_victoria_1",
     "faction": "no_faction",
-	"mission_offered": "MISSION_hobo_victoria_1"
+    "mission_offered": "MISSION_hobo_victoria_1"
   },
   {
     "type": "npc_class",
@@ -25,8 +25,8 @@
     "bonus_per": { "rng": [ 1, 4 ] },
     "carry_override": "hobo_victoria_carried",
     "traits": [
-	  { "group": "NPC_starting_traits" },
-	  { "group": "Appearance_demographics" },
+      { "group": "NPC_starting_traits" },
+      { "group": "Appearance_demographics" },
       { "trait": "OUTDOORSMAN" },
       { "trait": "PAINRESIST" }
     ],
@@ -40,30 +40,23 @@
     "type": "item_group",
     "id": "hobo_victoria_worn",
     "subtype": "collection",
-    "entries": [
-      { "item": "cloak" }
-    ]
+    "entries": [ { "item": "cloak" } ]
   },
   {
     "type": "item_group",
     "id": "hobo_victoria_carried",
     "subtype": "collection",
-    "entries": [ 
-	]
+    "entries": [  ]
   },
   {
     "type": "talk_topic",
     "id": [ "hobo_victoria_1" ],
-    "dynamic_line":"Hello there, friend.",
+    "dynamic_line": "Hello there, friend.",
     "responses": [
-	  { 
-	    "text": "About that job…",
-        "condition": "has_assigned_mission",
-		"topic": "TALK_MISSION_INQUIRE"
-	  },
+      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
       { "text": "What's your story?", "topic": "hobo_victoria_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "hobo_victoria_teach_check"},
+      { "text": "Can you teach me something?", "topic": "hobo_victoria_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
@@ -71,55 +64,53 @@
     "type": "talk_topic",
     "id": "hobo_victoria_Background",
     "dynamic_line": "I'm just a regular hobo. That's all.",
-    "responses": [
-      { "text": "Interesting", "topic": "TALK_NONE" }
-	]
+    "responses": [ { "text": "Interesting", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "hobo_victoria_teach_check",
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
-      { "text": "Yeah, bruh, i'm cool",
-	    "condition": {"npc_has_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes"},
-		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes"}},
-		"success": {
-			"effect":[
-				{"u_add_trait": "NIGHTVISION"},
-				{"npc_lose_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "no"}
-			],
-			"topic": "hobo_victoria_teach" 
-		},
-		"failure": { "topic": "hobo_victoria_teach_done" }
-	  },
-      { "text": "Maybe later.", "topic": "TALK_NONE"}
+      {
+        "text": "Yeah, bruh, i'm cool",
+        "condition": { "npc_has_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "npc_has_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "success": {
+          "effect": [
+            { "u_add_trait": "NIGHTVISION" },
+            { "npc_lose_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "no" }
+          ],
+          "topic": "hobo_victoria_teach"
+        },
+        "failure": { "topic": "hobo_victoria_teach_done" }
+      },
+      { "text": "Maybe later.", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "hobo_victoria_teach",
     "dynamic_line": "I learned all from it. You can take it now. Good luck!",
-    "responses": [
-      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
-    ]
+    "responses": [ { "text": "Thanks my brudda", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "hobo_victoria_teach_done",
     "dynamic_line": "I already taught you all I knew.",
-    "responses": [
-      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
-    ]
+    "responses": [ { "text": "Thanks again, teacher.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "MISSION_hobo_victoria_1",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find 2x4 30" },
     "description": "Find 2x4 30",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"2x4",
-	"count":30,
+    "item": "2x4",
+    "count": 30,
     "difficulty": 0,
     "value": 100,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -134,22 +125,20 @@
       "success": "Nice! ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_hobo_victoria_2",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find large barrel" },
     "description": "Find large barrel",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"55gal_drum",
-	"count":1,
+    "item": "55gal_drum",
+    "count": 1,
     "difficulty": 0,
     "value": 100,
-	"end":{
-		"effect":{"mapgen_update":"hobo_victoria_heat", "origin_npc":true}
-	},
+    "end": { "effect": { "mapgen_update": "hobo_victoria_heat", "origin_npc": true } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_hobo_victoria_3",
     "dialogue": {
@@ -162,17 +151,17 @@
       "success": "Nice! ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_hobo_victoria_3",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find cheese 20" },
     "description": "Find cheese 20",
     "goal": "MGOAL_FIND_ITEM",
-	"item":"cheese",
-	"count":20,
+    "item": "cheese",
+    "count": 20,
     "difficulty": 0,
     "value": 100,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -187,31 +176,27 @@
       "success": "Nice! ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_hobo_victoria_4",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find my pet rat" },
     "description": "Find my pet rat",
     "goal": "MGOAL_FIND_MONSTER",
-	"start":{
-		"assign_mission_target": {
-			"om_terrain": "subway",
-			"om_terrain_match_type":"PREFIX",
-			"reveal_radius": 1,
-			"random": true,
-			"search_range": 40,
-			"min_distance": 5
-		},
-		"update_mapgen": {
-			"place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true, "friendly":true } ] 
-		}
-	},
-	"fail":{
-		"effect":"end_conversation"
-	},
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "subway",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "random": true,
+        "search_range": 40,
+        "min_distance": 5
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true, "friendly": true } ] }
+    },
+    "fail": { "effect": "end_conversation" },
     "difficulty": 0,
     "value": 100,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -226,37 +211,37 @@
       "success": "Huh, i thougt my rat returned to me, but you return with him. So, now I have 2 rats. Take one. ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_hobo_victoria_5",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Kill rat king" },
     "description": "Kill rat king",
     "goal": "MGOAL_KILL_MONSTER",
-	"start":{
-		"assign_mission_target": {
-			"om_terrain": "subway",
-			"om_terrain_match_type":"PREFIX",
-			"reveal_radius": 1,
-			"random": true,
-			"search_range": 40,
-			"min_distance": 15
-		},
-		"update_mapgen": {
-			"place_monster": [ 
-				{ "monster": "mon_black_rat", "pack_size": [ 8, 16 ], "x": 14, "y": 14, "target": true },
-				{ "monster": "mon_rat_king", "x": 14, "y": 14, "target": true }
-			] 
-		}
-	},
-	"end":{
-		"effect":[
-			{"npc_add_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes"}
-		]
-	},
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "subway",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "random": true,
+        "search_range": 40,
+        "min_distance": 15
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_black_rat", "pack_size": [ 8, 16 ], "x": 14, "y": 14, "target": true },
+          { "monster": "mon_rat_king", "x": 14, "y": 14, "target": true }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
     "difficulty": 0,
     "value": 100,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -270,6 +255,6 @@
       "success": "Good. Now i can teach you.",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   }
 ]

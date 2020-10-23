@@ -31,7 +31,7 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 ## Credits:
 * №35321700 - ideas for lighthouse man.
 * №35321956 AKA mimokrok - /22ch ideas.
-* Matoi - idea and concept of Flame Knuckle base.
+* Matoi - idea and concept of Flame Knuckle base, Moneylender hub.
 * C0D3 - proofreading, editing dialogues.
 
 My Discord: 1123132123#2270

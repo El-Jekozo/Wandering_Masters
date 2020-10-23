@@ -5,12 +5,12 @@
     "name_unique": "Test",
     "gender": "male",
     "name_suffix": "refugee",
-	"class": "test_232",
+    "class": "test_232",
     "attitude": 0,
     "mission": 3,
     "chat": "test_232",
     "faction": "no_faction",
-	"mission_offered": "MISSION_test_232_1"
+    "mission_offered": "MISSION_test_232_1"
   },
   {
     "type": "npc_class",
@@ -24,131 +24,164 @@
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
     "traits": [
-	  { "group": "NPC_starting_traits" },
-	  { "group": "Appearance_demographics" },
+      { "group": "NPC_starting_traits" },
+      { "group": "Appearance_demographics" },
       { "trait": "MARTIAL_ARTS" },
       { "trait": "PAINRESIST" }
     ],
-    "skills": [
-      { "skill": "melee", "level": 6 },
-      { "skill": "unarmed", "level": 6 },
-      { "skill": "dodge", "level": 6 }
-    ]
+    "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
   {
-    "id": ["test_232"],
+    "id": [ "test_232" ],
     "type": "talk_topic",
-	"dynamic_line": "TEST ME!",
+    "dynamic_line": "TEST ME!",
     "responses": [
-	      {
+      {
         "text": "Test cost trap",
         "topic": "TALK_DONE",
         "effect": [
-          { "mapgen_update": "jcost_place_trap", "origin_npc": true, "om_terrain": "forest", "search_range": 3, "min_distance":1 }
+          {
+            "mapgen_update": "jcost_place_trap",
+            "origin_npc": true,
+            "om_terrain": "forest",
+            "search_range": 3,
+            "min_distance": 1
+          }
         ]
       },
-	  {"text":"Test teach.", "topic":"TALK_DONE", "effect":[{"u_add_effect":"taught", "duration": "360 m"}]},
-	  {"text":"Test follow.", "topic":"TALK_DONE", "effect":"follow"},
-	  {"text":"Test follow only.", "topic":"TALK_DONE", "effect":"follow_only"},
-      {"text": "Test heist.", "topic": "TALK_DONE",
-	  "effect":[{"mapgen_update":"heist_success", "origin_npc": true}]
-	  },
-      {"text": "Test robot attack.", "topic": "TALK_DONE",
-	  "effect":[{"mapgen_update":"22ch_robot_attack", "origin_npc": true, "offset_z":1}]
-	  },
-      {"text": "Test Johny's bandits.", "topic": "TALK_DONE",
-	  "effect":[{"mapgen_update":"bj_bandits", "origin_npc": true, "offset_z":-1}]
-	  },
-	  { 
-	  "text": "About that job…",
-  	  "topic": "TALK_MISSION_INQUIRE",
-      "condition":"has_assigned_mission"
-	  },
-      {"text": "Test missions", "topic": "TALK_MISSION_LIST"},
-      {"text": "Give me gasoline, you punk!", "topic": "TALK_DONE", "effect":{"u_buy_item":"gasoline", "count":500, "container":"jug_plastic"}},
-      { "text": "Test change mission target", "topic": "TALK_DONE",
-			"effect":[
-				{"mapgen_update":{
-					"assign_mission_target": { 
-						"om_terrain": "radio_tower_top",
-						"om_special": "Radio Tower",
-						"om_terrain_replace": "field",
-						"om_terrain_match_type":"PREFIX",
-						"search_range": 20, 
-						"min_distance": 5
-						}
-					}
-				}
-			]
-	  },
-      {"text": "Test npc_buy", "topic": "test_232_give", "effect":[{"u_buy_item":"manual_niten"}]},
-	  {"text": "Test Johny's debt.", "topic": "TALK_DONE", "effect":{"u_add_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}},
-	  {"text": "Test 22ch.", "topic": "TALK_DONE", "effect":{"u_add_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"}},
-	  {	"text": "Test mission cycle.", "topic": "TALK_DONE",
-		"effect":["clear_mission","assign_mission"]
-	  },
-      { "text": "Test trade.", "effect":"start_trade", "topic": "TALK_DONE" },
+      { "text": "Test teach.", "topic": "TALK_DONE", "effect": [ { "u_add_effect": "taught", "duration": "360 m" } ] },
+      { "text": "Test follow.", "topic": "TALK_DONE", "effect": "follow" },
+      { "text": "Test follow only.", "topic": "TALK_DONE", "effect": "follow_only" },
+      {
+        "text": "Test heist.",
+        "topic": "TALK_DONE",
+        "effect": [ { "mapgen_update": "heist_success", "origin_npc": true } ]
+      },
+      {
+        "text": "Test robot attack.",
+        "topic": "TALK_DONE",
+        "effect": [ { "mapgen_update": "22ch_robot_attack", "origin_npc": true, "offset_z": 1 } ]
+      },
+      {
+        "text": "Test Johny's bandits.",
+        "topic": "TALK_DONE",
+        "effect": [ { "mapgen_update": "bj_bandits", "origin_npc": true, "offset_z": -1 } ]
+      },
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "Test missions", "topic": "TALK_MISSION_LIST" },
+      {
+        "text": "Give me gasoline, you punk!",
+        "topic": "TALK_DONE",
+        "effect": { "u_buy_item": "gasoline", "count": 500, "container": "jug_plastic" }
+      },
+      {
+        "text": "Test change mission target",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "mapgen_update": {
+              "assign_mission_target": {
+                "om_terrain": "radio_tower_top",
+                "om_special": "Radio Tower",
+                "om_terrain_replace": "field",
+                "om_terrain_match_type": "PREFIX",
+                "search_range": 20,
+                "min_distance": 5
+              }
+            }
+          }
+        ]
+      },
+      { "text": "Test npc_buy", "topic": "test_232_give", "effect": [ { "u_buy_item": "manual_niten" } ] },
+      {
+        "text": "Test Johny's debt.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
+      },
+      {
+        "text": "Test 22ch.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes" }
+      },
+      { "text": "Test mission cycle.", "topic": "TALK_DONE", "effect": [ "clear_mission", "assign_mission" ] },
+      { "text": "Test trade.", "effect": "start_trade", "topic": "TALK_DONE" },
       {
         "text": "Test train",
         "topic": "TALK_TRAIN",
-        "condition": {"or": [ "npc_train_skills", "npc_train_styles" ] }
+        "condition": { "or": [ "npc_train_skills", "npc_train_styles" ] }
       },
-	  {"text": "No test for you!", "topic": "TALK_DONE"}
-	  ]
+      { "text": "No test for you!", "topic": "TALK_DONE" }
+    ]
   },
   {
     "id": "test_232_give",
     "type": "talk_topic",
-	"dynamic_line": "Hey, give it back, you creep!",
+    "dynamic_line": "Hey, give it back, you creep!",
     "responses": [
-	  {"text":"Ok, ok, dont yell like that, please.", "topic":"TALK_DONE", "effect":[{"u_sell_item":"manual_niten"}]}
-	  ]
+      {
+        "text": "Ok, ok, dont yell like that, please.",
+        "topic": "TALK_DONE",
+        "effect": [ { "u_sell_item": "manual_niten" } ]
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "test_232_lighthouse",
     "dynamic_line": "So?",
     "responses": [
-	  { "text": "We did it! All safe!", "topic": "TALK_MISSION_SUCCESS",
-		"condition":{
-			"and":[
-				{"not":"mission_complete"},
-				{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes"},
-				{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes"}
-			]
-		},
-		"effect":["mission_success",{"npc_first_topic":"123"}]
-	  },
-	  { "text": "We failed, all dead!", "topic": "TALK_MISSION_FAILURE",
-		"condition":{
-			"and":[
-				"mission_complete",
-				{"not":{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" } },
-				{"not":{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" } }
-			]
-		},
-		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
-	  },
-	  { "text": "Wife dead, daughter alive!", "topic": "TALK_MISSION_FAILURE",
-		"condition":{
-			"and":[
-				"mission_complete",
-				{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" } 
-			]
-		},
-		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
-	  },
-	  { "text": "Wife alive, daughter dead", "topic": "TALK_MISSION_FAILURE",
-		"condition":{
-			"and":[
-				{"not":"mission_complete"},
-				{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
-			]
-		},
-		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
-	  },
+      {
+        "text": "We did it! All safe!",
+        "topic": "TALK_MISSION_SUCCESS",
+        "condition": {
+          "and": [
+            { "not": "mission_complete" },
+            { "u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" },
+            { "u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": [ "mission_success", { "npc_first_topic": "123" } ]
+      },
+      {
+        "text": "We failed, all dead!",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": {
+          "and": [
+            "mission_complete",
+            {
+              "not": { "u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
+            },
+            {
+              "not": { "u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" }
+            }
+          ]
+        },
+        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
+      },
+      {
+        "text": "Wife dead, daughter alive!",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": {
+          "and": [
+            "mission_complete",
+            { "u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
+      },
+      {
+        "text": "Wife alive, daughter dead",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": {
+          "and": [
+            { "not": "mission_complete" },
+            { "u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
+      },
       { "text": "Nothing, really.", "topic": "TALK_DONE" }
-	]
+    ]
   },
   {
     "id": "MISSION_test_232_1",
@@ -157,19 +190,11 @@
     "goal": "MGOAL_FIND_MONSTER",
     "difficulty": 3,
     "value": 100000,
-	"start":{
-		"effect":{"u_buy_item":"dog_whistle"},
-		"assign_mission_target": {
-			"om_terrain": "house",
-			"om_terrain_match_type":"PREFIX",
-			"reveal_radius": 1,
-			"search_range": 75,
-			"z":0
-		},
-		"update_mapgen": {
-			"place_monster": [ { "monster": "mon_dog", "x": 10, "y": 10, "target": true, "friendly":true } ] 
-		}
-	},
+    "start": {
+      "effect": { "u_buy_item": "dog_whistle" },
+      "assign_mission_target": { "om_terrain": "house", "om_terrain_match_type": "PREFIX", "reveal_radius": 1, "search_range": 75, "z": 0 },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_dog", "x": 10, "y": 10, "target": true, "friendly": true } ] }
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Oh, my poor puppy…",
@@ -186,26 +211,22 @@
   {
     "id": "MISSION_test_232_6",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find my pet rat" },
     "description": "Find my pet rat",
     "goal": "MGOAL_FIND_MONSTER",
-	"start":{
-		"assign_mission_target": {
-			"om_terrain": "field",
-			"om_terrain_match_type":"PREFIX",
-			"reveal_radius": 1,
-			"random": true,
-			"search_range": 40,
-			"min_distance": 5
-		},
-		"update_mapgen": {
-			"place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true } ] 
-		}
-	},
-	"end":{
-		"effect":{"u_buy_monster":"mon_black_rat"}
-	},
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "field",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "random": true,
+        "search_range": 40,
+        "min_distance": 5
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true } ] }
+    },
+    "end": { "effect": { "u_buy_monster": "mon_black_rat" } },
     "difficulty": 0,
     "value": 100,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -220,33 +241,28 @@
       "success": "Huh, i thougt my rat returned to me, but you return with him. So, now I have 2 rats. Take one. ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
-	}
+    }
   },
   {
     "id": "MISSION_test_232_2",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Help fisherman's family" },
     "description": "Fisherman asked you to bring him his family.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 100,
     "start": {
-	  "effect":{"npc_first_topic":"test_232_lighthouse"},
-      "assign_mission_target": { 
-		"om_terrain": "house_04",
-		"om_terrain_replace": "house",
-		"om_terrain_match_type":"PREFIX",
-		"reveal_radius": 2,
-		"search_range": 200,
-		"min_distance": 50
-	  },
-      "update_mapgen": {
-		"om_terrain": "house_04_basement",
-		"place_npcs": [
-			{ "class": "lighthouse_woman", "x": 4, "y": 8, "target":true }
-		]
-	  }
+      "effect": { "npc_first_topic": "test_232_lighthouse" },
+      "assign_mission_target": {
+        "om_terrain": "house_04",
+        "om_terrain_replace": "house",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 2,
+        "search_range": 200,
+        "min_distance": 50
+      },
+      "update_mapgen": { "om_terrain": "house_04_basement", "place_npcs": [ { "class": "lighthouse_woman", "x": 4, "y": 8, "target": true } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_test_232_3",
@@ -260,40 +276,40 @@
       "success": "Yes!!!",
       "success_lie": "Um…-2",
       "failure": "What a shame.-2"
-	}
+    }
   },
   {
     "id": "MISSION_test_232_3",
     "type": "mission_definition",
-	"has_generic_rewards":false,
+    "has_generic_rewards": false,
     "name": { "str": "Find special relic" },
     "description": "Knight asked you to find special relic",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 0,
     "value": 100,
-  	"//":"TODO add special relic",
+    "//": "TODO add special relic",
     "start": {
-      "assign_mission_target": { 
-		"om_terrain": "lab_surface_brick_blockC2",
-		"om_special":"lab_surface_big",
-		"om_terrain_replace": "field",
-		"reveal_radius": 2,
-		"search_range": 200,
-		"min_distance": 50
-	  },
+      "assign_mission_target": {
+        "om_terrain": "lab_surface_brick_blockC2",
+        "om_special": "lab_surface_big",
+        "om_terrain_replace": "field",
+        "reveal_radius": 2,
+        "search_range": 200,
+        "min_distance": 50
+      },
       "update_mapgen": {
-		"om_terrain": "lab_surface_brick_block2E1",
-		"place_item": [ { "item": "small_relic", "x": 11, "y": 14, "target":true } ]
-	  }
+        "om_terrain": "lab_surface_brick_block2E1",
+        "place_item": [ { "item": "small_relic", "x": 11, "y": 14, "target": true } ]
+      }
     },
-	"end":{
-		"effect":[
-			{"npc_add_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
-			{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}
-		]
-	},
+    "end": {
+      "effect": [
+        { "npc_add_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
-	"followup":"MISSION_test_232_1",
+    "followup": "MISSION_test_232_1",
     "dialogue": {
       "describe": "True Faith!!",
       "offer": "Find cool relic please",
@@ -304,6 +320,6 @@
       "success": "It's good to see brother in faith.-3",
       "success_lie": "Um…-3",
       "failure": "What a shame.-3"
-	}
+    }
   }
 ]

@@ -69,8 +69,18 @@
     "id": "captain_cost_1",
     "dynamic_line": "So?",
     "responses": [
-      { "text": "We're here.", "topic": "captain_cost_wait", "condition": {"and":["mission_complete",{ "mission_goal": "MGOAL_GO_TO" }]}, "switch":true },
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission", "switch":true },
+      {
+        "text": "We're here.",
+        "topic": "captain_cost_wait",
+        "condition": { "and": [ "mission_complete", { "mission_goal": "MGOAL_GO_TO" } ] },
+        "switch": true
+      },
+      {
+        "text": "About that job…",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": "has_assigned_mission",
+        "switch": true
+      },
       {
         "text": "Do you need any help?",
         "topic": "TALK_MISSION_LIST",
@@ -96,7 +106,13 @@
         "text": "…",
         "topic": "TALK_DONE",
         "effect": [
-          { "mapgen_update": "jcost_place_trap", "origin_npc": true, "om_terrain": "forest", "search_range": 3, "min_distance":1 },
+          {
+            "mapgen_update": "jcost_place_trap",
+            "origin_npc": true,
+            "om_terrain": "forest",
+            "search_range": 3,
+            "min_distance": 1
+          },
           { "npc_first_topic": "captain_cost_wait1" }
         ]
       }
@@ -113,7 +129,7 @@
         "condition": { "u_has_item": "jcost_note" },
         "switch": true
       },
-      { "text": "….", "topic": "TALK_DONE","switch": true }
+      { "text": "….", "topic": "TALK_DONE", "switch": true }
     ]
   },
   {
@@ -230,9 +246,7 @@
     "difficulty": 0,
     "value": 100,
     "//": "TODO redo quest",
-    "start": {
-      "assign_mission_target": { "om_terrain": "forest", "search_range": 25, "min_distance": 5, "random": true }
-    },
+    "start": { "assign_mission_target": { "om_terrain": "forest", "search_range": 25, "min_distance": 5, "random": true } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Help me fix lighthouse",
