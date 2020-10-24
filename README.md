@@ -20,7 +20,7 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 * Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
 * Jason Cost - 3 quests, no dialogues; WIP; most wanted features implemented (need additional testing);
 * Bill - 1 quest, most wanted features implemented (all untested)
-* Moneylender - 3 minor quests (2 WIP); unchecked dialogues; all wanted features implemented (kinda working, but need additional testing); Works fine!
+* Moneylender - 1 minor quest; 2 repeatable quests; unchecked dialogues; all wanted features implemented (kinda working, but need additional testing); Works fine!
 
 ## Trait teachers:
 * Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; should work nicely (?);

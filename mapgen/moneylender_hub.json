@@ -35,8 +35,11 @@
         "...................,...."
       ],
       "palettes": [ "more_npc_palette" ],
-      "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "moneylender_gang", "x": [ 9, 22 ], "y": [ 3, 7 ] } ],
-      "terrain": { "`": "t_railing_v", "}": "t_door_bar_locked", "[": "t_carpet_purple", ",": "t_dirt" },
+      "place_zones": [
+        { "type": "NPC_INVESTIGATE_ONLY", "faction": "moneylender_gang", "x": [ 9, 22 ], "y": [ 3, 7 ] },
+        { "type": "NPC_RETREAT", "faction": "no_faction", "x": [ 2, 21 ], "y": [ 8, 17 ] }
+      ],
+      "terrain": { "`": "t_railing_v", "}": "t_door_bar_locked", "[": "t_carpet_purple", ",": "t_dirt", "<": "t_ladder_up" },
       "furniture": { "Y": "f_trashcan", "8": "f_fridge", "{": "f_rack", "[": "f_dancing_pole", "Q": "f_locker" },
       "items": {
         "8": [ { "item": "bar_fridge", "chance": 90, "repeat": [ 1, 10 ] } ],
@@ -45,27 +48,19 @@
         "2": { "item": "trash", "chance": 30, "repeat": [ 1, 8 ] }
       },
       "place_loot": [
-        { "group": "weapons", "x": 18, "y": 4,  "magazine": 100, "repeat": [ 1, 2 ] },
-        { "group": "guns_shotgun_common", "x": 18, "y": 4,  "magazine": 100 },
+        { "group": "weapons", "x": 18, "y": 4, "magazine": 100, "repeat": [ 1, 2 ] },
+        { "group": "guns_shotgun_common", "x": 18, "y": 4, "magazine": 100 },
         { "group": "ammo_shotgun_common", "x": 18, "y": 4, "repeat": [ 1, 3 ] }
       ],
+      "npcs": { "4": { "class": "random_gal", "chance": 50 } },
       "place_npcs": [
-        { "class": "flame_knuckle_apprentice", "x": 20, "y": 3 },
-        { "class": "flame_knuckle_master", "x": 23, "y": 9 },
-        { "class": "flame_knuckle_elite", "x": 11, "y": 10 },
-        { "class": "flame_knuckle_apprentice", "x": 8, "y": 11 },
-        { "class": "flame_knuckle_apprentice", "x": 11, "y": 11 },
-        { "class": "flame_knuckle_master", "x": 23, "y": 11 },
-        { "class": "flame_knuckle_apprentice_door", "x": 15, "y": 12 },
-        { "class": "flame_knuckle_apprentice", "x": 8, "y": 13 },
-        { "class": "flame_knuckle_apprentice", "x": 14, "y": 13 },
-        { "class": "flame_knuckle_apprentice", "x": 22, "y": 13 },
-        { "class": "flame_knuckle_apprentice", "x": 18, "y": 14 },
-        { "class": "flame_knuckle_elite", "x": 11, "y": 17 },
-        { "class": "flame_knuckle_apprentice", "x": 9, "y": 18 },
-        { "class": "flame_knuckle_apprentice", "x": 7, "y": 20 },
-        { "class": "flame_knuckle_elite", "x": 20, "y": 20 },
-        { "class": "flame_knuckle_apprentice", "x": 30, "y": 20 }
+        { "class": "random_gal", "x": 12, "y": 5, "chance": 50 },
+        { "class": "random_gal", "x": 11, "y": 5, "chance": 50 },
+        { "class": "random_gal", "x": 10, "y": 5, "chance": 50 },
+        { "class": "random_gal", "x": 19, "y": 5, "chance": 50 },
+        { "class": "random_gal", "x": 18, "y": 5, "chance": 50 },
+        { "class": "random_gal", "x": 17, "y": 5, "chance": 50 },
+        { "class": "random_gal", "x": 14, "y": 12, "chance": 50 }
       ]
     }
   },
@@ -102,7 +97,8 @@
         " |-------3              ",
         "                        "
       ],
-      "palettes": [ "roof_palette" ]
+      "palettes": [ "roof_palette" ],
+      "terrain": { ">": "t_ladder_down" }
     }
   },
   {
@@ -163,8 +159,10 @@
       "place_loot": [
         { "group": "harddrugs", "x": 12, "y": 15, "repeat": [ 1, 6 ] },
         { "group": "ammo_rifle_rare", "x": 12, "y": 15, "repeat": [ 1, 3 ] },
+        { "group": "mags_rifle_rare", "x": 12, "y": 15, "repeat": [ 1, 3 ] },
         { "group": "guns_rifle_rare", "x": 12, "y": 15, "repeat": [ 1, 2 ] }
-      ]
+      ],
+      "place_npcs": [ { "class": "moneylender", "x": 12, "y": 11 } ]
     }
   }
 ]

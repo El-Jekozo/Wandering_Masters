@@ -18,7 +18,6 @@
     "name": { "str": "test_232" },
     "job_description": "test_232.",
     "common": false,
-    "shopkeeper_item_group": "moneylender_shop",
     "bonus_str": { "rng": [ 2, 4 ] },
     "bonus_dex": { "rng": [ 2, 4 ] },
     "bonus_int": { "rng": [ 1, 2 ] },

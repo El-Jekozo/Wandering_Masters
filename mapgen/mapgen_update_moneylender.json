@@ -3,7 +3,93 @@
     "type": "mapgen",
     "update_mapgen_id": "moneylender_share",
     "method": "json",
-    "object": { "place_item": [ { "item": "FMCNote", "x": 0, "y": 1, "amount": [ 1, 10 ], "repeat": [ 1, 5 ] } ] }
+    "object": { "place_item": [ { "item": "FMCNote", "x": 13, "y": 11, "amount": [ 1, 10 ], "repeat": [ 1, 5 ] } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "moneylender_share_turret",
+    "method": "json",
+    "object": { "place_item": [ { "item": "FMCNote", "x": 13, "y": 11, "amount": [ 10, 20 ], "repeat": [ 5, 10 ] } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "moneylender_turret1",
+    "method": "json",
+    "object": {
+      "place_monster": [
+        {
+          "monster": "mon_crows_m240",
+          "x": 17,
+          "y": 8,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] },
+          "friendly": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "moneylender_turret2",
+    "method": "json",
+    "object": {
+      "place_monster": [
+        {
+          "monster": "mon_crows_m240",
+          "x": 17,
+          "y": 17,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] },
+          "friendly": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "moneylender_turret3",
+    "method": "json",
+    "object": {
+      "place_monster": [
+        {
+          "monster": "mon_crows_m240",
+          "x": 16,
+          "y": 19,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] },
+          "friendly": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "moneylender_turret4",
+    "method": "json",
+    "object": {
+      "place_monster": [
+        {
+          "monster": "mon_crows_m240",
+          "x": 21,
+          "y": 12,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] },
+          "friendly": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "moneylender_turret5",
+    "method": "json",
+    "object": {
+      "place_monster": [
+        {
+          "monster": "mon_crows_m240",
+          "x": 10,
+          "y": 10,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] },
+          "friendly": true
+        }
+      ]
+    }
   },
   {
     "type": "mapgen",
@@ -11,9 +97,9 @@
     "method": "json",
     "object": {
       "place_loot": [
-        { "group": "army_personal_locker", "x": 5, "y": 5, "chance": 80, "repeat": 2 },
-        { "group": "MRE", "x": 5, "y": 5, "chance": 60, "repeat": 2 },
-        { "group": "military", "x": 5, "y": 5, "chance": 75, "repeat": 3 }
+        { "group": "army_personal_locker", "x": 13, "y": 11, "chance": 80, "repeat": 2 },
+        { "group": "MRE", "x": 13, "y": 11, "chance": 60, "repeat": 2 },
+        { "group": "military", "x": 13, "y": 11, "chance": 75, "repeat": 3 }
       ]
     }
   },
@@ -23,8 +109,8 @@
     "method": "json",
     "object": {
       "place_loot": [
-        { "group": "cannedfood", "x": 5, "y": 5, "chance": 85, "repeat": 8 },
-        { "group": "foodintincan", "x": 5, "y": 5, "chance": 85, "repeat": 8 }
+        { "group": "cannedfood", "x": 13, "y": 11, "chance": 85, "repeat": 8 },
+        { "group": "foodintincan", "x": 13, "y": 11, "chance": 85, "repeat": 8 }
       ]
     }
   },
@@ -34,9 +120,9 @@
     "method": "json",
     "object": {
       "place_loot": [
-        { "group": "antique", "x": 5, "y": 5, "chance": 80, "repeat": 3 },
-        { "group": "medieval", "x": 5, "y": 5, "chance": 60, "repeat": 3 },
-        { "group": "antique_rare", "x": 5, "y": 5, "chance": 40, "repeat": 3 }
+        { "group": "antique", "x": 13, "y": 11, "chance": 80, "repeat": 3 },
+        { "group": "medieval", "x": 13, "y": 11, "chance": 60, "repeat": 3 },
+        { "group": "antique_rare", "x": 13, "y": 11, "chance": 40, "repeat": 3 }
       ]
     }
   },
@@ -46,9 +132,9 @@
     "method": "json",
     "object": {
       "place_loot": [
-        { "group": "guns_rare_readied", "x": 5, "y": 5, "chance": 60, "repeat": 3 },
-        { "group": "mags_rare", "x": 5, "y": 5, "chance": 80, "repeat": 5 },
-        { "group": "gunmod_rare", "x": 5, "y": 5, "chance": 40, "repeat": 3 }
+        { "group": "guns_rare_readied", "x": 13, "y": 11, "chance": 60, "repeat": 3 },
+        { "group": "mags_rare", "x": 13, "y": 11, "chance": 80, "repeat": 5 },
+        { "group": "gunmod_rare", "x": 13, "y": 11, "chance": 40, "repeat": 3 }
       ]
     }
   },
@@ -56,6 +142,6 @@
     "type": "mapgen",
     "update_mapgen_id": "moneylender_loot_drugs",
     "method": "json",
-    "object": { "place_loot": [ { "group": "drugs_pharmacy", "x": 5, "y": 5, "repeat": 3 } ] }
+    "object": { "place_loot": [ { "group": "drugs_pharmacy", "x": 13, "y": 11, "repeat": 3 } ] }
   }
 ]
