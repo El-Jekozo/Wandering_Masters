@@ -23,7 +23,6 @@
     "bonus_dex": { "rng": [ 1, 4 ] },
     "bonus_int": { "rng": [ 1, 4 ] },
     "bonus_per": { "rng": [ 1, 4 ] },
-    "carry_override": "hobo_victoria_carried",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_demographics" },
@@ -35,18 +34,6 @@
       { "skill": "fabrication", "bonus": { "rng": [ 3, 4 ] } },
       { "skill": "survival", "bonus": { "rng": [ 1, 2 ] } }
     ]
-  },
-  {
-    "type": "item_group",
-    "id": "hobo_victoria_worn",
-    "subtype": "collection",
-    "entries": [ { "item": "cloak" } ]
-  },
-  {
-    "type": "item_group",
-    "id": "hobo_victoria_carried",
-    "subtype": "collection",
-    "entries": [  ]
   },
   {
     "type": "talk_topic",

@@ -25,7 +25,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "samurai_akira_worn",
     "carry_override": "samurai_akira_carried",
-    "wield_override": "samurai_akira_wield",
+    "weapon_override": "samurai_akira_weapon",
     "traits": [ { "group": "Appearance_EastAsian" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 4 }, { "skill": "cutting", "level": 5 }, { "skill": "dodge", "level": 4 } ]
   },
@@ -53,7 +53,7 @@
   },
   {
     "type": "item_group",
-    "id": "samurai_akira_wield",
+    "id": "samurai_akira_weapon",
     "subtype": "collection",
     "entries": [ { "item": "katana" } ]
   },

@@ -24,6 +24,7 @@
     "bonus_int": { "rng": [ 1, 4 ] },
     "bonus_per": { "rng": [ 1, 4 ] },
     "carry_override": "captain_cost_carried",
+    "weapon_override": "mnpc_weapon_none",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_demographics" },

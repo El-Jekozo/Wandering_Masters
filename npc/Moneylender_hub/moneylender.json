@@ -23,6 +23,7 @@
     "bonus_per": { "rng": [ 1, 5 ] },
     "worn_override": "moneylender_worn",
     "carry_override": "boxer_johny_carried",
+    "weapon_override": "moneylender_weapon",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 4 }, { "skill": "dodge", "level": 4 }, { "skill": "unarmed", "level": 4 } ]
   },
@@ -45,6 +46,12 @@
     "id": "boxer_johny_carried",
     "subtype": "collection",
     "entries": [ { "item": "moneylender_head" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "moneylender_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "cigar" } ]
   },
   {
     "type": "talk_topic",
@@ -78,14 +85,7 @@
     "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owed me a lot of money before <the_cataclysm>, and I want it back. You have two options: pay for Johny, in new money it will be 1200 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. I'm a collector of sort. Bring me rare books. After you'll prove yourself to me, I'll start paying for them. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless, you want to help him lose it… I'll pay you for it, and maybe even let you buy my premium goods.",
     "responses": [
       { "text": "Maybe I just kick your ass?", "topic": "moneylender_nope" },
-      {
-        "text": "I'll think about it.",
-        "topic": "TALK_DONE",
-        "effect": [
-          { "u_add_var": "bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes" },
-          { "npc_first_topic": "moneylender_2" }
-        ]
-      }
+      { "text": "I'll think about it.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "moneylender_2" } }
     ]
   },
   {
@@ -117,18 +117,11 @@
       }
     },
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
       { "text": "What's your story?", "topic": "moneylender_Background" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       {
         "text": "I'm here to talk about Johny's debt.",
         "topic": "moneylender_johny",
-        "condition": {
-          "and": [
-            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
-            { "not": { "u_has_var": "bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes" } }
-          ]
-        }
+        "condition": { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
       },
       {
         "text": "I got your money. [*Show him 1200 FMCNotes*]",
@@ -157,8 +150,7 @@
         "condition": {
           "and": [
             { "u_has_var": "moneylender_job", "type": "flag", "context": "meeting", "value": "2" },
-            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
-            { "not": { "u_has_var": "bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes" } }
+            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
           ]
         }
       },
@@ -226,8 +218,7 @@
             {
               "or": [
                 { "u_has_var": "moneylender_premium", "type": "flag", "context": "meeting", "value": "yes" },
-                { "u_has_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
-                { "not": { "u_has_var": "bj_debt_ml", "type": "flag", "context": "meeting", "value": "yes" } }
+                { "u_has_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" }
               ]
             }
           ]
@@ -299,7 +290,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_open_store",
-    "dynamic_line": "I need collectors books and turrets. Bring me enough books and turrets, and I'll open my premium store for you.",
+    "dynamic_line": "I need collectors books and turrets. Bring me enough books and i'll open my store to you. Bring me enough books and turrets, and I'll open my premium store for you.",
     "responses": [ { "text": "…", "topic": "TALK_NONE" } ]
   },
   {
@@ -517,6 +508,18 @@
           { "mapgen_update": "moneylender_loot_guns_police_rare", "origin_npc": true },
           { "u_sell_item": "FMCNote", "count": 600 }
         ]
+      },
+      {
+        "text": "Weapons stuff.",
+        "topic": "moneylender_trade",
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 140 } },
+        "effect": [ { "mapgen_update": "moneylender_loot_weapons", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 140 } ]
+      },
+      {
+        "text": "Weapons stuff.",
+        "topic": "moneylender_trade",
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 350 } },
+        "effect": [ { "mapgen_update": "moneylender_loot_swat_gear", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 350 } ]
       },
       { "text": "Maybe later.", "topic": "TALK_DONE" }
     ]

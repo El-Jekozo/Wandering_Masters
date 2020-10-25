@@ -14,6 +14,18 @@
   },
   {
     "type": "mapgen",
+    "update_mapgen_id": "moneylender_bartender_cop",
+    "method": "json",
+    "object": { "place_npcs": [ { "class": "moneylender_goon", "x": [ 10, 16 ], "y": 9, "repeat": [ 2, 4 ] } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "ml_door",
+    "method": "json",
+    "object": { "place_terrain": [ { "ter": "t_door_c", "x": 16, "y": 5 }, { "ter": "t_door_bar_c", "x": 15, "y": 7 } ] }
+  },
+  {
+    "type": "mapgen",
     "update_mapgen_id": "heist_success",
     "method": "json",
     "object": {
@@ -31,7 +43,7 @@
     "type": "mapgen",
     "update_mapgen_id": "22ch_helper",
     "method": "json",
-    "object": { "place_npc": [ { "class": "scientist_22ch", "x": [ 5, 20 ], "y": [ 5, 20 ] } ] }
+    "object": { "place_npcs": [ { "class": "scientist_22ch", "x": [ 5, 20 ], "y": [ 5, 20 ] } ] }
   },
   {
     "//": "TODO maybe edit?",

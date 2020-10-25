@@ -25,7 +25,7 @@
     "bonus_per": { "rng": [ 1, 4 ] },
     "worn_override": "wanderer_knight_worn",
     "carry_override": "wanderer_knight_carried",
-    "wield_override": "wanderer_knight_wield",
+    "weapon_override": "wanderer_knight_weapon",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_demographics" },
@@ -60,7 +60,7 @@
   },
   {
     "type": "item_group",
-    "id": "wanderer_knight_carried",
+    "id": "wanderer_knight_weapon",
     "subtype": "collection",
     "entries": [ { "item": "zweihander" } ]
   },

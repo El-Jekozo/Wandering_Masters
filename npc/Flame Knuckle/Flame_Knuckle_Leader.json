@@ -25,6 +25,7 @@
     "bonus_per": { "rng": [ 3, 4 ] },
     "worn_override": "flame_knuckle_leader_worn",
     "carry_override": "flame_knuckle_leader_carried",
+    "weapon_override": "mnpc_weapon_none",
     "skills": [
       { "skill": "dodge", "bonus": { "rng": [ 6, 8 ] } },
       { "skill": "melee", "bonus": { "rng": [ 6, 8 ] } },

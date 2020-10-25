@@ -23,16 +23,6 @@
   },
   {
     "type": "npc",
-    "id": "random_gal",
-    "name_suffix": "gal",
-    "class": "NC_BOUNTY_HUNTER",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_STRANGER_NEUTRAL",
-    "faction": "flame_knuckle"
-  },
-  {
-    "type": "npc",
     "id": "flame_knuckle_master",
     "//": "TODO add smthn dunno",
     "name_suffix": "Master",

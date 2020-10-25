@@ -23,7 +23,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "target_ceo_worn",
     "carry_override": "target_ceo_carried",
-    "wield_iverride": "target_ceo_wield",
+    "weapon_iverride": "target_ceo_weapon",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
     "skills": [ { "skill": "speech", "level": 6 } ]
   },
@@ -48,7 +48,7 @@
   },
   {
     "type": "item_group",
-    "id": "target_ceo_wield",
+    "id": "target_ceo_weapon",
     "subtype": "collection",
     "entries": [ { "item": "cigar" } ]
   },

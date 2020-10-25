@@ -18,6 +18,7 @@
     "id": "Berry_Button",
     "name": { "str": "Berry Button" },
     "job_description": "I'm just trying to survive.",
+    "weapon_override": "mnpc_weapon_none",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
     "common": false
   },

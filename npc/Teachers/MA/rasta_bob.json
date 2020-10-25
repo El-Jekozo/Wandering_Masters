@@ -24,6 +24,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "rasta_bob_worn",
     "carry_override": "rasta_bob_carried",
+    "weapon_override": "mnpc_weapon_none",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_African" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "dodge", "level": 6 }, { "skill": "unarmed", "level": 6 } ]
   },

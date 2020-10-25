@@ -23,7 +23,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "blackbelt_coach_worn",
     "carry_override": "blackbelt_coach_carried",
-    "wield_override": "blackbelt_coach_wield",
+    "weapon_override": "mnpc_weapon_none",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
@@ -45,12 +45,6 @@
     "id": "blackbelt_coach_carried",
     "subtype": "collection",
     "entries": [ { "item": "ip_leader_head" } ]
-  },
-  {
-    "type": "item_group",
-    "id": "blackbelt_coach_wield",
-    "subtype": "collection",
-    "entries": [  ]
   },
   {
     "type": "talk_topic",

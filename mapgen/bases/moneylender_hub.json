@@ -13,20 +13,20 @@
         "........................",
         "........................",
         ".############1#########.",
-        ".#t  #  t#{B8B{{#{QCuu#.",
+        ".#&  #  &#{B8B{{#{QCuu#.",
         ".#S  #  S#v     x     #.",
-        ".###+#+###!!!!! #   <>#.",
+        ".###+#+###!!!!! #'  <>#.",
         ".#       #JJJJ!}#######.",
         ".o       #AAAA   L HHH#.",
         ".#  j j  #          f #.",
         ".#  j j  #   `````    o.",
         ".#  j j  #   `~~~`    #.",
-        ".o  Y Y  #f4 `~[~`4f4 #.",
+        ".o  Y Y '#f4 `~[~`4f4 #.",
         ".#  j j  #4  `~~~`    #.",
         ".#  j j  #   `````   4#.",
         ".#  j j  +     4f4   fo.",
-        ".o  Y Y  #           4#.",
-        ".#  j j  #  4f4   4f4 #.",
+        ".o  Y Y  #^          4#.",
+        ".#  j j  #; 4f4 ' 4f4 #.",
         ".#  j j  ####o#####o###.",
         ".#  j j  #..............",
         ".o22     +,,,,,,,,,,....",
@@ -36,31 +36,35 @@
       ],
       "palettes": [ "more_npc_palette" ],
       "place_zones": [
-        { "type": "NPC_INVESTIGATE_ONLY", "faction": "moneylender_gang", "x": [ 9, 22 ], "y": [ 3, 7 ] },
+        { "type": "NPC_INVESTIGATE_ONLY", "faction": "moneylender_gang", "x": [ 9, 22 ], "y": [ 3, 6 ] },
         { "type": "NPC_RETREAT", "faction": "no_faction", "x": [ 2, 21 ], "y": [ 8, 17 ] }
       ],
       "terrain": { "`": "t_railing_v", "}": "t_door_bar_locked", "[": "t_carpet_purple", ",": "t_dirt", "<": "t_ladder_up" },
       "furniture": { "Y": "f_trashcan", "8": "f_fridge", "{": "f_rack", "[": "f_dancing_pole", "Q": "f_locker" },
       "items": {
-        "8": [ { "item": "bar_fridge", "chance": 90, "repeat": [ 1, 10 ] } ],
-        "f": [ { "item": "bar_table", "chance": 20, "repeat": [ 1, 3 ] } ],
-        "{": [ { "item": "bar_alcohol", "chance": 70, "repeat": [ 1, 3 ] } ],
-        "2": { "item": "trash", "chance": 30, "repeat": [ 1, 8 ] }
+        "8": [
+          { "item": "bar_fridge", "chance": 75, "repeat": [ 1, 10 ] },
+          { "item": "fridgesnacks", "chance": 75, "repeat": [ 1, 10 ] }
+        ],
+        "f": [ { "item": "bar_table", "chance": 60, "repeat": [ 1, 3 ] } ],
+        "J": [ { "item": "bar_table", "chance": 60, "repeat": [ 1, 3 ] } ],
+        "{": [ { "item": "bar_alcohol", "chance": 70, "repeat": [ 1, 3 ] }, { "item": "snacks", "chance": 50, "repeat": [ 1, 2 ] } ],
+        "2": { "item": "trash", "chance": 50, "repeat": [ 1, 8 ] }
       },
       "place_loot": [
         { "group": "weapons", "x": 18, "y": 4, "magazine": 100, "repeat": [ 1, 2 ] },
         { "group": "guns_shotgun_common", "x": 18, "y": 4, "magazine": 100 },
         { "group": "ammo_shotgun_common", "x": 18, "y": 4, "repeat": [ 1, 3 ] }
       ],
-      "npcs": { "4": { "class": "random_gal", "chance": 50 } },
+      "nested": {
+        "4": { "chunks": [ [ "null", 85 ], [ "random_gal_spawn", 15 ] ] },
+        "H": { "chunks": [ [ "null", 85 ], [ "random_gal_spawn", 15 ] ] },
+        "A": { "chunks": [ [ "null", 85 ], [ "random_gal_spawn", 15 ] ] }
+      },
+      "vendingmachines": { ";": { "item_group": "vending_drink" }, "^": { "item_group": "vending_food" } },
       "place_npcs": [
-        { "class": "random_gal", "x": 12, "y": 5, "chance": 50 },
-        { "class": "random_gal", "x": 11, "y": 5, "chance": 50 },
-        { "class": "random_gal", "x": 10, "y": 5, "chance": 50 },
-        { "class": "random_gal", "x": 19, "y": 5, "chance": 50 },
-        { "class": "random_gal", "x": 18, "y": 5, "chance": 50 },
-        { "class": "random_gal", "x": 17, "y": 5, "chance": 50 },
-        { "class": "random_gal", "x": 14, "y": 12, "chance": 50 }
+        { "class": "moneylender_bartender", "x": 12, "y": 5 },
+        { "class": "moneylender_hooker", "x": [ 14, 16 ], "y": [ 11, 13 ] }
       ]
     }
   },
@@ -70,6 +74,7 @@
     "method": "json",
     "om_terrain": "moneylender_hub_roof",
     "object": {
+      "faction_owner": [ { "id": "moneylender_gang", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
       "fill_ter": "t_open_air",
       "rows": [
         "                        ",
@@ -107,6 +112,7 @@
     "om_terrain": "moneylender_hub_basement",
     "weight": 250,
     "object": {
+      "faction_owner": [ { "id": "moneylender_gang", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
       "fill_ter": "t_rock_floor",
       "rows": [
         "************************",
@@ -114,26 +120,27 @@
         "************************",
         "************************",
         "**|-------------|*******",
-        "**|       |oFJJJ|-----|*",
-        "**| wwwww x     +    <|*",
-        "**|       |     |     |*",
-        "**|       |12375|     |*",
+        "**|      '|oFJJJ|-----|*",
+        "**| wwwww x     +    '|*",
+        "**|       |'    |    <|*",
+        "**|   8   |12375|     |*",
         "**| wwwww |-----|     |*",
-        "**|       |G s  |     |*",
+        "**|       |G s  |8    |*",
         "**|       |G4s4 +     |*",
-        "**| wwwww |G s  |     |*",
-        "**|       |     |     |*",
+        "**| wwwww |G s  |8    |*",
+        "**|       |    '|     |*",
         "**|--------x--+-----+-|*",
-        "**||9|t|bb  C|  CCC   |*",
-        "***| | |     x        |*",
-        "***|+|+| 66 v|bb    bb|*",
+        "**||9|&|bb  C| 8CCC  '|*",
+        "***| | |     x       8|*",
+        "***|+|+| 66 v|bb 8  bb|*",
         "***|   | bb b|        |*",
-        "***|Sr + bb b|bb6bb6bb|*",
+        "***|Sr + bb'b|bb6bb6bb|*",
         "***|------------------|*",
         "************************",
         "************************",
         "************************"
       ],
+      "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "moneylender_gang", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
       "palettes": [ "more_npc_palette" ],
       "terrain": { "*": "t_rock", "|": "t_wall", "-": "t_wall" },
       "furniture": {
@@ -162,7 +169,12 @@
         { "group": "mags_rifle_rare", "x": 12, "y": 15, "repeat": [ 1, 3 ] },
         { "group": "guns_rifle_rare", "x": 12, "y": 15, "repeat": [ 1, 2 ] }
       ],
-      "place_npcs": [ { "class": "moneylender", "x": 12, "y": 11 } ]
+      "npcs": { "8": { "class": "moneylender_goon" } },
+      "place_npcs": [
+        { "class": "moneylender", "x": 12, "y": 11 },
+        { "class": "moneylender_chef", "x": 11, "y": 6 },
+        { "class": "moneylender_hooker_bs", "x": [ 8, 12 ], "y": [ 15, 19 ], "repeat": 2 }
+      ]
     }
   }
 ]

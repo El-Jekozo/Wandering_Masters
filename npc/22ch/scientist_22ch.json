@@ -23,7 +23,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "scientist_22ch_worn",
     "carry_override": "scientist_22ch_carried",
-    "wield_override": "scientist_22ch_wield",
+    "weapon_override": "scientist_22ch_weapon",
     "traits": [ { "group": "Appearance_SouthAsian" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
@@ -52,7 +52,7 @@
   },
   {
     "type": "item_group",
-    "id": "scientist_22ch_wield",
+    "id": "scientist_22ch_weapon",
     "subtype": "collection"
   },
   {

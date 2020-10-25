@@ -46,7 +46,7 @@
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 2, 3 ] },
     "worn_override": "flame_knuckle_elite_worn",
-    "weapon_override": "flame_knuckle_elite_wield",
+    "weapon_override": "flame_knuckle_elite_weapon",
     "skills": [
       { "skill": "dodge", "bonus": { "rng": [ 2, 4 ] } },
       { "skill": "melee", "bonus": { "rng": [ 2, 4 ] } },
@@ -71,7 +71,7 @@
   },
   {
     "type": "item_group",
-    "id": "flame_knuckle_elite_wield",
+    "id": "flame_knuckle_elite_weapon",
     "subtype": "collection",
     "entries": [ { "or": [ "knuckle_nail", "knuckle_steel", "cestus" ] } ]
   },
@@ -88,7 +88,7 @@
     "bonus_int": { "rng": [ 2, 3 ] },
     "bonus_per": { "rng": [ 3, 4 ] },
     "worn_override": "flame_knuckle_master_worn",
-    "weapon_override": "flame_knuckle_master_wield",
+    "weapon_override": "flame_knuckle_master_weapon",
     "skills": [
       { "skill": "dodge", "bonus": { "rng": [ 4, 6 ] } },
       { "skill": "melee", "bonus": { "rng": [ 4, 6 ] } },
@@ -114,7 +114,7 @@
   },
   {
     "type": "item_group",
-    "id": "flame_knuckle_master_wield",
+    "id": "flame_knuckle_master_weapon",
     "subtype": "collection",
     "entries": [ { "item": "bagh_nakha" } ]
   }

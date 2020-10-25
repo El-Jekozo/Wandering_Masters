@@ -2,8 +2,9 @@
   {
     "type": "palette",
     "id": "more_npc_palette",
-    "toilets": { "t": {  } },
+    "toilets": { "&": {  } },
     "terrain": {
+      "'": "t_utility_light",
       ".": [ [ "t_grass", 4 ], [ "t_grass_long", 1 ] ],
       "_": "t_floor",
       "1": "t_reinforced_glass_shutter",

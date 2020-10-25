@@ -24,6 +24,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "boxer_johny_worn",
     "carry_override": "boxer_johny_carried",
+    "weapon_override": "mnpc_weapon_none",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_African" },
@@ -56,7 +57,11 @@
     "entries": [ { "item": "boxer_johny_head" } ]
   },
   {
-    "//": "TODO redo check for already spawned moneylender later. it's so fucking stupid i want to puke. literally.",
+    "type": "item_group",
+    "id": "mnpc_weapon_none",
+    "subtype": "collection"
+  },
+  {
     "type": "talk_topic",
     "id": [ "boxer_johny_1" ],
     "dynamic_line": {
@@ -72,28 +77,6 @@
       { "text": "What's your story?", "topic": "boxer_johny_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "boxer_johny_teach_check" },
-      {
-        "text": "Where to find him?",
-        "condition": { "u_has_mission": "MISSION_boxer_johny_2", "type": "flag", "context": "meeting", "value": "yes" },
-        "trial": {
-          "type": "CONDITION",
-          "condition": { "u_has_var": "moneylender_met", "type": "general", "context": "meeting", "value": "yes" }
-        },
-        "success": { "topic": "boxer_johny_moneylender" },
-        "failure": {
-          "effect": {
-            "mapgen_update": "boxer_johny_moneylender_spawn",
-            "om_terrain": "house",
-            "om_terrain_replace": "field",
-            "om_terrain_match_type": "PREFIX",
-            "reveal_radius": 1,
-            "search_range": 200,
-            "min_distance": 5,
-            "random": true
-          },
-          "topic": "boxer_johny_moneylender"
-        }
-      },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
@@ -210,6 +193,7 @@
     "deadline_low": 31,
     "deadline_high": 31,
     "start": {
+	  "reveal_om_ter":"moneylender_hub",
       "effect": [
         { "npc_first_topic": "bjohny_busy" },
         { "u_add_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
