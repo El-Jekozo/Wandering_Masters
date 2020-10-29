@@ -93,7 +93,7 @@
         "success": { "topic": "TALK_MISSION_INQUIRE" },
         "failure": { "topic": "wanderer_knight_nope" }
       },
-      { "text": "What's your story?", "topic": "wanderer_knight_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "wanderer_knight_Background" },
       {
         "text": "Do you need any help?",
         "condition": { "npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes" },
@@ -158,7 +158,7 @@
     "id": "wanderer_knight_Background",
     "dynamic_line": "I'm the True Warrior of God! I fight evil whenever I see one! I was called to this land to clean it from it's filth! Humanity has covered itself with sin and now they pay the price! But I lived all my life as pure and sinless as I could, and the God saved me from this curse of walking dead!",
     "responses": [
-      { "text": "Interesting.", "topic": "TALK_NONE" },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
       {
         "text": "Are you sure you telling me the truth?",
         "condition": { "not": { "npc_has_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes" } },
@@ -261,7 +261,7 @@
     "followup": "MISSION_wanderer_knight_2",
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "Look outside and tell me what you see there. I see plague, plague upon another plague that was sent to our world to purge it from its sins. If you want to help me fight this plague, and to clean this world from it, I want you to prove me that you are true warrior of the light. Kill 100 of that monsters and return to me.",
+      "offer": "Look outside and tell me what you see there. I see plague, plague upon another plague that was sent to our world to purge it from its sins. If you want to help me fight this plague, and to clean this world from it, I want you to prove me that you are true warrior of the light. Kill 100 <zombies> and return to me.",
       "accepted": "I'll wait.",
       "rejected": "What are you, infidel?!",
       "advice": "God bless you!",
@@ -297,12 +297,12 @@
     "followup": "MISSION_wanderer_knight_3",
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "Ah, my fellow warrior of the light, it's good that you're alive. I have another task for you. You need to help my dear friend, Brother Randalf, to lift his curse, so that his soul could reach the heaven and rest peacefuly for eternity.",
+      "offer": "Ah, my fellow warrior of the light, it's good that you're alive. I have another task for you. You need to help my dear <name_g>, Brother Randalf, to lift his curse, so that his soul could reach the heaven and rest peacefuly for eternity.",
       "accepted": "I'll wait.",
       "rejected": "What are you, infidel?!",
       "advice": "I know you can do it! God bless you!",
       "inquire": "Hmm…",
-      "success": "Ah, what a relief! You did good, my friend.",
+      "success": "Ah, what a relief! You did good, my <name_g>.",
       "success_lie": "Um…",
       "failure": "What a shame."
     }

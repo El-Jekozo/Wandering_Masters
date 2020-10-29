@@ -6,21 +6,12 @@
     "name_unique": "Berry Button",
     "gender": "male",
     "name_suffix": "refugee",
-    "class": "Berry_Button",
+    "class": "NC_SCAVENGER",
     "attitude": 0,
     "mission": 7,
     "chat": "TALK_REFUGEE_Berry_1",
     "faction": "no_faction",
     "mission_offered": "MISSION_BerryButton_1"
-  },
-  {
-    "type": "npc_class",
-    "id": "Berry_Button",
-    "name": { "str": "Berry Button" },
-    "job_description": "I'm just trying to survive.",
-    "weapon_override": "mnpc_weapon_none",
-    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
-    "common": false
   },
   {
     "id": [ "TALK_REFUGEE_Berry_1" ],
@@ -29,7 +20,7 @@
     "responses": [
       { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
       { "text": "Can I help you with something?", "topic": "TALK_MISSION_LIST" },
-      { "text": "What's your story?", "topic": "TALK_Berry_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_Berry_Background" },
       {
         "text": "You do realise that you payed me with worthless green paper, right?",
         "effect": { "npc_add_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" },
@@ -54,7 +45,7 @@
     "type": "talk_topic",
     "id": "TALK_Berry_Background",
     "dynamic_line": "I'm just a guy. Nothing more, nothing else.",
-    "responses": [ { "text": "Interesting.", "topic": "TALK_NONE" } ]
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
@@ -126,15 +117,15 @@
             { "u_has_var": "BarryB_safe", "type": "general", "context": "meeting", "value": "yes" }
           ]
         },
-        "effect": [ { "u_buy_item": "FMCNote", "count": 23 }, { "npc_first_topic": "TALK_REFUGEE_Berry_1" } ]
+        "effect": [ { "u_buy_item": "FMCNote", "count": 23 }, { "npc_first_topic": "TALK_REFUGEE_Berry_1" }, "mission_success" ]
       },
       {
-        "text": "He was alive, but I couldn't get him here alive. I'm sorry.",
+        "text": "He was alive, but I couldn't get him here in one peace. I'm sorry.",
         "topic": "TALK_MISSION_FAILURE",
         "condition": {
           "and": [ "mission_complete", { "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } ]
         },
-        "effect": { "npc_first_topic": "BerryB_sad" }
+        "effect": [ {"npc_first_topic": "BerryB_sad"}, "mission_failure" ]
       },
       {
         "text": "He was dead, I couldn't do anything. I'm sorry.",
@@ -145,9 +136,9 @@
             { "not": { "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } }
           ]
         },
-        "effect": { "npc_first_topic": "BerryB_sad" }
+        "effect": [ {"npc_first_topic": "BerryB_sad"}, "mission_failure" ]
       },
-      { "text": "Nothing, really.", "topic": "TALK_NONE" }
+      { "text": "Nothing, really.", "topic": "TALK_DONE" }
     ]
   },
   {

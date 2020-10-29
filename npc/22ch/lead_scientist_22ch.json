@@ -3,9 +3,9 @@
     "//": "TODO write something place him in cool basement, prob 5-20%(?), add dialogues, check code",
     "type": "npc",
     "id": "lead_scientist_22ch",
-    "name_unique": "Professor Narmulan Abubabebich",
+    "name_unique": "Marinam 'Adu' Obmazov",
     "gender": "male",
-    "name_suffix": "MD.",
+    "name_suffix": "Professor",
     "class": "lead_scientist_22ch",
     "attitude": 0,
     "mission": 7,
@@ -16,16 +16,15 @@
   {
     "type": "npc_class",
     "id": "lead_scientist_22ch",
-    "name": { "str": "Narmulan Abubabebich" },
-    "job_description": "Narmulan Abubabebich.",
+    "name": { "str": "Professor Adu" },
+    "job_description": "Professor Adu.",
     "common": false,
     "bonus_str": { "rng": [ 2, 4 ] },
     "bonus_dex": { "rng": [ 2, 4 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "lead_scientist_22ch_worn",
-    "carry_override": "lead_scientist_22ch_carried",
-    "weapon_override": "lead_scientist_22ch_weapon",
+    "weapon_override": "EMPTY_GROUP",
     "traits": [ { "group": "Appearance_SouthAsian" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
@@ -34,28 +33,16 @@
     "id": "lead_scientist_22ch_worn",
     "subtype": "collection",
     "entries": [
-      { "item": "loincloth" },
-      { "item": "hakama_gi" },
-      { "item": "obi_gi" },
-      { "item": "armor_samurai" },
-      { "item": "helmet_kabuto" },
-      { "item": "tabi_dress" },
-      { "item": "bastsandals" },
-      { "item": "backpack" },
-      { "item": "waterskin" },
-      { "item": "katana" }
+      { "item": "briefs" },
+      { "item": "coat_lab" },
+      { "item": "dress_shirt" },
+      { "item": "pants" },
+      { "item": "socks" },
+      { "item": "boots" },
+      { "item": "gloves_rubber" },
+      { "item": "wristwatch" },
+      { "item": "glasses_safety" }
     ]
-  },
-  {
-    "type": "item_group",
-    "id": "lead_scientist_22ch_carried",
-    "subtype": "collection",
-    "entries": [ { "item": "waterskin" }, { "item": "katana" }, { "item": "manual_niten" } ]
-  },
-  {
-    "type": "item_group",
-    "id": "lead_scientist_22ch_weapon",
-    "subtype": "collection"
   },
   {
     "type": "talk_topic",
@@ -63,7 +50,7 @@
     "dynamic_line": "AHA!",
     "responses": [
       { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "What's your story?", "topic": "lead_scientist_22ch_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "lead_scientist_22ch_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "lead_scientist_22ch_teach_check" },
       {
@@ -90,10 +77,10 @@
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_teach_check",
-    "dynamic_line": "I teach only those who helped me. Did you helped me?",
+    "dynamic_line": "I'm currently busy with something. Come back later.",
     "responses": [
       {
-        "text": "Yeah, bruh, i'm cool",
+        "text": "What about now?",
         "condition": { "npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" },
         "trial": {
           "type": "CONDITION",
@@ -108,14 +95,14 @@
         },
         "failure": { "topic": "lead_scientist_22ch_teach_done" }
       },
-      { "text": "Sorry I'm not ready", "topic": "TALK_NONE" }
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_teach",
     "dynamic_line": "I don't know what to teach you, but take this. Don't know what it is, and I can't remember where I found it.",
-    "responses": [ { "text": "Thanks my brudda", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
@@ -126,22 +113,22 @@
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_Background",
-    "dynamic_line": "I came from Azerbaidjan to build robots-desu.",
-    "responses": [ { "text": "Interesting", "topic": "TALK_NONE" } ]
+    "dynamic_line": "I came from Azerbaijan to build robots-desu, and to launch Cloudnet so I can reprogram all remain robots to clean our country from this living deads.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_panic",
-    "dynamic_line": "WE'RE GONNA DIE!!!",
+    "dynamic_line": "WE'RE GOING TO DIE!!!",
     "responses": [
-      { "text": "It's all over, my man.", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "Interesting", "topic": "TALK_DONE" }
+      { "text": "It's all over, my man.", "condition": "mission_complete", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "Relax, i'm working on it.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "lead_scientist_22ch_transmitters",
-    "dynamic_line": "Yes, what about it?",
+    "dynamic_line": "Any results?",
     "responses": [
       {
         "text": "We did it, both here.",
@@ -170,16 +157,56 @@
         "topic": "TALK_MISSION_FAILURE",
         "condition": {
           "and": [
-            "mission_failure",
+            "mission_complete",
             {
               "not": { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
             }
           ]
         },
-        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
+        "effect": "mission_failure"
       },
-      { "text": "Nothing, really.", "topic": "TALK_NONE" }
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lead_scientist_22ch_fail",
+    "dynamic_line": "So, you failed, huh. Then we have no hope. 10 years down the drain...",
+    "responses": [
+      {
+        "text": "Maybe something can be done?",
+        "topic": "TALK_DONE",
+        "trial": { "type": "PERSUADE", "difficulty": 15 },
+        "success": { "topic": "lead_scientist_22ch_fail1" },
+        "failure": { "topic": "lead_scientist_22ch_fail_lost" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lead_scientist_22ch_fail1",
+    "dynamic_line": "What can be done, my <name_g>? I lost all hope.",
+    "responses": [
+      {
+        "text": "Maybe we can try to do something else. Come with me.",
+        "topic": "TALK_DONE",
+        "trial": { "type": "INTIMIDATE", "difficulty": 15 },
+        "success": { "topic": "lead_scientist_22ch_follow" },
+        "failure": { "topic": "lead_scientist_22ch_fail_lost" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lead_scientist_22ch_follow",
+    "dynamic_line": "Hmm, maybe you're right. I'll go with you.",
+    "responses": [ { "text": "...", "topic": "TALK_DONE", "effect": "follow" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lead_scientist_22ch_fail_lost",
+    "dynamic_line": "No, my <name_g>. We lost our last chance. All is lost for us, and for me...[*he got his pistol from his pocket*]",
+    "responses": [ { "text": "Wait, no...", "topic": "TALK_DONE", "effect": "npc_die" } ]
   },
   {
     "id": "MISSION_lead_scientist_22ch_1",
@@ -195,15 +222,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_2",
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "Find plutonium cell 20",
-      "accepted": "Good",
+      "describe": "-",
+      "offer": "I need to lit up this place, and for that I need generator. For starters, find me plutonium cell 20.",
+      "accepted": "Good. I'll wait for you.",
       "rejected": "Afraid?!",
-      "advice": "Don't forget to tell him a few sweet words from me!",
+      "advice": "~",
       "inquire": "I'm waiting.",
-      "success": "Nice! ",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Nice!",
+      "success_lie": "~",
+      "failure": "-"
     }
   },
   {
@@ -220,15 +247,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_3",
     "dialogue": {
-      "describe": "Find minireactor 1",
-      "offer": "Find minireactor 1",
-      "accepted": "Good",
+      "describe": "-",
+      "offer": "Good, let's continue with generator. Find minireactor 1",
+      "accepted": "Good. I'll wait for you.",
       "rejected": "Are you scared?",
-      "advice": "Be careful. The guy could be figured out, so try not to bring the tail here.",
+      "advice": "~",
       "inquire": "I'm waiting.",
-      "success": "Well done, student. I knew you would succeed! Well, tell me … Hmmm, that's how it is. Well, it complicates my job a little. I need a little time to think things over. Here, hold this belt, you deserve it. Rest now.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Nice!",
+      "success_lie": "-",
+      "failure": "-"
     }
   },
   {
@@ -246,15 +273,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_4",
     "dialogue": {
-      "describe": "Find ai_module_basic 20",
-      "offer": "Find ai_module_basic 20",
-      "accepted": "Good.",
+      "describe": "-",
+      "offer": "Now we start working on our AI. Find ai_module_basic 20",
+      "accepted": "Good. I'll wait for you.",
       "rejected": "Hmm.",
-      "advice": "Yes",
+      "advice": "-",
       "inquire": "So?",
-      "success": "Good. Take this pet.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Good. Take this pet robot.",
+      "success_lie": "~",
+      "failure": "-"
     }
   },
   {
@@ -271,15 +298,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_5",
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "Find ai_module_advanced 10",
-      "accepted": "Good",
+      "describe": "-",
+      "offer": "We still need more materials for our AI. Find ai_module_advanced 10",
+      "accepted": "Good. I'll wait for you.",
       "rejected": "Afraid?",
       "advice": "Go.",
       "inquire": "I'm waiting.",
-      "success": "Good. Here's your reward.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Nice! You can talk to our AI if you want.",
+      "success_lie": "~",
+      "failure": "-"
     }
   },
   {
@@ -295,15 +322,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_6",
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "Find laptop 1",
-      "accepted": "Good. Talk to my man over there then return to me.",
+      "describe": "-",
+      "offer": "If I want to launch my AI to controll all reamin robots, I need to make myself a control laptop. Find laptop 1",
+      "accepted": "Good. I'll wait for you.",
       "rejected": "Afraid?",
       "advice": "Go.",
       "inquire": "I'm waiting.",
-      "success": "Good. Here's your reward.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Nice!",
+      "success_lie": "~",
+      "failure": "-"
     }
   },
   {
@@ -317,22 +344,25 @@
     "difficulty": 0,
     "value": 1000,
     "start": {
-      "update_mapgen": { "om_terrain": "cabin_basement_test", "place_npc": [ { "class": "scientist_22ch", "x": 15, "y": 1, "target": true } ] },
+      "update_mapgen": {
+        "om_terrain": "cabin_basement_test",
+        "place_npcs": [ { "class": "scientist_22ch", "x": 15, "y": 1, "target": true } ]
+      },
       "effect": [ { "npc_first_topic": "lead_scientist_22ch_transmitters" } ]
     },
     "end": { "effect": { "npc_first_topic": "lead_scientist_22ch_1" } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lead_scientist_22ch_7",
     "dialogue": {
-      "describe": "Help my fellow scientist",
-      "offer": "Help my fellow scientist",
-      "accepted": "Good. I can teach you now some stuff.",
+      "describe": "-",
+      "offer": "Until I'm working on control laptop, I need to place 5 transmitters on 5 high points, like radiotowers. My fellow scientist will help you with this task. Oh, he's here. Talk to him.",
+      "accepted": "Good. Talk to my fellow scientist, help him with his task.",
       "rejected": "Afraid?",
       "advice": "Go.",
       "inquire": "I'm waiting.",
-      "success": "Good. Here's your reward.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Good. Super. Now we need to launch this thing. Talk to me if you want to be here when it happens.",
+      "success_lie": "~",
+      "failure": "-"
     }
   },
   {
@@ -361,15 +391,15 @@
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
-      "offer": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
-      "accepted": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
+      "describe": "-",
+      "offer": "So, now we launch our Cloudnet! Are you ready for this moment?",
+      "accepted": "Good. So, now we have... what was that?! Robots attacking our base? SAVE ME PLEASE! KILL THOSE ROBOTS!",
       "rejected": "Afraid?",
       "advice": "Go.",
       "inquire": "I'm waiting.",
-      "success": "Good. Here's your reward.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "success": "Good. You saved me. Thank you! Now I can help you with stuff.",
+      "success_lie": "~",
+      "failure": "-"
     }
   }
 ]

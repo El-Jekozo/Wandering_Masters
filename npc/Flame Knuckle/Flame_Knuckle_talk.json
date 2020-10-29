@@ -3,7 +3,7 @@
     "type": "talk_topic",
     "id": "TALK_FK",
     "//": "TODO change this lame line",
-    "dynamic_line": "Can't you see I'm training? Get out of my way!",
+    "dynamic_line": "Can't you see I'm training? Get out of my way, <name_b>!",
     "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   },
   {
@@ -24,7 +24,7 @@
     "type": "talk_topic",
     "id": "TALK_COACH",
     "//": "TODO change this lame line",
-    "dynamic_line": "Oh, another survivor! Do you want to learn the way of Flame Knuckle school?",
+    "dynamic_line": "Oh, another survivor! Hello there, <name_g>. Do you want to learn the way of Flame Knuckle school?",
     "responses": [
       { "text": "Sorry, I'm here to kill you!", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] },
       {
@@ -54,7 +54,7 @@
     "type": "talk_topic",
     "id": "TALK_DOOR_ENTRY",
     "//": "TODO change this lame line",
-    "dynamic_line": "Permition granted! Go forward, and don't touch anything, or you'll regret it!",
+    "dynamic_line": "Permition granted! Go forward, and don't touch anything, or you'll regret it, <name_g>!",
     "responses": [
       {
         "text": "…",
@@ -67,14 +67,14 @@
     "type": "talk_topic",
     "id": "TALK_DOOR_DENY",
     "//": "TODO change this lame line",
-    "dynamic_line": "Get lost!",
+    "dynamic_line": "Get lost, <name_b>!",
     "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_DOOR_DENY_ENEMY",
     "//": "TODO change this lame line",
-    "dynamic_line": "Funny guy, are you? Boys, let's teach this clown some manners!",
+    "dynamic_line": "Funny guy, are you? Boys, let's teach this <name_b> some manners!",
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] } ]
   },
   {

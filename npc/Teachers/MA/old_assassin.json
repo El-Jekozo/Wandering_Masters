@@ -5,7 +5,7 @@
     "id": "old_assassin",
     "name_suffix": "assassin",
     "gender": "female",
-    "class": "old_assassin",
+    "class": "NC_NINJA",
     "attitude": 0,
     "mission": 7,
     "chat": "old_assassin_1",
@@ -13,60 +13,12 @@
     "mission_offered": "MISSION_old_assassin_1"
   },
   {
-    "type": "npc_class",
-    "id": "old_assassin",
-    "name": { "str": "Old Assassin" },
-    "job_description": "Old Assassin.",
-    "common": false,
-    "bonus_str": { "rng": [ 1, 3 ] },
-    "bonus_dex": { "rng": [ 1, 5 ] },
-    "bonus_int": { "rng": [ 1, 2 ] },
-    "bonus_per": { "rng": [ 1, 2 ] },
-    "worn_override": "old_assassin_worn",
-    "carry_override": "old_assassin_carried",
-    "weapon_override": "mnpc_weapon_none",
-    "traits": [
-      { "group": "NPC_starting_traits" },
-      { "group": "Appearance_demographics" },
-      { "trait": "PAINRESIST" },
-      { "trait": "PROF_SWAT" }
-    ],
-    "skills": [
-      { "skill": "gun", "level": 3 },
-      { "skill": "shotgun", "level": 3 },
-      { "skill": "pistol", "level": 2 },
-      { "skill": "melee", "level": 2 },
-      { "skill": "bashing", "level": 2 },
-      { "skill": "unarmed", "level": 2 }
-    ]
-  },
-  {
-    "type": "item_group",
-    "id": "old_assassin_worn",
-    "subtype": "collection",
-    "entries": [
-      { "items": [ "socks", "swat_armor", "tac_fullhelmet", "boots_combat", "gloves_tactical", "badge_swat", "wristwatch" ] },
-      { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
-      { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
-      { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
-      { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
-      { "item": "baton-extended", "container-item": "police_belt" },
-      { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
-    ]
-  },
-  {
-    "type": "item_group",
-    "id": "old_assassin_carried",
-    "subtype": "collection",
-    "entries": [ { "group": "charged_two_way_radio" }, { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] } ]
-  },
-  {
     "type": "talk_topic",
     "id": [ "old_assassin_1" ],
-    "dynamic_line": "Hello",
+    "dynamic_line": "<greet>",
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "What's your story?", "topic": "old_assassin_Background" },
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "mission_complete" },
+      { "text": "<BGSS_intro_question>", "topic": "old_assassin_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "old_assassin_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -76,7 +28,7 @@
     "type": "talk_topic",
     "id": "old_assassin_Background",
     "dynamic_line": "Well i'm just a regular assassin, really.",
-    "responses": [ { "text": "Interesting", "topic": "TALK_NONE" } ]
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
@@ -84,7 +36,7 @@
     "dynamic_line": "I teach only those who helped me. Did you helped me?",
     "responses": [
       {
-        "text": "Yeah, bruh, i'm cool",
+        "text": "Yeah.",
         "condition": { "npc_has_var": "u_helped_old_assassin", "type": "general", "context": "meeting", "value": "yes" },
         "trial": {
           "type": "CONDITION",
@@ -93,20 +45,20 @@
         "success": {
           "effect": [
             { "u_buy_item": "manual_ninjutsu" },
-            { "npc_add_var": "old_assassin_teach", "type": "general", "context": "meeting", "value": "no" }
+            { "npc_lose_var": "old_assassin_teach", "type": "general", "context": "meeting" }
           ],
           "topic": "old_assassin_teach"
         },
         "failure": { "topic": "old_assassin_teach_done" }
       },
-      { "text": "Sorry I'm noob", "topic": "TALK_NONE" }
+      { "text": "Sorry.", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "old_assassin_teach",
     "dynamic_line": "I learned all from it. You can take it now. Good luck!",
-    "responses": [ { "text": "Thanks my brudda", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
@@ -128,7 +80,7 @@
     "responses": [
       {
         "text": "…",
-        "topic": "TALK_DONE",
+        "topic": "TALK_MISSION_FAILURE",
         "condition": { "u_has_var": "old_assassin_fail", "type": "flag", "context": "meeting", "value": "yes" },
         "effect": [ "mission_failure", "end_conversation" ],
         "switch": true
@@ -140,7 +92,7 @@
     "id": "MISSION_old_assassin_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Kill nerd" },
+    "name": { "str": "Kill hacker" },
     "description": "Kill that nerd",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 1,
@@ -151,6 +103,7 @@
         "om_terrain": "house",
         "om_terrain_replace": "field",
         "om_terrain_match_type": "PREFIX",
+		"z":-1,
         "reveal_radius": 1,
         "search_range": 80,
         "min_distance": 5
@@ -160,20 +113,53 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_old_assassin_2",
     "dialogue": {
-      "describe": "MUDER-DEATH-KILL",
-      "offer": "Kill hacker",
-      "accepted": "WIP-ACCEPTED1",
-      "rejected": "WIP-REJ1",
-      "advice": "WIP-ADV1",
-      "inquire": "WIP-INQ1.",
-      "success": "WIP-SUCC1.",
-      "success_lie": "WIP-TEXT",
-      "failure": "WIP-TEXT."
+      "describe": "-",
+      "offer": "As you can see, there's <the_cataclysm> outside, and <zombies> roaming the streets. Still, I stick with code of assassins, and I need to finish my tasks. You want to help me with easy ones? I'll teach you something cool if ya help me.",
+      "accepted": "Good. First one is easy. Kill hacker in his basement.",
+      "rejected": "...",
+      "advice": "It's an easy job, really. Just not forget to move at night.",
+      "inquire": "So?",
+      "success": "Neat.",
+      "success_lie": "-",
+      "failure": "-"
     }
   },
   {
-    "//": "idea: kill corrupt cop, but cop have become a zed, so… kill zombie? maybe make unique zombie with some cool loot and attacks?",
     "id": "MISSION_old_assassin_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Kill sewers dweller" },
+    "description": "Kill sewers dweller",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 1,
+    "value": 1000,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "mx_sewer",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "search_range": 100,
+        "min_distance": 35,
+		"random":true
+      },
+      "update_mapgen": { "place_npcs": [ { "class": "oa_target_cyborg", "x": [5,20], "y": [5,20], "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_old_assassin_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "That was an easy task. This might be harder. Are you still interested?",
+      "accepted": "Good. I got a contract on some <name_g> who lives in sewers. Don't know who or for what someone wants him dead. Souns easy enough for me.",
+      "rejected": "WIP-REJ1",
+      "advice": "I hope you now how to deal with aligators. There are a lot of them in city sewers. [*chuckles*]",
+      "inquire": "So?",
+      "success": "Neat.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_old_assassin_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Kill cop" },
@@ -195,52 +181,17 @@
       "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_cop_oat", "x": [ 0, 23 ], "y": [ 0, 23 ], "target": true } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_old_assassin_3",
-    "dialogue": {
-      "describe": "WIP-TEXT-3",
-      "offer": "Find cop that has a wooden hand.",
-      "accepted": "WIP-TEXT-3",
-      "rejected": "WIP-TEXT-3",
-      "advice": "WIP-TEXT-3",
-      "inquire": "WIP-TEXT-3",
-      "success": "WIP-TEXT-3",
-      "success_lie": "WIP-TEXT-3",
-      "failure": "WIP-TEXT-3"
-    }
-  },
-  {
-    "//": "TODO do quest!!",
-    "id": "MISSION_old_assassin_3",
-    "type": "mission_definition",
-    "has_generic_rewards": false,
-    "name": { "str": "Kill nerd" },
-    "description": "Kill that nerd",
-    "goal": "MGOAL_ASSASSINATE",
-    "difficulty": 1,
-    "value": 1000,
-    "start": {
-      "assign_mission_target": {
-        "om_terrain": "house",
-        "om_terrain_replace": "house",
-        "om_terrain_match_type": "PREFIX",
-        "reveal_radius": 1,
-        "search_range": 80,
-        "min_distance": 5
-      },
-      "update_mapgen": { "place_npcs": [ { "class": "oa_target_hacker", "x": 22, "y": 18, "target": true } ] }
-    },
-    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_old_assassin_4",
     "dialogue": {
-      "describe": "MUDER-DEATH-KILL",
-      "offer": "Kill hacker",
-      "accepted": "WIP-ACCEPTED1",
-      "rejected": "WIP-REJ1",
-      "advice": "WIP-ADV1",
-      "inquire": "WIP-INQ1.",
-      "success": "WIP-SUCC1.",
-      "success_lie": "WIP-TEXT",
-      "failure": "WIP-TEXT."
+      "describe": "-",
+      "offer": "Are you still interested? This one may be harder.",
+      "accepted": "Good. I got a contract on some corrupted cop. Find him. He has a wooden hand. According to my sources, he got trapped in one of the FEMA camps.",
+      "rejected": "...",
+      "advice": "FEMA camps was full of people when shit hit the fan, and I guarantee that it's full of <zombies> now.",
+      "inquire": "So?",
+      "success": "Nice.",
+      "success_lie": "-",
+      "failure": "-"
     }
   },
   {
@@ -252,14 +203,13 @@
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 1,
     "value": 100,
-    "//": "TODO add ceo bodyguards, changeid of ceo ",
     "start": {
       "assign_mission_target": {
         "om_terrain": "loffice_tower_11",
         "om_special": "office_tower_large",
         "reveal_radius": 1,
         "search_range": 200,
-        "min_distance": 5
+        "min_distance": 25
       },
       "update_mapgen": {
         "place_npcs": [
@@ -278,15 +228,15 @@
     "fail": { "effect": "end_conversation" },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Kill!",
-      "offer": "Kill top CEO",
-      "accepted": "Good",
-      "rejected": "Why?",
+      "describe": "-",
+      "offer": "The last one. It will be hard. I hope you're sure that you can handle it.",
+      "accepted": "Good. The last mission will be some top manager or CEO or <swear> knows who of <swear> knows what.",
+      "rejected": "...",
       "advice": "He will be guarded, and probably would try to buy his life if you talk to him. Remember, no talking to your victims!",
       "inquire": "So?",
-      "success": "Nice",
-      "success_lie": "???",
-      "failure": "Looser"
+      "success": "Nice. I can teach you now if you want.",
+      "success_lie": "-",
+      "failure": "-"
     }
   }
 ]

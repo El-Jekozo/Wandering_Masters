@@ -23,7 +23,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "police_teacher_worn",
     "carry_override": "police_teacher_carried",
-    "weapon_override": "mnpc_weapon_none",
+    "weapon_override": "EMPTY_GROUP",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_demographics" },
@@ -78,8 +78,8 @@
       }
     },
     "responses": [
-      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "What's your story?", "topic": "police_teacher_Background" },
+      { "text": "About that job…", "condition": "mission_complete", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "<BGSS_intro_question>", "topic": "police_teacher_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "police_teacher_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -91,7 +91,7 @@
     "id": "police_teacher_Background",
     "dynamic_line": "Well, I was in this cell, minding my own business, but when the lights went out, the emergency system locked the entire PD and I kind of got stuck here. ",
     "responses": [
-      { "text": "Interesting.", "topic": "TALK_NONE" },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
       {
         "text": "Are you sure you telling me the truth?",
         "condition": { "not": { "npc_has_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" } },
@@ -314,7 +314,7 @@
       "offer": "So, now I know where he's been serving sentence, and I want to just check what happened to him…What? Why don't I just go there and look for myself? Well, ha-ha, I'm kinda busy with…Defending my PD, ha! So, if you want to help me, please find Bill. If he's there, kill him and bring his head as poof. He have a tatoo on his face that looks like a dragon, so you you can’t mistake him for anyone.",
       "accepted": "Thank you. I'll wait.",
       "rejected": "Why?",
-      "advice": "Be extremly careful with your approach. Prisons are guarder by police bots and turrets, and they are a very dangerous.",
+      "advice": "Be <very> careful with your approach. Prisons are guarder by police bots and turrets, and they are a <very> dangerous.",
       "inquire": "So?",
       "success": "Good. Show it to me. So, here you are, you dirty bastard. Who's laughing now, huh? Ha-ha! Hah…wait a minute. Green eyes, potato nose, scar under left eye, dental print looks like his, but…it's a wyrm, not a dragon! Argh, what a trikster! So, now we know that he's alive, and maybe even escaped from prison. That's bad news, indeed. I need to think about it.",
       "success_lie": "Um…",
@@ -395,13 +395,13 @@
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Police",
-      "offer": "Kill the real Bill.",
-      "accepted": "I'll wait.",
+      "describe": "-",
+      "offer": "OK, I might know where to find him. Kill the real Bill.",
+      "accepted": "I'll wait. Be careful.",
       "rejected": "Why?",
-      "advice": "Yes.",
+      "advice": "Good luck.",
       "inquire": "I'm waiting.",
-      "success": "Good.",
+      "success": "Good. Now I can teach you.",
       "success_lie": "Um…",
       "failure": "What a shame."
     }

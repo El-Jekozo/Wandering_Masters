@@ -25,7 +25,7 @@
     "bonus_per": { "rng": [ 3, 4 ] },
     "worn_override": "flame_knuckle_leader_worn",
     "carry_override": "flame_knuckle_leader_carried",
-    "weapon_override": "mnpc_weapon_none",
+    "weapon_override": "EMPTY_GROUP",
     "skills": [
       { "skill": "dodge", "bonus": { "rng": [ 6, 8 ] } },
       { "skill": "melee", "bonus": { "rng": [ 6, 8 ] } },
@@ -59,7 +59,7 @@
   {
     "id": [ "flame_knuckle_leader_start" ],
     "type": "talk_topic",
-    "dynamic_line": "So, what brings you here?",
+    "dynamic_line": "So, what brings you here, <name_g>?",
     "responses": [
       {
         "text": "I'm here for business.",
@@ -134,7 +134,7 @@
   {
     "type": "talk_topic",
     "id": "flame_knuckle_leader_hard",
-    "dynamic_line": "So be it!.",
+    "dynamic_line": "So be it!",
     "responses": [ { "text": "Let's rock!", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] } ]
   },
   {
@@ -143,7 +143,7 @@
     "dynamic_line": "I hope you bring me something worth my attention.",
     "responses": [
       { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "What's your story?", "topic": "flame_knuckle_leader_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "flame_knuckle_leader_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "flame_knuckle_leader_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -153,7 +153,7 @@
     "type": "talk_topic",
     "id": "flame_knuckle_leader_Background",
     "dynamic_line": "WIP!",
-    "responses": [ { "text": "Interesting", "topic": "TALK_NONE" } ]
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
@@ -169,13 +169,13 @@
           { "npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes" }
         ]
       },
-      { "text": "Sorry, master!", "topic": "TALK_NONE" }
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "flame_knuckle_leader_teach",
-    "dynamic_line": "So, you want to learn the secrets of my school? Here, take it, it's all yours, my student. But you know, I'm not feeling that generous to just give you my secrets that easily. Let's dance for a bit, and if you could stand still after that, consider yourself worth to know the ways of my school.",
+    "dynamic_line": "So, you want to learn the secrets of my school? Here, take it, it's all yours, my student. But you know, I'm not feeling that generous to just give you my secrets that easily. Let's dance for a bit, and if you could stand still after that, consider yourself worthy to know the ways of my school.",
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] } ]
   },
   {
@@ -204,12 +204,12 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Flame Knuckle's Leader",
-      "offer": "Bring me more students, so I can have more force to deal with this situation outside.",
+      "offer": "Bring me more students, so I can have more force to deal with <the_cataclysm>.",
       "accepted": "I'm waiting.",
-      "rejected": "Bah, another coward. Go away!",
+      "rejected": "Bah, another coward. Go away, <name_b>!",
       "advice": "Go search for lone survivors hiding in their basement or something.",
       "inquire": "I'm waiting.",
-      "success": "Good, good. Nice catch out there, they can be good asset for me. I'll treat them with care, he-he. Now go play outside.",
+      "success": "Good, <very> good. Nice catch out there, they can be good asset for me. I'll treat them with care, he-he. Now go play outside, <name_g>.",
       "success_lie": "You know what we do to liars?",
       "failure": "So, you chose to lose your head."
     }

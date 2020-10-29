@@ -14,7 +14,7 @@
     "id": "TALK_ML_HUB_HOBO",
     "dynamic_line": "Hello. Wanna give me something to drink?",
     "responses": [
-      { "text": "What's your story?", "topic": "TALK_ML_HUB_HOBO_STORY" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_ML_HUB_HOBO_STORY" },
       { "text": "Sure?", "topic": "TALK_ML_HUB_HOBO_DRINK" },
       { "text": "...", "topic": "TALK_DONE" }
     ]

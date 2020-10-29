@@ -24,7 +24,7 @@
     "bonus_int": { "rng": [ 1, 4 ] },
     "bonus_per": { "rng": [ 1, 4 ] },
     "carry_override": "captain_cost_carried",
-    "weapon_override": "mnpc_weapon_none",
+    "weapon_override": "EMPTY_GROUP",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_demographics" },
@@ -63,7 +63,16 @@
     "type": "talk_topic",
     "id": "captain_cost_refuse",
     "dynamic_line": "Are you sure about that?",
-    "responses": [ { "text": "No.", "topic": "TALK_NONE" }, { "text": "Yes.", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+    "responses": [
+      {
+        "text": "No, I'm a cop, and I must help my government.",
+        "topic": "TALK_NONE",
+        "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] },
+        "switch": true
+      },
+      { "text": "...", "topic": "TALK_NONE" },
+      { "text": "Yes.", "topic": "TALK_DONE", "effect": "insult_combat", "switch": true }
+    ]
   },
   {
     "type": "talk_topic",
@@ -87,7 +96,7 @@
         "topic": "TALK_MISSION_LIST",
         "condition": { "not": "has_assigned_mission" }
       },
-      { "text": "What's your story?", "topic": "captain_cost_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "captain_cost_Background" },
       { "text": "I don't want to help you anymore.", "topic": "captain_cost_refuse" },
       { "text": "Bye.", "topic": "TALK_DONE", "condition": "has_assigned_mission" }
     ]
@@ -95,13 +104,13 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_Background",
-    "dynamic_line": "WIP.",
-    "responses": [ { "text": "Interesting.", "topic": "TALK_NONE" } ]
+    "dynamic_line": "I am a captain of millitary force of the US and A!",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_wait",
-    "dynamic_line": "So, go there and check things.",
+    "dynamic_line": "So, go there and check things. Search for the note.",
     "responses": [
       {
         "text": "…",
@@ -128,6 +137,7 @@
         "text": "So, i got that note for you! Care to explain why there were a lot of aggresive drones?",
         "topic": "captain_cost_traitor",
         "condition": { "u_has_item": "jcost_note" },
+        "effect": "mission_success",
         "switch": true
       },
       { "text": "….", "topic": "TALK_DONE", "switch": true }
@@ -191,15 +201,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_2",
     "dialogue": {
-      "describe": "WIP",
+      "describe": "-",
       "offer": "Heli crashed nearby. Help me find it. I'll go with you. No objections.",
-      "accepted": "GOOD",
-      "rejected": "BAD",
-      "advice": "HMM",
-      "inquire": "SO?",
-      "success": "Yoss!",
+      "accepted": "Good. It crashed in nearby field. I need an information that was on that heli. Let's search for it.",
+      "rejected": "Are you sure about that?",
+      "advice": "There might be some military staff. Alive or dead.",
+      "inquire": "So?",
+      "success": "Neat.",
       "success_lie": "Um…",
-      "failure": "What a shame."
+      "failure": "-"
     }
   },
   {
@@ -226,15 +236,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_3",
     "dialogue": {
-      "describe": "Help me clean lighthouse",
-      "offer": "Lead me to bunker",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
+      "describe": "-",
+      "offer": "We need to get a secret note from bunker nearby. Lead me to that bunker.",
+      "accepted": "Good. Let's go.",
+      "rejected": "Are you sure about that?",
+      "advice": "It might be guarded, so take some weapons with you.",
       "inquire": "So?",
-      "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
+      "success": "Nice.",
+      "success_lie": "-",
+      "failure": "-"
     }
   },
   {
@@ -250,15 +260,15 @@
     "start": { "assign_mission_target": { "om_terrain": "forest", "search_range": 25, "min_distance": 5, "random": true } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Help me fix lighthouse",
-      "offer": "Go to special place",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
+      "describe": "-",
+      "offer": "Last task. We need to contact some special agent to finish my mission. For that we need to get a special code to contact him. Lead me to the meeting point, where you can find information how to contact him.",
+      "accepted": "Good. Lead the way.",
+      "rejected": "Are you sure about that?",
+      "advice": "It's an easy job, <name_g>.",
       "inquire": "So?",
-      "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
     }
   }
 ]

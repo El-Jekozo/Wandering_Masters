@@ -15,8 +15,7 @@
       { "trait": "ADRENALINE", "prob": 35 },
       { "trait": "MASOCHIST", "prob": 35 },
       { "trait": "KILLER", "prob": 35 }
-    ],
-    "initial_ma_styles": [ "style_aikido" ]
+    ]
   },
   {
     "type": "trait_group",

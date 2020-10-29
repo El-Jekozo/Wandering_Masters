@@ -22,6 +22,7 @@
     "bonus_dex": { "rng": [ 2, 4 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
+	"shopkeeper_item_group": "NC_BARTENDER_misc",
     "traits": [
       { "group": "NPC_starting_traits" },
       { "group": "Appearance_demographics" },
@@ -36,7 +37,7 @@
     "dynamic_line": "TEST ME!",
     "responses": [
       {
-        "text": "Test cost trap",
+        "text": "Test cost trap. <kill_npc_h>",
         "topic": "TALK_DONE",
         "effect": [
           {

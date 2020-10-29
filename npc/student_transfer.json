@@ -47,19 +47,19 @@
       "type": "flag",
       "context": "meeting",
       "value": "fk",
-      "yes": "Flame Fist sounds cool! Are you sure boss? ",
+      "yes": "Flame Fist sounds cool! Are you sure <name_g>? ",
       "no": {
         "u_has_var": "students_transfer",
         "type": "flag",
         "context": "meeting",
         "value": "ip",
-        "yes": "Iron Palm sounds cool! Are you sure boss?",
-        "no": "Boxer Johny's apprentice? Sounds cool! Are you sure boss?"
+        "yes": "Iron Palm sounds cool! Are you sure <name_g>?",
+        "no": "Boxer Johny's apprentice? Sounds cool! Are you sure <name_g>?"
       }
     },
     "responses": [
       {
-        "text": "I'm sure. Iron Palm needs you. Now go.",
+        "text": "Yes, Iron Palm needs you. Now go.",
         "topic": "TALK_DONE",
         "condition": { "u_has_var": "students_transfer", "type": "flag", "context": "meeting", "value": "ip" },
         "effect": [
@@ -70,7 +70,7 @@
         ]
       },
       {
-        "text": "I'm sure. Flame Knuckle need you. Now go.",
+        "text": "Yes, Flame Knuckle need you. Now go.",
         "topic": "TALK_DONE",
         "condition": { "u_has_var": "students_transfer", "type": "flag", "context": "meeting", "value": "fk" },
         "effect": [
@@ -81,7 +81,7 @@
         ]
       },
       {
-        "text": "I'm sure. Boxer Johny needs you. Now go.",
+        "text": "Yes, Boxer Johny needs you. Now go.",
         "topic": "TALK_DONE",
         "condition": { "u_has_var": "students_transfer_bj", "type": "flag", "context": "meeting", "value": "yes" },
         "effect": [
@@ -102,14 +102,14 @@
       "type": "flag",
       "context": "meeting",
       "value": "fk",
-      "yes": "Flame Knuckles RULE! ",
+      "yes": "Flame Knuckles <swear> RULE! ",
       "no": {
         "u_has_var": "students_transfer",
         "type": "flag",
         "context": "meeting",
         "value": "ip",
-        "yes": "Iron Palm RULE!",
-        "no": "Boxer Johny RULE!"
+        "yes": "Iron Palm <swear> RULE!",
+        "no": "Boxer Johny <swear> RULE!"
       }
     },
     "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]

@@ -13,13 +13,13 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "moneylender_turret1",
+    "update_mapgen_id": "moneylender_turret_1",
     "method": "json",
     "object": {
       "place_monster": [
         {
           "monster": "mon_crows_m240",
-          "x": 17,
+          "x": 16,
           "y": 8,
           "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] },
           "friendly": true
@@ -29,7 +29,7 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "moneylender_turret2",
+    "update_mapgen_id": "moneylender_turret_2",
     "method": "json",
     "object": {
       "place_monster": [
@@ -45,7 +45,7 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "moneylender_turret3",
+    "update_mapgen_id": "moneylender_turret_3",
     "method": "json",
     "object": {
       "place_monster": [
@@ -61,7 +61,7 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "moneylender_turret4",
+    "update_mapgen_id": "moneylender_turret_4",
     "method": "json",
     "object": {
       "place_monster": [
@@ -77,7 +77,7 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "moneylender_turret5",
+    "update_mapgen_id": "moneylender_turret_5",
     "method": "json",
     "object": {
       "place_monster": [

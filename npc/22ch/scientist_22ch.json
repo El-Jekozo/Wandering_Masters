@@ -21,45 +21,14 @@
     "bonus_dex": { "rng": [ 2, 4 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
-    "worn_override": "scientist_22ch_worn",
-    "carry_override": "scientist_22ch_carried",
-    "weapon_override": "scientist_22ch_weapon",
+    "worn_override": "lead_scientist_22ch_worn",
     "traits": [ { "group": "Appearance_SouthAsian" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
-  },
-  {
-    "type": "item_group",
-    "id": "scientist_22ch_worn",
-    "subtype": "collection",
-    "entries": [
-      { "item": "loincloth" },
-      { "item": "hakama_gi" },
-      { "item": "obi_gi" },
-      { "item": "armor_samurai" },
-      { "item": "helmet_kabuto" },
-      { "item": "tabi_dress" },
-      { "item": "bastsandals" },
-      { "item": "backpack" },
-      { "item": "waterskin" },
-      { "item": "katana" }
-    ]
-  },
-  {
-    "type": "item_group",
-    "id": "scientist_22ch_carried",
-    "subtype": "collection",
-    "entries": [ { "item": "waterskin" }, { "item": "katana" }, { "item": "manual_niten" } ]
-  },
-  {
-    "type": "item_group",
-    "id": "scientist_22ch_weapon",
-    "subtype": "collection"
   },
   {
     "type": "talk_topic",
     "id": [ "scientist_22ch_1" ],
     "dynamic_line": "*looks busy",
-    "speaker_effect": { "u_add_var": "scientist_22ch_met", "type": "general", "context": "meeting", "value": "yes" },
     "responses": [
       {
         "text": "So, that guy sent me.",
@@ -94,7 +63,7 @@
             { "npc_adjust_var": "scientist_22ch_transmitter", "type": "flag", "context": "meeting", "adjustment": 1 }
           ]
         },
-        "failure": { "topic": "scientist_22ch_bad" }
+        "failure": { "topic": "scientist_22ch_done" }
       },
       {
         "text": "We're home.",
@@ -119,7 +88,7 @@
   },
   {
     "type": "talk_topic",
-    "id": [ "scientist_22ch_bad" ],
+    "id": [ "scientist_22ch_done" ],
     "dynamic_line": "So, the last one. Let's get back to our guy.",
     "responses": [
       {
@@ -145,34 +114,35 @@
     "id": "MISSION_scientist_22ch_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Help me place 5 things" },
-    "description": "Help me place 5 things",
+    "name": { "str": "Place 5 transmitters" },
+    "description": "Help scientist place 5 transmitters",
     "goal": "MGOAL_GO_TO",
     "destination": "radio_tower_top",
     "difficulty": 0,
     "value": 100,
     "start": {
       "assign_mission_target": {
-        "om_terrain": "radio_tower_top",
+        "om_terrain": "radio_tower",
         "om_special": "Radio Tower",
         "om_terrain_replace": "field",
-        "search_range": 30,
-        "min_distance": 5,
-        "random": true
+        "search_range": 180,
+        "min_distance": 75,
+        "cant_see": true,
+        "offset_z": 6
       }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_scientist_22ch_1",
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "Help me place 5 things",
-      "accepted": "Good",
-      "rejected": "Afraid?!",
-      "advice": "Don't forget to tell him a few sweet words from me!",
-      "inquire": "I'm waiting.",
-      "success": "Nice! ",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
+      "describe": "-",
+      "offer": "Help me place 5 transmitters on 5 radio towers.",
+      "accepted": "Good. I'll be behing you.",
+      "rejected": "Why?",
+      "advice": "Keep me safe please.",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
     }
   }
 ]

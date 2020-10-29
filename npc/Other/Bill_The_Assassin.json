@@ -114,7 +114,7 @@
   {
     "id": [ "bill_the_assassin_talk2" ],
     "type": "talk_topic",
-    "dynamic_line": "Hmm, if you put it that way, I'll tell you something interesting. I think your friend asked you to bring back my head. Why do I know? That cop guy just wants to screw you and loot my basement! I have a secret storage room in my basement that opens only after retinal scan, and he will do anything to get to that room. Tell you what, if you kill that bastard, I'll open it for you. Anything that I left behind me, will be yours. Whatcha say?",
+    "dynamic_line": "Hmm, if you put it that way, I'll tell you something interesting. I think your <name_g> asked you to bring back my head. How do I know? That cop <name_b> just wants to screw you and loot my basement! I have a secret storage room in my basement that opens only after retinal scan, and he will do anything to get to that room. Tell you what, if you kill that <name_b>, I'll open it for you. Anything that I left behind me, will be yours. Whatcha say, <name_g>?",
     "responses": [
       { "text": "Nope, i'll kick your ass!", "topic": "bill_the_assassin_bad" },
       {

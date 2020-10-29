@@ -4,7 +4,7 @@
     "id": "random_gal",
     "class": "NC_BOUNTY_HUNTER",
     "attitude": 0,
-    "mission": 7,
+    "mission": 8,
     "chat": "TALK_SCAVENGER_MERC",
     "faction": "no_faction"
   },
@@ -24,7 +24,7 @@
     "class": "ml_hooker",
     "gender": "female",
     "attitude": 0,
-    "mission": 7,
+    "mission": 8,
     "chat": "TALK_ML_HOOKER",
     "faction": "no_faction"
   },
@@ -34,7 +34,7 @@
     "class": "ml_hooker",
     "gender": "female",
     "attitude": 0,
-    "mission": 7,
+    "mission": 8,
     "chat": "TALK_ML_HOOKER_BS",
     "faction": "no_faction"
   },
@@ -43,7 +43,7 @@
     "id": "moneylender_chef",
     "class": "NC_SURVIVOR_CHEF",
     "attitude": 0,
-    "mission": 7,
+    "mission": 8,
     "chat": "TALK_ML_CHEF",
     "faction": "no_faction"
   }

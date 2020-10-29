@@ -63,7 +63,7 @@
     "dynamic_line": "Hmm…",
     "responses": [
       { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "What's your story?", "topic": "samurai_akira_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "samurai_akira_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "samurai_akira_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -73,7 +73,7 @@
     "type": "talk_topic",
     "id": "samurai_akira_Background",
     "dynamic_line": "I came from Japan to retrive ancient relics from the past: parts of armour of Kentaro the Great.",
-    "responses": [ { "text": "Interesting.", "topic": "TALK_NONE" } ]
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",

@@ -51,9 +51,28 @@
         "topic": "moneylender_bartender_talk",
         "condition": { "u_has_skill": { "skill": "speech", "level": 3 } }
       },
+      {
+        "text": "[FEMALE]Maybe I can 'persuade' you...",
+        "condition": "u_female",
+        "trial": { "type": "CONDITION", "condition": { "u_has_any_trait": [ "PRETTY", "BEAUTIFUL", "BEAUTIFUL2", "BEAUTIFUL3" ] } },
+        "success": { "topic": "moneylender_bartender_fem_yes" },
+        "failure": { "topic": "moneylender_bartender_fem_no" }
+      },
       { "text": "Maybe if I help you with something you'll tell me more?", "topic": "TALK_MISSION_LIST" },
       { "text": "Maybe later.", "topic": "TALK_NONE" }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_fem_yes",
+    "dynamic_line": "Maybe, maybe. I'll be free in a few hours, until then, you can talk to my boss.",
+    "responses": [ { "text": "...", "topic": "TALK_DONE", "effect": { "mapgen_update": "ml_door", "origin_npc": true } } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_fem_no",
+    "dynamic_line": "Not my type, sorry.",
+    "responses": [ { "text": "...", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
@@ -63,7 +82,13 @@
       {
         "text": "...",
         "topic": "TALK_DONE",
-        "effect": [ { "mapgen_update": "moneylender_bartender_cop", "origin_npc": true }, "insult_combat" ]
+        "effect": [
+          { "npc_add_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" },
+          { "mapgen_update": "ml_door", "origin_npc": true },
+          { "npc_change_faction": "moneylender_gang" },
+          { "u_faction_rep": 20 },
+          { "npc_change_faction": "no_faction" }
+        ]
       }
     ]
   },
@@ -73,7 +98,7 @@
     "dynamic_line": "Maybe. You got something for me?",
     "responses": [
       {
-        "text": "Maybe this will help.",
+        "text": "[35MERCH]Maybe this will help.",
         "topic": "moneylender_bartender_talk1",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 35 } },
         "effect": { "u_sell_item": "FMCNote", "count": 35 }

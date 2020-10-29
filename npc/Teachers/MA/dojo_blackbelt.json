@@ -23,7 +23,7 @@
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "blackbelt_coach_worn",
     "carry_override": "blackbelt_coach_carried",
-    "weapon_override": "mnpc_weapon_none",
+    "weapon_override": "EMPTY_GROUP",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
@@ -85,7 +85,7 @@
           "effect": [ { "npc_add_var": "blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
         }
       },
-      { "text": "What's your story?", "topic": "blackbelt_coach_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "blackbelt_coach_Background" },
       {
         "text": "Do you need any help?",
         "trial": { "type": "CONDITION", "condition": { "and": [ { "u_is_wearing": "karate_gi" }, { "u_is_wearing": "geta" } ] } },
@@ -113,9 +113,9 @@
   {
     "type": "talk_topic",
     "id": "blackbelt_coach_Background",
-    "dynamic_line": "Well, if you would like to know, we would have to start before <the_cataclysm>. There were two schools, The Iron Palm and The Flame Knuckle. Our Dojo fell apart quickly, my students and even some of my fellow masters left to join the riots. Almost as if they had forgotten their teachings. The ones that stayed behind turned into the Monsters that roam the streets. The Flame Knuckle somehow didn’t feel the same destruction as we did, they quickly adapted to the new world and expanded their population, offering protection and training to the outside world. But they kept their grievances and decided to end our dojo, I must prevent this from happening.",
+    "dynamic_line": "Well, if you would like to know, we would have to start before <the_cataclysm>. There were two schools, The Iron Palm and The Flame Knuckle. Our Dojo fell apart quickly, my students and even some of my fellow masters left to join the riots. Almost as if they had forgotten their teachings. The ones that stayed behind turned into the <zombies> that roam the streets. The Flame Knuckle somehow didn’t feel the same destruction as we did, they quickly adapted to the new world and expanded their population, offering protection and training to the outside world. But they kept their grievances and decided to end our dojo, I must prevent this from happening.",
     "responses": [
-      { "text": "Interesting.", "topic": "TALK_NONE" },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
       {
         "text": "I think you're lying.",
         "condition": { "not": { "npc_has_var": "blackbelt_coach_background", "type": "general", "context": "meeting", "value": "yes" } },
@@ -373,7 +373,7 @@
       "rejected": "Afraid?!",
       "advice": "I know little about their base, but they have a bunch of crooks that joined them for protection, a few trainers for training new students, maybe something more. Oh, if you see the guys with masks. They are his tops, so be extremly carefull while dealing with them.",
       "inquire": "So?",
-      "success": "Good, very good, my student. Now my school have a chance to rise again! Take this belt, you deserve it. ",
+      "success": "Good, <very> good, my student. Now my school have a chance to rise again! Take this belt, you deserve it. ",
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
     },

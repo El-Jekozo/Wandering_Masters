@@ -13,7 +13,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER",
-    "dynamic_line": "Hey, who's making noise? Show yourself!",
+    "dynamic_line": "<speech_warning> Show yourself!",
     "responses": [ { "text": "Relax, I'm not going to hurt you. I'm from Iron Palm master.", "topic": "TALK_INFORMER_CHECK" } ]
   },
   {
@@ -51,7 +51,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_INFORMER_yes",
-    "dynamic_line": "Okay, I'll pretend to believe you. Listen carefully, I don't have much time. Tell the master to check drop point 5. I left all the necessary information there. And one more thing. Tell him that… What was that sound? Oh shit, I was tracked! Ru…",
+    "dynamic_line": "Okay, I'll pretend to believe you. Listen carefully, I don't have much time. Tell the master to check drop point 5. I left all the necessary information there. And one more thing. Tell him that… <combat_noise_warning> <swear!>, I was tracked! Ru…",
     "responses": [
       {
         "text": "…",

@@ -4,7 +4,7 @@
     "type": "npc",
     "id": "lighthouse_man",
     "gender": "male",
-    "class": "lighthouse_man",
+    "class": "NC_SCAVENGER",
     "name_suffix": "Fisherman",
     "attitude": 0,
     "mission": 7,
@@ -13,34 +13,12 @@
     "mission_offered": "MISSION_lighthouse_man_1"
   },
   {
-    "type": "npc_class",
-    "id": "lighthouse_man",
-    "name": { "str": "Lighthouse man" },
-    "job_description": "Lighthouse man.",
-    "common": false,
-    "bonus_str": { "rng": [ 1, 4 ] },
-    "bonus_dex": { "rng": [ 1, 4 ] },
-    "bonus_int": { "rng": [ 1, 4 ] },
-    "bonus_per": { "rng": [ 1, 4 ] },
-    "traits": [
-      { "group": "NPC_starting_traits" },
-      { "group": "Appearance_demographics" },
-      { "trait": "OUTDOORSMAN" },
-      { "trait": "PAINRESIST" }
-    ],
-    "skills": [
-      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "rng": [ 0, -4 ] } ] } ] } },
-      { "skill": "fabrication", "bonus": { "rng": [ 3, 4 ] } },
-      { "skill": "survival", "bonus": { "rng": [ 1, 2 ] } }
-    ]
-  },
-  {
     "type": "talk_topic",
     "id": [ "lighthouse_man_1" ],
-    "dynamic_line": "Hello there, friend.",
+    "dynamic_line": "<greet>",
     "responses": [
       { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "What's your story?", "topic": "lighthouse_man_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "lighthouse_man_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "lighthouse_man_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -49,8 +27,8 @@
   {
     "type": "talk_topic",
     "id": "lighthouse_man_Background",
-    "dynamic_line": "I'm just a regular lighthouse man. That's all.",
-    "responses": [ { "text": "Interesting", "topic": "TALK_NONE" } ]
+    "dynamic_line": "I'm just a regular survivor. I have a nice family, wife and daughter. That's all.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
@@ -80,13 +58,13 @@
     "type": "talk_topic",
     "id": "lighthouse_man_teach",
     "dynamic_line": "well, if you insist.",
-    "responses": [ { "text": "Thanks my brudda", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks!", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "lighthouse_man_teach_done",
     "dynamic_line": "I already taught you all I knew.",
-    "responses": [ { "text": "Thanks again, teacher.", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks again!", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
@@ -99,13 +77,15 @@
         "condition": { "npc_at_om_location": "lighthouse_ground" },
         "effect": [ "stop_following", { "npc_first_topic": "lighthouse_man_1" } ]
       },
+      { "text": "Follow me.", "topic": "TALK_DONE", "effect": "follow_only" },
+      { "text": "Wait for me here.", "topic": "TALK_DONE", "effect": "stop_following" },
       { "text": "Almost.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "lighthouse_man_cleaning",
-    "dynamic_line": "Is it safe, my friend?",
+    "dynamic_line": "Is it safe, my <name_g>?",
     "responses": [
       {
         "text": "Yes. Ground floor.",
@@ -194,16 +174,15 @@
       {
         "text": "All done.",
         "topic": "lighthouse_man_1",
-        "condition": { "npc_has_var": "lighthouse_man_cleaning", "type": "general", "context": "meeting", "value": "7" },
-        "switch": true
+        "condition": { "npc_has_var": "lighthouse_man_cleaning", "type": "general", "context": "meeting", "value": "7" }
       },
-      { "text": "Not yet.", "topic": "TALK_DONE", "switch": true }
+      { "text": "Not yet.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "lighthouse_man_cleaned",
-    "dynamic_line": "Good. Let's clean the next floor.",
+    "dynamic_line": "<its_safe> Let's clean the next floor.",
     "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   },
   {
@@ -212,11 +191,7 @@
     "dynamic_line": "…",
     "responses": [
       { "text": "Hi", "topic": "lighthouse_man_1" },
-      {
-        "text": "I want you to come with me. Let's go. (so that npc would see his boat)",
-        "topic": "TALK_DONE",
-        "effect": "follow_only"
-      },
+      { "text": "I want to show you your boat. Go with me.", "topic": "TALK_DONE", "effect": "follow_only" },
       { "text": "Stay here", "topic": "TALK_DONE", "effect": "stop_following" },
       {
         "text": "Here's your boat, bro",
@@ -295,13 +270,13 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lighthouse_man_2",
     "dialogue": {
-      "describe": "WIP",
-      "offer": "Help me find lighthouse",
-      "accepted": "GOOD",
-      "rejected": "BAD",
-      "advice": "HMM",
-      "inquire": "SO?",
-      "success": "Yoss!",
+      "describe": "-",
+      "offer": "Help me find lighthouse, so I can live there with my family.",
+      "accepted": "Good. I'll come with you.",
+      "rejected": "~",
+      "advice": "~",
+      "inquire": "So?",
+      "success": "Klass.",
       "success_lie": "Um…",
       "failure": "What a shame."
     }
@@ -333,15 +308,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lighthouse_man_3",
     "dialogue": {
-      "describe": "Help me clean lighthouse",
-      "offer": "Help me clean lighthouse",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
-      "inquire": "So?",
+      "describe": "-",
+      "offer": "Help me clean lighthouse from zeds. I'll help you. Talk to me when you think the floor is cleaned.",
+      "accepted": "~",
+      "rejected": "~",
+      "advice": "~",
+      "inquire": "~",
       "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
+      "success_lie": "~",
+      "failure": "~"
     }
   },
   {
@@ -370,15 +345,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lighthouse_man_4",
     "dialogue": {
-      "describe": "Family",
-      "offer": "Bring my family back to me please.",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
+      "describe": "-",
+      "offer": "We cleaned this lighthouse, so now I can live here with my family. Bring my family back to me please.",
+      "accepted": "~",
+      "rejected": "~",
+      "advice": "~",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
+      "success_lie": "~",
+      "failure": "~"
     }
   },
   {
@@ -402,15 +377,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_lighthouse_man_5",
     "dialogue": {
-      "describe": "Help me make a boat",
-      "offer": "Help me make a boat. Bring 50 2x4. Or find me one.",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
+      "describe": "-",
+      "offer": "I need a boat to fish or to loot coastline. Help me make a boat. Bring 50 2x4. Or find me boat.",
+      "accepted": "~",
+      "rejected": "~",
+      "advice": "~",
       "inquire": "So?",
-      "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
+      "success": "Yes!!! I can teach you something if you want.",
+      "success_lie": "~",
+      "failure": "~"
     }
   },
   {
@@ -427,15 +402,15 @@
     "end": { "update_mapgen": { "place_item": [ { "item": "rock", "x": 15, "y": 11 } ] } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Help me fix lighthouse",
-      "offer": "Help me fix lighthouse. Bring electronic parts or smthn. WIP, so bring me rock",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
+      "describe": "-",
+      "offer": "So, my family is here, I have a boat to fish. We'll be fine here. I want to help other survivors. Help me fix lighthouse so other survivors would see it from afat. Bring electronic parts.",
+      "accepted": "Good.",
+      "rejected": "~",
+      "advice": "~",
       "inquire": "So?",
       "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
+      "success_lie": "~",
+      "failure": "~"
     }
   }
 ]

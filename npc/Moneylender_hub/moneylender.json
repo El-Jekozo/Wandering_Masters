@@ -82,7 +82,14 @@
   {
     "type": "talk_topic",
     "id": "moneylender_johny",
-    "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owed me a lot of money before <the_cataclysm>, and I want it back. You have two options: pay for Johny, in new money it will be 1200 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. I'm a collector of sort. Bring me rare books. After you'll prove yourself to me, I'll start paying for them. Choice is yours. But don't take too long, or your friend will lose his head, he-he. Unless, you want to help him lose it… I'll pay you for it, and maybe even let you buy my premium goods.",
+    "dynamic_line": "So, Johny sent you? Ok, here's the deal. Johny owed me a lot of money before <the_cataclysm>, and I want it back. You have two options: pay for Johny, in new money it will be 1200 FMCNotes, or you can help me with few problems and I'll forget about that fool's debt. I'm a collector of sort. Bring me rare books. After you'll prove yourself to me, I'll start paying for them. Choice is yours. But don't take too long, or your <name_g> will lose his head, he-he. Unless, you want to help him lose it… I'll pay you for it, and maybe even let you buy my premium goods.",
+    "speaker_effect": {
+      "effect": [
+        { "npc_add_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" },
+        { "u_add_var": "moneylender_job", "type": "flag", "context": "meeting", "value": "0" },
+        { "u_lose_var": "moneylender_job_done", "type": "flag", "context": "meeting" }
+      ]
+    },
     "responses": [
       { "text": "Maybe I just kick your ass?", "topic": "moneylender_nope" },
       { "text": "I'll think about it.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "moneylender_2" } }
@@ -117,19 +124,25 @@
       }
     },
     "responses": [
-      { "text": "What's your story?", "topic": "moneylender_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "moneylender_Background" },
       {
         "text": "I'm here to talk about Johny's debt.",
         "topic": "moneylender_johny",
-        "condition": { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
+        "condition": {
+          "and": [
+            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
+            { "not": { "npc_has_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" } }
+          ]
+        }
       },
       {
         "text": "I got your money. [*Show him 1200 FMCNotes*]",
         "topic": "moneylender_debt",
         "condition": {
           "and": [
-            { "u_has_item": "FMCNote", "count": 1200 },
-            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
+            { "u_has_items": { "item": "FMCNote", "count": 1200 } },
+            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
+            { "npc_has_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
           ]
         },
         "effect": [ { "u_sell_item": "FMCNote", "count": 1200 } ]
@@ -150,13 +163,19 @@
         "condition": {
           "and": [
             { "u_has_var": "moneylender_job", "type": "flag", "context": "meeting", "value": "2" },
-            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
+            { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
+            { "npc_has_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
           ]
         }
       },
       {
         "text": "Here's his head.",
-        "condition": { "u_has_item": "boxer_johny_head" },
+        "condition": {
+          "and": [
+            { "u_has_item": "boxer_johny_head" },
+            { "npc_has_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
+          ]
+        },
         "trial": { "type": "CONDITION", "condition": { "u_has_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" } },
         "success": {
           "effect": [
@@ -243,7 +262,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_bj_head",
-    "dynamic_line": "Damn, you helped your friend and then decapitated him? You absolutely madman! Here, take this, and please, get the hell out of me!",
+    "dynamic_line": "Damn, you helped your <name_g> and then decapitated him? You absolutely madman! Here, take this, and please, get the hell out of me!",
     "responses": [
       {
         "text": "*give him your scariest smile*",
@@ -266,7 +285,8 @@
         "effect": [
           { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
           { "u_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
-          { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" }
+          { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
+          { "npc_lose_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
         ]
       }
     ]
@@ -282,7 +302,8 @@
         "effect": [
           { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
           { "u_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
-          { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" }
+          { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
+          { "npc_lose_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
         ]
       }
     ]
@@ -304,7 +325,7 @@
       "yes": "Well, what to say, I was always good with numbers, especially while counting money, he-he. When the dead start walking, I was here, with my trusted men, in my lovely shelter, protected from outside world. Somehow, this plague didn't got me, so now I'm just continue to do what I know, and what I'm good at.",
       "no": "I said I don't have time for chit-chat!"
     },
-    "responses": [ { "text": "Interesting.", "topic": "TALK_NONE" } ]
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "//": "TODO change spawn point when make him uniqiue building",
@@ -340,44 +361,44 @@
     "dynamic_line": "Alright, accepted.",
     "responses": [
       {
-        "text": "…",
+        "text": "5",
         "condition": { "u_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "5" },
         "effect": [
           { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret5", "origin_npc": true, "z": 0 },
+          { "mapgen_update": "moneylender_turret_5", "origin_npc": true, "z": 0 },
           { "u_lose_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "5" }
         ]
       },
       {
-        "text": "…",
+        "text": "4",
         "condition": { "u_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "4" },
         "effect": [
           { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret4", "origin_npc": true, "z": 0 }
+          { "mapgen_update": "moneylender_turret_4", "origin_npc": true, "z": 0 }
         ]
       },
       {
-        "text": "…",
+        "text": "3",
         "condition": { "u_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "3" },
         "effect": [
           { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret3", "origin_npc": true, "z": 0 }
+          { "mapgen_update": "moneylender_turret_3", "origin_npc": true, "z": 0 }
         ]
       },
       {
-        "text": "…",
+        "text": "2",
         "condition": { "u_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "2" },
         "effect": [
           { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret2", "origin_npc": true, "z": 0 }
+          { "mapgen_update": "moneylender_turret_2", "origin_npc": true, "z": 0 }
         ]
       },
       {
-        "text": "…",
+        "text": "1",
         "topic": "TALK_NONE",
         "condition": { "u_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "1" },
         "effect": [
-          { "mapgen_update": "moneylender_turret1", "origin_npc": true, "z": 0 },
+          { "mapgen_update": "moneylender_turret_1", "origin_npc": true, "z": 0 },
           { "u_add_var": "moneylender_premium", "type": "flag", "context": "meeting", "value": "yes" }
         ]
       }
@@ -419,7 +440,7 @@
         "topic": "TALK_NONE",
         "condition": {
           "and": [
-            { "u_has_item": "FMCNote", "count": 100 },
+            { "u_has_items": { "item": "FMCNote", "count": 100 } },
             { "u_has_var": "moneylender_premium_item", "type": "flag", "context": "meeting", "value": "0" }
           ]
         },
@@ -436,7 +457,7 @@
         "condition": {
           "and": [
             { "u_has_var": "moneylender_premium_item", "type": "flag", "context": "meeting", "value": "1" },
-            { "u_has_item": "FMCNote", "count": 200 }
+            { "u_has_items": { "item": "FMCNote", "count": 200 } }
           ]
         },
         "effect": [
@@ -452,7 +473,7 @@
         "condition": {
           "and": [
             { "u_has_var": "moneylender_premium_item", "type": "flag", "context": "meeting", "value": "2" },
-            { "u_has_item": "FMCNote", "count": 300 }
+            { "u_has_items": { "item": "FMCNote", "count": 300 } }
           ]
         },
         "effect": [

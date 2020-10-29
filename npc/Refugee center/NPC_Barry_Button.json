@@ -6,7 +6,7 @@
     "name_unique": "Barry Button",
     "gender": "male",
     "name_suffix": "refugee",
-    "class": "Barry_Button",
+    "class": "NC_SCAVENGER",
     "attitude": 0,
     "mission": 7,
     "chat": "TALK_Barry_Button_1",
@@ -14,22 +14,6 @@
     "mission_offered": "MISSION_BarryB_1"
   },
   {
-    "type": "npc_class",
-    "id": "Barry_Button",
-    "name": { "str": "Barry Button" },
-    "job_description": "I'm just trying to survive.",
-    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
-    "common": false,
-    "carry_override": "Barry_Button_carried"
-  },
-  {
-    "type": "item_group",
-    "id": "Barry_Button_carried",
-    "subtype": "collection",
-    "entries": [ { "item": "crowbar" } ]
-  },
-  {
-    "//": "if real, add heist quest; text:123, topic:321, condition: u_at_om_location:bank",
     "id": "TALK_Barry_Button_1",
     "type": "talk_topic",
     "dynamic_line": [
@@ -39,7 +23,7 @@
         "context": "meeting",
         "value": "yes",
         "yes": "Are we there yet?",
-        "no": "Thank god you're here! I thougt I'm a dead man! These psychos put me in this dark shed with living zombie! Help me get out of here, friend, please!"
+        "no": "Thank god you're here! I thougt I'm a dead man! These <name_b> put me in this dark shed with living <zombie>! Help me get out of here, <name_g>, please!"
       }
     ],
     "responses": [
@@ -78,7 +62,7 @@
   {
     "type": "talk_topic",
     "id": "BarryB_Safe",
-    "dynamic_line": "Phew, that was a close one! I owe you one there, friend. Let me just catch my breath. Talk to me later.",
+    "dynamic_line": "Phew, that was a close one! I owe you one there, <name_g>. Let me just catch my breath. Talk to me later.",
     "responses": [
       {
         "text": "I'm glad it's all over.",
@@ -93,10 +77,10 @@
   {
     "id": [ "TALK_Barry_Button_2" ],
     "type": "talk_topic",
-    "dynamic_line": "Hello there, friend.",
+    "dynamic_line": "Hello there, <name_g>.",
     "responses": [
       { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "What's your story?", "topic": "barry_button_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "barry_button_Background" },
       { "text": "So, what about that job?", "topic": "barryb_job" },
       {
         "text": "Can you teach me something?",
@@ -126,12 +110,12 @@
     },
     "responses": [
       {
-        "text": "Sure thing, friend.",
+        "text": "Sure thing, <name_g>.",
         "topic": "TALK_DONE",
         "condition": { "npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 m" },
         "effect": [ "follow_only", { "npc_first_topic": "TALK_Barry_Button_1" } ]
       },
-      { "text": "Interesting.", "topic": "TALK_NONE" }
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
   },
   {
@@ -140,7 +124,7 @@
     "dynamic_line": "I was a teacher, always wanted to be rich! Now I can fulfill my dream!",
     "responses": [
       {
-        "text": "Interesting",
+        "text": "<done_conversation_section>",
         "topic": "TALK_NONE",
         "effect": [ { "npc_add_var": "u_know_barryb_backstory", "type": "flag", "context": "meeting", "value": "yes" } ]
       }
