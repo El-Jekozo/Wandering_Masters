@@ -22,7 +22,6 @@
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "blackbelt_coach_worn",
-    "carry_override": "blackbelt_coach_carried",
     "weapon_override": "EMPTY_GROUP",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
@@ -41,12 +40,6 @@
     ]
   },
   {
-    "type": "item_group",
-    "id": "blackbelt_coach_carried",
-    "subtype": "collection",
-    "entries": [ { "item": "ip_leader_head" } ]
-  },
-  {
     "type": "talk_topic",
     "id": [ "blackbelt_coach_1" ],
     "dynamic_line": {
@@ -57,10 +50,11 @@
       "yes": "It's good to see my best student again.",
       "no": "Hello there, student! Ready to learn the way of Iron Palm?"
     },
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_blackbelt_coach_0" } },
     "responses": [
       {
         "text": "About that job…",
-        "condition": "has_assigned_mission",
+        "condition": "has_many_assigned_missions",
         "trial": {
           "type": "CONDITION",
           "condition": {
@@ -79,7 +73,7 @@
             ]
           }
         },
-        "success": { "topic": "TALK_MISSION_INQUIRE" },
+        "success": { "topic": "TALK_MISSION_LIST_ASSIGNED" },
         "failure": {
           "topic": "blackbelt_coach_nope",
           "effect": [ { "npc_add_var": "blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
@@ -416,5 +410,28 @@
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
     }
+  },
+  {
+    "id": "MISSION_blackbelt_coach_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Iron Palm Leader" },
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "ip_leader_head" } }
   }
 ]

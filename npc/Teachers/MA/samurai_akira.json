@@ -49,7 +49,7 @@
     "type": "item_group",
     "id": "samurai_akira_carried",
     "subtype": "collection",
-    "entries": [ { "item": "waterskin" }, { "item": "manual_niten" } ]
+    "entries": [ { "item": "waterskin" } ]
   },
   {
     "type": "item_group",
@@ -167,7 +167,7 @@
     "type": "talk_topic",
     "id": "samurai_akira_test3",
     "dynamic_line": "Yes, good, good. You look like a fine warrior in his armour and with his weapon. Prepare, my student. Training will be hard, but I hope you succeed in it. And now, the training: fight to the death! BANZAI!",
-    "responses": [ { "text": "Wait, whaa…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+    "responses": [ { "text": "Wait, whaa…", "topic": "TALK_DONE", "effect": ["insult_combat",{ "add_mission": "MISSION_samurai_akira_0" }] } ]
   },
   {
     "type": "talk_topic",
@@ -199,7 +199,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_samurai_akira_2",
     "dialogue": {
-      "describe": "True student!!!",
+      "describe": "-",
       "offer": "So, you want to lend a hand in my sacred quest? So be it! First, Tabi of Kentaro the Great. Some collectioner bought it not so long ago, but couldn't make it to his home, and died at the hotel he stayed after returning to this country. Dont ask me where I get this information. Go find it, it's somewhere in that hotel. ",
       "accepted": "Good. I don't know where exactly, though. Maybe, search at the top floors?",
       "rejected": "Coward!",
@@ -235,7 +235,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_samurai_akira_3",
     "dialogue": {
-      "describe": "True student!!!",
+      "describe": "-",
       "offer": "Second item: Kentaro's helmet. Some fool thought that it's just a regular helmet and sold it at his local pawn shop. FOOL! It cost way more than he could ever get from there! So, go there, youngling, find his helmet and bring it to me!",
       "accepted": "Good, good. I'll wait here for your return.",
       "rejected": "Coward!",
@@ -271,7 +271,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_samurai_akira_4",
     "dialogue": {
-      "describe": "True Faith!!",
+      "describe": "-",
       "offer": "Third item: Kentaro's armour. A 35 years ago, his armour was donated to that museum, so that kids could look at it and…famn those kids. I hate kids! Quick, find his armour and bring it back to me!",
       "accepted": "Good. I'll wait.",
       "rejected": "Coward!",
@@ -308,7 +308,7 @@
     "end": { "effect": [ { "npc_add_var": "u_helped_samurai_akira", "type": "general", "context": "meeting", "value": "yes" } ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Akira",
+      "describe": "-",
       "offer": "And now, the last one: Kentaro's sword! I thought that it was well hidden in some temple, faw away in the mountains, but recently I learned that it was stolen! Some loisy politician funded a famous band of tomb raiders that agreed to break in that temple and steal Kentaro's precious sword. FOOLS, IT COULD BE CURSED! THEY COULD DOOM THE WHOLE WORLD BY STEALING IT! ARGH…AHEM! Find his sword for me, please.",
       "accepted": "Good. There's only one catch: I don't know exactly where it is. I only know that that politician lived in this state. Maybe he hid it in his mansion? Check all mansions nearby. After that, we can talk about your reward, youngling.",
       "rejected": "Coward!",
@@ -318,5 +318,28 @@
       "success_lie": "…",
       "failure": "…"
     }
+  },
+  {
+    "id": "MISSION_samurai_akira_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You train with Akira" },
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "manual_niten" } }
   }
 ]

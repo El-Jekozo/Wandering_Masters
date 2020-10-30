@@ -86,6 +86,14 @@
   {
     "//": "TODO write normal text? maybe change id",
     "type": "GENERIC",
+    "id": "pt_head",
+    "name": { "str_sp": "seveared head" },
+    "copy-from": "enemy_head",
+    "description": "Police teacher severed head."
+  },
+  {
+    "//": "TODO write normal text? maybe change id",
+    "type": "GENERIC",
     "id": "flyer_fk",
     "copy-from": "flyer",
     "name": { "str_sp": "flame knuckle's leaflet" },

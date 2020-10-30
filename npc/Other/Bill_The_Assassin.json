@@ -136,7 +136,7 @@
       {
         "text": "So, officer is dead.",
         "topic": "bill_the_assassin_truth",
-        "condition": { "u_has_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes" }
+        "condition": {"and":[{ "u_has_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes" },{"u_has_item":"pt_head"}]}
       }
     ]
   },

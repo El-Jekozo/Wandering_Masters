@@ -77,8 +77,9 @@
         "no": { "u_has_any_trait": [ "PROF_PD_DET" ], "yes": "Detective…", "no": "Citizen…" }
       }
     },
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_police_teacher_0" } },
     "responses": [
-      { "text": "About that job…", "condition": "mission_complete", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "About that job…", "condition": "mission_complete", "topic": "TALK_MISSION_LIST_ASSIGNED" },
       { "text": "<BGSS_intro_question>", "topic": "police_teacher_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "police_teacher_teach_check" },
@@ -405,5 +406,28 @@
       "success_lie": "Um…",
       "failure": "What a shame."
     }
+  },
+  {
+    "id": "MISSION_police_teacher_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Police teacher" },
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "pt_head" } }
   }
 ]

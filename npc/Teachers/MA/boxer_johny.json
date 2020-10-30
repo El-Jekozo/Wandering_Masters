@@ -23,7 +23,6 @@
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "boxer_johny_worn",
-    "carry_override": "boxer_johny_carried",
     "weapon_override": "EMPTY_GROUP",
     "traits": [
       { "group": "NPC_starting_traits" },
@@ -51,12 +50,6 @@
     ]
   },
   {
-    "type": "item_group",
-    "id": "boxer_johny_carried",
-    "subtype": "collection",
-    "entries": [ { "item": "boxer_johny_head" } ]
-  },
-  {
     "type": "talk_topic",
     "id": [ "boxer_johny_1" ],
     "dynamic_line": {
@@ -67,8 +60,9 @@
       "yes": "Well well, isn't it my saviour? Welcome!",
       "no": "Hey, I'm not in the mood right now! Go away!"
     },
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johny_0" } },
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "About that job…", "topic": "TALK_MISSION_LIST_ASSIGNED", "condition": "has_many_assigned_missions" },
       { "text": "<BGSS_intro_question>", "topic": "boxer_johny_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "boxer_johny_teach_check" },
@@ -189,10 +183,8 @@
     "deadline_low": 31,
     "deadline_high": 31,
     "start": {
-	  "assign_mission_target":{
-		"om_terrain":"moneylender_hub"
-	  },
-	  "reveal_om_ter":"moneylender_hub",
+      "assign_mission_target": { "om_terrain": "moneylender_hub" },
+      "reveal_om_ter": "moneylender_hub",
       "effect": [
         { "npc_first_topic": "bjohny_busy" },
         { "u_add_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
@@ -248,5 +240,28 @@
       "success_lie": "Why?",
       "failure": "…"
     }
+  },
+  {
+    "id": "MISSION_boxer_johny_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Police teacher" },
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "boxer_johny_head" } }
   }
 ]
