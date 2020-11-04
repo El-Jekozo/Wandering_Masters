@@ -73,7 +73,7 @@
             ]
           }
         },
-        "success": { "topic": "TALK_MISSION_LIST_ASSIGNED" },
+        "success": { "topic": "TALK_MISSION_INQUIRE" },
         "failure": {
           "topic": "blackbelt_coach_nope",
           "effect": [ { "npc_add_var": "blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
@@ -255,7 +255,13 @@
       },
       "update_mapgen": { "place_npcs": [ { "class": "flame_knuckle_apprentice_informer", "x": 5, "y": 5 } ] }
     },
-    "end": { "effect": [ { "u_consume_item": "judo_belt_white" }, { "u_buy_item": "judo_belt_yellow" } ] },
+    "end": {
+      "effect": [
+        { "u_consume_item": "judo_belt_white" },
+        { "u_buy_item": "judo_belt_yellow" },
+        { "npc_first_topic": "blackbelt_coach_1" }
+      ]
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_blackbelt_coach_2",
     "dialogue": {
@@ -323,13 +329,7 @@
       "success_lie": "True warriors don't lie!",
       "failure": "You are a disgrace to your family!"
     },
-    "fail": {
-      "effect": [
-        "end_conversation",
-        { "u_consume_item": "judo_belt_yellow" },
-        { "u_lose_var": "fkl_business", "type": "flag", "context": "meeting", "value": "yes" }
-      ]
-    }
+    "fail": { "effect": [ "end_conversation", { "u_consume_item": "judo_belt_yellow" } ] }
   },
   {
     "id": "MISSION_blackbelt_coach_3",
@@ -337,8 +337,7 @@
     "has_generic_rewards": false,
     "name": { "str": "End the Flame Knuckle" },
     "description": "It's time to end the Flame Knuckle once and for all.",
-    "goal": "MGOAL_FIND_ITEM",
-    "item": "ip_leader_head",
+    "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 100,
     "deadline_low": 7,
@@ -386,7 +385,7 @@
     "start": {
       "effect": [
         { "u_add_var": "bbm_students", "type": "flag", "context": "meeting", "value": "0" },
-        { "u_add_var": "students_transfer", "type": "flag", "context": "meeting", "value": "ip" }
+        { "u_add_var": "ally_transfer_ip", "type": "flag", "context": "transfer", "value": "yes" }
       ]
     },
     "end": {
@@ -395,13 +394,20 @@
         { "u_buy_item": "judo_belt_black" },
         { "npc_add_var": "u_helped_blackbelt_coach", "type": "general", "context": "meeting", "value": "yes" },
         { "npc_add_var": "blackbelt_coach_teach", "type": "general", "context": "meeting", "value": "yes" },
-        { "u_lose_var": "bbm_students", "type": "flag", "context": "meeting", "value": "2" }
+        { "u_lose_var": "ally_transfer_ip", "type": "flag", "context": "transfer" },
+        { "u_lose_var": "bbm_students", "type": "flag", "context": "meeting" }
+      ]
+    },
+    "fail": {
+      "effect": [
+        { "u_lose_var": "ally_transfer_ip", "type": "flag", "context": "transfer" },
+        { "u_lose_var": "bbm_students", "type": "flag", "context": "meeting" }
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Blackbelt master",
-      "offer": "So, my student, it's time to ressurect my school. Bring me 2 new students so I can train them to be the best fighters in this world!",
+      "offer": "So, my student, it's time to ressurect my school. Bring me 2 new students so I can train them to be the best fighters in the world!",
       "accepted": "Good, I'll wait.",
       "rejected": "Afraid?",
       "advice": "To be honest, I think you know the world outside far better then me, so I don't have advice for you, except good luck!",

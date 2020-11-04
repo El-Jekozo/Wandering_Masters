@@ -7,7 +7,7 @@
     "name_suffix": "the Flame Knuckle",
     "class": "flame_knuckle_leader",
     "attitude": 1,
-    "mission": 7,
+    "mission": 8,
     "chat": "flame_knuckle_leader_start",
     "faction": "flame_knuckle",
     "mission_offered": "MISSION_flame_knuckle_leader_1"
@@ -24,7 +24,6 @@
     "bonus_int": { "rng": [ 3, 5 ] },
     "bonus_per": { "rng": [ 3, 4 ] },
     "worn_override": "flame_knuckle_leader_worn",
-    "carry_override": "flame_knuckle_leader_carried",
     "weapon_override": "EMPTY_GROUP",
     "skills": [
       { "skill": "dodge", "bonus": { "rng": [ 6, 8 ] } },
@@ -49,12 +48,6 @@
       { "item": "armguard_metal" },
       { "item": "shorts_denim" }
     ]
-  },
-  {
-    "type": "item_group",
-    "id": "flame_knuckle_leader_carried",
-    "subtype": "collection",
-    "entries": [ { "item": "fk_leader_head" }, { "item": "manual_aikido" } ]
   },
   {
     "id": [ "flame_knuckle_leader_start" ],
@@ -152,7 +145,7 @@
   {
     "type": "talk_topic",
     "id": "flame_knuckle_leader_Background",
-    "dynamic_line": "WIP!",
+    "dynamic_line": "Bah, what's the point of it? It's all story now. Let's focus on todays problems.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
@@ -176,7 +169,13 @@
     "type": "talk_topic",
     "id": "flame_knuckle_leader_teach",
     "dynamic_line": "So, you want to learn the secrets of my school? Here, take it, it's all yours, my student. But you know, I'm not feeling that generous to just give you my secrets that easily. Let's dance for a bit, and if you could stand still after that, consider yourself worthy to know the ways of my school.",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] } ]
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [ { "u_faction_rep": -100 }, { "add_mission": "MISSION_flame_knuckle_leader_0" } ]
+      }
+    ]
   },
   {
     "id": "MISSION_flame_knuckle_leader_1",
@@ -191,14 +190,21 @@
     "start": {
       "effect": [
         { "u_add_var": "fkl_students", "type": "flag", "context": "meeting", "value": "0" },
-        { "u_add_var": "students_transfer", "type": "flag", "context": "meeting", "value": "fk" }
+        { "u_add_var": "ally_transfer_fk", "type": "flag", "context": "transfer", "value": "yes" }
       ]
     },
     "end": {
       "effect": [
         { "npc_add_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes" },
         { "npc_add_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes" },
-        { "u_lose_var": "fkl_students", "type": "flag", "context": "meeting", "value": "2" }
+        { "u_lose_var": "fkl_students", "type": "flag", "context": "meeting" },
+        { "u_lose_var": "ally_transfer_fk", "type": "flag", "context": "transfer" }
+      ]
+    },
+    "fail": {
+      "effect": [
+        { "u_lose_var": "fkl_students", "type": "flag", "context": "meeting" },
+        { "u_lose_var": "ally_transfer_fk", "type": "flag", "context": "transfer" }
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -213,5 +219,29 @@
       "success_lie": "You know what we do to liars?",
       "failure": "So, you chose to lose your head."
     }
+  },
+  {
+    "id": "MISSION_flame_knuckle_leader_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Train with Flame Knuckle leader" },
+    "description": "Flame Knuckle leader suddenly attacked you. Maybe this is part of the training?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "manual_aikido" } }
   }
 ]

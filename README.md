@@ -1,4 +1,4 @@
-My More_NPC mod that adds new NPCs with quest lines. Currently WIP. Most content works, but needs additional testing, dialogues needs proofreading etc. I'm open for suggestions and ideas of any kind! Most stuff works only on latest experimental versions!
+My Wandering Teachers mod that adds new NPCs with quest lines. Currently WIP. Most content works, but needs additional testing, dialogues needs proofreading etc. I'm open for suggestions and ideas of any kind! Most stuff works only on latest experimental versions!
 
 The idea of the mod is to add "Wandering teachers", NPCs that can "teach" character something interesting after completing their quest line, such as: martial arts, give good traits, remove bad traits.
 
@@ -12,13 +12,13 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 ## MA teachers:
 * Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues. Works fine
 * Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues. Works fine
-* Police Teacher - 4 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
-* Old Assassin - 3 quests; unchecked dialogues for mistakes, spelling errors etc; few wanted features implemented (all untested);
+* Police Teacher - 4 quests; unchecked dialogues. Works fine
+* Old Assassin - 3 quests; unchecked dialogues. Works fine
 * Boxer Johny - 3 quests; unchecked dialogues; Works fine!
-* Rasta Bob - 4 quests; unchecked dialogues for mistakes, spelling errors etc; most wanted features implemented (all untested); should work fine
-* Samurai Akira - 4 quests + 1 minor; unchecked dialogues; some features don't work as wanted; Works fine!
+* Rasta Bob - 4 quests; unchecked dialogues. Works fine
+* Samurai Akira - 4 quests + 1 minor; unchecked dialogues; Works fine!
 * Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
-* Jason Cost - 3 quests, no dialogues; WIP; most wanted features implemented (need additional testing);
+* Jason Cost - 3 quests, no dialogues; WIP; most wanted features implemented (need additional testing); should work fine
 * Bill - 1 quest, most wanted features implemented (all untested)
 * Moneylender - 1 minor quest; 2 repeatable quests; unchecked dialogues; all wanted features implemented (kinda working, but need additional testing); Works fine!
 

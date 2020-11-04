@@ -62,7 +62,7 @@
     },
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johny_0" } },
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_LIST_ASSIGNED", "condition": "has_many_assigned_missions" },
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "mission_complete" },
       { "text": "<BGSS_intro_question>", "topic": "boxer_johny_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "boxer_johny_teach_check" },
@@ -218,14 +218,21 @@
     "start": {
       "effect": [
         { "u_add_var": "bj_students", "type": "flag", "context": "meeting", "value": "0" },
-        { "u_add_var": "students_transfer_bj", "type": "flag", "context": "meeting", "value": "yes" }
+        { "u_add_var": "ally_transfer_bj", "type": "flag", "context": "transfer", "value": "yes" }
       ]
     },
     "end": {
       "effect": [
         { "npc_add_var": "u_helped_boxer_johny", "type": "general", "context": "meeting", "value": "yes" },
         { "npc_add_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes" },
-        { "u_lose_var": "bj_students", "type": "flag", "context": "meeting", "value": "2" }
+        { "u_lose_var": "ally_transfer_bj", "type": "flag", "context": "transfer" },
+        { "u_lose_var": "bj_students", "type": "flag", "context": "meeting" }
+      ]
+    },
+    "fail": {
+      "effect": [
+        { "u_lose_var": "ally_transfer_bj", "type": "flag", "context": "transfer" },
+        { "u_lose_var": "bj_students", "type": "flag", "context": "meeting" }
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],

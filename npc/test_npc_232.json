@@ -4,13 +4,13 @@
     "id": "test_npc_232",
     "name_unique": "Test",
     "gender": "male",
-    "name_suffix": "refugee",
+    "name_suffix": "Test",
     "class": "test_232",
     "attitude": 0,
     "mission": 3,
     "chat": "test_232",
     "faction": "no_faction",
-    "mission_offered": "MISSION_test_232_1"
+    "mission_offered": "MISSION_test_232_0"
   },
   {
     "type": "npc_class",
@@ -32,9 +32,10 @@
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
   },
   {
-    "id": [ "test_232" ],
+    "id": "test_232" ,
     "type": "talk_topic",
     "dynamic_line": "TEST ME!",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_test_232_7" } },
     "responses": [
       {
         "text": "Test cost trap. <kill_npc_h>",
@@ -63,35 +64,18 @@
         "effect": [ { "mapgen_update": "22ch_robot_attack", "origin_npc": true, "offset_z": 1 } ]
       },
       {
+        "text": "Test assign_guard.",
+        "topic": "TALK_DONE",
+        "effect": [ "assign_guard", {"npc_first_topic":"TALK_ML_GOON"} ]
+      },
+      {
         "text": "Test Johny's bandits.",
         "topic": "TALK_DONE",
         "effect": [ { "mapgen_update": "bj_bandits", "origin_npc": true, "offset_z": -1 } ]
       },
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "About that jobs!", "topic": "TALK_MISSION_LIST_ASSIGNED" },
+      { "text": "About that one job!", "topic": "TALK_MISSION_INQUIRE" },
       { "text": "Test missions", "topic": "TALK_MISSION_LIST" },
-      {
-        "text": "Give me gasoline, you punk!",
-        "topic": "TALK_DONE",
-        "effect": { "u_buy_item": "gasoline", "count": 500, "container": "jug_plastic" }
-      },
-      {
-        "text": "Test change mission target",
-        "topic": "TALK_DONE",
-        "effect": [
-          {
-            "mapgen_update": {
-              "assign_mission_target": {
-                "om_terrain": "radio_tower_top",
-                "om_special": "Radio Tower",
-                "om_terrain_replace": "field",
-                "om_terrain_match_type": "PREFIX",
-                "search_range": 20,
-                "min_distance": 5
-              }
-            }
-          }
-        ]
-      },
       { "text": "Test npc_buy", "topic": "test_232_give", "effect": [ { "u_buy_item": "manual_niten" } ] },
       {
         "text": "Test Johny's debt.",
@@ -99,11 +83,30 @@
         "effect": { "u_add_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
       },
       {
+        "text": "Test 232 test.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" }
+      },
+      {
+        "text": "Test student transfer.",
+        "topic": "TALK_DONE",
+		"effect": [
+			{ "u_add_var": "bbm_students", "type": "flag", "context": "meeting", "value": "0" },
+			{ "u_add_var": "ally_transfer_ip", "type": "flag", "context": "transfer", "value": "yes" },
+			{ "u_add_var": "fkl_students", "type": "flag", "context": "meeting", "value": "0" },
+			{ "u_add_var": "ally_transfer_fk", "type": "flag", "context": "transfer", "value": "yes" },
+			{ "u_add_var": "bj_students", "type": "flag", "context": "meeting", "value": "0" },
+			{ "u_add_var": "ally_transfer_bj", "type": "flag", "context": "transfer", "value": "yes" },
+			{ "u_add_var": "jerry_goons", "type": "flag", "context": "goons", "value": "0" },
+			{ "u_add_var": "ally_transfer_js", "type": "flag", "context": "transfer", "value": "yes" }
+		]
+      },
+      {
         "text": "Test 22ch.",
         "topic": "TALK_DONE",
         "effect": { "u_add_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes" }
       },
-      { "text": "Test mission cycle.", "topic": "TALK_DONE", "effect": [ "clear_mission", "assign_mission" ] },
+      { "text": "Test mission rlated stuff", "topic": "test_232_mrs" },
       { "text": "Test trade.", "effect": "start_trade", "topic": "TALK_DONE" },
       {
         "text": "Test train",
@@ -114,212 +117,152 @@
     ]
   },
   {
-    "id": "test_232_give",
     "type": "talk_topic",
-    "dynamic_line": "Hey, give it back, you creep!",
+    "id": "test_232_mrs",
+    "dynamic_line": "???",
     "responses": [
-      {
-        "text": "Ok, ok, dont yell like that, please.",
-        "topic": "TALK_DONE",
-        "effect": [ { "u_sell_item": "manual_niten" } ]
-      }
-    ]
+      { "text": "Test mission cycle.", "topic": "test_232_mrs", "effect": [ "clear_mission", "assign_mission" ] },
+      { "text": "Test mission cycle with success.", "topic": "test_232_mrs", "effect": [ "mission_success", "assign_mission" ] },
+      { "text": "Test WORKING mission cycle.", "topic": "test_232_mrs", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
+      { "text": "Test mission assign.", "topic": "test_232_mrs", "effect": "assign_mission"  },
+      { "text": "Test mission success.", "topic": "test_232_mrs", "effect": "mission_success" },
+      { "text": "Test mission failure", "topic": "test_232_mrs", "effect": "mission_failure" },
+      { "text": "Test mission clear", "topic": "test_232_mrs", "effect": "clear_mission" },
+      { "text": "Test add mission1 ", "topic": "test_232_mrs", "effect": { "add_mission": "MISSION_test_232_1" } },
+      { "text": "Test add mission2 ", "topic": "test_232_mrs", "effect": { "add_mission": "MISSION_test_232_2" } },
+      { "text": "Test add mission 3", "topic": "test_232_mrs", "effect": { "add_mission": "MISSION_test_232_3" } },
+      { "text": "Test add mission 7 ", "topic": "test_232_mrs", "effect": { "add_mission": "MISSION_test_232_7" } },
+	  { "text": "Back", "topic": "test_232" },
+	  { "text": "END", "topic": "TALK_DONE" }
+	]
   },
   {
-    "type": "talk_topic",
-    "id": "test_232_lighthouse",
-    "dynamic_line": "So?",
-    "responses": [
-      {
-        "text": "We did it! All safe!",
-        "topic": "TALK_MISSION_SUCCESS",
-        "condition": {
-          "and": [
-            { "not": "mission_complete" },
-            { "u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" },
-            { "u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" }
-          ]
-        },
-        "effect": [ "mission_success", { "npc_first_topic": "123" } ]
-      },
-      {
-        "text": "We failed, all dead!",
-        "topic": "TALK_MISSION_FAILURE",
-        "condition": {
-          "and": [
-            "mission_complete",
-            {
-              "not": { "u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
-            },
-            {
-              "not": { "u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" }
-            }
-          ]
-        },
-        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
-      },
-      {
-        "text": "Wife dead, daughter alive!",
-        "topic": "TALK_MISSION_FAILURE",
-        "condition": {
-          "and": [
-            "mission_complete",
-            { "u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" }
-          ]
-        },
-        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
-      },
-      {
-        "text": "Wife alive, daughter dead",
-        "topic": "TALK_MISSION_FAILURE",
-        "condition": {
-          "and": [
-            { "not": "mission_complete" },
-            { "u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
-          ]
-        },
-        "effect": { "npc_first_topic": "lead_scientist_22ch_1" }
-      },
-      { "text": "Nothing, really.", "topic": "TALK_DONE" }
-    ]
+    "id": "MISSION_test_232_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met test person0" },
+    "description": "He looks like a nice gal. Maybe you should not let him die?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "end": { "effect": { "u_buy_item":"feces_dog", "count":1 } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_test_232_1",
+    "dialogue": {
+      "describe": "0",
+      "offer": "0",
+      "accepted": "0",
+      "rejected": "0",
+      "advice": "0",
+      "inquire": "0",
+      "success": "0",
+      "success_lie": "0",
+      "failure": "0"
+    },
+    "fail": { "effect": { "u_buy_item":"feces_dog" } }
   },
   {
     "id": "MISSION_test_232_1",
     "type": "mission_definition",
-    "name": { "str": "Find Lost Dog" },
-    "goal": "MGOAL_FIND_MONSTER",
-    "difficulty": 3,
-    "value": 100000,
-    "start": {
-      "effect": { "u_buy_item": "dog_whistle" },
-      "assign_mission_target": { "om_terrain": "house", "om_terrain_match_type": "PREFIX", "reveal_radius": 1, "search_range": 75, "z": 0 },
-      "update_mapgen": { "place_monster": [ { "monster": "mon_dog", "x": 10, "y": 10, "target": true, "friendly": true } ] }
-    },
-    "origins": [ "ORIGIN_SECONDARY" ],
-    "dialogue": {
-      "describe": "Oh, my poor puppy…",
-      "offer": "I lost my poor dog, not far from here. Can you retrieve it?",
-      "accepted": "Thank you!  Please hurry back!",
-      "rejected": "Please, think of my poor little puppy!",
-      "advice": "Take my dog whistle; if the dog starts running off, blow it and he'll return to your side.",
-      "inquire": "Have you found my dog yet?",
-      "success": "Thank you so much for finding him! I think he likes you. Maybe you should bring him with you. Maybe you can keep him safe…",
-      "success_lie": "What?!  You're lying, I can tell!  Ugh, forget it!",
-      "failure": "Oh no!  My poor puppy…"
-    }
-  },
-  {
-    "id": "MISSION_test_232_6",
-    "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Find my pet rat" },
-    "description": "Find my pet rat",
-    "goal": "MGOAL_FIND_MONSTER",
-    "start": {
-      "assign_mission_target": {
-        "om_terrain": "field",
-        "om_terrain_match_type": "PREFIX",
-        "reveal_radius": 1,
-        "random": true,
-        "search_range": 40,
-        "min_distance": 5
-      },
-      "update_mapgen": { "place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true } ] }
-    },
-    "end": { "effect": { "u_buy_monster": "mon_black_rat" } },
+    "name": { "str": "You met test person1" },
+    "description": "He looks like a nice gal. Maybe you should not let him die?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
-    "value": 100,
+    "value": 0,
+    "end": { "effect": { "u_buy_item":"feces_dog" } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_test_232_2",
     "dialogue": {
-      "describe": "True student!!!",
-      "offer": "Find my pet rat",
-      "accepted": "Good",
-      "rejected": "Afraid?!",
-      "advice": "Don't forget to tell him a few sweet words from me!",
-      "inquire": "I'm waiting.",
-      "success": "Huh, i thougt my rat returned to me, but you return with him. So, now I have 2 rats. Take one. ",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
-    }
+      "describe": "1",
+      "offer": "1",
+      "accepted": "1",
+      "rejected": "1",
+      "advice": "1",
+      "inquire": "1",
+      "success": "1",
+      "success_lie": "1",
+      "failure": "1"
+    },
+    "fail": { "effect": { "u_buy_item":"feces_dog", "count":2 } }
   },
   {
     "id": "MISSION_test_232_2",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Help fisherman's family" },
-    "description": "Fisherman asked you to bring him his family.",
-    "goal": "MGOAL_ASSASSINATE",
+    "name": { "str": "You met test person2" },
+    "description": "He looks like a nice gal. Maybe you should not let him die?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
-    "value": 100,
-    "start": {
-      "effect": { "npc_first_topic": "test_232_lighthouse" },
-      "assign_mission_target": {
-        "om_terrain": "house_04",
-        "om_terrain_replace": "house",
-        "om_terrain_match_type": "PREFIX",
-        "reveal_radius": 2,
-        "search_range": 200,
-        "min_distance": 50
-      },
-      "update_mapgen": { "om_terrain": "house_04_basement", "place_npcs": [ { "class": "lighthouse_woman", "x": 4, "y": 8, "target": true } ] }
-    },
+    "value": 0,
+    "end": { "effect": { "u_buy_item":"feces_dog", "count":3 } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_test_232_3",
     "dialogue": {
-      "describe": "Family",
-      "offer": "Bring my family back to me please.",
-      "accepted": "Good",
-      "rejected": "Nooo",
-      "advice": "Hmm",
-      "inquire": "So?",
-      "success": "Yes!!!",
-      "success_lie": "Um…-2",
-      "failure": "What a shame.-2"
-    }
+      "describe": "-",
+      "offer": "2",
+      "accepted": "2",
+      "rejected": "2",
+      "advice": "-",
+      "inquire": "2",
+      "success": "2",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item":"feces_dog" } }
   },
   {
     "id": "MISSION_test_232_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Find special relic" },
-    "description": "Knight asked you to find special relic",
-    "goal": "MGOAL_FIND_ITEM",
+    "name": { "str": "You met test person3" },
+    "description": "He looks like a nice gal. Maybe you should not let him die?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
-    "value": 100,
-    "//": "TODO add special relic",
-    "start": {
-      "assign_mission_target": {
-        "om_terrain": "lab_surface_brick_blockC2",
-        "om_special": "lab_surface_big",
-        "om_terrain_replace": "field",
-        "reveal_radius": 2,
-        "search_range": 200,
-        "min_distance": 50
-      },
-      "update_mapgen": {
-        "om_terrain": "lab_surface_brick_block2E1",
-        "place_item": [ { "item": "small_relic", "x": 11, "y": 14, "target": true } ]
-      }
-    },
-    "end": {
-      "effect": [
-        { "npc_add_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes" },
-        { "npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes" }
-      ]
-    },
+    "value": 0,
+    "end": { "effect": { "u_buy_item":"feces_dog", "count":4 } },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_test_232_1",
     "dialogue": {
-      "describe": "True Faith!!",
-      "offer": "Find cool relic please",
-      "accepted": "I'll wait.-3",
-      "rejected": "What are you, infidel?!-3",
-      "advice": "God bless you!-3",
-      "inquire": "I'm waiting.-3",
-      "success": "It's good to see brother in faith.-3",
-      "success_lie": "Um…-3",
-      "failure": "What a shame.-3"
-    }
+      "describe": "-",
+      "offer": "3",
+      "accepted": "3",
+      "rejected": "-",
+      "advice": "3",
+      "inquire": "3",
+      "success": "3",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item":"feces_dog" } }
+  },
+  {
+    "id": "MISSION_test_232_7",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met test person7" },
+    "description": "He looks like a nice gal. Maybe you should not let him die?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "end": { "effect": { "u_buy_item":"feces_dog", "count":7 } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_test_232_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "7",
+      "accepted": "7",
+      "rejected": "-",
+      "advice": "7",
+      "inquire": "7",
+      "success": "7",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item":"feces_dog" } }
   }
 ]

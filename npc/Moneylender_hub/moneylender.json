@@ -1,6 +1,6 @@
 [
   {
-    "//": "TODO check text, change prem items and text for it, place him in cool basement, or make one, add items, skills, stats, missions etc; implement lootboxes instead of trade menu?!(?!(?!(?!))) ",
+    "//": "TODO check text, change prem items and text for it, add trade",
     "type": "npc",
     "id": "moneylender",
     "name_suffix": "moneylender",
