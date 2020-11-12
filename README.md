@@ -1,6 +1,6 @@
-My Wandering Teachers mod that adds new NPCs with quest lines. Currently WIP. Most content works, but needs additional testing, dialogues needs proofreading etc. I'm open for suggestions and ideas of any kind! Most stuff works only on latest experimental versions!
+My Wandering Masters mod that adds new NPCs with quest lines. Currently WIP. Most content works, but needs additional testing, dialogues needs proofreading etc. I'm open for suggestions and ideas of any kind! Some stuff works only on latest experimental versions!
 
-The idea of the mod is to add "Wandering teachers", NPCs that can "teach" character something interesting after completing their quest line, such as: martial arts, give good traits, remove bad traits.
+The idea of the mod is to add "Wandering Masters", NPCs that can "teach" character something interesting after completing their quest line, such as: martial arts, give good traits, remove bad traits.
 
 Where to find them: check txt file, or spawn special "Cabin Test" through debug menu (some missions will not work in test location).
 
