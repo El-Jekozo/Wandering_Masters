@@ -30,25 +30,18 @@
   },
   {
     "type": "overmap_terrain",
-    "id": "fk_base_1",
+    "id": ["fk_base_1","fk_base_2"],
     "name": "flame knuckle base",
     "sym": "F",
     "color": "i_red",
-    "see_cost": 5
-  },
-  {
-    "type": "overmap_terrain",
-    "id": "fk_base_2",
-    "name": "flame knuckle base",
-    "sym": "K",
-    "color": "i_red",
-    "see_cost": 5
+    "see_cost": 5,
+    "flags": [ "SOURCE_SAFETY", "SOURCE_PEOPLE" ]
   },
   {
     "type": "overmap_terrain",
     "id": [ "fk_base_roof_1", "fk_base_roof_2" ],
     "name": "flame knuckle base",
-    "sym": "K",
+    "sym": "F",
     "color": "i_red",
     "see_cost": 5
   },
@@ -63,7 +56,8 @@
     "name": "hub",
     "sym": "M",
     "color": "i_yellow",
-    "see_cost": 5
+    "see_cost": 5,
+    "flags": [ "SOURCE_SAFETY", "SOURCE_PEOPLE" ]
   },
   {
     "type": "overmap_terrain",

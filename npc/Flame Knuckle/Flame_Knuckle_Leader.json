@@ -157,10 +157,7 @@
         "text": "Maybe you want to teach me something cool, master?",
         "topic": "flame_knuckle_leader_teach",
         "condition": { "npc_has_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes" },
-        "effect": [
-          { "u_buy_item": "manual_aikido" },
-          { "npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes" }
-        ]
+        "effect": { "npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes" }
       },
       { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
@@ -242,6 +239,6 @@
       "success_lie": "-",
       "failure": "-"
     },
-    "fail": { "effect": { "u_buy_item": "manual_aikido" } }
+    "fail": { "effect": [ { "u_buy_item": "manual_aikido" }, { "mapgen_update": "fk_stairs", "om_terrain": "fk_base_2" } ] }
   }
 ]

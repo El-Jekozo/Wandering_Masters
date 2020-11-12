@@ -77,7 +77,7 @@
   {
     "id": [ "TALK_Barry_Button_2" ],
     "type": "talk_topic",
-    "dynamic_line": "Hello there, <name_g>.",
+    "dynamic_line": "<greet>",
     "responses": [
       { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
       { "text": "<BGSS_intro_question>", "topic": "barry_button_Background" },
@@ -86,12 +86,6 @@
         "text": "Can you teach me something?",
         "topic": "barry_button_teach_check",
         "condition": { "npc_has_var": "u_know_barryb_backstory", "type": "flag", "context": "meeting", "value": "yes" }
-      },
-      {
-        "text": "Do you need help?",
-        "topic": "bbm_flame_knuckle_1",
-        "condition": { "npc_has_var": "bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes" },
-        "effect": [ { "npc_change_faction": "flame_knuckle" }, { "u_faction_rep": 100 } ]
       },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
@@ -104,7 +98,7 @@
       "type": "flag",
       "context": "meeting",
       "op": ">=",
-      "time": "3 m",
+      "time": "24 h",
       "yes": "So, i need help with something. Lead me to nearest bank!",
       "no": "I'm resting. Return later."
     },
@@ -112,7 +106,7 @@
       {
         "text": "Sure thing, <name_g>.",
         "topic": "TALK_DONE",
-        "condition": { "npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 m" },
+        "condition": { "npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "24 h" },
         "effect": [ "follow_only", { "npc_first_topic": "TALK_Barry_Button_1" } ]
       },
       { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
@@ -138,8 +132,8 @@
       "type": "general",
       "context": "meeting",
       "value": "yes",
-      "yes": "So, you want to learn something new? I can teach you read faster, or just read.",
-      "no": "I have one unfinished task. Let's speak later about this"
+      "yes": "So, you want to learn something new? I can teach you how to read faster, or, if you don't know, how to read.",
+      "no": "I have a unfinished task. Let's talk about this later."
     },
     "responses": [
       {
@@ -150,7 +144,6 @@
           "condition": { "npc_has_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes" }
         },
         "success": {
-          "effect": [ { "npc_lose_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes" } ],
           "topic": "barry_button_teach_check1"
         },
         "failure": { "topic": "barry_button_teach_done" }
@@ -172,15 +165,15 @@
         "yes": "So, you can't read? No problem, I can teach you!",
         "no": {
           "u_has_trait": "SLOWREADER",
-          "yes": "So, you are slowreader? No problem, I can teach you!",
+          "yes": "So, you are slow reader? No problem, I can teach you!",
           "no": {
             "u_has_trait": "FASTREADER",
-            "yes": "I'm affraid that I can't teach you anything.",
+            "yes": "I'm afraid that I can't teach you anything.",
             "no": "So, you want to learn how to read fast? No problem, I can teach you!"
           }
         }
       },
-      "no": "I'm affraid that I can't teach you anything."
+      "no": "I'm afraid that I can't teach you anything."
     },
     "responses": [
       {
@@ -204,14 +197,14 @@
         "effect": { "u_add_trait": "FASTREADER" },
         "switch": true
       },
-      { "text": "Sorry I don't want to.", "topic": "TALK_NONE" }
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "barry_button_teach",
     "dynamic_line": "Good luck, student!",
-    "responses": [ { "text": "Thanks, Barry!", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks, Barry!", "topic": "TALK_DONE", "effect":  { "npc_lose_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes" } } ]
   },
   {
     "type": "talk_topic",
@@ -256,3 +249,4 @@
     }
   }
 ]
+

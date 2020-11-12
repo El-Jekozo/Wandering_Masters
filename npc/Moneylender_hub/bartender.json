@@ -15,7 +15,11 @@
     "type": "talk_topic",
     "dynamic_line": "Hello there, bounty hunter. Want a drink?",
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "mission_complete" },
+      {
+        "text": "About that job…",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] }
+      },
       { "text": "What is your job here?", "topic": "moneylender_bartender_info" },
       {
         "text": "I'm looking for some rare stuff.",
@@ -52,7 +56,7 @@
         "condition": { "u_has_skill": { "skill": "speech", "level": 3 } }
       },
       {
-        "text": "[FEMALE]Maybe I can 'persuade' you...",
+        "text": "[FEMALE]Maybe I can 'persuade' you…",
         "condition": "u_female",
         "trial": { "type": "CONDITION", "condition": { "u_has_any_trait": [ "PRETTY", "BEAUTIFUL", "BEAUTIFUL2", "BEAUTIFUL3" ] } },
         "success": { "topic": "moneylender_bartender_fem_yes" },
@@ -66,13 +70,13 @@
     "type": "talk_topic",
     "id": "moneylender_bartender_fem_yes",
     "dynamic_line": "Maybe, maybe. I'll be free in a few hours, until then, you can talk to my boss.",
-    "responses": [ { "text": "...", "topic": "TALK_DONE", "effect": { "mapgen_update": "ml_door", "origin_npc": true } } ]
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "mapgen_update": "ml_door", "origin_npc": true } } ]
   },
   {
     "type": "talk_topic",
     "id": "moneylender_bartender_fem_no",
     "dynamic_line": "Not my type, sorry.",
-    "responses": [ { "text": "...", "topic": "TALK_NONE" } ]
+    "responses": [ { "text": "…", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
@@ -80,13 +84,13 @@
     "dynamic_line": "So, you're a cop? Good. This good fellas will lead you where you should be.",
     "responses": [
       {
-        "text": "...",
+        "text": "…",
         "topic": "TALK_DONE",
         "effect": [
-          { "npc_add_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" },
-          { "mapgen_update": "ml_door", "origin_npc": true },
+          "insult_combat",
+          { "mapgen_update": "moneylender_bartender_cop", "origin_npc": true },
           { "npc_change_faction": "moneylender_gang" },
-          { "u_faction_rep": 20 },
+          { "u_faction_rep": -20 },
           { "npc_change_faction": "no_faction" }
         ]
       }
@@ -112,7 +116,7 @@
     "dynamic_line": "Good. Talk to my boss. He's downstairs.",
     "responses": [
       {
-        "text": "...",
+        "text": "…",
         "topic": "TALK_DONE",
         "effect": [
           { "npc_add_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" },
@@ -149,7 +153,7 @@
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_boxer_johny_2",
+    "followup": "MISSION_boxer_johnny_2",
     "dialogue": {
       "describe": "Hobo",
       "offer": "Get rid of hobo",

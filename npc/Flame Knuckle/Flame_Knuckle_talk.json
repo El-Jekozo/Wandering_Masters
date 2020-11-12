@@ -24,7 +24,7 @@
     "type": "talk_topic",
     "id": "TALK_COACH",
     "//": "TODO change this lame line",
-    "dynamic_line": "Oh, another survivor! Hello there, <name_g>. Do you want to learn the way of Flame Knuckle school?",
+    "dynamic_line": "Oh, another survivor! <greet> Do you want to learn the way of Flame Knuckle school?",
     "responses": [
       { "text": "Sorry, I'm here to kill you!", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] },
       {

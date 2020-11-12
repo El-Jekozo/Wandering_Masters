@@ -187,7 +187,7 @@
           { "item": "ammo_obscure", "chance": 100, "repeat": [ 1, 2 ] }
         ]
       },
-      "place_nested": [ { "chunks": [ [ "old_assassin_spawn", 20 ], [ "null", 80 ] ], "x": 5, "y": 9 } ]
+      "place_nested": [ { "chunks": [ [ "retired_assassin_spawn", 20 ], [ "null", 80 ] ], "x": 5, "y": 9 } ]
     }
   },
   {
@@ -269,7 +269,7 @@
           "y": 8
         },
         { "chunks": [ [ "roof_4x4_survivor", 20 ], [ "null", 80 ] ], "x": 9, "y": 16 },
-        { "chunks": [ [ "boxer_johny_spawn", 20 ], [ "null", 80 ] ], "x": 13, "y": 18 }
+        { "chunks": [ [ "boxer_johnny_spawn", 20 ], [ "null", 80 ] ], "x": 13, "y": 18 }
       ]
     }
   },
@@ -354,43 +354,6 @@
     "om_terrain": "PublicPond_1b",
     "type": "mapgen",
     "weight": 100
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "lake_dock_small" ],
-    "weight": 750,
-    "object": {
-      "predecessor_mapgen": "lake_surface",
-      "rows": [
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "                        ",
-        "      dddddddddddd      ",
-        "      dddddddddddd      ",
-        "      dddddddddddd      "
-      ],
-      "palettes": [ "dock_small" ],
-      "place_nested": [ { "chunks": [ [ "lighthouse_man_spawn", 20 ], [ "null", 80 ] ], "x": 12, "y": 21 } ]
-    }
   },
   {
     "type": "mapgen",

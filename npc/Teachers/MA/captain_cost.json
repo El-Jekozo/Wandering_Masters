@@ -18,9 +18,17 @@
     "id": "captain_cost_meeting",
     "dynamic_line": "Hello there. Do you want to help your government?",
     "responses": [
-      { "text": "...", "topic": "TALK_DONE", "condition": "has_assigned_mission", "switch": true },
-      { "text": "Interesting, tell me more.", "topic": "TALK_MISSION_LIST", "switch": true },
+      { "text": "Interesting, tell me more.", "topic": "captain_cost_mission_1" },
       { "text": "Hell no, my government is dead.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_mission_1",
+    "dynamic_line": "Good. I need to find a crashed heli, and you are going to help me find it. No objections. It crashed in nearby field. I need an information that was on that heli. Let's search for it.",
+    "responses": [
+      { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": "assign_mission" },
+      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
     ]
   },
   {
@@ -34,7 +42,7 @@
         "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] },
         "switch": true
       },
-      { "text": "...", "topic": "TALK_NONE" },
+      { "text": "No.", "topic": "TALK_NONE" },
       { "text": "Yes.", "topic": "TALK_DONE", "effect": "insult_combat", "switch": true }
     ]
   },
@@ -46,23 +54,24 @@
       {
         "text": "We're here.",
         "topic": "captain_cost_wait",
-        "condition": { "and": [ "mission_complete", { "mission_goal": "MGOAL_GO_TO" } ] },
-        "switch": true
+        "condition": { "and": [ "mission_complete", { "u_has_mission": "MISSION_captain_cost_3" } ] }
       },
       {
-        "text": "About that job…",
-        "topic": "TALK_MISSION_INQUIRE",
-        "condition": "has_assigned_mission",
-        "switch": true
-      },
-      {
-        "text": "Do you need any help?",
-        "topic": "TALK_MISSION_LIST",
-        "condition": { "not": "has_assigned_mission" }
+        "text": "Here's your info.",
+        "topic": "captain_cost_m1_complete",
+        "condition": {
+          "and": [
+            { "or": [ { "u_has_mission": "MISSION_captain_cost_1" }, { "u_has_mission": "MISSION_captain_cost_2" } ] },
+            "mission_complete"
+          ]
+        },
+        "trial": { "type": "CONDITION", "condition": { "u_has_mission": "MISSION_captain_cost_1" } },
+        "success": { "topic": "captain_cost_m1_complete" },
+        "failure": { "topic": "captain_cost_m2_complete" }
       },
       { "text": "<BGSS_intro_question>", "topic": "captain_cost_Background" },
       { "text": "I don't want to help you anymore.", "topic": "captain_cost_refuse" },
-      { "text": "Bye.", "topic": "TALK_DONE", "condition": "has_assigned_mission" }
+      { "text": "Bye.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -73,6 +82,24 @@
   },
   {
     "type": "talk_topic",
+    "id": "captain_cost_m1_complete",
+    "dynamic_line": "Good. Next task. We need to get a secret note from bunker nearby. Lead me to that bunker.",
+    "responses": [
+      { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
+      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_m2_complete",
+    "dynamic_line": "Good. Last task. We need to contact some special agent to finish my mission. For that we need to get a special code to contact him. Lead me to the meeting point, where you can find information how to contact him.",
+    "responses": [
+      { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
+      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
     "id": "captain_cost_wait",
     "dynamic_line": "So, go there and check things. Search for the note.",
     "responses": [
@@ -80,6 +107,7 @@
         "text": "…",
         "topic": "TALK_DONE",
         "effect": [
+          "stop_following",
           {
             "mapgen_update": "jcost_place_trap",
             "origin_npc": true,
@@ -144,8 +172,8 @@
     "id": "MISSION_captain_cost_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Help me find crashed heli" },
-    "description": "Help him find crashed heli",
+    "name": { "str": "Find crashed heli" },
+    "description": "Cost asked you to find crashed heli",
     "goal": "MGOAL_FIND_ITEM",
     "item": "black_box_transcript",
     "difficulty": 0,
@@ -166,13 +194,13 @@
     "followup": "MISSION_captain_cost_2",
     "dialogue": {
       "describe": "-",
-      "offer": "Heli crashed nearby. Help me find it. I'll go with you. No objections.",
-      "accepted": "Good. It crashed in nearby field. I need an information that was on that heli. Let's search for it.",
-      "rejected": "Are you sure about that?",
-      "advice": "There might be some military staff. Alive or dead.",
-      "inquire": "So?",
-      "success": "Neat.",
-      "success_lie": "Um…",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
       "failure": "-"
     }
   },
@@ -181,7 +209,7 @@
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Lead me to bunker" },
-    "description": "Lead me to bunker",
+    "description": "Cost asked you to lead him to military bunker",
     "goal": "MGOAL_FIND_ITEM",
     "item": "military_record",
     "difficulty": 0,
@@ -201,12 +229,12 @@
     "followup": "MISSION_captain_cost_3",
     "dialogue": {
       "describe": "-",
-      "offer": "We need to get a secret note from bunker nearby. Lead me to that bunker.",
-      "accepted": "Good. Let's go.",
-      "rejected": "Are you sure about that?",
-      "advice": "It might be guarded, so take some weapons with you.",
-      "inquire": "So?",
-      "success": "Nice.",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
       "success_lie": "-",
       "failure": "-"
     }
@@ -225,11 +253,11 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
-      "offer": "Last task. We need to contact some special agent to finish my mission. For that we need to get a special code to contact him. Lead me to the meeting point, where you can find information how to contact him.",
-      "accepted": "Good. Lead the way.",
-      "rejected": "Are you sure about that?",
-      "advice": "It's an easy job, <name_g>.",
-      "inquire": "So?",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
       "success": "-",
       "success_lie": "-",
       "failure": "-"

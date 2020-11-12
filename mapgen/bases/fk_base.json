@@ -55,6 +55,7 @@
         "B": "t_floor",
         "d": "t_floor",
         "6": "t_floor",
+        "R": "t_floor",
         "|": "t_wall_log",
         ",": "t_dirt",
         "E": "t_carpet_green",
@@ -75,7 +76,6 @@
         ]
       },
       "place_item": [ { "item": "atomic_lamp", "x": 25, "y": 11 } ],
-      "place_terrain": [ { "ter": "t_stairs_down", "x": 28, "y": 10 } ],
       "place_npcs": [
         { "class": "flame_knuckle_apprentice", "x": 20, "y": 3 },
         { "class": "flame_knuckle_master", "x": 23, "y": 9 },
@@ -167,7 +167,7 @@
         "                        "
       ],
       "terrain": { "-": "t_wall", ".": "t_rock_floor", "<": "t_stairs_up", "|": "t_wall" },
-      "furniture": { "1": "f_utility_shelf", "2": "f_utility_shelf", "3": "f_utility_shelf", "4": "f_utility_shelf" },
+      "furniture": { "1": "f_utility_shelf", "2": "f_utility_shelf", "3": "f_utility_shelf", "4": "f_utility_shelf","5": "f_utility_shelf","6": "f_utility_shelf" },
       "loot": {
         "1": { "group": "survivorzed_suits", "chance": 75, "repeat": [ 2, 4 ] },
         "2": { "group": "survivorzed_head", "chance": 75, "repeat": [ 2, 4 ] },

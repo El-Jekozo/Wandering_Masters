@@ -2,27 +2,27 @@
   {
     "//": "TODO check text, maybe balance him a bit ",
     "type": "npc",
-    "id": "boxer_johny",
-    "name_unique": "Boxer Johny",
+    "id": "boxer_johnny",
+    "name_unique": "Boxer Johnny",
     "gender": "male",
-    "class": "boxer_johny",
+    "class": "boxer_johnny",
     "attitude": 0,
     "mission": 7,
-    "chat": "boxer_johny_1",
-    "faction": "boxer_johny_gym",
-    "mission_offered": "MISSION_boxer_johny_1"
+    "chat": "boxer_johnny_1",
+    "faction": "boxer_johnny_gym",
+    "mission_offered": "MISSION_boxer_johnny_1"
   },
   {
     "type": "npc_class",
-    "id": "boxer_johny",
-    "name": { "str": "Boxer Johny" },
-    "job_description": "Boxer Johny.",
+    "id": "boxer_johnny",
+    "name": { "str": "Boxer Johnny" },
+    "job_description": "Boxer Johnny.",
     "common": false,
     "bonus_str": { "rng": [ 3, 5 ] },
     "bonus_dex": { "rng": [ 2, 5 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
-    "worn_override": "boxer_johny_worn",
+    "worn_override": "boxer_johnny_worn",
     "weapon_override": "EMPTY_GROUP",
     "traits": [
       { "group": "NPC_starting_traits" },
@@ -34,7 +34,7 @@
   },
   {
     "type": "item_group",
-    "id": "boxer_johny_worn",
+    "id": "boxer_johnny_worn",
     "subtype": "collection",
     "entries": [
       { "item": "under_armor_shorts" },
@@ -51,7 +51,7 @@
   },
   {
     "type": "talk_topic",
-    "id": [ "boxer_johny_1" ],
+    "id":  "boxer_johnny_1" ,
     "dynamic_line": {
       "u_has_var": "bj_debt_repaid",
       "type": "flag",
@@ -60,85 +60,85 @@
       "yes": "Well well, isn't it my saviour? Welcome!",
       "no": "Hey, I'm not in the mood right now! Go away!"
     },
-    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johny_0" } },
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johnny_0" } },
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "mission_complete" },
-      { "text": "<BGSS_intro_question>", "topic": "boxer_johny_Background" },
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": {"and":["mission_complete", "has_many_assigned_missions"]} },
+      { "text": "<BGSS_intro_question>", "topic": "boxer_johnny_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "boxer_johny_teach_check" },
+      { "text": "Can you teach me something?", "topic": "boxer_johnny_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johny_moneylender",
+    "id": "boxer_johnny_moneylender",
     "dynamic_line": "There, in his bar.",
     "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johny_Background",
-    "dynamic_line": "Well i'm just a regular boxer, really. I worked here before <the_cataclysm>, but now I live here, I suppose.",
+    "id": "boxer_johnny_Background",
+    "dynamic_line": "Well I’m just a regular boxer, really. I worked here before <the_cataclysm>, but now I live here, I suppose.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johny_teach_check",
+    "id": "boxer_johnny_teach_check",
     "dynamic_line": "I'll teach you, for sure, but only after I'll deal with all my problems.",
     "responses": [
       {
         "text": "So, problems solved?",
-        "condition": { "npc_has_var": "u_helped_boxer_johny", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "npc_has_var": "u_helped_boxer_johnny", "type": "general", "context": "meeting", "value": "yes" },
         "trial": {
           "type": "CONDITION",
-          "condition": { "npc_has_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes" }
+          "condition": { "npc_has_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "yes" }
         },
         "success": {
           "effect": [
             { "u_buy_item": "manual_boxing" },
-            { "npc_add_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "no" }
+            { "npc_add_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "no" }
           ],
-          "topic": "boxer_johny_teach"
+          "topic": "boxer_johnny_teach"
         },
-        "failure": { "topic": "boxer_johny_teach_done" }
+        "failure": { "topic": "boxer_johnny_teach_done" }
       },
       { "text": "…", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johny_teach",
+    "id": "boxer_johnny_teach",
     "dynamic_line": "Yeah, I guess they are. Here, you can take it.",
-    "responses": [ { "text": "Thanks, Johny.", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks, Johnny.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johny_teach_done",
+    "id": "boxer_johnny_teach_done",
     "dynamic_line": "I already taught you all I knew.",
-    "responses": [ { "text": "Thanks again, Johny.", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Thanks again, Johnny.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "bjohny_busy",
+    "id": "bjohnny_busy",
     "dynamic_line": "*looks busy.",
     "responses": [
-      { "text": "Ahem!", "topic": "boxer_johny_1", "condition": "mission_complete" },
+      { "text": "Ahem!", "topic": "boxer_johnny_1", "condition": "mission_complete" },
       {
         "text": "Ahem. Your debt is repaid. You can relax.",
         "topic": "TALK_MISSION_SUCCESS",
         "condition": { "u_has_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
-        "effect": [ "mission_success", { "npc_first_topic": "boxer_johny_1" } ]
+        "effect": [ "mission_success", { "npc_first_topic": "boxer_johnny_1" } ]
       },
       { "text": "…", "topic": "TALK_DONE" }
     ]
   },
   {
     "//": "TODO maybe edit something? add unique gang or smthn",
-    "id": "MISSION_boxer_johny_1",
+    "id": "MISSION_boxer_johnny_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Defend Johny's gym" },
-    "description": "Help Johny to defend his gym.",
+    "name": { "str": "Defend Johnny's gym" },
+    "description": "Help Johnny to defend his gym.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 1000,
@@ -146,7 +146,6 @@
       "effect": [ "follow_only" ],
       "assign_mission_target": { "om_terrain": "gym" },
       "update_mapgen": {
-        "om_terrain": "gym",
         "place_npcs": [
           { "class": "bandit", "x": [ 5, 20 ], "y": [ 5, 20 ], "target": true },
           { "class": "thug", "x": [ 5, 20 ], "y": [ 5, 20 ], "repeat": [ 2, 4 ] },
@@ -156,10 +155,10 @@
     },
     "end": { "effect": "stop_following" },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_boxer_johny_2",
+    "followup": "MISSION_boxer_johnny_2",
     "dialogue": {
-      "describe": "Boxer Johny",
-      "offer": "Well, you know, I don't know if I should tell you, but…Ah, what the hell, I'm a dead man anyway! Before <the_cataclysm>, I took some money from moneylender to make some improvements for my gym. At first, things went smoothly, but after that day, as you can guess, my cashflow goes straight to zero. Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt! What for? He would buy himself a nice car or something?! And there's more! When I refused to pay, he said that he would sell me as slave to a local bandit band or something. Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom! Would you help me?",
+      "describe": "Boxer Johnny",
+      "offer": "Well, you know, I don't know if I should tell you, but…Ah, what the hell, I'm a dead man anyway! Before <the_cataclysm>, I took some money from moneylender to make some improvements for my gym. At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero. Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt! What for? He would buy himself a nice car or something?! And there's more! When I refused to pay, he said that he would sell me as slave to a local bandit band or something. Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom! Would you help me?",
       "accepted": "Hell, we will teach those bastards some proper manners!..Did you hear that? I think they're here! Let's go kick their asses!",
       "rejected": "C'mon, man!",
       "advice": "Move like a butterfly, sting like a bee!",
@@ -171,11 +170,11 @@
   },
   {
     "//": "TODO maybe edit something? add unique gang or smthn",
-    "id": "MISSION_boxer_johny_2",
+    "id": "MISSION_boxer_johnny_2",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Johny's debt" },
-    "description": "Help Johny with his debt",
+    "name": { "str": "Johnny's debt" },
+    "description": "Help Johnny with his debt",
     "goal": "MGOAL_FIND_ITEM",
     "item": "moneylender_head",
     "difficulty": 0,
@@ -186,16 +185,16 @@
       "assign_mission_target": { "om_terrain": "moneylender_hub" },
       "reveal_om_ter": "moneylender_hub",
       "effect": [
-        { "npc_first_topic": "bjohny_busy" },
+        { "npc_first_topic": "bjohnny_busy" },
         { "u_add_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" }
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_boxer_johny_3",
+    "followup": "MISSION_boxer_johnny_3",
     "dialogue": {
-      "describe": "Boxer Johny",
-      "offer": "Good to see you again. Unfortunatly for me, that moneylender guy don't let me go so easily. He sent me his goon with a message recently. He said, that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it. Now I'm a little scared. If only I could somehow deal with this problem…",
-      "accepted": "You want to help me? Thank you, I ove you a big one! But if you serious about it, you don't have much time. He gave no more than a month, so if you or me didn't make it in time…",
+      "describe": "Boxer Johnny",
+      "offer": "Good to see you again. Unfortunately for me, that moneylender guy don't let me go so easily. He sent me his goon with a message recently. He said that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it. Now I'm a little scared. If only I could somehow deal with this problem…",
+      "accepted": "You want to help me? Thank you, I owe you a big one! But if you serious about it, you don't have much time. He gave no more than a month, so if you or me didn't make it in time…",
       "rejected": "…",
       "advice": "He's <very> dangerous man, I assure you, so take care!",
       "inquire": "…",
@@ -206,11 +205,11 @@
     "fail": { "effect": "npc_die" }
   },
   {
-    "id": "MISSION_boxer_johny_3",
+    "id": "MISSION_boxer_johnny_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Find Johny new students" },
-    "description": "Find new students for Johny's boxing school.",
+    "name": { "str": "Find Johnny new students" },
+    "description": "Find new students for Johnny's boxing school.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": { "u_has_var": "bj_students", "type": "flag", "context": "meeting", "value": "2" },
     "difficulty": 0,
@@ -223,22 +222,22 @@
     },
     "end": {
       "effect": [
-        { "npc_add_var": "u_helped_boxer_johny", "type": "general", "context": "meeting", "value": "yes" },
-        { "npc_add_var": "boxer_johny_teach", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "u_helped_boxer_johnny", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "yes" },
         { "u_lose_var": "ally_transfer_bj", "type": "flag", "context": "transfer" },
         { "u_lose_var": "bj_students", "type": "flag", "context": "meeting" }
       ]
     },
-    "fail": {
+	"fail":{
       "effect": [
         { "u_lose_var": "ally_transfer_bj", "type": "flag", "context": "transfer" },
         { "u_lose_var": "bj_students", "type": "flag", "context": "meeting" }
       ]
-    },
+	},
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Boxer Johny",
-      "offer": "So, now I have my head back, and my gym as well! It's time to give this world a chance by reopening my boxing school! Find me 2 new students, so that I can make them new pair of steel fists! With them, we could even clean this town from this walking deads!",
+      "describe": "Boxer Johnny",
+      "offer": "So, now I have my head back, and my gym as well! It's time to give this world a chance by reopening my boxing school! Find me 2 new students, so that I can make them new pair of steel fists! With them, we could even clean this town from this <zombies>!",
       "accepted": "I know you wouldn't refuse. I'll wait.",
       "rejected": "Hmm…",
       "advice": "You can bring me anyone. Children, elder, anyone that need protection! We would remake this gym as base for needed.",
@@ -249,10 +248,10 @@
     }
   },
   {
-    "id": "MISSION_boxer_johny_0",
+    "id": "MISSION_boxer_johnny_0",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "You met Police teacher" },
+    "name": { "str": "You met Boxer Johnny" },
     "goal": "MGOAL_CONDITION",
     "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
@@ -269,6 +268,7 @@
       "success_lie": "-",
       "failure": "-"
     },
-    "fail": { "effect": { "u_buy_item": "boxer_johny_head" } }
+    "fail": { "effect": { "u_buy_item": "boxer_johnny_head" } }
   }
 ]
+

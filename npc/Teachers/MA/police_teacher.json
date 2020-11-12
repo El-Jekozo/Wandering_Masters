@@ -79,7 +79,7 @@
     },
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_police_teacher_0" } },
     "responses": [
-      { "text": "About that job…", "condition": "mission_complete", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "About that job…", "condition": {"and":["mission_complete", "has_many_assigned_missions"]}, "topic": "TALK_MISSION_INQUIRE" },
       { "text": "<BGSS_intro_question>", "topic": "police_teacher_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "police_teacher_teach_check" },
@@ -105,7 +105,7 @@
   {
     "type": "talk_topic",
     "id": "police_teacher_teach_check",
-    "dynamic_line": "Look, right now I can only think about one thing, and that's definetly not about teaching, ok?",
+    "dynamic_line": "Look, right now I can only think about one thing, and that's definitely not about teaching, ok?",
     "responses": [
       {
         "text": "So, what about now?",
@@ -141,7 +141,7 @@
   {
     "type": "talk_topic",
     "id": "police_teacher_truth",
-    "dynamic_line": "Ok, ok, I'll tell you. The truth is, I was afraid when first walking deads tried to enter our department, and didn't even notice how I got myself locked up here, in this cell. Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me. I'm so ashamed of myself, really. Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but…What done is done.",
+    "dynamic_line": "Ok, ok, I'll tell you. The truth is, I was afraid when first <zombies> tried to enter our department, and didn't even notice how I got myself locked up here, in this cell. Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me. I'm so ashamed of myself, really. Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but… What done is done.",
     "responses": [
       {
         "text": "Oh, uh, well, ok, then?",
@@ -172,7 +172,7 @@
     },
     "responses": [
       {
-        "text": "Ok bro, i'm waiting",
+        "text": "Ok bro, I’m waiting",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -264,7 +264,7 @@
     "start": {
       "assign_mission_target": {
         "om_terrain": "police_1",
-        "om_special": "police_1",
+		"om_special": "police_1",
         "om_terrain_replace": "house",
         "om_terrain_match_type": "PREFIX",
         "reveal_radius": 1,
@@ -276,15 +276,15 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_police_teacher_2",
     "dialogue": {
-      "describe": "Police",
-      "offer": "Before <the_cataclysm>, I was in a secret police search party that was formed to track an assassin, who worked for a famous kingpin. They called him 'Bill The Assassin'. Somehow, we managed to track him, and even put him behind bars for a long time. But you see, the situation changed drastically outside, and I know the guy like him wouldn't hesitate to use it as a chance to break free. And, um, I think that guy like him would definitely try to take his revenge, so…I just want to know for sure if the guy is alive or turned into one of that things. Find police records, so I can learn were did they locked him, and maybe learn what happened to him there.",
+      "describe": "-",
+      "offer": "Before <the_cataclysm>, I was in a secret police search party that was formed to track an assassin, who worked for a famous kingpin. They called him 'Bill The Assassin'. Somehow, we managed to track him, and even put him behind bars for a long time. But you see, the situation changed drastically outside, and I know the guy like him wouldn't hesitate to use it as a chance to break free. And, um, I think that guy like him would definitely try to take his revenge, so… I just want to know for sure if the guy is alive or turned into <zombie>. Find police records, so I can learn where did they locked him, and maybe learn what happened to him there.",
       "accepted": "Whew, thank you. I'll wait.",
       "rejected": "Why?",
       "advice": "Well, I'm not sure where it may be, to be honest. Try to search all the building.",
       "inquire": "So?",
-      "success": "Good, thank you. I just need some time to…Oh, it's right on the top, ha-ha. Funny. Let's see…So, now I know where to find him.",
-      "success_lie": "Um…",
-      "failure": "What a shame."
+      "success": "Good, thank you. I just need some time to…Oh, it's right on the top, ha-ha. Let's see… So, now I know where to find him.",
+      "success_lie": "-",
+      "failure": "-"
     }
   },
   {
@@ -312,14 +312,14 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_police_teacher_3",
     "dialogue": {
-      "describe": "Police",
-      "offer": "So, now I know where he's been serving sentence, and I want to just check what happened to him…What? Why don't I just go there and look for myself? Well, ha-ha, I'm kinda busy with…Defending my PD, ha! So, if you want to help me, please find Bill. If he's there, kill him and bring his head as poof. He have a tatoo on his face that looks like a dragon, so you you can’t mistake him for anyone.",
+      "describe": "-",
+      "offer": "So, now I know where he's been serving sentence, and I want to just check what happened to him…What? Why don't I just go there and look for myself? Well, ha-ha, I'm kind of busy with… Defending my PD, ha! So, if you want to help me, please find Bill. If he's there, kill him and bring his head as poof. He have a tattoo on his face that looks like a dragon, so you can’t mistake him for anyone.",
       "accepted": "Thank you. I'll wait.",
       "rejected": "Why?",
       "advice": "Be <very> careful with your approach. Prisons are guarder by police bots and turrets, and they are a <very> dangerous.",
       "inquire": "So?",
-      "success": "Good. Show it to me. So, here you are, you dirty bastard. Who's laughing now, huh? Ha-ha! Hah…wait a minute. Green eyes, potato nose, scar under left eye, dental print looks like his, but…it's a wyrm, not a dragon! Argh, what a trikster! So, now we know that he's alive, and maybe even escaped from prison. That's bad news, indeed. I need to think about it.",
-      "success_lie": "Um…",
+      "success": "Good. Show it to me. So, here you are, you dirty bastard. Who's laughing now, huh? Ha-ha! Hah…wait a minute. Green eyes, potato nose, scar under left eye, dental print looks like his, but…it's a wyrm, not a dragon! Argh, what a trickster! So, now we know that he's alive, and maybe even escaped from prison. That's bad news, indeed. I need to think about it.",
+      "success_lie": "-",
       "failure": "What a shame."
     }
   },
@@ -362,7 +362,7 @@
       "advice": "Yes.",
       "inquire": "I'm waiting.",
       "success": "Good. Wait for a while, I need some time to look around and find something that may lead us to him…",
-      "success_lie": "Um…",
+      "success_lie": "-",
       "failure": "What a shame."
     }
   },
@@ -404,7 +404,7 @@
       "advice": "Good luck.",
       "inquire": "I'm waiting.",
       "success": "Good. Now I can teach you.",
-      "success_lie": "Um…",
+      "success_lie": "-",
       "failure": "What a shame."
     }
   },
@@ -432,3 +432,4 @@
     "fail": { "effect": { "u_buy_item": "pt_head" } }
   }
 ]
+

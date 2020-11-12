@@ -13,8 +13,8 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 * Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues. Works fine
 * Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues. Works fine
 * Police Teacher - 4 quests; unchecked dialogues. Works fine
-* Old Assassin - 3 quests; unchecked dialogues. Works fine
-* Boxer Johny - 3 quests; unchecked dialogues; Works fine!
+* Retired Assassin - 3 quests; unchecked dialogues. Works fine
+* Boxer Johnny - 3 quests; unchecked dialogues; Works fine!
 * Rasta Bob - 4 quests; unchecked dialogues. Works fine
 * Samurai Akira - 4 quests + 1 minor; unchecked dialogues; Works fine!
 * Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
@@ -24,13 +24,9 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 
 ## Trait teachers:
 * Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; should work nicely (?);
-* Lighthouse man - 6 quests; no dialogues; WIP; prototype; most wanted features implemented (need additional testing); should work fine
-* /22ch Lead Scientist - 7 quests; no dialogues; WIP; prototype; most features kinda tested, should work fine
 * Hobo Victoria - 5 quests, no dialogues, WIP; untested, but should work fine.
 
 ## Credits:
-* №35321700 - ideas for lighthouse man.
-* №35321956 AKA mimokrok - /22ch ideas.
 * Matoi - idea and concept of Flame Knuckle base, Moneylender hub.
 * C0D3 - proofreading, editing dialogues.
 

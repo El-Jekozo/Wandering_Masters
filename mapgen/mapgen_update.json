@@ -14,6 +14,14 @@
   },
   {
     "type": "mapgen",
+    "update_mapgen_id": "fk_stairs",
+    "method": "json",
+    "object": {
+      "place_terrain": [ { "ter": "t_stairs_down", "x": 4, "y": 10 } ]
+    }
+  },
+  {
+    "type": "mapgen",
     "update_mapgen_id": "moneylender_bartender_cop",
     "method": "json",
     "object": { "place_npcs": [ { "class": "moneylender_goon", "x": [ 10, 16 ], "y": 9, "repeat": [ 2, 4 ] } ] }
@@ -35,32 +43,6 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "22ch_robot_attack",
-    "method": "json",
-    "object": { "place_monster": [ { "monster": "mon_secubot", "x": [ 5, 20 ], "y": [ 5, 20 ], "repeat": 5 } ] }
-  },
-  {
-    "type": "mapgen",
-    "update_mapgen_id": "22ch_helper",
-    "method": "json",
-    "object": { "place_npcs": [ { "class": "scientist_22ch", "x": [ 5, 20 ], "y": [ 5, 20 ] } ] }
-  },
-  {
-    "//": "TODO maybe edit?",
-    "type": "mapgen",
-    "update_mapgen_id": "22ch_transmitter",
-    "method": "json",
-    "object": { "place_furniture": [ { "furn": "f_scrap_antenna", "x": 14, "y": 4 } ] }
-  },
-  {
-    "//": "TODO maybe edit or remove?",
-    "type": "mapgen",
-    "update_mapgen_id": "22ch_transmitter_done",
-    "method": "json",
-    "object": { "place_monster": [ { "monster": "mon_secubot", "x": [ 5, 20 ], "y": [ 5, 20 ] } ] }
-  },
-  {
-    "type": "mapgen",
     "update_mapgen_id": "hobo_victoria_heat",
     "method": "json",
     "object": {
@@ -71,7 +53,7 @@
   },
   {
     "type": "mapgen",
-    "update_mapgen_id": "boxer_johny_moneylender_spawn",
+    "update_mapgen_id": "boxer_johnny_moneylender_spawn",
     "method": "json",
     "object": { "place_npcs": [ { "class": "moneylender", "x": 10, "y": 10 } ] }
   },

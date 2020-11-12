@@ -14,26 +14,20 @@
   {
     "type": "mapgen",
     "method": "json",
-    "nested_mapgen_id": "old_assassin_spawn",
-    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "old_assassin", "x": 0, "y": 0 } ] }
+    "nested_mapgen_id": "retired_assassin_spawn",
+    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "retired_assassin", "x": 0, "y": 0 } ] }
   },
   {
     "type": "mapgen",
     "method": "json",
-    "nested_mapgen_id": "boxer_johny_spawn",
-    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "boxer_johny", "x": 0, "y": 0 } ] }
+    "nested_mapgen_id": "boxer_johnny_spawn",
+    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "boxer_johnny", "x": 0, "y": 0 } ] }
   },
   {
     "type": "mapgen",
     "method": "json",
     "nested_mapgen_id": "samurai_akira_spawn",
     "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "samurai_akira", "x": 0, "y": 0 } ] }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "nested_mapgen_id": "lighthouse_man_spawn",
-    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "lighthouse_man", "x": 0, "y": 0 } ] }
   },
   {
     "type": "mapgen",

@@ -21,24 +21,9 @@
     "bonus_dex": { "rng": [ 1, 5 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
-    "worn_override": "rasta_bob_worn",
     "weapon_override": "EMPTY_GROUP",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_African" }, { "trait": "PAINRESIST" } ],
     "skills": [ { "skill": "melee", "level": 6 }, { "skill": "dodge", "level": 6 }, { "skill": "unarmed", "level": 6 } ]
-  },
-  {
-    "type": "item_group",
-    "id": "rasta_bob_worn",
-    "subtype": "collection",
-    "entries": [
-      { "items": [ "socks", "swat_armor", "tac_fullhelmet", "boots_combat", "gloves_tactical", "badge_swat", "wristwatch" ] },
-      { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
-      { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
-      { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
-      { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
-      { "item": "baton-extended", "container-item": "police_belt" },
-      { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
-    ]
   },
   {
     "type": "talk_topic",
@@ -129,7 +114,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_rasta_bob_sleep",
-    "dynamic_line": "Yo, <name_g>. Go talk to him. I'm a little tired, so...[*ZZZZZ*]",
+    "dynamic_line": "Yo, <name_g>. Go talk to him. I'm a little tired, so…[*ZZZZZ*]",
     "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   },
   {

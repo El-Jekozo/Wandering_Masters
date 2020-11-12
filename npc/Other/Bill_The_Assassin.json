@@ -88,11 +88,11 @@
   {
     "id": [ "bill_the_assassin_talk" ],
     "type": "talk_topic",
-    "dynamic_line": "So, you know my name AND how to find me. Interesting. I'm listeting, but if you say something that I wouldn't like, you will be dead in a second. Speak.",
+    "dynamic_line": "So, you know my name AND how to find me. Interesting. I'm listening, but if you say something that I wouldn't like, you will be dead in a second. Speak.",
     "responses": [
       { "text": "Actually, I'll kick your ass!", "topic": "bill_the_assassin_bad" },
       {
-        "text": "I'm here because of some officer that wants you dead. He looks kinda suspicious, so I want to learn the whole story.",
+        "text": "I'm here because of some officer that wants you dead. He looks kind of suspicious, so I want to learn the whole story.",
         "topic": "bill_the_assassin_talk1"
       }
     ]
@@ -100,7 +100,7 @@
   {
     "id": [ "bill_the_assassin_talk1" ],
     "type": "talk_topic",
-    "dynamic_line": "And why should I tell you, instead of just just kill you and return to my business?",
+    "dynamic_line": "And why should I tell you, instead of just kill you and return to my business?",
     "responses": [
       { "text": "How rude, I'll kick your ass!", "topic": "bill_the_assassin_bad" },
       {
@@ -114,11 +114,11 @@
   {
     "id": [ "bill_the_assassin_talk2" ],
     "type": "talk_topic",
-    "dynamic_line": "Hmm, if you put it that way, I'll tell you something interesting. I think your <name_g> asked you to bring back my head. How do I know? That cop <name_b> just wants to screw you and loot my basement! I have a secret storage room in my basement that opens only after retinal scan, and he will do anything to get to that room. Tell you what, if you kill that <name_b>, I'll open it for you. Anything that I left behind me, will be yours. Whatcha say, <name_g>?",
+    "dynamic_line": "Hmm, if you put it that way, I'll tell you something interesting. I think your <name_g> asked you to bring back my head. How do I know? That cop <name_b> just wants to screw you and loot my basement! I have a secret storage room in my basement that opens only after retinal scan, and he will do anything to get to that room. Tell you what, if you kill that <name_b>, I'll open it for you. Anything that I left behind me, will be yours. What do you say, <name_g>?",
     "responses": [
-      { "text": "Nope, i'll kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "Nope, I’ll kick your ass!", "topic": "bill_the_assassin_bad" },
       {
-        "text": "I'll think about that.",
+        "text": "I'll think about it.",
         "topic": "TALK_DONE",
         "effect": [
           { "npc_first_topic": "bill_the_assassin_talk3" },
@@ -145,8 +145,8 @@
     "type": "talk_topic",
     "dynamic_line": "Wow, cool. Actually, I lied about secret room. Take this book instead.",
     "responses": [
-      { "text": "LIAR!", "topic": "bill_the_assassin_bad" },
       { "text": "…", "topic": "TALK_DONE", "effect": [ "end_conversation", { "u_buy_item": "manual_centipede" } ] }
     ]
   }
 ]
+

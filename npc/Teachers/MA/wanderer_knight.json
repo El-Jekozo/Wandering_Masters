@@ -115,9 +115,9 @@
     "id": "wanderer_knight_trust_check",
     "dynamic_line": "Are you a believer?",
     "responses": [
-      { "text": "I'm muslim.", "topic": "TALK_DONE", "opinion": { "trust": -200, "value": -200 }, "effect": "insult_combat" },
+      { "text": "I'm Muslim.", "topic": "TALK_DONE", "opinion": { "trust": -200, "value": -200 }, "effect": "insult_combat" },
       {
-        "text": "I'm christian.",
+        "text": "I'm Christian.",
         "trial": {
           "type": "CONDITION",
           "condition": { "or": [ { "u_is_wearing": "holy_symbol_wood" }, { "u_is_wearing": "holy_symbol" } ] }
@@ -125,8 +125,8 @@
         "success": { "topic": "wanderer_knight_trust_yes" },
         "failure": { "topic": "wanderer_knight_trust_nope" }
       },
-      { "text": "I'm budhist", "topic": "wanderer_knight_trust_no" },
-      { "text": "I'm jewish", "topic": "wanderer_knight_trust_no" },
+      { "text": "I'm Buddhist", "topic": "wanderer_knight_trust_no" },
+      { "text": "I'm Jewish", "topic": "wanderer_knight_trust_no" },
       { "text": "I'm atheist.", "topic": "wanderer_knight_trust_no" },
       { "text": "I'm agnostic.", "topic": "wanderer_knight_trust_no" }
     ]
@@ -142,8 +142,8 @@
     "id": "wanderer_knight_trust_yes",
     "dynamic_line": {
       "u_male": true,
-      "yes": "Ah, it's good to see another folower of our lord Jesus Christ. Welcome, my brother.",
-      "no": "Ah, it's good to see another folower of our lord Jesus Christ. Welcome, my sister."
+      "yes": "Ah, it's good to see another follower of our lord Jesus Christ. Welcome, my brother.",
+      "no": "Ah, it's good to see another follower of our lord Jesus Christ. Welcome, my sister."
     },
     "responses": [
       {
@@ -211,7 +211,7 @@
   {
     "type": "talk_topic",
     "id": "wanderer_knight_truth",
-    "dynamic_line": "Well, to be honest, I'm just a guy in cool suit… I took it from museum when <the_cataclysm> started to protect myself, and to somehow remain stable, I started to think of myself as holy warrior, that was sent here to purge the world of walking deads… Don't judge me, please… ",
+    "dynamic_line": "Well, to be honest, I'm just a guy in cool suit… I took it from museum when <the_cataclysm> started to protect myself, and to somehow remain stable, I started to think of myself as holy warrior, which was sent here to purge the world of <zombies>… Don't judge me, please… ",
     "responses": [
       {
         "text": "Ok, ok, I'll play along. But only if you start calling me 'The Chosen One'! [*chuckles*]",
@@ -276,7 +276,7 @@
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Help Father Randalf" },
-    "description": "Knight asked you to help Father Randalf to lift his curse.",
+    "description": "Knight asked you to help Father Randolph to lift his curse.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 1,
     "value": 100,
@@ -297,7 +297,7 @@
     "followup": "MISSION_wanderer_knight_3",
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "Ah, my fellow warrior of the light, it's good that you're alive. I have another task for you. You need to help my dear <name_g>, Brother Randalf, to lift his curse, so that his soul could reach the heaven and rest peacefuly for eternity.",
+      "offer": "Ah, my fellow warrior of the light, it's good that you're alive. I have another task for you. You need to help my dear <name_g>, Brother Randolph, to lift his curse, so that his soul could reach the heaven and rest peacefully for eternity.",
       "accepted": "I'll wait.",
       "rejected": "What are you, infidel?!",
       "advice": "I know you can do it! God bless you!",
@@ -340,7 +340,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "True Faith!!",
-      "offer": "Ah, it's you again. I have another task for you. Did you know that this church was built 287 years ago, and stood still to this day? More interesting, that this church was built by one man! One priest, that built this church, and was called saint because of his will, pureness and love for God. Even more interesting, I learn from notes of current (deseased, sadly) priest that his remains were cept in the basement, until it was taken away by some research group to learn about it's healing powers? I want you to get back his remains.",
+      "offer": "Ah, it's you again. I have another task for you. Did you know that this church was built 287 years ago, and stood still to this day? More interesting, that this church was built by one man! One priest, that built this church, and was called saint because of his will, pureness and love for God. Even more interesting, I learn from notes of current (deceased, sadly) priest that his remains were kept in the basement, until it was taken away by some research group to learn about its healing powers? I want you to get back his remains.",
       "accepted": "I'll wait.",
       "rejected": "What are you, infidel?!",
       "advice": "I don't know what you will face there, but God will help you!",
@@ -351,3 +351,4 @@
     }
   }
 ]
+

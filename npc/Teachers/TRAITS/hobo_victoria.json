@@ -40,7 +40,7 @@
     "id": [ "hobo_victoria_1" ],
     "dynamic_line": "Hello there, <name_g>.",
     "responses": [
-      { "text": "About that job...", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
       { "text": "<BGSS_intro_question>", "topic": "hobo_victoria_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "hobo_victoria_teach_check" },

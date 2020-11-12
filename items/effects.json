@@ -6,25 +6,23 @@
     "name": [ "Wasted" ],
     "desc": [ "You tried 'Uncle Ben's Mustang' moonshine. You feel like you died, ressurected and then died again." ],
     "apply_message": "You feel AWFUL.",
-    "int_dur_factor": "100 m",
-    "base_mods": {
-      "str_mod": [ -5, -3 ],
-      "int_mod": [ -4, -2 ],
-      "dex_mod": [ -4, -2 ],
-      "per_mod": [ -6, -4 ],
-      "vomit_chance": [ 1000 ],
-      "sleep_chance": [ 1000 ],
-      "sleep_min": [ 15000 ],
-      "sleep_max": [ 21000 ]
+    "int_dur_factor": "20 m",
+    "max_intensity": 6,
+    "rating": "bad",
+    "base_mods": { "str_mod": [ -1 ], "int_mod": [ -1 ], "dex_mod": [ -1 ], "per_mod": [ -1 ] },
+    "scaling_mods": {
+      "str_mod": [ -0.8 ],
+      "dex_mod": [ -0.8 ],
+      "int_mod": [ -0.8 ],
+      "per_mod": [ -1 ],
+      "speed_mod": [ -5 ],
+      "vomit_chance": [ 2 ],
+      "sleep_chance": [ 2 ]
     }
   },
   {
     "type": "effect_type",
     "id": "took_ub_mustang"
-  },
-  {
-    "type": "effect_type",
-    "id": "jcost_betrayed"
   },
   {
     "//": "TODO change later or remove",

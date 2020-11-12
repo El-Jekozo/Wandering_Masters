@@ -1,10 +1,10 @@
 [
   {
     "type": "MOD_INFO",
-    "ident": "wandering_teachers",
+    "ident": "more_npc",
     "name": "Wandering Teachers",
-    "authors": [ "1123132123" ],
-    "description": "Mod adds Wandering teachers, NPCs that can 'teach' character something interesting after completing their quest line, such as: martial arts, give good traits, remove bad traits.\nCheck mod folder for more information.",
+    "authors": [ "El-Jekozo" ],
+    "description": "Mod adds 'Wandering teachers', NPCs that can 'teach' character something interesting after completing their quest line, such as: martial arts, give good traits, remove bad traits.\nCheck mod folder for more information.",
     "category": "misc_additions",
     "dependencies": [ "dda" ]
   }

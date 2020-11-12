@@ -9,7 +9,7 @@
     "use_action": {
       "type": "consume_drug",
       "activation_message": "You take a little sip. Tastes like gasoline",
-      "effects": [ { "id": "ub_mustang", "duration": "100 m" }, { "id": "took_ub_mustang", "duration": 1, "permanent": true } ],
+      "effects": [ { "id": "ub_mustang", "duration": "120 m" }, { "id": "took_ub_mustang", "duration": "PERMANENT" } ],
       "moves": 50
     },
     "symbol": ")",
@@ -70,10 +70,10 @@
   {
     "//": "TODO write normal text? maybe change id",
     "type": "GENERIC",
-    "id": "boxer_johny_head",
+    "id": "boxer_johnny_head",
     "name": { "str_sp": "seveared head" },
     "copy-from": "enemy_head",
-    "description": "Boxer Johny's severed head."
+    "description": "Boxer Johnny's severed head."
   },
   {
     "//": "TODO write normal text? maybe change id",
@@ -90,6 +90,14 @@
     "name": { "str_sp": "seveared head" },
     "copy-from": "enemy_head",
     "description": "Police teacher severed head."
+  },
+  {
+    "//": "TODO write normal text? maybe change id",
+    "type": "GENERIC",
+    "id": "oa_head",
+    "name": { "str_sp": "seveared head" },
+    "copy-from": "enemy_head",
+    "description": "Old Assassin severed head."
   },
   {
     "//": "TODO write normal text? maybe change id",

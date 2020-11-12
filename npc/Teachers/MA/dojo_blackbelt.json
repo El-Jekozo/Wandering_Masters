@@ -146,7 +146,7 @@
   {
     "type": "talk_topic",
     "id": "blackbelt_coach_teach",
-    "dynamic_line": "You helped me ressurect my school, so here, take it. It's one of the relics of our school, 'The Manual'!. You can take it now. Good luck, student. Don't get yourself killed!",
+    "dynamic_line": "You helped me resurrect my school, so here, take it. It's one of the relics of our school, 'The Manual’. You can take it now. Good luck, student. Don't get yourself killed!",
     "responses": [ { "text": "Thank you, master!", "topic": "TALK_DONE" } ]
   },
   {
@@ -188,7 +188,7 @@
   {
     "type": "talk_topic",
     "id": "bbm_flame_knuckle_1",
-    "dynamic_line": "Take this. This is one of the school flyers my informer has gave me. He said that they use it now as invintation tickets. I hope you can find use for it. Good luck, student.",
+    "dynamic_line": "Take this. This is one of the school flyers my informer has gave me. He said that they use it now as invitation tickets. I hope you can find use for it. Good luck, student.",
     "responses": [
       {
         "text": "Thank you, master.",
@@ -265,14 +265,14 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_blackbelt_coach_2",
     "dialogue": {
-      "describe": "Blackbelt master.",
+      "describe": "-",
       "offer": "Well well, you decided to help me? Okay, listen here, student. I managed to recruit one of the survivors and persuaded him to join Flame Knuckle and leak all information he could get to me. The time has come for the next collection of information. Meet him in the nearby forest, get everything he knows from him and come back here. Oh yes, our password is 'Berries'. Don't forget the password!",
-      "accepted": "I didn’t doubt in you. Hold this belt as a symbol of your entry into Iron Palm school! Go, and don't come to me until you complete your task!",
+      "accepted": "I didn’t doubt in you. Hold this belt as a symbol of your entry into Iron Palm School! Go, and don't come to me until you complete your task!",
       "rejected": "Are you scared?",
       "advice": "Be careful. The guy could be found out, so try not to bring tail here.",
       "inquire": "I'm waiting.",
       "success": "Well done, student. I knew you would succeed! Well, tell me all you got… \nHmmm, that's how it is. Well, it complicates my job a little. I need a little time to think about it. Here, hold this belt, you deserve it.",
-      "success_lie": "True warriors don't lie!",
+      "success_lie": "-",
       "failure": "You are a disgrace to your family!"
     },
     "fail": {
@@ -319,14 +319,14 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_blackbelt_coach_3",
     "dialogue": {
-      "describe": "Blackbelt master.",
-      "offer": "Thanks to the information you gave me, I learned that Flame Knuckle is send one of their elites to train a new group of fresh apprentices, and I want you to prevent this. Find this asshole, use your iron palm and make him choke on blood! .. What? What about the students? I don't give a damn, do what you want. Oh yeah, their training will take about 2-4 weeks, so hurry up! They won't sit there forever!",
+      "describe": "-",
+      "offer": "Thanks to the information you gave me, I learned that Flame Knuckle is send one of their elites to train a new group of fresh apprentices, and I want you to prevent this. Find this asshole, use your iron palm and make him choke on blood! What? What about the students? I don't give a damn, do what you want. Oh yeah, their training will take about 2-4 weeks, so hurry up! They won't sit there forever!",
       "accepted": "I like your attitude. Show them the true path of the Iron Palm!",
       "rejected": "Afraid?!",
-      "advice": "Apprentices are just random crooks, but that trainer guy is one of the finest in his school. Be careful with your aproach.",
+      "advice": "Apprentices are just random crooks, but that trainer guy is one of the finest in his school. Be careful with your approach.",
       "inquire": "I'm waiting.",
       "success": "Nice one, student! That will teach them not to mess with me, with my school and my students!",
-      "success_lie": "True warriors don't lie!",
+      "success_lie": "-",
       "failure": "You are a disgrace to your family!"
     },
     "fail": { "effect": [ "end_conversation", { "u_consume_item": "judo_belt_yellow" } ] }
@@ -360,14 +360,14 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_blackbelt_coach_4",
     "dialogue": {
-      "describe": "Blackbelt master",
+      "describe": "-",
       "offer": "So, my student, it's time for real punch! I managed to locate their base, and even learned that their leader will be there. I want you to go there, show them the power of the Iron Palm and bring me the head of their leader as proof. You are my best student, so it wouldn't be difficult for you.",
       "accepted": "Good. He will be there for a week at least. If you want to get to him before dealing with his other crooks, ask me how, I've got an idea…",
       "rejected": "Afraid?!",
-      "advice": "I know little about their base, but they have a bunch of crooks that joined them for protection, a few trainers for training new students, maybe something more. Oh, if you see the guys with masks. They are his tops, so be extremly carefull while dealing with them.",
+      "advice": "I know little about their base, but they have a bunch of crooks that joined them for protection, a few trainers for training new students, maybe something more. Oh, if you see the guys with masks. They are his tops, so be extremely careful while dealing with them.",
       "inquire": "So?",
       "success": "Good, <very> good, my student. Now my school have a chance to rise again! Take this belt, you deserve it. ",
-      "success_lie": "True warriors don't lie!",
+      "success_lie": "-",
       "failure": "You are a disgrace to your family!"
     },
     "fail": { "effect": [ "end_conversation", { "u_consume_item": "judo_belt_green" } ] }
@@ -406,14 +406,14 @@
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Blackbelt master",
-      "offer": "So, my student, it's time to ressurect my school. Bring me 2 new students so I can train them to be the best fighters in the world!",
+      "describe": "-",
+      "offer": "So, my student, it's time to resurrect my school. Bring me 2 new students so I can train them to be the best fighters in the world!",
       "accepted": "Good, I'll wait.",
       "rejected": "Afraid?",
       "advice": "To be honest, I think you know the world outside far better then me, so I don't have advice for you, except good luck!",
       "inquire": "I'm waiting.",
       "success": "I don't know what to say, my student. Just take this belt. You earned it with your blood and tears. If you want to get extra training, talk to me. I'll teach you all our school secrets as best as I can!",
-      "success_lie": "True warriors don't lie!",
+      "success_lie": "-",
       "failure": "You are a disgrace to your family!"
     }
   },
@@ -441,3 +441,4 @@
     "fail": { "effect": { "u_buy_item": "ip_leader_head" } }
   }
 ]
+

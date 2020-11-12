@@ -42,8 +42,8 @@
   {
     "//": "TODO add details maybe?",
     "type": "faction",
-    "id": "boxer_johny_gym",
-    "name": "The Boxer Johny's gym",
+    "id": "boxer_johnny_gym",
+    "name": "The Boxer Johnny's gym",
     "likes_u": 20,
     "respects_u": 20,
     "known_by_u": false,
@@ -57,7 +57,7 @@
       "your_followers": { "knows your voice": true, "lets you in": true },
       "no_faction": { "knows your voice": true }
     },
-    "description": "The Boxer Johny's gym!"
+    "description": "The Boxer Johnny's gym!"
   },
   {
     "//": "TODO add details maybe? change name",
