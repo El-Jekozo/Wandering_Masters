@@ -106,9 +106,9 @@
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Talk to FK Leader",
-      "offer": "If you want to join us, go talk to my boss. He needs more people for our cause. We will give you food, shelter, protection and teach you how to protect yourself.",
-      "accepted": "Good. Here's our base. Go talk to him about your joining. Oh, almost forgot, take this. Show this to the guy at the entrance, or he'll not let you in.",
+      "describe": "-",
+      "offer": "If you want to join us, go talk to my boss.  He needs more people for our cause.  We will give you food, shelter, protection and teach you how to protect yourself.",
+      "accepted": "Good.  Here's our base.  Go talk to him about your joining.  Oh, almost forgot, take this.  Show this to the guy at the entrance, or he'll not let you in.",
       "rejected": "Hmm, maybe you want to change your mind?",
       "advice": "Be careful.",
       "inquire": "Did you speak with him?",

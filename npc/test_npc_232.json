@@ -33,7 +33,7 @@
   {
     "id": "test_232" ,
     "type": "talk_topic",
-    "dynamic_line": "TEST ME!",
+    "dynamic_line": "*nods and say:  \"<greet>\"",
     "responses": [
       {
         "text": "Test cost trap. <kill_npc_h>",
@@ -49,7 +49,7 @@
         ]
       },
       { "text": "Test teach.", "topic": "TALK_DONE", "effect": [ { "u_add_effect": "sleep", "duration": "360 m" },{ "u_add_effect": "narcosis", "duration": "360 m" } ] },
-      { "text": "Test follow.", "topic": "TALK_DONE", "effect": "follow" },
+      { "text": "Test follow.", "topic": "TALK_DONE", "effect": ["follow",{"npc_first_topic":"test_232"}] },
       { "text": "Test follow only.", "topic": "TALK_DONE", "effect": "follow_only" },
       {
         "text": "Test heist.",

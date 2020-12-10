@@ -86,7 +86,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_moneylender_johnny",
-    "dynamic_line": "So, Johnny sent you?  Ok, here's the deal.  Johnny owed me a lot of money before <the_cataclysm>, and I want it back.  You have two options: pay for your <name_g>, 1200 FMCNotes will be enough, or you can help me with satisfying my passion and I'll forget about that fool's debt.  I'm a collector of sort.  If you find rare books in your travelling, bring them to me, maybe then I'll think about trusting you. Choice is yours.  But don't take too long, or your <name_g> will lose his head, he-he.  Also, you have a choice to help him lose it…  I'll pay you for it, and maybe even let you buy my premium goods.",
+    "dynamic_line": "So, Johnny sent you?  OK, here's the deal.  Johnny owed me a lot of money before <the_cataclysm>, and I want it back.  You have two options: pay for your <name_g>, 1200 FMCNotes will be enough, or you can help me with satisfying my passion and I'll forget about that fool's debt.  I'm a collector of sort.  If you find rare books in your traveling, bring them to me, maybe then I'll think about trusting you. Choice is yours.  But don't take too long, or your <name_g> will lose his head, he-he.  Also, you have a choice to help him lose it… I'll pay you for it, and maybe even let you buy my premium goods.",
     "speaker_effect": {
       "effect": [
         { "npc_add_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" },
@@ -351,7 +351,7 @@
     "responses": [ { "text": "…", "topic": "TALK_NONE", "effect": [ { "mapgen_update": "moneylender_share", "origin_npc": true } ] } ]
   },
   {
-    "//": "TODO change spawn point when make him uniqiue building",
+    "//": "TODO change spawn point when make him unique building",
     "type": "talk_topic",
     "id": "TALK_moneylender_book_more",
     "dynamic_line": "Alright, accepted.",
@@ -514,7 +514,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_moneylender_trade",
-    "dynamic_line": "So, i've got:\n Army supplies for 225\n Canned food for 20\n Medieval stuff from museum for 280\n Pharmacy for 300\n Rare weapons for 600\n Melee weapons for 140\n Weapons for 350\nDon't forget that I work only with hard cash!",
+    "dynamic_line": "So, I've got:\n Army supplies for 225\n Canned food for 20\n Medieval stuff from museum for 280\n Pharmacy for 300\n Rare weapons for 600\n Melee weapons for 140\n Weapons for 350\nDon't forget that I work only with hard cash!",
     "responses": [
       {
         "text": "Army supplies.",

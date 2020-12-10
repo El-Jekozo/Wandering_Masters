@@ -44,13 +44,13 @@
   {
     "type": "talk_topic",
     "id": "TALK_rasta_bob_Background",
-    "dynamic_line": "Yo my brudda whazzap.",
+    "dynamic_line": "Yo my brudda whazzup.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_rasta_bob_truth1",
-    "dynamic_line": "I'll be honest with you. [*he showes you his arm with large bite mark*] I think you understand what that means. I tried to heal it, but for some reason, the mark wont go, and the pain wont stop, no matter how i tried. I think I'll become one of them. I DONT whant to become one of that thing!…",
+    "dynamic_line": "I'll be honest with you. [*he shows you his arm with large bite mark*] I think you understand what that means. I tried to heal it, but for some reason, the mark wont go, and the pain wont stop, no matter how i tried. I think I'll become one of them. I DONT what to become one of that thing…",
     "responses": [ { "text": "Oh, I didn't know…", "topic": "TALK_rasta_bob_truth2" } ]
   },
   {
@@ -63,13 +63,13 @@
     "type": "talk_topic",
     "id": "TALK_rasta_bob_truth3",
     "dynamic_line": "You have to kill me. That's the only way I can be freed from this curse, and not become one of that things after death. I know that I ask you too much, but…",
-    "responses": [ { "text": "I…understand…I'll help you…for the last time…", "topic": "TALK_rasta_bob_truth4" } ]
+    "responses": [ { "text": "I… understand… I'll help you… for the last time…", "topic": "TALK_rasta_bob_truth4" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_rasta_bob_truth4",
-    "dynamic_line": "Thank you, you are truly my <name_g>. Just do it quick, please. And if it's not hard for you, could you please burry me on this cementery? I want to rest in this grounds, with my parents…",
-    "responses": [ { "text": "Sure thing, my <name_g>. Goodbye… It was a fun ride…", "topic": "TALK_rasta_bob_truth5" } ]
+    "dynamic_line": "Thank you, you are truly my <name_g>. Just do it quick, please. And if it's not hard for you, could you please bury me on this cemetery? I want to rest in this grounds, with my parents…",
+    "responses": [ { "text": "Sure thing, my <name_g>.  Goodbye… It was a fun ride…", "topic": "TALK_rasta_bob_truth5" } ]
   },
   {
     "type": "talk_topic",
@@ -200,7 +200,7 @@
     "dialogue": {
       "describe": "-",
       "offer": "Yo, it's you, <name_g>! <name_g>, where's my car? I can't find it. Maybe you can help me find my car?",
-      "accepted": "Yo man, thanks. I'll be chilling here, so ride near me, honk and speak to me while driving, or i'll ignore you!",
+      "accepted": "Yo man, thanks. I'll be chilling here, so ride near me, honk and speak to me while driving, or I'll ignore you!",
       "rejected": "Nooo!",
       "advice": "Yeah, we all need some advice, <name_g>.",
       "inquire": "<name_g>?",
@@ -239,7 +239,7 @@
     "followup": "MISSION_rasta_bob_4",
     "dialogue": {
       "describe": "-",
-      "offer": "Yo, <name_g>. Let's get some more weed! Let's go check my drug dealer. He's at the mothel, over there…",
+      "offer": "Yo, <name_g>. Let's get some more weed! Let's go check my drug dealer. He's at the motel, over there…",
       "accepted": "Yeee, thatswatimtokingbout, <name_g>. You drive! Talk to me when we get there.",
       "rejected": "Nooo!",
       "advice": "Yeah, we all need some advice, <name_g>.",
@@ -272,7 +272,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Help me bro",
-      "offer": "Help me to get to cemetery, where my family burried",
+      "offer": "Help me to get to cemetery, where my family buried",
       "accepted": "Good.",
       "rejected": "Why?",
       "advice": "Yeah, we all need some advice, <name_g>.",

@@ -51,18 +51,22 @@
   },
   {
     "type": "talk_topic",
-    "id":  "TALK_boxer_johnny_1" ,
+    "id": "TALK_boxer_johnny_1",
     "dynamic_line": {
       "u_has_var": "bj_debt_repaid",
       "type": "flag",
       "context": "meeting",
       "value": "yes",
-      "yes": "Well well, isn't it my saviour? Welcome!",
+      "yes": "Well well, isn't it my savior? Welcome!",
       "no": "Hey, I'm not in the mood right now! Go away!"
     },
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johnny_0" } },
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": {"and":["mission_complete", "has_many_assigned_missions"]} },
+      {
+        "text": "About that job…",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] }
+      },
       { "text": "<BGSS_intro_question>", "topic": "TALK_boxer_johnny_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "TALK_boxer_johnny_teach_check" },
@@ -88,10 +92,7 @@
           "condition": { "npc_has_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "yes" }
         },
         "success": {
-          "effect": [
-            { "u_buy_item": "manual_boxing" },
-            { "npc_add_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "no" }
-          ],
+          "effect": [ { "u_buy_item": "manual_boxing" }, { "npc_lose_var": "boxer_johnny_teach", "type": "general", "context": "meeting" } ],
           "topic": "TALK_boxer_johnny_teach"
         },
         "failure": { "topic": "TALK_boxer_johnny_teach_done" }
@@ -151,9 +152,9 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_boxer_johnny_2",
     "dialogue": {
-      "describe": "Boxer Johnny",
-      "offer": "Well, you know, I don't know if I should tell you, but…  Ah, what the hell, I'm a dead man anyway!  Before <the_cataclysm>, I took a lot of money from moneylender to make some improvements for my gym.  At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero.  Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt!  What for? He would buy himself a nice car or something?!  And there's more!  When I refused to pay, he said that he would sell me as slave to a local bandit band or something.  Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom!  Would you help me?",
-      "accepted": "Hell, we will teach those bastards some proper manners…   <speech_warning>  I think they're here!  Let's go kick their asses!",
+      "describe": "-",
+      "offer": "Well, you know, I don't know if I should tell you, but… Ah, what the hell, I'm a dead man anyway!  Before <the_cataclysm>, I took a lot of money from moneylender to make some improvements for my gym.  At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero.  Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt!  What for? He would buy himself a nice car or something?!  And there's more!  When I refused to pay, he said that he would sell me as slave to a local bandit band or something.  Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom!  Would you help me?",
+      "accepted": "Hell, we will teach those bastards some proper manners… <speech_warning>  I think they're here!  Let's go kick their asses!",
       "rejected": "C'mon, man!",
       "advice": "Move like a butterfly, sting like a bee!",
       "inquire": "So?",
@@ -186,10 +187,10 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_boxer_johnny_3",
     "dialogue": {
-      "describe": "Boxer Johnny",
+      "describe": "-",
       "offer": "Good to see you again. Unfortunately for me, that moneylender guy don't let me go so easily.  He sent me his goon with a message recently.  He said that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it.  Now I'm a little scared.  If only I could somehow deal with this problem…",
       "accepted": "You want to help me?  Thank you, I owe you a big one!  But if you serious about it, you don't have much time.  He gave no more than a month, so if you or me didn't make it in time…",
-      "rejected": "…",
+      "rejected": "C'mon, man!",
       "advice": "He's <very> dangerous man, I assure you, so take care!",
       "inquire": "…",
       "success": "I don't know what to say.  You saved my ass, and know I'm in eternal debt to you!  Thank you.",
@@ -222,18 +223,18 @@
         { "u_lose_var": "bj_students", "type": "flag", "context": "meeting" }
       ]
     },
-	"fail":{
+    "fail": {
       "effect": [
         { "u_lose_var": "ally_transfer_bj", "type": "flag", "context": "transfer" },
         { "u_lose_var": "bj_students", "type": "flag", "context": "meeting" }
       ]
-	},
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
-      "describe": "Boxer Johnny",
+      "describe": "-",
       "offer": "So, now I have my head back, and my gym as well!  It's time to give this world a chance by reopening my boxing school!  Find me 2 new students, so that I can make them new pair of steel fists!  With them, we could even clean this town from <zombies>!",
       "accepted": "I know you wouldn't refuse, <name_g>.  I'll wait.",
-      "rejected": "Hmm…",
+      "rejected": "C'mon, man!",
       "advice": "You can bring me anyone.  Children, elder, anyone that need protection!  We would remake this gym as base for needed.",
       "inquire": "I'm waiting.",
       "success": "<very> good, <name_g>.  If you want, I could make another pair of steel fists for you too!  Talk to me if you're interested.",
@@ -247,7 +248,6 @@
     "has_generic_rewards": false,
     "name": { "str": "You met Boxer Johnny" },
     "goal": "MGOAL_CONDITION",
-    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
     "value": 0,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -265,4 +265,3 @@
     "fail": { "effect": { "u_buy_item": "boxer_johnny_head" } }
   }
 ]
-

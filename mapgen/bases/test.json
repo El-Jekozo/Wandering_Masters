@@ -43,6 +43,7 @@
       "place_npcs": [
         { "class": "NPC_samurai_akira", "x": 1, "y": 4 },
         { "class": "NPC_hobo_victoria", "x": 2, "y": 4 },
+        { "class": "NPC_drunken_master", "x": 1, "y": 6 },
         { "class": "NPC_Berry_Button", "x": 1, "y": 1 },
         { "class": "NPC_blackbelt_coach", "x": 2, "y": 1 },
         { "class": "NPC_wanderer_knight", "x": 3, "y": 1 },

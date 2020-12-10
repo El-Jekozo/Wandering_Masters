@@ -19,7 +19,7 @@
     "dynamic_line": "Hello there, <name_g>.  I'm Captain Cost, CIA.  Do you want to help your government?",
     "responses": [
       { "text": "Yeah, I'm interested. Tell me more.", "topic": "TALK_captain_cost_mission_1" },
-      { "text": "Hell no, my government is dead.", "topic": "TALK_captain_cost_refuse" }
+      { "text": "<no>, my government is dead.", "topic": "TALK_captain_cost_refuse" }
     ]
   },
   {
@@ -77,13 +77,13 @@
   {
     "type": "talk_topic",
     "id": "TALK_captain_cost_Background",
-    "dynamic_line": "I am a captain of millitary force of the US and A!",
+    "dynamic_line": "I am a captain of military force of the US and A!",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_captain_cost_m1_complete",
-    "dynamic_line": "Good.  Next task.  We need to get a highly classified information from mitilary bunker nearby.  Lead me to that bunker.  We will work together on cracking it, but don't forget about time!",
+    "dynamic_line": "Good.  Next task.  We need to get a highly classified information from military bunker nearby.  Lead me to that bunker.  We will work together on cracking it, but don't forget about time!",
     "responses": [
       { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
       { "text": "It sounds dangerous. I'll pass.", "topic": "TALK_captain_cost_refuse" }
@@ -123,10 +123,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_captain_cost_wait1",
-    "dynamic_line": "Clolck is ticking, <name_g>.",
+    "dynamic_line": "Clock is ticking, <name_g>.",
     "responses": [
       {
-        "text": "So, I got that note for you!  Care to explain why there were a lot of aggresive drones?",
+        "text": "So, I got that note for you!  Care to explain why there were a lot of aggressive drones?",
         "topic": "TALK_captain_cost_traitor",
         "condition": { "u_has_item": "jcost_note" },
         "effect": "mission_success",
@@ -152,7 +152,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_captain_cost_truth",
-    "dynamic_line": "OK, OK, I'll tell you the truth.  I'm working for China's intelligence.  They dropped me here before releasing this <swear> plague, so that I can send them reports on how deadly it is.  I didn’t know that it will be this bad, <name_g>, it’s <very> terrifying.  My last mission was to just GTFO of here, meet other agent that can organise my extraction to somewhere else.  Please spare me, <name_g>!  I'll give you something <very> valuable if you do, please...",
+    "dynamic_line": "OK, OK, I'll tell you the truth.  I'm working for China's intelligence.  They dropped me here before releasing this <swear> plague, so that I can send them reports on how deadly it is.  I didn’t know that it will be this bad, <name_g>, it’s <very> terrifying.  My last mission was to just GTFO of here, meet other agent that can organize my extraction to somewhere else.  Please spare me, <name_g>!  I'll give you something <very> valuable if you do, please...",
     "responses": [
       { "text": "Die, <name_b>.", "topic": "TALK_DONE", "effect": "insult_combat" },
       {

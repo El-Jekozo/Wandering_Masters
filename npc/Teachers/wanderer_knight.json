@@ -185,7 +185,7 @@
         "success": {
           "effect": [
             { "u_buy_item": "manual_swordsmanship" },
-            { "npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "no" }
+            { "npc_lose_var": "wanderer_knight_teach", "type": "general", "context": "meeting" }
           ],
           "topic": "TALK_wanderer_knight_teach"
         },
@@ -259,7 +259,7 @@
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "monster_species": "ZOMBIE",
     "monster_kill_goal": 100,
-    "difficulty": 1,
+    "difficulty": 0,
     "value": 1000,
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_wanderer_knight_2",
@@ -282,7 +282,7 @@
     "name": { "str": "Help Father Randalf" },
     "description": "Knight asked you to help Father Randolph to lift his curse.",
     "goal": "MGOAL_KILL_MONSTER",
-    "difficulty": 1,
+    "difficulty": 0,
     "value": 100,
     "//": "TODO add brother Randalf",
     "start": {
@@ -295,7 +295,7 @@
         "search_range": 100,
         "min_distance": 5
       },
-      "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_tough", "x": 3, "y": 9, "target": true } ] }
+      "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_tough", "name": "Father Randalf", "x": 3, "y": 9, "target": true } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_wanderer_knight_3",
@@ -318,7 +318,7 @@
     "name": { "str": "Find relic" },
     "description": "Knight asked you to find special relic, the remains of some priest that lived in this land a few centuries ago.",
     "goal": "MGOAL_FIND_ITEM",
-    "difficulty": 1,
+    "difficulty": 0,
     "value": 100,
     "//": "TODO add special relic",
     "start": {
