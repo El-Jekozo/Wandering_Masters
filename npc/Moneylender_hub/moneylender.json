@@ -260,11 +260,7 @@
           "type": "CONDITION",
           "condition": {
             "not": {
-              "npc_compare_time_since_var": "moneylender_premium_wait",
-              "type": "flag",
-              "context": "meeting",
-              "op": "<",
-              "time": "2 days"
+              "npc_has_effect": "wait_time"
             }
           }
         },
@@ -463,7 +459,7 @@
         "topic": "TALK_NONE",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 200 } },
         "effect": [
-          { "npc_add_var": "moneylender_premium_wait", "type": "flag", "context": "meeting", "time": true },
+          { "npc_add_effect": "wait_time", "duration": 172800 },
           { "npc_add_var": "moneylender_premium_item", "type": "flag", "context": "meeting", "value": "1" },
           { "u_sell_item": "FMCNote", "count": 200 },
           { "u_buy_item": "bot_copbot" }
@@ -479,7 +475,7 @@
           ]
         },
         "effect": [
-          { "npc_add_var": "moneylender_premium_wait", "type": "flag", "context": "meeting", "time": true },
+          { "npc_add_effect": "wait_time", "duration": 172800 },
           { "npc_adjust_var": "moneylender_premium_item", "type": "flag", "context": "meeting", "adjustment": 1 },
           { "u_sell_item": "FMCNote", "count": 400 },
           { "u_buy_item": "bio_shotgun" }
@@ -495,7 +491,7 @@
           ]
         },
         "effect": [
-          { "npc_add_var": "moneylender_premium_wait", "type": "flag", "context": "meeting", "time": true },
+          { "npc_add_effect": "wait_time", "duration": 172800 },
           { "npc_adjust_var": "moneylender_premium_item", "type": "flag", "context": "meeting", "adjustment": 1 },
           { "u_sell_item": "FMCNote", "count": 1200 },
           { "u_buy_item": "manual_silat" }

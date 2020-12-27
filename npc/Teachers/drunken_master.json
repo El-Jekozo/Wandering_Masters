@@ -46,7 +46,7 @@
         "trial": {
           "type": "CONDITION",
           "condition": {
-            "not": { "npc_compare_time_since_var": "wait_time", "type": "general", "context": "brew", "op": "<", "time": "1 day" }
+            "not": { "npc_has_effect": "wait_time" }
           }
         },
         "success": { "topic": "TALK_drunken_master_brew_ready" },
@@ -104,7 +104,7 @@
         "text": "...",
         "topic": "TALK_DONE",
         "effect": [
-          { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
+          { "npc_add_effect": "wait_time", "duration": 86400 },
           { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
         ]
       }
@@ -254,7 +254,7 @@
     "value": 0,
     "end": {
       "effect": [
-        { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
+        { "npc_add_effect": "wait_time", "duration": 86400 },
         { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
       ]
     },
@@ -327,7 +327,7 @@
     "end": {
       "effect": [
         { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "1" },
-        { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
+        { "npc_add_effect": "wait_time", "duration": 86400 },
         { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
       ]
     },
@@ -400,7 +400,7 @@
     "end": {
       "effect": [
         { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "2" },
-        { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
+        { "npc_add_effect": "wait_time", "duration": 86400 },
         { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
       ]
     },

@@ -66,5 +66,11 @@
 		"hunger_chance": [ 5 ], "hunger_min": [ 0.5 ],
 		"thirst_chance": [ 5 ], "thirst_min": [ 0.5 ]
     }
+  },
+  {
+    "type": "effect_type",
+    "id": "wait_time",
+    "name": [ "Waiting" ],
+    "desc": [ "This NPC is waiting for something." ]
   }
 ]

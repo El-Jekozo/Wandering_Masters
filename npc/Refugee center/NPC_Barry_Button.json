@@ -69,7 +69,7 @@
         "topic": "TALK_Barry_Button_2",
         "effect": [
           { "npc_first_topic": "TALK_Barry_Button_2" },
-          { "npc_add_var": "barryb_wait", "type": "flag", "context": "meeting", "time": true }
+          { "npc_add_effect": "wait_time", "duration": 86400 }
         ]
       }
     ]
@@ -94,11 +94,7 @@
     "type": "talk_topic",
     "id": "TALK_Barry_Button_job",
     "dynamic_line": {
-      "npc_compare_time_since_var": "barryb_wait",
-      "type": "flag",
-      "context": "meeting",
-      "op": ">=",
-      "time": "24 h",
+      "npc_has_effect": "wait_time",
       "yes": "So, i need help with something. Lead me to nearest bank!",
       "no": "I'm resting. Return later."
     },
@@ -106,7 +102,7 @@
       {
         "text": "Sure thing, <name_g>.",
         "topic": "TALK_DONE",
-        "condition": { "npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "24 h" },
+        "condition": { "npc_has_effect": "wait_time" },
         "effect": [ "follow_only", { "npc_first_topic": "TALK_Barry_Button_1" } ]
       },
       { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
@@ -220,11 +216,11 @@
     "description": "Protect me!!!",
     "goal": "MGOAL_CONDITION",
     "//": "place_monsters at start",
-    "goal_condition": { "u_compare_time_since_var": "barryb_heist", "type": "flag", "context": "meeting", "op": ">=", "time": "45 m" },
+    "goal_condition": { "not":{"npc_has_effect": "wait_time"} },
     "difficulty": 0,
     "value": 1000,
     "start": {
-      "effect": [ "stop_following", { "npc_add_var": "barryb_heist", "type": "flag", "context": "meeting", "time": true } ]
+      "effect": [ "stop_following", { "npc_add_effect": "wait_time", "duration": 172800 } ]
     },
     "end": {
       "effect": [

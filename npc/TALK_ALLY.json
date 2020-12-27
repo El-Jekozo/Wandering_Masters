@@ -9,12 +9,11 @@
         "trial": {
           "type": "CONDITION",
           "condition": {
-            "not": { "npc_compare_time_since_var": "time_brew", "type": "time", "context": "brew", "op": "<", "time": "14 days" }
+            "not": { "npc_has_effect": "wait_time" }
           }
         },
         "success": {
-          "topic": "TALK_DRUNKEN_BREW",
-          "effect": { "npc_add_var": "need_time", "type": "time", "context": "brew", "time": true }
+          "topic": "TALK_DRUNKEN_BREW"
         },
         "failure": { "topic": "TALK_DRUNKEN_BREW_nope" }
       }
@@ -23,20 +22,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_DRUNKEN_BREW",
-    "dynamic_line": "123",
+    "dynamic_line": "I can brew something for you.",
+    "responses": [ { "text": "Brew something for me.", "topic": "TALK_BREW_SOMETHING" }, { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DRUNKEN_BREW_nope",
+    "dynamic_line": "No brew bro.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "TALK_ALLY_ORDERS",
+    "id": "TALK_BREW_SOMETHING",
     "dynamic_line": "Are you sure?",
     "responses": [
       {
         "text": "Yes.",
         "topic": "TALK_DONE",
-        "effect": [ { "npc_add_var": "need_time", "type": "time", "context": "brew", "time": true } ]
+        "effect": [ { "npc_add_effect": "wait_time", "duration": 1209600 } ]
       },
-      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+      { "text": "<done_conversation_section>", "topic": "TALK_ALLY" }
     ]
   }
 ]

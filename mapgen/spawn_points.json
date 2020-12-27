@@ -115,79 +115,66 @@
   {
     "type": "mapgen",
     "method": "json",
-    "om_terrain": [ "s_gunstore_2ndfloor" ],
+    "om_terrain": "s_gun_roof",
     "object": {
-      "fill_ter": "t_floor",
+      "fill_ter": "t_flat_roof",
       "rows": [
-        "~~~~~~~~~~~~~~~~~~~~~~~~",
-        "^###Ю#####Ю##Ю###~~~~~~~",
-        "~#@@  D#  I@@I b#~~~~~~~",
-        "~#@@  I#   @@   #~~~~~~~",
-        "~Ю   hI#d      R#~~~~~~~",
-        "~#d   y#D   E  T#$$$$$`~",
-        "~####+###+#######.....`~",
-        "~#T       |66__F#.....`~",
-        "~Юy HHAA  _____1#.....`~",
-        "~#x  Hff  _____5Ю.....`~",
-        "~Юx  H A  |____2#.....`~",
-        "~#        |Y74O3#.....`~",
-        "~#|+||E   ||||||#.....`~",
-        "~#__S|RRL + A  ;#.....`~",
-        "~ЮB_8||||(|NNq ;#^....`~",
-        "~#B__+t|> #######.....`~",
-        "~########(#}g.}.......`~",
-        "~!....:.:..{..{.......`~",
-        "~!.).......}}}}`&=====`~",
-        "~!.............`~~~~~~~~",
-        "~!.............`~~~~~~~~",
-        "~!....u........`~~~~~~~~",
-        "~!.............`~~~~~~~~",
-        "~!=============`~~~~~~~~"
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "  |2222222222222222223  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..X...............3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  5.................>3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |------------------3  "
       ],
-      "palettes": [ "standard_domestic_palette" ],
-      "terrain": {
-        "Ю": "t_window_bars_alarm",
-        "(": "t_door_metal_pickable",
-        "$": "t_gutter_north",
-        "=": "t_gutter_south",
-        "#": "t_brick_wall",
-        "`": "t_gutter_east",
-        "!": "t_gutter_west",
-        "&": "t_gutter_drop",
-        ".": "t_flat_roof",
-        ")": "t_flat_roof",
-        "u": "t_flat_roof",
-        ":": "t_flat_roof",
-        "g": "t_flat_roof",
-        "~": "t_open_air",
-        "_": "t_linoleum_white",
-        "Y": "t_linoleum_white",
-        "1": "t_linoleum_white",
-        "2": "t_linoleum_white",
-        "3": "t_linoleum_white",
-        "4": "t_linoleum_white",
-        "5": "t_linoleum_white",
-        "6": "t_linoleum_white",
-        "7": "t_linoleum_white",
-        "8": "t_linoleum_white",
-        "O": "t_linoleum_white",
-        "F": "t_linoleum_white",
-        "B": "t_linoleum_white",
-        "S": "t_linoleum_white",
-        "t": "t_linoleum_white",
-        "{": "t_chaingate_c",
-        "}": "t_chainfence"
-      },
-      "furniture": { ":": [ "f_indoor_plant", "f_indoor_plant_y" ], ";": "f_gunsafe_ml", ")": "f_TV_antenna" },
-      "place_loot": [ { "item": "television", "x": 2, "y": 9 }, { "item": "stereo", "x": 2, "y": 10, "chance": 100 } ],
-      "items": {
-        ";": [
-          { "item": "guns_obscure", "chance": 30, "repeat": [ 1, 3 ] },
-          { "item": "mags_obscure", "chance": 30, "repeat": [ 1, 4 ] },
-          { "item": "ammo_obscure", "chance": 100, "repeat": [ 1, 2 ] }
-        ]
-      },
-      "place_nested": [ { "chunks": [ [ "NPC_retired_assassin_spawn", 20 ], [ "null", 80 ] ], "x": 5, "y": 9 } ]
+      "palettes": [ "roof_palette" ],
+      "terrain": { ">": "t_ladder_down" },
+      "place_nested": [
+        {
+          "chunks": [
+            [ "null", 20 ],
+            [ "roof_2x2_utilities_b", 15 ],
+            [ "roof_2x2_utilities_c", 5 ],
+            [ "roof_2x2_utilities_d", 30 ],
+            [ "roof_2x2_utilities", 30 ],
+            [ "roof_2x2_golf", 10 ],
+            [ "roof_3x3_wine", 10 ]
+          ],
+          "x": [ 4, 15 ],
+          "y": [ 8, 9 ]
+        },
+        {
+          "chunks": [
+            [ "null", 20 ],
+            [ "roof_4x4_party", 5 ],
+            [ "roof_4x4_holdout", 15 ],
+            [ "roof_4x4_utility", 40 ],
+            [ "roof_4x4_utility_1", 10 ],
+            [ "roof_6x6_survivor", 20 ],
+            [ "roof_6x6_utility", 20 ]
+          ],
+          "x": [ 4, 13 ],
+          "y": [ 11, 16 ]
+        },
+        { "chunks": [ [ "NPC_retired_assassin_spawn", 20 ], [ "null", 80 ] ], "x": 5, "y": 9 }
+      ]
     }
   },
   {
@@ -557,7 +544,7 @@
         "B": {
           "item": {
             "subtype": "distribution",
-            "entries": [ { "group": "fuel_barrel", "prob": 20 }, { "group": "jp8_barrel", "prob": 40 }, { "item": "30gal_drum", "prob": 40 } ]
+            "entries": [ { "group": "fuel_barrel", "prob": 30 }, { "item": "30gal_drum", "prob": 70 } ]
           },
           "chance": 75
         },
@@ -611,7 +598,7 @@
       },
       "vendingmachines": { "1": { "item_group": "vending_drink" }, "2": { "item_group": "vending_food" } },
       "place_monsters": [ { "monster": "GROUP_MIL_STRONG", "x": 36, "y": 15 }, { "monster": "GROUP_MIL_WEAK", "x": 24, "y": 30, "density": 2 } ],
-      "monster": { "T": { "monster": "mon_turret_rifle" } },
+      "monster": { "T": { "monster": "mon_turret_medium" } },
       "place_vehicles": [
         { "vehicle": "forklift", "x": 29, "y": 6, "chance": 95, "rotation": 180, "status": 1 },
         { "vehicle": "parkinglotbasic", "x": 4, "y": 9, "chance": 75, "rotation": 270, "status": -1 },
@@ -769,22 +756,22 @@
         "........................",
         "...s9s...........s9s....",
         "........................",
-        "....G.............D.....",
+        "....5.............5.....",
         "........................",
         "........................",
         "........................",
         "........................",
-        "....G.............D.....",
+        "....5.............5.....",
         "........................",
         "........................",
         "........................",
         "........................",
         "........................",
-        "....G.............D.....",
+        "....5.............5.....",
         "...s9s...........s9s....",
         "........................"
       ],
-      "place_furniture": [ { "furn": "f_gas_tank", "x": 2, "y": 3 }, { "furn": "f_diesel_tank", "x": 4, "y": 3 } ],
+      "place_terrain": [ { "ter": "t_gas_tank", "x": 3, "y": 3 } ],
       "terrain": {
         "&": "t_atm",
         "+": "t_chaingate_l",
@@ -794,15 +781,11 @@
         "s": "t_little_column",
         "|": "t_chainfence_v"
       },
-      "gaspumps": { "G": { "fuel": "gasoline" }, "D": { "fuel": "diesel" } },
       "furniture": { "9": "f_aut_gas_console" },
       "signs": { "P": { "signage": "Danger!  Do not smoke!  Risk of explosion!" } },
       "vendingmachines": { "1": { "item_group": "vending_drink" }, "2": { "item_group": "vending_food" } },
-      "place_liquids": [
-        { "liquid": "gasoline", "x": 2, "y": 3, "repeat": [ 200, 1075 ] },
-        { "liquid": "diesel", "x": 4, "y": 3, "repeat": [ 200, 1075 ] }
-      ],
+      "place_liquids": [ { "liquid": "gasoline", "x": 3, "y": 3, "repeat": [ 200, 1075 ] } ]
+    },
       "place_nested": [ { "chunks": [ [ "NPC_rasta_bob_spawn", 20 ], [ "null", 80 ] ], "x": 6, "y": 4 } ]
-    }
   }
 ]

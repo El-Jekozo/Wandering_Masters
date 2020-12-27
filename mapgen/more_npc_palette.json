@@ -49,8 +49,8 @@
       "E": "f_exercise",
       "G": "f_filing_cabinet",
       "F": "f_fridge",
-      "t": [ "f_treadmill", "f_treadmill_mechanical" ],
-      "e": [ "f_ergometer", "f_ergometer_mechanical" ]
+      "t": "f_treadmill",
+      "e": "f_ergometer"
     },
     "items": {
       "Y": { "item": "trash", "chance": 30, "repeat": [ 1, 4 ] },
