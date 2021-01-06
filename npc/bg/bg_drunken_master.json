@@ -2,7 +2,7 @@
   {
     "id": "BGSS_drunken_master_STORY1",
     "type": "talk_topic",
-    "dynamic_line": "До <the_cataclysm> я путешествовал по стране, днём я зарабатывал показывая различные представления на улицах, а по ночам ходил по барам в поисках редкого пойла.  Нередко мои походы заканчивались драками, а так как я очень люблю выпить, драться приходилось под градусом.  Таким образом, я совершенствовал свои навыки и вскоре это вылилось в полноценный стиль боя.",
+    "dynamic_line": "Before <the_cataclysm>, I traveled around the country.  During the day I made money by performing various shows on the streets, and at night I went to bars in search of rare liquor.  Often my campaigns ended in fights, and since I really like to drink, I had to fight a little drunk.  Thus, I improved my skills and soon it turned into a full-fledged fighting style.",
     "responses": [
       { "text": "Say, do you continue brewing something?", "topic": "BGSS_drunken_master_STORY2" },
       { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
